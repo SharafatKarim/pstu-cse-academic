@@ -29,7 +29,12 @@ Found a bug? Have a brilliant idea? Contributions are welcome! Check out our Con
 
 ## 💌 Contact
 
-Questions? Suggestions? Just want to chat about the latest tech trends? Reach out!
-Let the coding adventures begin! 🚀✨
+#### Questions? Suggestions?
 
-Feel free to customize it further based on your preferences and needs. Enjoy documenting your academic journey!
+Just want to chat about the latest tech trends? Reach out!
+
+#### Let the coding adventures begin! 🚀✨
+
+Feel free to customize it further based on your preferences and needs.
+
+Also enjoy documenting and sharing your academic journey!
