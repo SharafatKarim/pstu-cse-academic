@@ -1,0 +1,5 @@
+*
+
+# But allow dirs and files
+!.gitignore
+!*/
