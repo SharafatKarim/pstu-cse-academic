@@ -1,0 +1,408 @@
+1
+Write a Java program to get the character at the given index within the string.
+Sample Output:Original String = Java Exercises!
+The character at position 0 is J
+The character at position 10 is i
+
+------------------------------------------------
+ 2
+ Write a Java program to get the character (Unicode code point) at the given index within the string.
+Sample Output:Original String : w3resource.com
+Character(unicode point) = 51
+Character(unicode point) = 101
+
+------------------------------------------------
+ 3
+ Write a Java program to get the character (Unicode code point) before the specified index within the string.
+Sample Output:Original String : w3resource.com
+Character(unicode point) = 119
+Character(unicode point) = 99
+
+------------------------------------------------
+ 4
+ Write a Java program to count Unicode code points in the specified text range of a string.
+Sample Output:Original String : w3rsource.com
+Codepoint count = 9
+
+------------------------------------------------
+ 5
+ Write a Java program to compare two strings lexicographically.
+Two strings are lexicographically equal if they are the same length and contain the same characters in the same positions.
+Sample Output:String 1: This is Exercise 1
+String 2: This is Exercise 2
+"This is Exercise 1" is less than "This is Exercise 2"
+
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+
+ 6
+ Write a Java program to compare two strings lexicographically, ignoring case differences.
+Sample Output:String 1: This is exercise 1
+String 2: This is Exercise 1
+"This is exercise 1" is equal to "This is Exercise 1"
+
+------------------------------------------------
+ 7
+ Write a Java program to concatenate a given string to the end of another string.
+Sample Output:String 1: PHP Exercises and
+String 2: Python Exercises
+The concatenated string: PHP Exercises and Python Exercises
+
+------------------------------------------------
+ 8
+ Write a Java program to test if a given string contains the specified sequence of char values.
+Sample Output:Original String: PHP Exercises and Python Exercises
+Specified sequence of char values: and
+true
+
+------------------------------------------------
+ 9
+ Write a Java program to compare a given string to the specified character sequence.
+Sample Output:Comparing example.com and example.com: true
+Comparing Example.com and example.com: false
+
+------------------------------------------------
+ 10
+ Write a Java program to compare a given string to a specified string buffer.
+Sample Output:Comparing example.com and example.com: true
+Comparing Example.com and example.com: false
+
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+
+ 11
+ Write a Java program to create a String object with a character array.
+Sample Output:The book contains 234 pages.
+
+------------------------------------------------
+ 12
+ Write a Java program to check whether a given string ends with another string.
+Sample Output:"Python Exercises" ends with "se"? false
+"Python Exercise" ends with "se"? true
+
+------------------------------------------------
+ 13
+ Write a Java program to check whether two String objects contain the same data.
+Sample Output:"Stephen Edwin King" equals "Walter Winchell"? false
+"Stephen Edwin King" equals "Mike Royko"? false
+
+done 
+done 
+done 
+done 
+done 
+done 
+------------------------------------------------
+ 14
+ Write a Java program to compare a given string to another string, ignoring case considerations.
+Sample Output:"Stephen Edwin King" equals "Walter Winchell"? false
+"Stephen Edwin King" equals "stephen edwin king"? true
+
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+ 
+ 15
+ Write a Java program to print the current date and time in the specified format.
+Sample Output:Current Date and Time :
+June 19, 2017
+3:13 pm
+
+------------------------------------------------
+ 16
+ Write a Java program to get the contents of a given string as a byte array.
+Sample Output:The new String equals This is a sample String.
+
+------------------------------------------------
+ 17
+ Write a Java program to get the contents of a given string as a character array.
+Sample Output:The char array equals "[C@2a139a55"
+
+------------------------------------------------
+ 18
+ Write a Java program to create a distinct identifier for a given string.
+Sample Output:The hash for Python Exercises. is 863132599
+
+------------------------------------------------
+ 19
+ Write a Java program to get the index of all the characters of the alphabet.
+Sample Output:a b c d e f g h i j
+=========================
+  36 10 7 40 2 16 42 1 6 20
+
+k l m n o p q r s t
+===========================
+8 35 22 14 12 23 4 11 24 31
+
+u v w x y z
+================
+5 27 13 18 38 37
+
+Sample string of all alphabet: "The quick brown fox jumps over the lazy dog."
+------------------------------------------------
+ 20
+ Write a Java program to get the Canonical representation of the string object.
+Sample Output:str1 == str2? false
+str1 == str3? true
+
+------------------------------------------------
+ 21
+ Write a Java program to get the last index of a string within a string.
+Sample Output: a b c d e f g h i j
+===========================
+36 10 7 40 33 16 42 32 6 20
+
+k l m n o p q r s t
+===========================
+8 35 22 14 41 23 4 29 24 31
+
+u v w x y z
+=================
+21 27 13 18 38 37
+
+Sample string of all alphabet: "The quick brown fox jumps over the lazy dog."
+------------------------------------------------
+ 22
+ Write a Java program to get the length of a given string.
+Sample Output:The string length of 'example.com' is: 11
+
+------------------------------------------------
+ 23
+ Write a Java program to find out whether a region in the current string matches a region in another string.
+Sample Output:str1[0 - 7] == str2[28 - 35]? true
+str1[9 - 15] == str2[9 - 15]? false
+
+------------------------------------------------
+ 24
+ Write a Java program to replace a specified character with another character.
+Sample Output:Original string: The quick brown fox jumps over the lazy dog.
+New String: The quick brown fox jumps over the lazy fog.
+
+------------------------------------------------
+ 25
+ Write a Java program to replace each substring of a given string that matches the given regular expression with the given replacement.
+Sample string : "The quick brown fox jumps over the lazy dog."
+In the above string replace all the fox with cat.
+Sample Output:Original string: The quick brown fox jumps over the lazy dog.
+New String: The quick brown cat jumps over the lazy dog.
+
+------------------------------------------------
+ 26
+ Write a Java program to check whether a given string starts with another string.
+Sample Output:Red is favorite color. starts with Red? true
+Orange is also my favorite color. starts with Red? false
+
+------------------------------------------------
+ 27
+ Write a Java program to get a substring of a given string at two specified positions.
+Sample Output:old = The quick brown fox jumps over the lazy dog.
+new = brown fox jumps
+
+------------------------------------------------
+ 28
+ Write a Java program to create a character array containing a string.
+Sample Output:Java Exercises.
+
+------------------------------------------------
+ 29
+ Write a Java program to convert all characters in a string to lowercase.
+Sample Output:Original String: The Quick BroWn FoX!
+String in lowercase: the quick brown fox!
+
+------------------------------------------------
+ 30
+ Write a Java program to convert all characters in a string to uppercase.
+Sample Output:Original String: The Quick BroWn FoX!
+String in uppercase: THE QUICK BROWN FOX!
+
+------------------------------------------------
+ 31
+ Write a Java program to trim leading or trailing whitespace from a given string.
+Sample Output:Original String: Java Exercises
+New String: Java Exercises
+
+------------------------------------------------
+ 32
+ Write a Java program to find the longest Palindromic Substring within a string.
+Sample Output:The given string is: thequickbrownfoxxofnworbquickthe
+The longest palindrome substring in the giv
+en string is; brownfoxxofnworb
+The length of the palindromic substring is: 16
+
+------------------------------------------------
+ 33
+ Write a Java program to find all interleavings of given strings.
+Sample Output:The given strings are: WX YZ
+The interleavings strings are:
+YWZX
+WYZX
+YWXZ
+WXYZ
+YZWX
+WYXZ
+
+------------------------------------------------
+ 34
+ Write a Java program to find the second most frequent character in a given string.
+Sample Output:The given string is: successes
+The second most frequent char in the string is: c
+
+------------------------------------------------
+ 35
+ Write a Java program to print all permutations of a given string with repetition.
+Sample Output:The given string is: PQR
+The permuted strings are:
+PPP
+PPQ
+PPR
+...
+RRP
+RRQ
+RRR
+
+------------------------------------------------
+ 36
+ Write a Java program to check whether two strings interlive of a given string. Assuming that unique characters are present in both strings.
+Sample Output:The given string is: PMQNO
+The interleaving strings are MNO and PQ
+The given string is interleaving: true
+
+The given string is: PNQMO
+The interleaving strings are MNO and PQ
+The given string is interleaving: false
+
+------------------------------------------------
+ 37
+ Write a Java program to find the length of the longest substring of a given string without repeating characters.
+Sample Output:Input String : pickoutthelongestsubstring
+The longest substring : [u, b, s, t, r, i, n, g]
+The longest Substring Length : 8
+
+------------------------------------------------
+ 38
+ Write a Java program to print the result of removing duplicates from a given string.
+Sample Output:The given string is: w3resource
+After removing duplicates characters the new string is: w3resouc
+
+------------------------------------------------
+ 39
+ Write a Java program to find the first non-repeating character in a string.
+Sample Output:The given string is: gibblegabbler
+The first non repeated character in String is: i
+
+------------------------------------------------
+ 40
+ Write a Java program to divide a string into n equal parts.
+Sample Output:The given string is: abcdefghijklmnopqrstuvwxy
+The string divided into 5 parts and they are:
+
+abcde
+fghij
+klmno
+pqrst
+uvwxy
+
+------------------------------------------------
+ 41
+ Write a Java program to remove duplicate characters from a given string that appear in another given string.
+Sample Output:The given string is: the quick brown fox
+The given mask string is: queen
+
+The new string is:
+th ick brow fox
+
+------------------------------------------------
+ 42
+ Write a Java program to print a list of items containing all characters of a given word.
+Sample Output:The given strings are: rabbit bribe dog
+The given word is: bib
+
+The strings containing all the letters of the given word are:
+rabbit
+bribe
+
+------------------------------------------------
+ 43
+ Write a Java program to find the character in a string that occurs the most frequently.
+Sample Output:The given string is: test string
+Max occurring character in the given string is: t
+
+------------------------------------------------
+ 44
+ Write a Java program to reverse a string using recursion.
+Sample Output:The given string is: The quick brown fox jumps
+The string in reverse order is:
+spmuj xof nworb kciuq ehT
+
+------------------------------------------------
+ 45
+ Write a Java program to reverse words in a given string.
+Sample Output:The given string is: Reverse words in a given string
+The new string after reversed the words: string given a in words Reverse
+
+------------------------------------------------
+ 46
+ Write a Java program to reverse every word in a string using methods.
+Sample Output:The given string is: This is a test string
+The string reversed word by word is:
+sihT si a tset gnirts
+
+------------------------------------------------
+ 47
+ Write a Java program to rearrange a string so that the same characters are positioned a distance away.
+Sample Output:The given string is: accessories
+The string after arrange newly is:
+secrsecisao
+
+------------------------------------------------
+ 48
+ Write a Java program to remove "b" and "ac" from a given string.
+Sample Output:The given string is: abrambabasc
+After removing the new string is: aramaasc
+
+------------------------------------------------
+ 49
+ Write a Java program to find the first non-repeating character from a stream of characters.
+Sample Output:String: godisgood
+Reading: g
+The first non-repeating character so far is: g
+Reading: o
+The first non-repeating character so far is: g
+Reading: d
+The first non-repeating character so far is: g
+Reading: i
+The first non-repeating character so far is: g
+Reading: s
+The first non-repeating character so far is: g
+Reading: g
+The first non-repeating character so far is: o
+Reading: o
+The first non-repeating character so far is: d
+Reading: o
+The first non-repeating character so far is: d
+Reading: d
+The first non-repeating character so far is: i
+
+------------------------------------------------
+ 50
+ Write a Java program to find the lexicographic rank of a given string.
+Sample Output:The Given String is: BDCA
+The Lexicographic rank of the given string is: 12
+
+N.B.: Total possible permutations of BDCA are(lexicographic order) :
+ABCD ABDC ACBD ACDB ADBC ADCB BACD BADC BCAD BCDA BDAC BDCA
+1   2   3   4   5   6   7   8   9   10   11   12
+The BDCA appear in 12 position of permutation (lexicographic order).
+------------------------------------------------

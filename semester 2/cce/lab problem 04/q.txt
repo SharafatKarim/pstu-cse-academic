@@ -1,0 +1,212 @@
+Write a Java program to convert a string to an integer in Java. Go to the editor
+
+
+Input a number(string): 25
+The integer value is: 25
+
+1
+---------------------------------------------
+
+Write a Java program to calculate the sum of two integers and return true if the sum is equal to a third integer. Go to the editor
+
+
+Input the first number : 5
+Input the second number: 10
+Input the third number : 15
+The result is: true
+
+2
+---------------------------------------------
+
+Write a Java program that accepts three integers
+from the user and return true if the second number is greater than
+first number and third number is greater than second number. If "abc" is
+true second number does not need to be greater than first number. Go to the editor
+
+
+Input the first number : 5
+Input the second number: 10
+Input the third number : 15
+The result is: true
+
+3
+---------------------------------------------
+
+Write a Java program that accepts three integers
+from the user and return true if two or more of them (integers ) have
+the same rightmost digit. The integers are non-negative. Go to the editor
+
+
+Input the first number : 5
+Input the second number: 10
+Input the third number : 15
+The result is: true
+
+4 n
+---------------------------------------------
+
+Write a Java program to convert seconds to hour, minute and seconds. Go to the editor
+
+
+Input seconds: 86399
+23:59:59
+
+5 < 4
+---------------------------------------------
+
+Write a Java program to find the number of values in a given range divisible by a given value. Go to the editor
+
+For example x = 5, y=20 and p =3, find the number of integers within the
+range x..y and that are divisible by p i.e. { i :x ≤ i ≤ y, i mod p = 0
+}
+
+
+6 < 5
+
+
+---------------------------------------------
+
+Write a Java program to accepts an integer and count the factors of the number. Go to the editor
+
+
+Input an integer: 25
+3
+
+7 < 6
+---------------------------------------------
+
+Write a Java program to capitalize the first letter of each word in a sentence. Go to the editor
+
+
+Input a Sentence: the quick brown fox jumps over the lazy dog.
+The Quick Brown Fox Jumps Over The Lazy Dog.
+
+8 < 7
+---------------------------------------------
+
+Write a Java program to convert a given string into lowercase. Go to the editor
+
+
+Input a String: THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
+the quick brown fox jumps over the lazy dog.
+
+9 < 8
+---------------------------------------------
+
+Write a Java program to find the penultimate (next to last) word of a sentence. Go to the editor
+
+
+Input a String: The quick brown fox jumps over the lazy dog.
+Penultimate word: lazy
+
+10 < 9
+---------------------------------------------
+
+Write a Java program to reverse a word. Go to the editor
+
+
+Input a word: dsaf
+Reverse word: fasd
+
+11 < 10
+---------------------------------------------
+
+Write a Java program that accepts three integer
+values and return true if one of them is 20 or more and less than the
+substractions of others. Go to the editor
+
+
+Input the first number : 15
+Input the second number: 20
+Input the third number : 25
+false
+
+12 < 11
+---------------------------------------------
+
+Write a Java program that accepts two integer
+values from the user and return the larger values. However if the two
+values are the same, return 0 and return the smaller value if the two
+values have the same remainder when divided by 6. Go to the editor
+
+
+Input the first number : 12
+Input the second number: 13
+Result: 13
+
+13 < 12
+---------------------------------------------
+
+Write a Java program that accepts two integer
+values between 25 to 75 and return true if there is a common digit in
+both numbers. Go to the editor
+
+
+Input the first number : 35
+Input the second number: 45
+Result: true
+
+14 < 13
+---------------------------------------------
+
+Write a Java program to calculate the modules of two numbers without using any inbuilt modulus operator. Go to the editor
+
+
+Input the first number : 19
+Input the second number: 7
+5
+
+---------------------------------------------
+15 < 14  ------------ fixed -----------------
+---------------------------------------------
+
+Write a Java program to compute the sum of the first 100 prime numbers. Go to the editor
+
+
+Sum of the first 100 prime numbers: 24133
+
+16
+---------------------------------------------
+
+Write a Java program to insert a word in the middle of the another string. Go to the editor
+Insert "Tutorial" in the middle of "Python 3.0", so result will be Python Tutorial 3.0
+
+
+Python Tutorial 3.0
+
+17
+---------------------------------------------
+
+Write a Java program to create a new string of 4
+copies of the last 3 characters of the original string. The length of
+the original string must be 3 and above. Go to the editor
+
+
+3.03.03.03.0
+
+18
+---------------------------------------------
+
+Write a Java program to extract the first half of a string of even length. Go to the editor
+
+Test Data: Python
+
+
+
+Pyt
+
+19
+---------------------------------------------
+
+Write a Java program to create a string in the
+form short_string + long_string + short_string from two strings. The
+strings must not have the same length. Go to the editor
+
+Test Data: Str1 = Python
+
+Str2 = Tutorial
+
+
+PythonTutorialPython
+
+20

@@ -1,5 +1,45 @@
+# block all
 *
 
-# But allow dirs and files
+# But allow dirs and gitignore
 !.gitignore
 !*/
+
+# Now what to allow?
+!*.c
+!*.java
+!*.cpp
+!*.py
+
+!*.docx
+!*.doc
+!*.ods
+!*.odt
+!*.txt
+!*.odp
+!*.odg
+!*.odt
+
+!*.xlsx
+!*.xls
+!*.pptx
+!*.pptm
+
+!*.jpg
+!*.jpeg
+!*.png
+!*.gif
+!*.svg
+!*.bmp
+!*.tiff
+!*.dwg
+
+!*.pdf
+
+
+# Database files
+!*.sqlite
+!*.db
+
+# Log files
+!*.log

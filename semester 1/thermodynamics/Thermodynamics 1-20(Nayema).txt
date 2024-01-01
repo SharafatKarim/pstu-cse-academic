@@ -1,0 +1,131 @@
+EXERCISE-IV
+4.1 Explain the term 'Heat' and 'Temperature.
+Answer:
+	Heat: Hear is the transfer of kinetic energy from one medium or object to another, on from an energy source to a medium on object. Such energy transfer can occur in three ways: radiation, conduction, convection.
+       Temperature: Temperature is the measure of hotness or coldness expressed in terms of any several scales. Including Fehrenheit and Celsius. Temperature indicates the direction in which heat energy will spontaneously flow from a hotter body to a colder body.
+
+4.2 Explain thermodynamic system and thermodynamic variables.
+Answer: 
+	A thermodynamic system is defined as a quantity of matter or a region in space that is of interest. The mass or region outside the system is called surroundings, and the surface that separates the system and the surroundings is called the boundary.
+	A thermodynamic variable is a system property whose change for any process depends only on the initial and final State of a system.One example is temperature T.
+
+4.3 Explain the terms:
+i) open system
+ii) closed system
+(ii) isolated system
+Answer:
+	Read from the sheet.
+4.4 State and explain zeroth law of thermodynamics. What is its importance. On the basis of this law introduce the concept of temperature.
+Answer:
+	? The zeroth law of thermodynamics states that there is an energy from called heat, which has the tendency so spread though a system, and a variable called temperature that measures this tendency heat flows from the regions if the high temperature to the regions of low temperature only.
+	? Importance: It makes the relation of thermal equilibrium between system and equivalence relation, which can represent equality of some quantity associated with each system.
+	? On the basis of this law introduce the concept of temperature.
+Heat flows from the regions of temperature to regions of low temperature only.
+
+4.5 What is meant by thermodynamic equilibrium. What are the basic requirements to be strictly followed?
+Answer:
+	 Thermodynamic equilibrium condition or state of a thermodynamic system, the properties of which don’t change with time and that can be changed to another condition only at the expense of effects on other system.
+The basic requirements ?
+1. Temperature of every part of the system must be same.
+2. There should be not an unbalanced force on a part or whole of the system.
+
+4.6 What do you mean by quasi-static process? Can it be achieved in practice? State it's importance.
+Answer:
+       In thermodynamics, a quasi-static process (also known as a quasi-equilibrium process is a thermodynamic process that happens slowly enough for the system to remain in internal physical (but not necessarily chemical) thermodynamic equilibrium. 
+Yes, the quasi-static process can be achieved in practice. Example: Slow heat transfer between two bodies at two finitely different temperatures.
+Importance:
+Only in a quasi-static process can we precisely define the system's intensive quantities (such as pressure, temperature, specific volume, and specific entropy) at each instant throughout the process.
+
+4.7 Show that work is a path dependent function with the help of indicator diagram?
+Answer:
+       (OPTIONAL)Path Functions: Path functions are qualities or quantities whose values rely on a system's transition from its starting to the final state. Heat and work are the two most prevalent path functions.
+
+Let us consider the following P-V Diagram:
+
+The work done by a system is given by the area under the curve of the P-V Graph.
+The initial and final state of the process is the same. Consider path A, the area under this curve is greater than the area under curve path B. Hence, the work done by the system if it took path A is greater.
+If work done was not a path function, the work done by this system should have been equal in both paths. But by analyzing, we can conclude that the work done is path-dependent.
+Hence, it is proven that the work done by a system is path-dependent, and therefore it is a path function. 
+
+4.8  What is internal energy of a system?  "Internal energy is state function and not a path function. "
+Answer:
+   Internal energy is also called thermal energy. It is the energy of a substance due to kinetic and potential energies that are associated with the random motion of all the particles that make up the substance.
+
+4.9 Explain The terms:
+i) Isochoric process
+ii) Isobaric process
+iii) Cyclic process
+iv) Isothermal process
+v) Adiabatic process
+
+Answer:
+       The answer is in the sheet.  However, it is better if you take a little smaller like yourself.
+4.10  Show that change in the internal energy of a non-isolated system is zero?
+Answer:
+       The answer is in the sheet.  However, it is better if you take a little smaller like yourself.
+Topic: Non-isolated system(Internal energy of the universe)
+
+4.11 What is indicator diagram? State its importance.
+Answer:
+Indicator diagram is the graphical representation of a thermodynamic system using two thermodynamic variable, e.g., P and V diagram. 
+Area under PV diagram gives work done in the thermodynamic process.
+Importance:
+The indicator diagram is used to calculate the work done and the power produced in an engine cylinder or used in a compressor cylinder.
+
+4.12 Explain the concepts of reversible and irreversible process.
+Answer:
+ The answer is in the sheet.  However, it is better if you take a little smaller like yourself.
+
+4.13 Define a thermodynamic system. Distinguish between open and closed system.
+Answer: 
+       Follow the answer 4.2(for thermodynamic system)  and 4.3 ( for between open and closed system.)
+
+4.14 Write notes on “Thermal equilibrium and zeroth law of thermodynamics”.
+Answer:
+        Follow the answer 4.5 (for thermal equilibrium) and 4.4 (for zeroth law of the thermodynamics)
+
+4.15 What is equation of state? Give it’s limitation.
+Answer:
+ 	The equation which connects the state variables in a specific manner is called equation of state. An ideal gas obeys the equation PV=NkT/ PV=nRT at thermodynamic equilibrium.
+For example, if we push the piston of a gas container, the volume of the gas will decrease but pressure will increase or if heat is supplied to the gas, its temperature will increase, pressure and volume of the gas may also increase.
+
+LIMITATION: 
+The answer is on the sheet. Topic: Thermodynamic Variable and equation of state. Limitations 
+
+4.16 What do you understand by variables of state of a system and equation of state?
+Answer:
+       State variables : The variables which determine the thermodynamic behaviour of a system are called "state variables ".
+If the system is a gas , then P, V and T (for a given mass ) are called state variables .
+Equation of state : The general relationship between pressure volume and temperature for a given mass of the system (eg ., gas ) is called "equation of the state ."
+For n moles of an ideal gas , the equation of state is , PV = nRT.
+
+4.17 The conduction of heat from a hot body to a cold body is reversible or irreversible process? Explain.
+Answer:
+       In heat conduction, heat is transferred from one place to another. This process is not reversible.
+Expalin: A hot object is put in contact with a cold object. Eventually, they both achieve the same equilibrium temperature. If we then separate the objects they remain at the equilibrium temperature and do not naturally return to their original temperatures.So, the process of bringing them to the same temperature is irreversible.
+
+4.18 Explain different forms of internal energy and show that the internal energy of a system is a function of state of the system.
+Answer:
+       Three types of internal energy Rotational, Vibrational and Translational Kinetic.
+i)Rotational energy/ Angular kinetic energy: The kinetic energy due to the rotation of an object and is part of its total kinetic energy.
+ii) Vibrational energy: Vibrational kinetic energy is the kinetic energy an object has due to its vibrational motion.
+iii)Translational energy: The Translational energy due to motion from one location to another.
+       The internal energy of a system is a function of state of the system.
+State property depends only upon the initial and final state of the system. The properties which depend upon the amount of matter are known as extensive properties. Internal energy only depends upon the initial and final state of the system, not on the path followed. So, the internal energy is a state function.
+
+4.19 State first law of thermodynamics. Give its physical significance. What are the limitations of first law?
+Answer:
+	Read from the sheet. Topic: First law of thermodynamics.
+
+4.20 Give applications of the first law to (a) isobaric (b) adiabatic processes.
+Answer:
+	Read from the sheet. 
+
+
+
+
+
+
+
+
+-------The End------
