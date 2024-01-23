@@ -1,0 +1,6 @@
+Create a program to run 4 loops with and without threading iterating, 1000, 100, 10, 1 times to showcase java threading.
+
+here's a bit of overview, I learned so far,
+.
+https://sharafat.notion.site/Multi-Thread-test-f6e2d8198a344d52b47b582976b9c6d3?pvs=4
+
