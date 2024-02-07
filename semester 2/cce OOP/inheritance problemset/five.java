@@ -21,8 +21,12 @@ class square extends Rectangle {
 
 class Five {
     public static void main(String[] args) {
-        square s = new square(15);
-        System.out.println("Area of square: " + s.area());
-        System.out.println("Perimeter of square: " + s.perimeter());
+        square s[] = new square[15];
+        
+        for (int i = 0; i < 15; i++) {
+            s[i] = new square(i);
+            System.out.println("Area of square: " + s[i].area());
+            System.out.println("Perimeter of square: " + s[i].perimeter());
+        }
     }
 }
