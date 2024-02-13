@@ -1,0 +1,5 @@
+1 - Linear Search in Java
+2 - Binary Search in Java
+3 - Bubble Sort in Java
+4 - Selection Sort in Java
+5 - Insertion Sort in Java
