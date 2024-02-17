@@ -15,7 +15,7 @@ public class Problem_07 {
 
     public static void main(String[] args) {
         try {
-            someMethod2();
+            someMethod();
         } catch (Exception e) {
             e.printStackTrace();
         }
