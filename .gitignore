@@ -46,3 +46,4 @@
 
 # Markdown files
 !*.md
+!*.tex
