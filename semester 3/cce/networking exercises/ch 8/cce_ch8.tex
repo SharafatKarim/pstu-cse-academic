@@ -149,6 +149,7 @@ The four major components of a packet switch are
 	A path in a digital circuit-switched network has a data rate of 1 Mbps. The exchange of 1000 bits is required for the setup and teardown phases. The distance between two parties is 5000 km. Answer the following questions if the propagation speed is
 	\texorpdfstring{$ 2 \times 10^8 $}{2 x 10^8} m.
 }
+
 \textbf{
 	\begin{enumerate}
 		\item What is the total delay if 1000 bits of data are exchanged during the data-transfer phase?
@@ -158,9 +159,27 @@ The four major components of a packet switch are
 	\end{enumerate}
 }
 
+Here, in the setup phase we have to exchange data two times, and once for the teardown. \par
+Propagation delay = $ \frac{ 5000 \times 10^3 }{ 2 \times 10 ^8 } = 0.025 sec $ \par
+Transmission delay = $ \frac{ 1000 }{ 10^6 } = 0.001 sec $ \\
+So, delay for setup and teardown phase = $ 0.025 \times 3 + 0.001 \times 3 = 0.078 sec $  \par
 
-\subsection{Five equal-size datagrams belonging to the same message leave for the desti-
-	nation one after another. However, they travel through different paths as
+\begin{enumerate}
+	\item For 1000 bits of data, total delay = $ 0.078 + 0.025 + \frac{ 1000 }{ 10^6 } = 0.104 sec $
+	\item For 100,000 bits of data, total delay = $ 0.078 + 0.025 + \frac{ 100000 }{ 10^6 } = 0.203 sec $
+	\item For 1,000,000 bits of data, total delay = $ 0.078 + 0.025 + \frac{ 1000000 }{ 10^6 } = 1.103 sec $
+	\item For above cases,
+	      \begin{enumerate}
+		      \item For 1000 bits delay will be, $ \frac{0.104 \times 1000}{1000} = 0.104 sec $
+		      \item For 1000 bits delay will be, $ \frac{0.203 \times 1000}{100000} = 0.00203 sec $
+		      \item For 1000 bits delay will be, $ \frac{1.103 \times 1000}{1000000} = 0.001103 sec $
+	      \end{enumerate}
+	      The ratio for case c is the smallest because we use
+	      one setup and teardown phase to send more data.
+\end{enumerate}
+
+
+\subsection{Five equal-size datagrams belonging to the same message leave for the destination one after another. However, they travel through different paths as
 	shown in Table 1.
 }
 \begin{table}[H]
@@ -183,7 +202,6 @@ The four major components of a packet switch are
 	\caption{P8-2}
 	\label{table:1}
 \end{table}
-hi
 \textbf{
 	We assume that the delay for each switch (including waiting and processing)
 	is 3, 10, 20, 7, and 20 ms respectively. Assuming that the propagation speed is
