@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024/Arch Linux) (preloaded format=xelatex 2024.5.24)  25 MAY 2024 12:09
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024/Arch Linux) (preloaded format=xelatex 2024.5.24)  25 MAY 2024 17:02
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -706,33 +706,47 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [3] [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 151.
+(hyperref)                removing `superscript' on input line 158.
 
 [5] [6]
-Overfull \hbox (5.30702pt too wide) in paragraph at lines 249--249
+Overfull \hbox (5.30702pt too wide) in paragraph at lines 269--269
 []\TU/lmr/bx/n/12 We mentioned that two types of networks, datagram and virtual-
  []
 
+[7]
+Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 294.
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 307.
+ [8]
 File: ./images/8.27.png Graphic file (type bmp)
 <./images/8.27.png>
-[7] [8]
 File: ./images/8.28.png Graphic file (type bmp)
 <./images/8.28.png>
- [9] [10] (./cce_ch8.aux)
+ [9] [10]
+File: ./images/8.1.png Graphic file (type bmp)
+<./images/8.1.png>
+ [11]
+File: ./images/8.2.png Graphic file (type bmp)
+<./images/8.2.png>
+ [12]
+File: ./images/8.3.png Graphic file (type bmp)
+<./images/8.3.png>
+File: ./images/8.4.png Graphic file (type bmp)
+<./images/8.4.png>
+ [13] [14] (./cce_ch8.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `cce_ch8.out' has not changed.
-(rerunfilecheck)             Checksum: 309C8D020DCF416E2D321EA9106AD26C;23227.
+(rerunfilecheck)             Checksum: F92734CCF9C4B1B92E7E5EEDBBF4427C;23235.
  ) 
 Here is how much of TeX's memory you used:
- 24663 strings out of 476772
- 469929 string characters out of 5803394
+ 24772 strings out of 476772
+ 472605 string characters out of 5803394
  1934839 words of memory out of 5000000
- 46251 multiletter control sequences out of 15000+600000
- 564853 words of font info for 73 fonts, out of 8000000 for 9000
+ 46354 multiletter control sequences out of 15000+600000
+ 564861 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 83i,9n,87p,4824b,496s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,9n,87p,4824b,489s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on cce_ch8.xdv (10 pages, 184824 bytes).
+Output written on cce_ch8.xdv (14 pages, 278412 bytes).
