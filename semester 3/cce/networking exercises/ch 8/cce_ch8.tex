@@ -141,17 +141,22 @@ The four major components of a packet switch are
 	\item Routing processor
 \end{itemize}
 
+% ------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
 \section{Problems}
 \subsection{
 	A path in a digital circuit-switched network has a data rate of 1 Mbps. The exchange of 1000 bits is required for the setup and teardown phases. The distance between two parties is 5000 km. Answer the following questions if the propagation speed is
 	\texorpdfstring{$ 2 \times 10^8 $}{2 x 10^8} m.
 }
-\begin{enumerate}
-	\item What is the total delay if 1000 bits of data are exchanged during the data-transfer phase?
-	\item What is the total delay if 100,000 bits of data are exchanged during the data-transfer phase?
-	\item What is the total delay if 1,000,000 bits of data are exchanged during the data-transfer phase?
-	\item Find the delay per 1000 bits of data for each of the above cases and compare them. What can you infer?
-\end{enumerate}
+\textbf{
+	\begin{enumerate}
+		\item What is the total delay if 1000 bits of data are exchanged during the data-transfer phase?
+		\item What is the total delay if 100,000 bits of data are exchanged during the data-transfer phase?
+		\item What is the total delay if 1,000,000 bits of data are exchanged during the data-transfer phase?
+		\item Find the delay per 1000 bits of data for each of the above cases and compare them. What can you infer?
+	\end{enumerate}
+}
 
 
 \subsection{Five equal-size datagrams belonging to the same message leave for the desti-
@@ -209,88 +214,88 @@ hi
 \end{table}
 
 \textbf{
-    Answer the following questions:
-    \begin{enumerate}
-        \item Why does a circuit-switched network need end-to-end addressing during the
-        setup and teardown phases? Why are no addresses needed during the data
-        transfer phase for this type of network?
-        \item Why does a datagram network need only end-to-end addressing during the
-        data transfer phase, but no addressing during the setup and teardown phases?
-        \item Why does a virtual-circuit network need addresses during all three phases?
-    \end{enumerate}
+	Answer the following questions:
+	\begin{enumerate}
+		\item Why does a circuit-switched network need end-to-end addressing during the
+		      setup and teardown phases? Why are no addresses needed during the data
+		      transfer phase for this type of network?
+		\item Why does a datagram network need only end-to-end addressing during the
+		      data transfer phase, but no addressing during the setup and teardown phases?
+		\item Why does a virtual-circuit network need addresses during all three phases?
+	\end{enumerate}
 }
 
 \subsection{We mentioned that two types of networks, datagram and virtual-circuit, need a
-routing or switching table to find the output port from which the information
-belonging to a destination should be sent out, but a circuit-switched network
-has no need for such a table. Give the reason for this difference.}
+	routing or switching table to find the output port from which the information
+	belonging to a destination should be sent out, but a circuit-switched network
+	has no need for such a table. Give the reason for this difference.}
 
 \subsection{An entry in the switching table of a virtual-circuit network is normally created
-during the setup phase and deleted during the teardown phase. In other words,
-the entries in this type of network reflect the current connections, the activity
-in the network. In contrast, the entries in a routing table of a datagram network
-do not depend on the current connections; they show the configuration of the
-network and how any packet should be routed to a final destination. The
-entries may remain the same even if there is no activity in the network. The
-routing tables, however, are updated if there are changes in the network. Can
-you explain the reason for these two different characteristics? Can we say that a virtual-circuit is a connection-oriented network and a datagram network is a
-connectionless network because of the above characteristics?}
+	during the setup phase and deleted during the teardown phase. In other words,
+	the entries in this type of network reflect the current connections, the activity
+	in the network. In contrast, the entries in a routing table of a datagram network
+	do not depend on the current connections; they show the configuration of the
+	network and how any packet should be routed to a final destination. The
+	entries may remain the same even if there is no activity in the network. The
+	routing tables, however, are updated if there are changes in the network. Can
+	you explain the reason for these two different characteristics? Can we say that a virtual-circuit is a connection-oriented network and a datagram network is a
+	connectionless network because of the above characteristics?}
 
 \subsection{The minimum number of columns in a datagram network is two; the minimum
-number of columns in a virtual-circuit network is four. Can you explain the
-reason? Is the difference related to the type of addresses carried in the packets
-of each network?}
+	number of columns in a virtual-circuit network is four. Can you explain the
+	reason? Is the difference related to the type of addresses carried in the packets
+	of each network?}
 
 \subsection{Figure 8.27 shows a switch (router) in a datagram network.}
 
 \begin{figure}[H]
-    \center
-    \includegraphics[scale=0.5]{8.27.png}
-    \caption{8.27}
+	\center
+	\includegraphics[scale=0.5]{8.27.png}
+	\caption{8.27}
 \end{figure}
 \textbf{Find the output port for packets with the following destination addresses:
-\begin{enumerate}
-	\item Packet 1: 7176
-	\item Packet 2: 1233
-	\item Packet 3: 8766
-	\item Packet 4: 9144
-\end{enumerate}
+	\begin{enumerate}
+		\item Packet 1: 7176
+		\item Packet 2: 1233
+		\item Packet 3: 8766
+		\item Packet 4: 9144
+	\end{enumerate}
 }
 
 \subsection{Figure 8.28 shows a switch in a virtual-circuit network.}
 
 \begin{figure}[H]
-    \center
-    \includegraphics[scale=0.5]{8.28.png}
-    \caption{8.27}
+	\center
+	\includegraphics[scale=0.5]{8.28.png}
+	\caption{8.27}
 \end{figure}
 \textbf{Find the output port for packets with the following destination addresses:
-\begin{enumerate}
-	\item Packet 1: 3, 78
-	\item Packet 2: 2, 92
-	\item Packet 3: 4, 56
-	\item Packet 4: 2, 71
-\end{enumerate}
+	\begin{enumerate}
+		\item Packet 1: 3, 78
+		\item Packet 2: 2, 92
+		\item Packet 3: 4, 56
+		\item Packet 4: 2, 71
+	\end{enumerate}
 }
 
 \subsection{Answer the following questions:}
 \textbf{
 	\begin{enumerate}
 		\item  Can a routing table in a datagram network have two entries with the same
-		destination address? Explain.
+		      destination address? Explain.
 		\item Can a switching table in a virtual-circuit network have two entries with the
-		same input port number? With the same output port number? With the
-		same incoming VCIs? With the same outgoing VCIs? With the same incom-
-		ing values (port, VCI)? With the same outgoing values (port, VCI)?
+		      same input port number? With the same output port number? With the
+		      same incoming VCIs? With the same outgoing VCIs? With the same incom-
+		      ing values (port, VCI)? With the same outgoing values (port, VCI)?
 	\end{enumerate}
 }
 
 \subsection{It is obvious that a router or a switch needs to search to find information in the
-corresponding table. The searching in a routing table for a datagram network
-is based on the destination address; the searching in a switching table in a
-virtual-circuit network is based on the combination of incoming port and
-incoming VCI. Explain the reason and define how these tables must be
-ordered (sorted) based on these values.}
+	corresponding table. The searching in a routing table for a datagram network
+	is based on the destination address; the searching in a switching table in a
+	virtual-circuit network is based on the combination of incoming port and
+	incoming VCI. Explain the reason and define how these tables must be
+	ordered (sorted) based on these values.}
 
 \subsection{Consider an n × k crossbar switch with n inputs and k outputs.}
 
@@ -302,7 +307,7 @@ ordered (sorted) based on these values.}
 }
 
 \subsection{We need a three-stage space-division switch with N = 100. We use 10 cross-
-bars at the first and third stages and 4 crossbars at the middle stage.}
+	bars at the first and third stages and 4 crossbars at the middle stage.}
 
 \textbf{
 	\begin{enumerate}
@@ -310,9 +315,9 @@ bars at the first and third stages and 4 crossbars at the middle stage.}
 		\item Calculate the total number of crosspoints.
 		\item Find the possible number of simultaneous connections.
 		\item Find the possible number of simultaneous connections if we use a single
-		crossbar (100 × 100).
+		      crossbar (100 × 100).
 		\item Find the blocking factor, the ratio of the number of connections in part c
-		and in part d.
+		      and in part d.
 	\end{enumerate}
 }
 
@@ -321,7 +326,7 @@ bars at the first and third stages and 4 crossbars at the middle stage.}
 \subsection{Redesign the configuration of Problem 8-12 using the Clos criteria.}
 
 \subsection{We need to have a space-division switch with 1000 inputs and outputs. What
-is the total number of crosspoints in each of the following cases?}
+	is the total number of crosspoints in each of the following cases?}
 \textbf{
 	\begin{enumerate}
 		\item  Using a single crossbar.
@@ -330,7 +335,7 @@ is the total number of crosspoints in each of the following cases?}
 }
 
 \subsection{We need a three-stage time-space-time switch with N = 100. We use 10 TSIs
-at the first and third stages and 4 crossbars at the middle stage.}
+	at the first and third stages and 4 crossbars at the middle stage.}
 \textbf{
 	\begin{enumerate}
 		\item  Draw the configuration diagram.
