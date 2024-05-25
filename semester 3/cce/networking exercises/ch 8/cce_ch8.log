@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024/Arch Linux) (preloaded format=xelatex 2024.5.24)  24 MAY 2024 18:34
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024/Arch Linux) (preloaded format=xelatex 2024.5.24)  24 MAY 2024 22:05
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -715,21 +715,24 @@ Overfull \hbox (5.30702pt too wide) in paragraph at lines 226--226
 
 File: ./images/8.27.png Graphic file (type bmp)
 <./images/8.27.png>
-[6] [7] (./cce_ch8.aux)
+[6] [7]
+File: ./images/8.28.png Graphic file (type bmp)
+<./images/8.28.png>
+ [8] [9] (./cce_ch8.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `cce_ch8.out' has not changed.
-(rerunfilecheck)             Checksum: 290CEDFC1124A026D31A18EDFCA46881;16514.
+(rerunfilecheck)             Checksum: 34B9420829141802157D98929C23843D;23240.
  ) 
 Here is how much of TeX's memory you used:
- 24652 strings out of 476772
- 469709 string characters out of 5803394
+ 24663 strings out of 476772
+ 469929 string characters out of 5803394
  1934839 words of memory out of 5000000
- 46241 multiletter control sequences out of 15000+600000
+ 46251 multiletter control sequences out of 15000+600000
  564853 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 83i,9n,87p,4824b,473s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,9n,87p,4824b,496s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on cce_ch8.xdv (7 pages, 125828 bytes).
+Output written on cce_ch8.xdv (9 pages, 177624 bytes).
