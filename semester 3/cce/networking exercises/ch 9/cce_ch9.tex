@@ -352,25 +352,114 @@ addresses, the destination address comes before the source. The datagrams and fr
 	\center
 	\includegraphics[scale=0.5]{9.7.png}
 	\caption{9.7}
+	\label{fig:9.7}
 \end{figure}
+
+In Figure 9.7, if system B is not running the ARP program, system A cannot send the ARP request to system B. The ARP request is used to resolve the IP address to the link-layer address. If system B is not running the ARP program, system A cannot resolve the IP address to the link-layer address of system B.
+
 \subsection{
 	In Figure 9.7, do you think that system A should first check its cache for mapping from N2 to L2 before even broadcasting the ARP request?
 	Assume the network in Figure 9.7 does not support broadcasting. What do you
 	suggest for sending the ARP request in this network?
 }
+
+In Figure 9.7, system A should first check its cache for mapping from N2 to L2 before broadcasting the ARP request. If the mapping is found in the cache, system A can send the frame directly to system B without the need for ARP request.
+
+If the network in Figure 9.7 does not support broadcasting, system A can send the ARP request to the router. The router can forward the ARP request to system B. System B can send the ARP reply to the router, and the router can forward the ARP reply to system A.
+
 \subsection{
 	In Figures 9.11 to 9.13, both the forwarding table and ARP are doing a kind of
 	mapping. Show the difference between them by listing the input and output of
 	mapping for a forwarding table and ARP.
 }
+
+The difference between the forwarding table and ARP is as follows:
+
+\textbf{For figure 9.11:}
+\begin{itemize}
+	\item \textbf{ Forwarding table: }
+	      \begin{itemize}
+		      \item Input: \( N_B \)
+		      \item Output: \( N_1 \)
+	      \end{itemize}
+	\item \textbf{ ARP: }
+	      \begin{itemize}
+		      \item Input: \(N_1\)
+		      \item Output: \(L_1\)
+	      \end{itemize}
+\end{itemize}
+
+\textbf{For figure 9.12:}
+\begin{itemize}
+	\item \textbf{ Forwarding table: }
+	      \begin{itemize}
+		      \item Input: \( N_B \)
+		      \item Output: \( N_3 \)
+	      \end{itemize}
+	\item \textbf{ ARP: }
+	      \begin{itemize}
+		      \item Input: \(N_3\)
+		      \item Output: \(L_3\)
+	      \end{itemize}
+\end{itemize}
+
+\textbf{For figure 9.13:}
+\begin{itemize}
+	\item \textbf{ Forwarding table: }
+	      \begin{itemize}
+		      \item Input: \( N_B \)
+		      \item Output: \( N_B \)
+	      \end{itemize}
+	\item \textbf{ ARP: }
+	      \begin{itemize}
+		      \item Input: \(N_B\)
+		      \item Output: \(L_B\)
+	      \end{itemize}
+\end{itemize}
+
+\textbf{Please use text-book for images. You can directly deduce above parameteres from image.}
+
 \subsection{
 	Figure 9.7 shows a system as either a host or a router. What would be the
 	actual entity (host or router) of system A and B in each of the following cases:
 }
-a. If the link is the first one in the path?
-b. If the link is the middle one in the path?
-c. If the link is the last one in the path?
-d. If there is only one link in the path (local communication)?
+% a. If the link is the first one in the path?
+% b. If the link is the middle one in the path?
+% c. If the link is the last one in the path?
+% d. If there is only one link in the path (local communication)?
 
+\begin{enumerate}
+	\item \textbf{ If the link is the first one in the path? }
+	      \begin{itemize}
+		      \item System A: Host
+		      \item System B: Router
+	      \end{itemize}
+	\item \textbf{ If the link is the middle one in the path? }
+	      \begin{itemize}
+		      \item System A: Router
+		      \item System B: Router
+	      \end{itemize}
+	\item \textbf{ If the link is the last one in the path? }
+	      \begin{itemize}
+		      \item System A: Router
+		      \item System B: Host
+	      \end{itemize}
+	\item \textbf{ If there is only one link in the path (local communication)? }
+	      \begin{itemize}
+		      \item System A: Host
+		      \item System B: Host
+	      \end{itemize}
+\end{enumerate}
+
+Figure \ref{fig:9.7} (9.7) is provided at page \pageref{fig:9.7}
+
+
+\vspace{10cm}
+\textbf{
+	Life is a series of decisions, you never have unlimited options or unlimited time to think, but what you choose in that instant defines who you are. 
+}
+\begin{flushright}
+	-Kyojuro Rengoku
+\end{flushright}
 
 \end{document}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024/Arch Linux) (preloaded format=xelatex 2024.5.29)  22 JUN 2024 11:51
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024/Arch Linux) (preloaded format=xelatex 2024.5.29)  22 JUN 2024 15:14
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -746,7 +746,7 @@ Overfull \hbox (49.25229pt too wide) in paragraph at lines 353--354
  [] 
  []
 
-[10] [11] [12] (./cce_ch9.aux)
+[10] [11] [12] [13] (./cce_ch9.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -755,12 +755,12 @@ Package rerunfilecheck Info: File `cce_ch9.out' has not changed.
 (rerunfilecheck)             Checksum: 88257D5E03A1450D9426581924EA5A5E;20217.
  ) 
 Here is how much of TeX's memory you used:
- 24689 strings out of 476772
- 470499 string characters out of 5803394
+ 24692 strings out of 476772
+ 470572 string characters out of 5803394
  1936839 words of memory out of 5000000
- 46272 multiletter control sequences out of 15000+600000
+ 46275 multiletter control sequences out of 15000+600000
  564861 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,9n,87p,1670b,531s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on cce_ch9.xdv (12 pages, 192224 bytes).
+Output written on cce_ch9.xdv (13 pages, 210208 bytes).
