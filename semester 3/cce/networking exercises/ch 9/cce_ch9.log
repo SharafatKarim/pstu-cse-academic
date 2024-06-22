@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024/Arch Linux) (preloaded format=xelatex 2024.5.29)  21 JUN 2024 14:45
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024/Arch Linux) (preloaded format=xelatex 2024.5.29)  22 JUN 2024 11:51
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -703,55 +703,64 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write7
 \openout7 = `cce_ch9.toc'.
 
- [3]
+ [3] [4]
+File: ./images/9.9.png Graphic file (type bmp)
+<./images/9.9.png>
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 157.
-
-[4]
-Overfull \vbox (87.02058pt too high) has occurred while \output is active []
-
- [5] [6]
-Overfull \hbox (5.30702pt too wide) in paragraph at lines 268--268
-[]\TU/lmr/bx/n/12 We mentioned that two types of networks, datagram and virtual-
+Overfull \hbox (68.44658pt too wide) in paragraph at lines 154--155
+ [] 
  []
 
+[5] [6]
+File: ./images/9.15.png Graphic file (type bmp)
+<./images/9.15.png>
+
+Overfull \hbox (1.4548pt too wide) in paragraph at lines 239--240
+ [] 
+ []
+
+File: ./images/9.16.png Graphic file (type bmp)
+<./images/9.16.png>
 [7]
-Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 293.
- [8]
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 306.
-File: ./images/8.27.png Graphic file (type bmp)
-<./images/8.27.png>
- [9]
-File: ./images/8.28.png Graphic file (type bmp)
-<./images/8.28.png>
- [10]
-File: ./images/8.1.png Graphic file (type bmp)
-<./images/8.1.png>
- [11]
-File: ./images/8.2.png Graphic file (type bmp)
-<./images/8.2.png>
- [12]
-File: ./images/8.3.png Graphic file (type bmp)
-<./images/8.3.png>
- [13]
-File: ./images/8.4.png Graphic file (type bmp)
-<./images/8.4.png>
- [14] [15] (./cce_ch9.aux)
+Overfull \hbox (14.36703pt too wide) in paragraph at lines 259--259
+[] \TU/lmr/bx/n/12 Is the current Internet using circuit-switching or packet-switching
+ []
+
+[8]
+File: ./images/9.5.png Graphic file (type bmp)
+<./images/9.5.png>
+
+Overfull \hbox (67.69386pt too wide) in paragraph at lines 317--318
+ [] 
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 333--344
+
+ []
+
+File: ./images/9.7.png Graphic file (type bmp)
+<./images/9.7.png>
+
+Overfull \hbox (49.25229pt too wide) in paragraph at lines 353--354
+ [] 
+ []
+
+[10] [11] [12] (./cce_ch9.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `cce_ch9.out' has not changed.
-(rerunfilecheck)             Checksum: 9F230C5A727768E88DDED672066E5F60;28006.
+(rerunfilecheck)             Checksum: 88257D5E03A1450D9426581924EA5A5E;20217.
  ) 
 Here is how much of TeX's memory you used:
- 24770 strings out of 476772
- 472547 string characters out of 5803394
- 1934839 words of memory out of 5000000
- 46352 multiletter control sequences out of 15000+600000
+ 24689 strings out of 476772
+ 470499 string characters out of 5803394
+ 1936839 words of memory out of 5000000
+ 46272 multiletter control sequences out of 15000+600000
  564861 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 83i,9n,87p,4824b,546s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,9n,87p,1670b,531s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on cce_ch9.xdv (15 pages, 289048 bytes).
+Output written on cce_ch9.xdv (12 pages, 192224 bytes).
