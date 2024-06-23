@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024/Arch Linux) (preloaded format=xelatex 2024.5.29)  22 JUN 2024 15:14
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024/Arch Linux) (preloaded format=xelatex 2024.5.29)  23 JUN 2024 09:28
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -763,4 +763,4 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  83i,9n,87p,1670b,531s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on cce_ch9.xdv (13 pages, 210208 bytes).
+Output written on cce_ch9.xdv (13 pages, 210192 bytes).
