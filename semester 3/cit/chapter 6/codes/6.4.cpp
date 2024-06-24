@@ -60,16 +60,20 @@ int main() {
     // Well we can take input from the user in this way [OPTIONAL]
     // -------------------------------------------------------------------
     // string input;
-    // cin >> input; // If there is space in input this line won't gonna work
+    // // cin >> input; // If there is space in input this line won't gonna work
     // getline(cin, input); // Taking whole line as input
     // queue<string> input_list;
     // string temp_string = "";
     // for (int i = 0; i < input.size(); i++) {
     //     if (input[i] == ' ') continue; // Avoiding spaces
     //     if (isdigit(input[i])) temp_string += input[i];
-    //     else input_list.push(temp_string), temp_string = "", input_list.push(string(1, input[i]));
+    //     else { 
+    //         if(!temp_string.empty()) input_list.push(temp_string); 
+    //         temp_string = ""; 
+    //         input_list.push(string(1, input[i]));
+    //     }
     // }
-    // input_list.push(temp_string);
+    // if(!temp_string.empty()) input_list.push(temp_string); 
 
     // The following lines are to print the queue (input list)
     // But the queue will be empty later on [WARNING]
