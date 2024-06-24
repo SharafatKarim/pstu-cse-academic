@@ -1,6 +1,7 @@
 #include<iostream>
 #include <stack>
 #include <queue>
+#include <math.h>
 
 using namespace std;
 
@@ -9,7 +10,7 @@ string solvePostfix(queue<string> input_list) {
     while (!input_list.empty()) {
         string token = input_list.front();
         input_list.pop();
-        if (token == "+" || token == "-" || token == "*" || token == "/") {
+        if (token == "+" || token == "-" || token == "*" || token == "/" || token == "^") {
             string operand2 = st.top();
             st.pop();
             string operand1 = st.top();
@@ -22,6 +23,8 @@ string solvePostfix(queue<string> input_list) {
                 st.push(to_string(stoi(operand1) * stoi(operand2)));
             } else if (token == "/") {
                 st.push(to_string(stoi(operand1) / stoi(operand2)));
+            } else if (token == "^") {
+                st.push(to_string(pow(stoi(operand1), stoi(operand2))));
             }
         } else {
             st.push(token);
