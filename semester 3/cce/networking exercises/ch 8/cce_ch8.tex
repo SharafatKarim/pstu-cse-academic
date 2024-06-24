@@ -217,11 +217,11 @@ So, delay for setup and teardown phase = $ 0.025 \times 3 + 0.001 \times 3 = 0.0
 }
 
 Here, let's assume all datagrams start at the same time. \\
-Arrival time for datagram 1 = $ \frac{3200 \times 10^3}{2 \times 10^8} + (3 + 20 + 20) = 0.059 sec $ \\
-Arrival time for datagram 2 = $ \frac{11700 \times 10^3}{2 \times 10^8} + (3 + 10 + 20) = 0.0915 sec $ \\
-Arrival time for datagram 3 = $ \frac{12200 \times 10^3}{2 \times 10^8} + (3 + 10 + 20 + 20) = 0.114 sec $ \\
-Arrival time for datagram 4 = $ \frac{10200 \times 10^3}{2 \times 10^8} + (3 + 7 + 20) = 0.081 sec $ \\
-Arrival time for datagram 5 = $ \frac{10700 \times 10^3}{2 \times 10^8} + (3 + 7 + 20 + 20) = 0.1035 sec $ \par
+Arrival time for datagram 1 = $ \frac{3200 \times 10^3}{2 \times 10^8} + (3 + 20 + 20) \times 10^{-3} = 0.059 sec $ \\
+Arrival time for datagram 2 = $ \frac{11700 \times 10^3}{2 \times 10^8} + (3 + 10 + 20) \times 10^{-3} = 0.0915 sec $ \\
+Arrival time for datagram 3 = $ \frac{12200 \times 10^3}{2 \times 10^8} + (3 + 10 + 20 + 20) \times 10^{-3} = 0.114 sec $ \\
+Arrival time for datagram 4 = $ \frac{10200 \times 10^3}{2 \times 10^8} + (3 + 7 + 20) \times 10^{-3} = 0.081 sec $ \\
+Arrival time for datagram 5 = $ \frac{10700 \times 10^3}{2 \times 10^8} + (3 + 7 + 20 + 20) \times 10^{-3} = 0.1035 sec $ \par
 The order of arrival is 1, 4, 2, 5, 3. First datagram 1 arrives, then datagram 4, then datagram 2, then datagram 5, and finally datagram 3. \par
 
 \subsection{
