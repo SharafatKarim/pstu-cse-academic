@@ -30,14 +30,28 @@ int quickSortProcess(int *arr, int beg, int end) {
 }
 
 void quickSort(int *arr, int beg, int end) {
-    stack<int> 
+    stack<int> lower, upper;
+    lower.push(beg);
+    upper.push(end);
+    while (!lower.empty()) {
+        int loc = quickSortProcess(arr, lower.top(), upper.top());
+        beg = lower.top(), end = upper.top();
+        lower.pop(), upper.pop();
+        if (loc + 1 < end) {
+            lower.push(loc+1);
+            upper.push(end);
+        } if (beg < loc - 1 ) {
+            lower.push(beg);
+            upper.push(loc - 1);
+        }
+    }
 }
 
 int main() {
-    int arr[] = {44, 33, 11, 55, 77, 90, 40, 60, 99, 22, 88, 66};
-    cout << "Final pivot location : " << quickSortProcess(arr, 0, sizeof(arr)/sizeof(arr[0]) - 1) << "\n";
+    int arr[] = {44, 33, -15, 55, 77, 90, 40, 60, 99, 22, 88, 66};
+    quickSort(arr, 0, sizeof(arr)/sizeof(arr[0]) - 1);
     
-    cout << "And the array is : " << "\n";
+    cout << "And the sorted array is : " << "\n";
     for (int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++) {
         cout << arr[i] << " ";
     }
