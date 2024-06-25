@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stack>
 using namespace std;
 
 void swap(int *a, int *b) {
@@ -28,7 +29,16 @@ int quickSortProcess(int *arr, int beg, int end) {
     }
 }
 
+void quickSort(int *arr, int beg, int end) {
+    stack<int> 
+}
+
 int main() {
     int arr[] = {44, 33, 11, 55, 77, 90, 40, 60, 99, 22, 88, 66};
-    cout << quickSortProcess(arr, 0, sizeof(arr)/sizeof(arr[0]) - 1);
+    cout << "Final pivot location : " << quickSortProcess(arr, 0, sizeof(arr)/sizeof(arr[0]) - 1) << "\n";
+    
+    cout << "And the array is : " << "\n";
+    for (int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++) {
+        cout << arr[i] << " ";
+    }
 }
