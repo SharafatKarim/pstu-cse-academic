@@ -7,20 +7,18 @@ void towerOfHanoi(int n, char beg, char aux, char end) {
         cout << beg << " -> " << end << "\n";
         return;
     }
+    int add = 2;
     stack<char> st_beg, st_aux, st_end;
-    stack<int> st_n;
+    stack<int> st_n, st_add;
     
     while (true) {
         if (n==1) {
-            if (st_beg.empty()) return;
             cout << "(" << n << ")- " << beg << " -> " << end << "\n";
-            beg = st_beg.top();
-            aux = st_aux.top();
-            end = st_end.top();
-            st_beg.pop(), st_aux.pop(), st_end.pop();
+            // add = 5;
         }
-        if (n != 1) {
+        if (add != 3) {
             st_beg.push(beg), st_aux.push(aux), st_end.push(end);
+            st_add.push(3);
             st_n.push(n);
             beg = st_beg.top();
             aux = st_end.top();
@@ -28,15 +26,25 @@ void towerOfHanoi(int n, char beg, char aux, char end) {
             n--;
             // continue;
         }
-        cout << beg << " -> " << end << "\n";
-        if (n != 1) {
+        if (add == 3) {
+            cout << beg << " -> " << end << "\n";
             st_beg.push(beg), st_aux.push(aux), st_end.push(end);
+            st_add.push(5);
             st_n.push(n);
             beg = st_aux.top();
             aux = st_beg.top();
             end = st_end.top();
             n--;
+            add = 2;
             // continue;
+        }
+        if (n == 1 || add == 5) {
+            if (st_beg.empty()) return;
+            beg = st_beg.top();
+            aux = st_aux.top();
+            end = st_end.top();
+            add = st_add.top();
+            st_beg.pop(), st_aux.pop(), st_end.pop();
         }
     }
 
@@ -46,5 +54,5 @@ void towerOfHanoi(int n, char beg, char aux, char end) {
 }
 
 int main() {
-    towerOfHanoi(4, 'A', 'B', 'C');
+    towerOfHanoi(2, 'A', 'B', 'C');
 }
