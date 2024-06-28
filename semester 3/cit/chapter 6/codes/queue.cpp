@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#define MAX_NUM 2
+#define MAX_NUM 3
 
 template <typename T> class queue
 {
@@ -16,12 +16,12 @@ public:
     int insert(T item) {
         if ((front == 0 && rear == MAX_NUM - 1) || (front == rear + 1)) {
             cout << "OVERFLOW!\n";
-            exit(1);
+            return -1;
         } 
         if (front == -1) {
             front = 0;
             rear = 0;
-        } else if (rear == MAX_NUM) {
+        } else if (rear == MAX_NUM - 1) {
             rear = 0;
         } else {
             rear++;
@@ -43,20 +43,24 @@ public:
             front++;
         return item;
     }
-    // T front() {
-    //     return arr[front];
-    // }
-    T rear() {
+    T peek() {
+        return arr[front];
+    }
+    T back() {
         return arr[rear];
     }
 };
 
 int main() {
     queue<int> data;
-    cout << data.insert(5);
-    cout << data.insert(5);
-    cout << data.insert(5);
-    cout << data.front();
+    data.insert(1);
+    data.insert(2);
+    data.insert(3);
+    data.pop();
+    data.insert(4); // front 1, rear 0
+    data.insert(5);
+    cout << data.peek();
+    cout << data.back();
     return 0;
 }
 
