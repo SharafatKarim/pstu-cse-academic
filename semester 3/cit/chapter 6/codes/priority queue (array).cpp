@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#define MAX_NUM 3
+#define MAX_NUM 2
 
 template <typename T> class PriorityQueue {
 private:
@@ -13,7 +13,7 @@ public:
         front = -1;
         rear = -1;
     }
-    int insert(T item, long long item_priority) {
+    int insert(T item, long long item_priority) { 
         if ((front == 0 && rear == MAX_NUM - 1) || (front == rear + 1)) {
             cout << "OVERFLOW!\n";
             return -1;
@@ -27,18 +27,17 @@ public:
         } else if (rear == MAX_NUM - 1) {
             rear = 0;
         } else {
-            rear++;
+            rear++; 
         }
-        while (front != rear && priority[(rear - 1 + MAX_NUM) % MAX_NUM] > item_priority) {
-            arr[rear] = arr[(rear - 1 + MAX_NUM) % MAX_NUM];
-            priority[rear] = priority[(rear - 1 + MAX_NUM) % MAX_NUM];
-            // arr[(rear - 1 + MAX_NUM) % MAX_NUM] = arr[rear];
-            // priority[(rear - 1 + MAX_NUM) % MAX_NUM] = priority[rear];
-            rear = (rear - 1 + MAX_NUM) % MAX_NUM;
+        long long temp_rear = rear;
+        while (front != temp_rear && priority[(temp_rear - 1) % MAX_NUM] > item_priority) {
+            arr[temp_rear] = arr[(temp_rear - 1) % MAX_NUM];
+            priority[temp_rear] = priority[(temp_rear - 1) % MAX_NUM];
+            temp_rear = (temp_rear - 1) % MAX_NUM;
         }
-        arr[rear] = item;
-        priority[rear] = item_priority;
-        return rear;
+        arr[temp_rear] = item;
+        priority[temp_rear] = item_priority;
+        return temp_rear;
     }
     T pop() {
         if (front == -1) {
@@ -64,8 +63,15 @@ public:
 
 int main() {
     PriorityQueue<int> data;
+    cout << data.insert(1, 1);
+    cout << data.insert(2, 2);
+    cout << " " << data.pop() << " ";
+    cout << " " << data.pop() << " ";
     cout << data.insert(2, 2);
     cout << data.insert(1, 1);
+    // cout << " " << data.pop() << " ";
+    // cout << data.insert(3, 3);
+    // cout << data.insert(3, 3);
     cout << endl;
     cout << data.peek();
     cout << data.back();

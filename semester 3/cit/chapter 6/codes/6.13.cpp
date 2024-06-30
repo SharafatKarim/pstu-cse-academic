@@ -1,19 +1,19 @@
 #include <iostream>
 using namespace std;
-#define MAX_NUM 3
+#define MAX_NUM 2
 
-template <typename T> class queue
-{
+template <typename T> class PriorityQueue {
 private:
     long long front;
     long long rear;
     T arr[MAX_NUM];
+    long long priority[MAX_NUM];
 public:
-    queue() {
+    PriorityQueue() {
         front = -1;
         rear = -1;
     }
-    int insert(T item) {
+    int insert(T item, long long item_priority) { 
         if ((front == 0 && rear == MAX_NUM - 1) || (front == rear + 1)) {
             cout << "OVERFLOW!\n";
             return -1;
@@ -21,13 +21,23 @@ public:
         if (front == -1) {
             front = 0;
             rear = 0;
+            arr[rear] = item;
+            priority[rear] = item_priority;
+            return rear;
         } else if (rear == MAX_NUM - 1) {
             rear = 0;
         } else {
-            rear++;
+            rear++; 
         }
-        arr[rear] = item;
-        return rear;
+        long long temp_rear = rear;
+        while (front != temp_rear && priority[(temp_rear - 1) % MAX_NUM] > item_priority) {
+            arr[temp_rear] = arr[(temp_rear - 1) % MAX_NUM];
+            priority[temp_rear] = priority[(temp_rear - 1) % MAX_NUM];
+            temp_rear = (temp_rear - 1) % MAX_NUM;
+        }
+        arr[temp_rear] = item;
+        priority[temp_rear] = item_priority;
+        return temp_rear;
     }
     T pop() {
         if (front == -1) {
@@ -52,15 +62,15 @@ public:
 };
 
 int main() {
-    queue<int> data;
-    data.insert(1);
-    data.insert(2);
-    data.insert(3);
+    PriorityQueue<int> data;
+    data.insert(1, 1);
+    data.insert(2, 2);
     data.pop();
-    data.insert(4); // front 1, rear 0
-    data.insert(5);
+    data.pop();
+    data.insert(2, 2);
+    data.insert(1, 1);
+
     cout << data.peek();
     cout << data.back();
     return 0;
 }
-
