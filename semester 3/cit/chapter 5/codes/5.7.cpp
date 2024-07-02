@@ -1,5 +1,3 @@
-// It has a limitation. While inserting into a sorted list, if the item is greater than all the elements in the list, it will not insert the item at the end of the list. It will insert the item at the beginning of the list. So, we need to modify the code to handle this case.
-
 #include <iostream>
 using namespace std;
 
@@ -58,35 +56,6 @@ public:
         }
         cout << endl;
     }
-    Node *search(int item) {
-        if (start == NULL) {
-            cout << "List is empty!\n";
-            return NULL;
-        }
-        Node *temp = start;
-        while (temp != NULL) {
-            if (temp->data == item) {
-                return temp;
-            }
-            temp = temp->link;
-        }
-        return NULL;
-    }
-    Node *searchSorted(int item) {
-        if (start == NULL) {
-            cout << "List is empty!\n";
-            return NULL;
-        }
-        Node *temp = start;
-        while (temp != NULL) {
-            if (temp->data < item)
-                temp = temp->link;
-            else if (temp->data == item) 
-                return temp;
-            else 
-                return NULL;
-        }
-    }
 };
 
 int main() {
@@ -95,6 +64,6 @@ int main() {
     list.insertFirst(10);
     list.printAll();
     Node *location = list.findLastSmaller(15);
-    list.insertIntoLocation(location, 25);
+    list.insertIntoLocation(location, 15);
     list.printAll();
 }

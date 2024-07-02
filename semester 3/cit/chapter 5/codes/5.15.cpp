@@ -30,29 +30,6 @@ public:
         size++;
     }
 
-    void insertInBetween(int item, Node *prev, Node *next) {
-        Node* newNode = new Node();
-        newNode->data = item;
-        newNode->next = next;
-        newNode->prev = prev;
-        prev->next = newNode;
-        next->prev = newNode;
-        size++;
-    }
-
-    void getLocationAndPrev(int data, Node* &location, Node* &prev) {
-        location = head->next;
-        prev = head;
-        while (location != tail) {
-            if (location->data == data) {
-                return;
-            }
-            prev = location;
-            location = location->next;
-        }
-        location = NULL;
-    }        
-
     void deleteAtPostion(Node *current) {
         current->prev->next = current->next;
         current->next->prev = current->prev;
@@ -93,14 +70,7 @@ int main() {
     list.insertBefore(4);
     list.insertBefore(5);
     list.print();
-
     list.remove(3);
     list.print();
-    
-    // Node *location, *prev;
-    // list.getLocationAndPrev(3, location, prev);
-    // list.insertInBetween(30, prev, location);
-    // list.print();
-
     return 0;
 }
