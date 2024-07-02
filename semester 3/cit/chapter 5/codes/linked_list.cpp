@@ -3,36 +3,36 @@ using namespace std;
 
 struct Node {
     int data;
-    Node* next;
+    Node* link;
     Node(int data) {
         this->data = data;
-        next = NULL;
+        link = NULL;
     }
 };
 
 class LinkedList {
 private:
-    Node *head;
+    Node *start;
 public:
     LinkedList() {
-        head = NULL;
+        start = NULL;
     }
     void insertFirst(int data) {
         Node *new_node = new Node(data);
-        new_node->next = head;
-        head = new_node;
+        new_node->link = start;
+        start = new_node;
     }
     void insertLast(int data) {
-        if (head == NULL) {
+        if (start == NULL) {
             insertFirst(data);
             return;
         }
-        Node *temp = head;
-        while (temp->next != NULL) {
-            temp = temp->next;
+        Node *temp = start;
+        while (temp->link != NULL) {
+            temp = temp->link;
         }
         Node *new_node = new Node(data);
-        temp->next = new_node;
+        temp->link = new_node;
     }
     void insertIntoLocation(Node *location, int item) {
         if (location == NULL) {
@@ -40,16 +40,16 @@ public:
             return;
         }
         Node *new_node = new Node(item);
-        new_node->next = location->next;
-        location->next = new_node;
+        new_node->link = location->link;
+        location->link = new_node;
     }
     Node *findLastSmaller(int item) {
-        Node *temp = head;
+        Node *temp = start;
         Node *prev = NULL;
         while (temp != NULL) {
             if (temp->data < item) {
                 prev = temp;
-                temp = temp->next;
+                temp = temp->link;
             } else {
                 return prev;
             }
@@ -57,7 +57,7 @@ public:
         return prev;
     }
     void insertIntoSorted(int item) {
-        if (head == NULL || head->data >= item) {
+        if (start == NULL || start->data >= item) {
             insertFirst(item);
             return;
         }
@@ -69,40 +69,40 @@ public:
         insertIntoLocation(location, item);
     }
     void printAll() {
-        if (head == NULL) {
+        if (start == NULL) {
             cout << "List is empty!\n";
             return;
         }
-        Node *temp = head;
+        Node *temp = start;
         while (temp != NULL) {
             cout << temp->data << " ";
-            temp = temp->next;
+            temp = temp->link;
         }
         cout << endl;
     }
     Node *search(int item) {
-        if (head == NULL) {
+        if (start == NULL) {
             cout << "List is empty!\n";
             return NULL;
         }
-        Node *temp = head;
+        Node *temp = start;
         while (temp != NULL) {
             if (temp->data == item) {
                 return temp;
             }
-            temp = temp->next;
+            temp = temp->link;
         }
         return NULL;
     }
     Node *searchSorted(int item) {
-        if (head == NULL) {
+        if (start == NULL) {
             cout << "List is empty!\n";
             return NULL;
         }
-        Node *temp = head;
+        Node *temp = start;
         while (temp != NULL) {
             if (temp->data < item)
-                temp = temp->next;
+                temp = temp->link;
             else if (temp->data == item) 
                 return temp;
             else 

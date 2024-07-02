@@ -3,60 +3,60 @@ using namespace std;
 
 struct Node {
     int data;
-    Node* next;
+    Node* link;
     Node(int data) {
         this->data = data;
-        next = NULL;
+        link = NULL;
     }
 };
 
 class LinkedList {
 private:
-    Node *head;
+    Node *start;
 public:
     LinkedList() {
-        head = NULL;
+        start = NULL;
     }
     void insertFirst(int data) {
         Node *new_node = new Node(data);
-        new_node->next = head;
-        head = new_node;
+        new_node->link = start;
+        start = new_node;
     }
     void printAll() {
-        if (head == NULL) {
+        if (start == NULL) {
             cout << "List is empty!\n";
             return;
         }
-        Node *temp = head;
+        Node *temp = start;
         while (temp != NULL) {
             cout << temp->data << " ";
-            temp = temp->next;
+            temp = temp->link;
         }
         cout << endl;
     }
     Node *search(int item) {
-        if (head == NULL) {
+        if (start == NULL) {
             cout << "List is empty!\n";
             return NULL;
         }
-        Node *temp = head;
+        Node *temp = start;
         while (temp != NULL) {
             if (temp->data == item) {
                 return temp;
             }
-            temp = temp->next;
+            temp = temp->link;
         }
         return NULL;
     }
     Node *searchSorted(int item) {
-        if (head == NULL) {
+        if (start == NULL) {
             cout << "List is empty!\n";
             return NULL;
         }
-        Node *temp = head;
+        Node *temp = start;
         while (temp != NULL) {
             if (temp->data < item)
-                temp = temp->next;
+                temp = temp->link;
             else if (temp->data == item) 
                 return temp;
             else 

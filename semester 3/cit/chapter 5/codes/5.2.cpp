@@ -3,31 +3,31 @@ using namespace std;
 
 struct Node {
     int data;
-    Node* next;
+    Node* link;
     Node(int data) {
         this->data = data;
-        next = NULL;
+        link = NULL;
     }
 };
 
 class LinkedList {
 private:
-    Node *head;
+    Node *start;
 public:
     LinkedList() {
-        head = NULL;
+        start = NULL;
     }
     Node *search(int item) {
-        if (head == NULL) {
+        if (start == NULL) {
             cout << "List is empty!\n";
             return NULL;
         }
-        Node *temp = head;
+        Node *temp = start;
         while (temp != NULL) {
             if (temp->data == item) {
                 return temp;
             }
-            temp = temp->next;
+            temp = temp->link;
         }
         return NULL;
     }

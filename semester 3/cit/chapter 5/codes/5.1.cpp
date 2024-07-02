@@ -3,29 +3,29 @@ using namespace std;
 
 struct Node {
     int data;
-    Node* next;
+    Node* link;
     Node(int data) {
         this->data = data;
-        next = NULL;
+        link = NULL;
     }
 };
 
 class LinkedList {
 private:
-    Node *head;
+    Node *start;
 public:
     LinkedList() {
-        head = NULL;
+        start = NULL;
     }
     void printAll() {
-        if (head == NULL) {
+        if (start == NULL) {
             cout << "List is empty!\n";
             return;
         }
-        Node *temp = head;
+        Node *temp = start;
         while (temp != NULL) {
             cout << temp->data << " ";
-            temp = temp->next;
+            temp = temp->link;
         }
         cout << endl;
     }
