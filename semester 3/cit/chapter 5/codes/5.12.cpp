@@ -28,6 +28,21 @@ public:
         new_node->link = start->link;
         start->link = new_node;
     }
+    Node *search(int data) {
+        if (start == NULL) {
+            cout << "List is empty" << endl;
+            return NULL;
+        }
+        Node *temp = start->link;
+        while (temp != start) {
+            if (temp->data == data) {
+                return temp;
+            }
+            temp = temp->link;
+        }
+        cout << "Element not found" << endl;
+        return NULL;
+    }
     void listAll() {
         if (start == NULL) {
             cout << "List is empty" << endl;
@@ -49,5 +64,9 @@ int main() {
     list.insertAtBeginning(50);
     list.insertAtBeginning(5);
     list.listAll();
+    Node *searched = list.search(10);
+    if (searched != NULL) {
+        cout << "Element found: " << searched->data << endl;
+    }
     return 0;
 }
