@@ -34,6 +34,7 @@ public:
         Node *new_node = new Node(data);
         temp->link = new_node;
     }
+
     void insertIntoLocation(Node *location, int item) {
         if (location == NULL) {
             insertFirst(item);
@@ -68,6 +69,39 @@ public:
         }
         insertIntoLocation(location, item);
     }
+
+    void deleteAtLocation(Node *location, Node *prev_location) {
+        if (prev_location == NULL) {
+            start = start->link;
+        } else {
+            prev_location->link = location->link;
+        }
+        delete location;
+    }
+    void findLocationAndPrev(int item, Node *&location, Node *&prev) {
+        prev = NULL;
+        location = start;
+        while (location != NULL) {
+            if (location->data == item) {
+                return;
+            } else {
+                prev = location;
+                location = location->link;
+            }
+        }
+        location = NULL;
+        return;
+    }
+    void deleteItem(int item) {
+        Node *location, *prev;
+        findLocationAndPrev(item, location, prev);
+        if (location == NULL) {
+            cout << "Item not found!\n";
+            return;
+        }
+        deleteAtLocation(location, prev);
+    }
+
     void printAll() {
         if (start == NULL) {
             cout << "List is empty!\n";
@@ -115,7 +149,6 @@ int main() {
     LinkedList list;
     list.insertFirst(20);
     list.insertFirst(10);
-    list.printAll();
     // Node *found_1 = list.search(10);
     // if (found_1 != NULL) {
     //     cout << "Found: " << found_1->data << endl;
@@ -129,5 +162,8 @@ int main() {
         cout << "Not found!\n";
     }
     list.insertIntoSorted(25);
+    list.printAll();
+
+    list.deleteItem(30);
     list.printAll();
 }
