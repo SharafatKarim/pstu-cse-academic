@@ -94,13 +94,17 @@ int main() {
     list.insertBefore(5);
     list.print();
 
-    list.remove(3);
+    list.remove(4);
     list.print();
     
-    // Node *location, *prev;
-    // list.getLocationAndPrev(3, location, prev);
-    // list.insertInBetween(30, prev, location);
-    // list.print();
+    Node *location, *prev;
+    list.getLocationAndPrev(3, location, prev);
+    if (location == NULL) {
+        cout << "Not found" << endl;
+    } else {
+        list.insertInBetween(4, prev, location);
+    }
+    list.print();
 
     return 0;
 }
