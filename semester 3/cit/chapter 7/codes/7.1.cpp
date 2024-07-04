@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stack>
+#include <queue>
 
 using namespace std;
 
@@ -27,26 +28,27 @@ public:
             root = newNode;
             return;
         }
-        stack<Node*> s;
-        s.push(root);
-        while (!s.empty()) {
-            Node *temp = s.top();
-            s.pop();
+        queue<Node*> q;
+        q.push(root);
+        while (!q.empty()) {
+            Node *temp = q.front();
+            q.pop();
             if (temp->left == NULL) {
                 temp->left = newNode;
                 return;
             } else {
-                s.push(temp->left);
+                q.push(temp->left);
             }
             if (temp->right == NULL) {
                 temp->right = newNode;
                 return;
             } else {
-                s.push(temp->right);
+                q.push(temp->right);
             }
         }
     }
     
+    // this is the reason we needed to keep root as public
     void preOrderTraversal_Recursion(Node *root) {
         if (root == NULL) {
             return;
@@ -56,7 +58,7 @@ public:
         preOrderTraversal_Recursion(root->right);
     }
 
-    void preOrderTraversal_Iterative(Node *root) {
+    void preOrderTraversal_Iterative() {
         stack<Node *> stack;
         stack.push(root);
         while (!stack.empty()) {
@@ -68,22 +70,6 @@ public:
             }
             if (temp->left != NULL) {
                 stack.push(temp->left);
-            }
-        }
-    }
-
-    void preOrderTraversal_Iterative_2(Node *root) {
-        stack<Node*> s;
-        s.push(root);
-        while (!s.empty()) {
-            Node *temp = s.top();
-            s.pop();
-            cout << temp->data << " ";
-            if (temp->right != NULL) {
-                s.push(temp->right);
-            }
-            if (temp->left != NULL) {
-                s.push(temp->left);
             }
         }
     }
@@ -101,15 +87,12 @@ int main() {
     tree.insert(80);
     tree.insert(90);
     tree.insert(100);
-    
+
     cout << "Preorder Traversal (Recursion): ";
-    tree.preOrderTraversal_Recursion(tree.root);
+    tree.preOrderTraversal_Recursion(tree.root); 
     cout << endl;
     cout << "Preorder Traversal (Iterative): ";
-    tree.preOrderTraversal_Iterative(tree.root);
-    cout << endl;
-    cout << "Preorder Traversal (Iterative): ";
-    tree.preOrderTraversal_Iterative_2(tree.root);
+    tree.preOrderTraversal_Iterative();
     cout << endl;
 
     return 0;

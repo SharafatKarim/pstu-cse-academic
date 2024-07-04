@@ -121,6 +121,22 @@ void postOrderTraversal_Iterative(Node *root) {
     }
 }
 
+void levelOrderTraversal(Node *root) {
+    queue<Node*> q;
+    q.push(root);
+    while (!q.empty()) {
+        Node *temp = q.front();
+        q.pop();
+        cout << temp->data << " ";
+        if (temp->left != NULL) {
+            q.push(temp->left);
+        }
+        if (temp->right != NULL) {
+            q.push(temp->right);
+        }
+    }
+}
+
 int main() {
     Node *tree = NULL;
     tree = insert(tree, 10);
@@ -151,6 +167,10 @@ int main() {
     cout << endl;
     cout << "Postorder Traversal (Iterative): ";
     postOrderTraversal_Iterative(tree);
+    cout << endl;
+
+    cout << "Level Order Traversal: ";
+    levelOrderTraversal(tree);
     cout << endl;
 
     return 0;

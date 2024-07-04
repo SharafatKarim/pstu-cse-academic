@@ -41,32 +41,7 @@ Node *insert(Node *root, int data) {
     }
     return root;
 }
-    
-void preOrderTraversal_Recursion(Node *root) {
-    if (root == NULL) {
-        return;
-    }
-    cout << root->data << " ";
-    preOrderTraversal_Recursion(root->left);
-    preOrderTraversal_Recursion(root->right);
-}
-
-void preOrderTraversal_Iterative(Node *root) {
-    stack<Node*> s;
-    s.push(root);
-    while (!s.empty()) {
-        Node *temp = s.top();
-        s.pop();
-        cout << temp->data << " ";
-        if (temp->right != NULL) {
-            s.push(temp->right);
-        }
-        if (temp->left != NULL) {
-            s.push(temp->left);
-        }
-    }
-}
-
+  
 void inOrderTraversal_Recursion(Node *root) {
     if (root == NULL) {
         return;
@@ -91,36 +66,6 @@ void inOrderTraversal_Iterative(Node *root) {
     }
 }
 
-void postOrderTraversal_Recursion(Node *root) {
-    if (root == NULL) {
-        return;
-    }
-    postOrderTraversal_Recursion(root->left);
-    postOrderTraversal_Recursion(root->right);
-    cout << root->data << " ";
-}
-
-void postOrderTraversal_Iterative(Node *root) {
-    stack<Node*> s1;
-    stack<Node*> s2;
-    s1.push(root);
-    while (!s1.empty()) {
-        Node *temp = s1.top();
-        s1.pop();
-        s2.push(temp);
-        if (temp->left != NULL) {
-            s1.push(temp->left);
-        }
-        if (temp->right != NULL) {
-            s1.push(temp->right);
-        }
-    }
-    while (!s2.empty()) {
-        cout << s2.top()->data << " ";
-        s2.pop();
-    }
-}
-
 int main() {
     Node *tree = NULL;
     tree = insert(tree, 10);
@@ -134,23 +79,11 @@ int main() {
     tree = insert(tree, 90);
     tree = insert(tree, 100);
 
-    cout << "Preorder Traversal (Recursion): ";
-    preOrderTraversal_Recursion(tree);
-    cout << endl;
-    cout << "Preorder Traversal (Iterative): ";
-    preOrderTraversal_Iterative(tree);
-    cout << endl;
     cout << "Inorder Traversal (Recursion): ";
     inOrderTraversal_Recursion(tree);
     cout << endl;
     cout << "Inorder Traversal (Iterative): ";
     inOrderTraversal_Iterative(tree);
-    cout << endl;
-    cout << "Postorder Traversal (Recursion): ";
-    postOrderTraversal_Recursion(tree);
-    cout << endl;
-    cout << "Postorder Traversal (Iterative): ";
-    postOrderTraversal_Iterative(tree);
     cout << endl;
 
     return 0;
