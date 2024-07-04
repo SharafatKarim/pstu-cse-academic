@@ -49,7 +49,7 @@ void inOrderTraversal_Recursion(Node *root) {
     inOrderTraversal_Recursion(root->left);
     cout << root->data << " ";
     inOrderTraversal_Recursion(root->right);
-}
+} 
 
 void inOrderTraversal_Iterative(Node *root) {
     stack<Node*> s;
