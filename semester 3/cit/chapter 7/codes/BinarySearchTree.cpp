@@ -15,10 +15,10 @@ struct Node {
     }
 };
 
-void find(Node *root, Node *&location, Node *&previous, int item) {
+void find(Node *&root, Node *&location, Node *&previous, int item) {
     location = root;
     previous = NULL;
-    if (root == NULL) {
+    if (location == NULL) {
         return;
     }
     while (location != NULL) {
@@ -36,7 +36,7 @@ void find(Node *root, Node *&location, Node *&previous, int item) {
     }
 }
 
-void insert(Node *root, int item) {
+void insert(Node *&root, int item) {
     Node *location, *previous;
     find(root, location, previous, item);
     if (location != NULL) return;
@@ -48,8 +48,30 @@ void insert(Node *root, int item) {
         previous -> right = new Node(item);
 }
 
+void preorder(Node *root) {
+    if (root == NULL) return;
+    cout << root -> data << " ";
+    preorder(root -> left);
+    preorder(root -> right);
+}
+
+void inorder(Node *root) {
+    if (root == NULL) return;
+    inorder(root -> left);
+    cout << root -> data << " ";
+    inorder(root -> right);
+}
+
 int main() {
     Node* tree = NULL;
+    insert(tree, 25);
     insert(tree, 5);
     insert(tree, 50);
+    insert(tree, 5);
+    insert(tree, 45);
+
+    cout << "Preorder -> \n";
+    preorder(tree);
+    cout << "\nInorder -> \n";
+    inorder(tree);
 }
