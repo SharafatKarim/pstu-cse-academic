@@ -12,14 +12,14 @@ public:
 
     Node (int data) {
         this->data = data;
-        this->next_link = nullptr;
-        this->adjacent = nullptr;
-        this->destination = nullptr;
+        this->next_link = NULL;
+        this->adjacent = NULL;
+        this->destination = NULL;
     }
     Node (Node* destination) {
         this->data = 0;
-        this->next_link = nullptr;
-        this->adjacent = nullptr;
+        this->next_link = NULL;
+        this->adjacent = NULL;
         this->destination = destination;
     }
 };
@@ -27,20 +27,20 @@ public:
 class Graph {
     Node* start; 
 public:
-    Graph() : start(nullptr) {}
+    Graph() : start(NULL) {}
     
     Node* find(int data) {
         Node* temp = start;
-        while (temp != nullptr) {
+        while (temp != NULL) {
             if (temp->data == data) return temp;
             temp = temp->next_link;
         }
-        return nullptr;
+        return NULL;
     }
 
     void insertNode(int data) {
         Node* new_node = new Node(data);
-        if (start == nullptr) {
+        if (start == NULL) {
             start = new_node;
         } else {
             new_node->next_link = start;
@@ -51,7 +51,7 @@ public:
     void insertEdge(int data1, int data2) {
         Node* node1 = find(data1);
         Node* node2 = find(data2);
-        if (node1 == nullptr || node2 == nullptr) {
+        if (node1 == NULL || node2 == NULL) {
             cout << "Node not found" << endl;
             return;
         }
@@ -61,19 +61,20 @@ public:
     }
     
     void test() {
-        if (start == nullptr) cout << "Graph is empty" << endl;
-        else cout << "Graph is not empty" << endl;
+        cout << (start -> next_link == NULL) << endl;
     }
 
     void printAll() {
         Node* temp = start;
-        while (temp != nullptr) {
-            cout << temp->data << ": ";
-            for (auto adj : temp->adjacents) {
-                cout << adj->data << " ";
+        while (temp != NULL) {
+            cout << temp->data << " -> ";
+            Node* temp2 = temp->adjacent;
+            while (temp2 != NULL) {
+                cout << temp2->destination->data << ", ";
+                temp2 = temp2->next_link;
             }
-            cout << endl;
             temp = temp->next_link;
+            cout << endl;
         }
     }
 };
@@ -83,7 +84,10 @@ int main() {
     g.insertNode(1);
     g.insertNode(2);
     g.insertEdge(1, 2);
-    g.test();
     g.printAll();
+    
+    Node* n = g.find(2);
+    cout << n->data << endl;
+
     return 0;
 }
