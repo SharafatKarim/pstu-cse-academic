@@ -75,6 +75,17 @@ public:
             cout << "Node not found" << endl;
             return;
         }
+        
+        Node* temp = node1->adjacent;
+        while (temp != NULL)
+        {
+            if (temp->destination == node2) {
+                cout << "Edge already exists" << endl;
+                return;
+            }
+            temp = temp->next_link;
+        }
+
         Node* new_node = new Node(node2);
         new_node->next_link = node1->adjacent;
         node1->adjacent = new_node;
@@ -186,16 +197,18 @@ int main() {
     g.insertNode(3);
 
     g.insertEdge(1, 2);
+    g.insertEdge(1, 2); // Edge already exists
     g.insertEdge(2, 3);
+    g.insertEdge(3, 2);
     g.insertEdge(2, 1);
 
     g.deleteNode(1);
-    // g.deleteEdge(1, 2);
+    g.deleteEdge(2, 3);
 
     g.printAll();
     
     // Node* n = g.find(2);
-    // cout << n->data << endl;
+    // cout << "Found: " << n->data << endl;
 
     // Node* e = g.findEdge(2, 1);
     // cout << e->destination->data << endl;
