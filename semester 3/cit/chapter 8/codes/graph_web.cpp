@@ -10,6 +10,7 @@ public:
         adjList[u].push_back(v);
         if(bidir) adjList[v].push_back(u);
     }
+
     void print() {
         for(auto i : adjList) {
             cout << i.first << " -> ";
@@ -19,6 +20,7 @@ public:
             cout << endl;
         }
     }
+
     void bfs(T src) {
         queue<T> q;
         map<T, bool> visited;
@@ -36,45 +38,7 @@ public:
             }
         }
     }
-    void sssp(T src) {
-        queue<T> q;
-        map<T, int> dist;
-        // map<T, T> parent;
-        for(auto i : adjList) {
-            dist[i.first] = INT_MAX;
-        }
-        q.push(src);
-        dist[src] = 0;
-        // parent[src] = src;
-        while(!q.empty()) {
-            T node = q.front();
-            q.pop();
-            for(auto neighbour : adjList[node]) {
-                if(dist[neighbour] == INT_MAX) {
-                    q.push(neighbour);
-                    dist[neighbour] = dist[node] + 1;
-                    // parent[neighbour] = node;
-                }
-            }
-        }
-        for(auto i : adjList) {
-            T node = i.first;
-            cout << "Distance of " << node << " from " << src << " is " << dist[node] << endl;
-        }
-    }
-    void dfsHelper(T node, map<T, bool> &visited) {
-        visited[node] = true;
-        cout << node << " ";
-        for(auto neighbour : adjList[node]) {
-            if(!visited[neighbour]) {
-                dfsHelper(neighbour, visited);
-            }
-        }
-    }
-    // void dfs(T src) {
-    //     map<T, bool> visited;
-    //     dfsHelper(src, visited);
-    // }
+
     void dfs(T src) {
         stack<T> s;
         map<T, bool> visited;
@@ -90,6 +54,50 @@ public:
                     visited[neighbour] = true;
                 }
             }
+        }
+    }
+
+    void topologicalSort() {
+        map<T, int> indegree;
+        queue<T> q;
+        for(auto i : adjList) {
+            indegree[i.first] = i.second.size();
+            if (indegree[i.first] == 0) 
+                q.push(i.first);
+        }
+        while(!q.empty()) {
+            T node = q.front();
+            cout << node << " ";
+            q.pop();
+            for(auto neighbour : adjList[node]) {
+                indegree[neighbour]--;
+                if(indegree[neighbour] == 0) 
+                    q.push(neighbour);
+            }
+        }
+    }
+
+    void sssp(T src) {
+        queue<T> q;
+        map<T, int> dist;
+        for(auto i : adjList) {
+            dist[i.first] = INT_MAX;
+        }
+        q.push(src);
+        dist[src] = 0;
+        while(!q.empty()) {
+            T node = q.front();
+            q.pop();
+            for(auto neighbour : adjList[node]) {
+                if(dist[neighbour] == INT_MAX) {
+                    q.push(neighbour);
+                    dist[neighbour] = dist[node] + 1;
+                }
+            }
+        }
+        for(auto i : adjList) {
+            T node = i.first;
+            cout << "Distance of " << node << " from " << src << " is " << dist[node] << endl;
         }
     }
 };
@@ -119,6 +127,9 @@ int main() {
 
     cout << endl;
     g.dfs('J');
+
+    cout << endl;
+    g.topologicalSort();
 
     cout << endl;
     g.sssp('A');

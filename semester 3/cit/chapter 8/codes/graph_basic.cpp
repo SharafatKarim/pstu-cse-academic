@@ -169,10 +169,6 @@ public:
         }
         cout << "Edge not found" << endl;
     }
-    
-    void test() {
-        cout << (start -> next_link == NULL) << endl;
-    }
 
     void printAll() {
         Node* temp = start;
