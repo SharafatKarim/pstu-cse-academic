@@ -5,7 +5,7 @@ using namespace std;
 void mergeSortProcess(int* arr, int low, int mid, int high) {
     int i, j, k;
     int temp[high - low + 1];
-    for (i = low, j = mid + 1, k = 0; i <= mid || j <= high; k++) {
+    for (i = low, j = mid + 1, k = 0; i <= mid && j <= high; k++) {
         if (arr[i] < arr[j]) {
             temp[k] = arr[i];
             i++;
