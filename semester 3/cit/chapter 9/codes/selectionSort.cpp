@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void mergeSort(int* arr, int size) {
+void selectionSort(int* arr, int size) {
     for (int i = 0; i < size - 1; i++) {
         for (int j = i + 1; j < size; j++) {
             if (arr[j] < arr[i]) {
@@ -21,6 +21,6 @@ void print(int* arr, int size) {
 
 int main() {
     int arr[] = {5, 2, 4, 6, 1, 3};
-    mergeSort(arr, sizeof(arr)/sizeof(arr[0]));
+    selectionSort(arr, sizeof(arr)/sizeof(arr[0]));
     print(arr, sizeof(arr)/sizeof(arr[0]));
 }
