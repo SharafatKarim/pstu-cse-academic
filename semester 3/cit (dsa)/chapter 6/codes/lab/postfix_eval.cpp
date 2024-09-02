@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -112,11 +113,16 @@ string toPostfix(string str) {
 
     return exp;
 }
+string toPrefix(string str) {
+    reverse(str.begin(), str.end());
+    return str;
+}
 
 int main() {
     string str;
-    str = "1 + 5 * 6 - 1";
-    postfixEval(toPostfix(str));
+    str = "1 + 5 * 62 - 1";
+    // postfixEval(toPostfix(str));
+    cout <<toPrefix(toPostfix(str));
     // postfixEval("5 6 7 + + ");
     return 0;
 }
