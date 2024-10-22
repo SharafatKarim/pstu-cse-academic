@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1920"
+   height="1080"
+   viewBox="0 0 1920 1080"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="drawing.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="0.78148148"
+     inkscape:cx="1016.6588"
+     inkscape:cy="548.95735"
+     inkscape:window-width="1920"
+     inkscape:window-height="1050"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="ColoredTriangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Colored triangle"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path5" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#d7f4e3;stroke:#000000;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:15, 15;stroke-dashoffset:0"
+       id="rect8"
+       width="513.94263"
+       height="582.70959"
+       x="1377.339"
+       y="137.53395" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:5.356;stroke-linecap:round;stroke-linejoin:round"
+       id="rect1"
+       width="300.71091"
+       height="139.47867"
+       x="1455.9867"
+       y="207.29858" />
+    <text
+       xml:space="preserve"
+       style="font-size:63.1149px;line-height:0.6;font-family:'Ubuntu Nerd Font';-inkscape-font-specification:'Ubuntu Nerd Font, Normal';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.405112;stroke-linecap:round;stroke-linejoin:round"
+       x="1606.4368"
+       y="301.1478"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         x="1606.4368"
+         y="301.1478"
+         style="stroke-width:0.405112">database</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:5.356;stroke-linecap:round;stroke-linejoin:round"
+       id="rect2"
+       width="300.71091"
+       height="139.47867"
+       x="1455.9867"
+       y="516.57123" />
+    <text
+       xml:space="preserve"
+       style="font-size:63.1149px;line-height:0.6;font-family:'Ubuntu Nerd Font';-inkscape-font-specification:'Ubuntu Nerd Font, Normal';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.405112;stroke-linecap:round;stroke-linejoin:round"
+       x="1606.4368"
+       y="610.42047"
+       id="text2"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         x="1606.4368"
+         y="610.42047"
+         style="stroke-width:0.405112">FastAPI</tspan></text>
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:5.01523;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#ColoredTriangle)"
+       d="M 1555.5901,349.12532 V 495.65286"
+       id="path2" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:5.01523;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#ColoredTriangle)"
+       d="M 1589.358,512.62496 V 366.09742"
+       id="path3" />
+    <text
+       xml:space="preserve"
+       style="font-size:40.6128px;line-height:0.6;font-family:'Ubuntu Nerd Font';-inkscape-font-specification:'Ubuntu Nerd Font, Normal';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke:#000000;stroke-width:0.26068;stroke-linecap:round;stroke-linejoin:round"
+       x="1721.347"
+       y="443.61441"
+       id="text3"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         x="1721.347"
+         y="443.61441"
+         style="stroke-width:0.26068">SQLAlchemy</tspan></text>
+    <rect
+       style="fill:#e9c6af;stroke:#000000;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:15, 15;stroke-dashoffset:0"
+       id="rect9"
+       width="1213.1196"
+       height="579.98163"
+       x="54.249165"
+       y="138.89793" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:5.356;stroke-linecap:round;stroke-linejoin:round"
+       id="rect3"
+       width="300.71091"
+       height="139.47867"
+       x="903.14911"
+       y="516.57123" />
+    <text
+       xml:space="preserve"
+       style="font-size:63.1149px;line-height:0.6;font-family:'Ubuntu Nerd Font';-inkscape-font-specification:'Ubuntu Nerd Font, Normal';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.405112;stroke-linecap:round;stroke-linejoin:round"
+       x="1053.5992"
+       y="610.42041"
+       id="text4"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         x="1053.5992"
+         y="610.42041"
+         style="stroke-width:0.405112">ESP-32</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:5.356;stroke-linecap:round;stroke-linejoin:round"
+       id="rect4"
+       width="300.71091"
+       height="139.47867"
+       x="510.45349"
+       y="516.57123" />
+    <text
+       xml:space="preserve"
+       style="font-size:63.1149px;line-height:0.6;font-family:'Ubuntu Nerd Font';-inkscape-font-specification:'Ubuntu Nerd Font, Normal';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.405112;stroke-linecap:round;stroke-linejoin:round"
+       x="660.90369"
+       y="610.42041"
+       id="text5"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         x="660.90369"
+         y="610.42041"
+         style="stroke-width:0.405112">UNO R3</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:5.356;stroke-linecap:round;stroke-linejoin:round"
+       id="rect6"
+       width="300.71091"
+       height="139.47867"
+       x="117.75787"
+       y="516.57123" />
+    <text
+       xml:space="preserve"
+       style="font-size:63.1149px;line-height:0.6;font-family:'Ubuntu Nerd Font';-inkscape-font-specification:'Ubuntu Nerd Font, Normal';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.405112;stroke-linecap:round;stroke-linejoin:round"
+       x="268.20807"
+       y="589.08765"
+       id="text6"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         x="268.20807"
+         y="589.08765"
+         style="stroke-width:0.405112"
+         dy="-5.3900046">RFID </tspan><tspan
+         sodipodi:role="line"
+         x="268.20807"
+         y="626.9566"
+         style="stroke-width:0.405112"
+         id="tspan8">reader</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:5.356;stroke-linecap:round;stroke-linejoin:round"
+       id="rect7"
+       width="300.71091"
+       height="139.47867"
+       x="117.75787"
+       y="300.35452" />
+    <text
+       xml:space="preserve"
+       style="font-size:63.1149px;line-height:0.6;font-family:'Ubuntu Nerd Font';-inkscape-font-specification:'Ubuntu Nerd Font, Normal';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.405112;stroke-linecap:round;stroke-linejoin:round"
+       x="268.20807"
+       y="394.2037"
+       id="text7"><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         x="268.20807"
+         y="394.2037"
+         style="stroke-width:0.405112">PIR</tspan></text>
+    <g
+       id="g10"
+       transform="matrix(0,-0.95494352,1.479851,0,131.39779,2053.6716)">
+      <path
+         style="fill:#000000;stroke:#000000;stroke-width:5.01523;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#ColoredTriangle)"
+         d="M 1517.3975,728.54555 V 875.07309"
+         id="path9" />
+      <path
+         style="fill:#000000;stroke:#000000;stroke-width:5.01523;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#ColoredTriangle)"
+         d="M 1551.1654,892.04519 V 745.51765"
+         id="path10" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:63.1149px;line-height:0.6;font-family:'Ubuntu Nerd Font';-inkscape-font-specification:'Ubuntu Nerd Font, Normal';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.405112;stroke-linecap:round;stroke-linejoin:round"
+       x="660.90369"
+       y="829.38892"
+       id="text10"><tspan
+         sodipodi:role="line"
+         id="tspan10"
+         x="660.90369"
+         y="829.38892"
+         style="stroke-width:0.405112">USER SIDE (Front End)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:63.1149px;line-height:0.6;font-family:'Ubuntu Nerd Font';-inkscape-font-specification:'Ubuntu Nerd Font, Normal';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.405112;stroke-linecap:round;stroke-linejoin:round"
+       x="1634.5028"
+       y="829.38892"
+       id="text11"><tspan
+         sodipodi:role="line"
+         id="tspan11"
+         x="1634.5028"
+         y="829.38892"
+         style="stroke-width:0.405112">Back End</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:43.947px;line-height:0.6;font-family:'Ubuntu Nerd Font';-inkscape-font-specification:'Ubuntu Nerd Font, Normal';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.405112;stroke-linecap:round;stroke-linejoin:round"
+       x="1634.6921"
+       y="864.55682"
+       id="text12"><tspan
+         sodipodi:role="line"
+         id="tspan12"
+         x="1634.6921"
+         y="864.55682"
+         style="stroke-width:0.405112">(server)</tspan></text>
+    <g
+       id="g13"
+       transform="matrix(0,-0.95494352,0.48252753,0,467.82985,2053.6716)"
+       style="stroke-width:1.75125">
+      <path
+         style="fill:#000000;stroke:#000000;stroke-width:8.78291;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#ColoredTriangle)"
+         d="M 1517.3975,728.54555 V 875.07309"
+         id="path12" />
+      <path
+         style="fill:#000000;stroke:#000000;stroke-width:8.78291;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#ColoredTriangle)"
+         d="M 1551.1654,892.04519 V 745.51765"
+         id="path13" />
+    </g>
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:5.96195;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#ColoredTriangle)"
+       d="m 423.91991,596.47805 h 70.70357"
+       id="path14" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:5.96195;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#ColoredTriangle)"
+       d="m 423.05522,432.61609 71.74853,71.74853"
+       id="path15" />
+    <g
+       id="g17"
+       transform="matrix(-0.95494352,0,0,-0.48252753,2161.46,850.67625)"
+       style="stroke-width:1.75125">
+      <path
+         style="fill:#000000;stroke:#000000;stroke-width:8.78291;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#ColoredTriangle)"
+         d="M 1517.3975,728.54555 V 875.07309"
+         id="path16" />
+      <path
+         style="fill:#000000;stroke:#000000;stroke-width:8.78291;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#ColoredTriangle)"
+         d="M 1551.1654,892.04519 V 745.51765"
+         id="path17" />
+    </g>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:5.356;stroke-linecap:round;stroke-linejoin:round"
+       id="rect17"
+       width="433.79147"
+       height="139.47867"
+       x="467.29956"
+       y="269.47531" />
+    <text
+       xml:space="preserve"
+       style="font-size:63.1149px;line-height:0.6;font-family:'Ubuntu Nerd Font';-inkscape-font-specification:'Ubuntu Nerd Font, Normal';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.405112;stroke-linecap:round;stroke-linejoin:round"
+       x="684.29004"
+       y="363.32449"
+       id="text17"><tspan
+         sodipodi:role="line"
+         id="tspan17"
+         x="684.29004"
+         y="363.32449"
+         style="stroke-width:0.405112">Serial monitor</tspan></text>
+  </g>
+</svg>
