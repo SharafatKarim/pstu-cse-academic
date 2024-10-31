@@ -16,11 +16,15 @@ int find(int n) {
 }
 
 void unite(int i, int j) {
-  parent[find(i)] = find(j); 
+  parent[find(i)] = find(j);
 }
 
 int main() {
   makeSet(1e6);
-  cout << find(1024);
+  unite(1024, 2048);
+  unite(2048, 4096);
+  cout << find(1024) << endl;
+  cout << find(2048) << endl;
+  cout << find(4096) << endl;
   return 0;
 }
