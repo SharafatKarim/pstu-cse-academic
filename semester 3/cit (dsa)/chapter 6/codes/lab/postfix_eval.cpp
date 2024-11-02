@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -18,7 +17,7 @@ void postfixEval(string str) {
 
     stack<string> st;
     for (auto i: main) {
-        cout << "->" << i << endl;
+        // cout << "->" << i << endl;
         if (i == "+") {
             int b = stoi(st.top());
             st.pop();
@@ -95,13 +94,10 @@ string toPostfix(string str) {
         if (i == "(") {
             st.push(i);
         } else if (i == "+" || i == "-" || i == "*" || i == "/" || i == "^") {
-            if (precedenceCheck(st.top(), i)) {
+            while (precedenceCheck(st.top(), i)) {
                 exp += st.top() + " ";
                 st.pop();
-                st.push(i);
-            } else {
-                st.push(i);
-            }
+            } st.push(i);
         } else if (i == ")") {
             while (st.top() != "(") {
                 exp += st.top() + " ";
@@ -113,16 +109,11 @@ string toPostfix(string str) {
 
     return exp;
 }
-string toPrefix(string str) {
-    reverse(str.begin(), str.end());
-    return str;
-}
 
 int main() {
     string str;
     str = "1 + 5 * 62 - 1";
-    // postfixEval(toPostfix(str));
-    cout <<toPrefix(toPostfix(str));
-    // postfixEval("5 6 7 + + ");
+    // cout << toPostfix(str);
+    postfixEval(toPostfix(str));
     return 0;
 }

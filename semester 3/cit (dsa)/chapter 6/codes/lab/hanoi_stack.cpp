@@ -3,13 +3,7 @@ using namespace std;
 
 void hanoi_stack(int n, char beg, char aux, char end) {
     stack<pair<int, vector<char>>> st;
-    pair<int, vector<char>> pa;
-    pa.first = n;
-    pa.second.push_back(beg);
-    pa.second.push_back(aux);
-    pa.second.push_back(end);
     st.push({n, {beg, aux, end}});
-    pa.second.clear();
 
     while (!st.empty()) {
         int n = st.top().first;
@@ -20,29 +14,9 @@ void hanoi_stack(int n, char beg, char aux, char end) {
         if (n == 1) {
             cout << beg << " -> " << end << endl;
         } else {
-            pa.first = n - 1;
-            pa.second.push_back(aux);
-            pa.second.push_back(beg);
-            pa.second.push_back(end);
-            // st.push(pa);
             st.push({n-1, {aux, beg, end}});
-            pa.second.clear();
-
-            pa.first = 1;
-            pa.second.push_back(beg);
-            pa.second.push_back(aux);
-            pa.second.push_back(end);
-            // st.push(pa);
             st.push({1, {beg, aux, end}});
-            pa.second.clear();
-
-            pa.first = n - 1;
-            pa.second.push_back(beg);
-            pa.second.push_back(end);
-            pa.second.push_back(aux);
-            // st.push(pa);
             st.push({n-1, {beg, end, aux}});
-            pa.second.clear();
         }
     }
 }
