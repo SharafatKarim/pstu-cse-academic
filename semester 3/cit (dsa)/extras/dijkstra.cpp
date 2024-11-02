@@ -24,9 +24,9 @@ void dijkstra(int src) {
     int u = p.second;
     int w = p.first;
 
-    for (auto i = graph[u].begin(); i != graph[u].end(); i++) {
-      int v = i->first;
-      int wt = i->second;
+    for (auto i: graph[u]) {
+      int v = i.first;
+      int wt = i.second;
       if (distance[u] + wt < distance[v]) {
         distance[v] = distance[u] + wt;
         pq.push({distance[v], v});
