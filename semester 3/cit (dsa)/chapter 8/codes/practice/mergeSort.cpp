@@ -3,6 +3,10 @@ using namespace std;
 
 void printArr(vector<int> &arr);
 
+void mergeSortProcess(vector<int> &arr, int low, int mid, int high) {
+
+}
+
 void printArr(vector<int> &arr) {
     for (auto i: arr)
         cout << i << " ";
