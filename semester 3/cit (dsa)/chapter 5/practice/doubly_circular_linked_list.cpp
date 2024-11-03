@@ -15,11 +15,10 @@ public:
 };
 
 template <typename T> class DoublyLinkedList {
-  Node<T> *head;
-  Node<T> *tail;
-
 public:
-  DoublyLinkedList() { head = tail = new Node(0); }
+  Node<T> *head;
+
+  DoublyLinkedList() { head = new Node(0); }
   ~DoublyLinkedList() {
     Node<T> *temp = head;
     while (temp != nullptr) {
@@ -38,8 +37,8 @@ public:
 
   void printAll() {
     Node<T> *temp = head->next;
-    while (temp != head) {
-      cout << temp-> data << " ";
+    while (temp != nullptr) {
+      cout << temp->data << " ";
       temp = temp->next;
     }
     cout << endl;
