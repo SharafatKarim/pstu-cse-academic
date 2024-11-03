@@ -137,11 +137,10 @@ public:
         while (temp != NULL) {
             if (temp->data < item)
                 temp = temp->link;
-            else if (temp->data == item) 
+            else if (temp->data == item)
                 return temp;
-            else 
-                return NULL;
         }
+        return NULL;
     }
 };
 
