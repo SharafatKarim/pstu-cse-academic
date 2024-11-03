@@ -63,14 +63,23 @@ public:
 };
 
 int main() {
-    int array [] = {-5, 10, 3, 1, 15, -4, 7, 1};
+    // int array [] = {-5, 10, 3, 1, 15, -4, 7, 1};
+
+    int n;
+    cin >> n;
+
+    int arr[n];
+    for (int i=0; i<n; i++) {
+        cin >> arr[i];
+    }
+
     Heap<int> heap;
-    for (int i=0; i<6; i++) {
+    for (int i=0; i<n; i++) {
         heap.insert(array[i]);
     }
     heap.printAll();
 
-    for (int i=0; i<6; i++) {
+    for (int i=0; i<n; i++) {
         cout << heap.deleteMax() << " ";
     } cout << endl;
     return 0;
