@@ -128,14 +128,20 @@ void level_order(Node *root) {
 
 int main() {
     Node* tree = NULL;
-    insert(tree, 60);
-    insert(tree, 25);
-    insert(tree, 75);
-    insert(tree, 15);
-    insert(tree, 50);
-    insert(tree, 66);
-    insert(tree, 33);
-    insert(tree, 44);
+    // insert(tree, 60);
+    // insert(tree, 25);
+    // insert(tree, 75);
+    // insert(tree, 15);
+    // insert(tree, 50);
+    // insert(tree, 66);
+    // insert(tree, 33);
+    // insert(tree, 44);
+
+    int in;
+    do {
+        cin >> in;
+        insert(tree, in);
+    }while (in != -1);
 
     cout << "Before Deletion -> \n";
     cout << "Preorder -> \n";
