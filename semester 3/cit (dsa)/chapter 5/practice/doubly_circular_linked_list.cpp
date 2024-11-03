@@ -43,6 +43,16 @@ public:
     }
     cout << endl;
   }
+
+  Node<T>* searchItem(T item) {
+    Node<T> *temp = head->next;
+    while (temp != nullptr) {
+      if (temp->data == item)
+        return temp;
+      temp = temp->next;
+    }
+    return nullptr;
+  }
 };
 
 int main() {
@@ -51,5 +61,6 @@ int main() {
   dll.insertAtBeginning(2);
   dll.insertAtBeginning(3);
   dll.printAll();
+  cout << dll.searchItem(2)->data;
   return 0;
 }
