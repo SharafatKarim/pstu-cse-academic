@@ -13,6 +13,10 @@ void deleteNode(int N) {
     graph.erase(N);
 }
 
+void deleteEdge(int u, int v) {
+    graph[u].erase(graph[u].begin(), graph[u].end());
+}
+
 void addEdge(int u, int v) {
     graph[u].push_back(v);
 }
@@ -33,6 +37,7 @@ int main() {
 
     addEdge(1, 3);
     deleteNode(2);
+    deleteEdge(1, 3);
 
     printGraph();
 }
