@@ -5,7 +5,7 @@ using namespace std;
 class Node {
 public:
     int data;
-    Node* next_link; 
+    Node* next_link;
     Node* adjacent;
     Node* destination;
 
@@ -23,11 +23,37 @@ public:
     }
 };
 
+class Node2;
+
+class Node1 {
+public:
+    int data;
+    Node1* next_link;
+    Node2* adjacent;
+
+    Node1 (int data) {
+        this->data = data;
+        this->next_link = NULL;
+        adjacent = NULL;
+    }
+};
+
+class Node2 {
+public:
+    Node2* next_link;
+    Node1* destination;
+
+    Node2 (Node1* destination) {
+        this->next_link = NULL;
+        this->destination = destination;
+    }
+};
+
 class Graph {
-    Node* start; 
+    Node* start;
 public:
     Graph() : start(NULL) {}
-    
+
     Node* find(int data) {
         Node* temp = start;
         while (temp != NULL) {
@@ -74,7 +100,7 @@ public:
             cout << "Node not found" << endl;
             return;
         }
-        
+
         Node* temp = node1->adjacent;
         while (temp != NULL)
         {
@@ -201,7 +227,7 @@ int main() {
     g.deleteEdge(2, 3);
 
     g.printAll();
-    
+
     // Node* n = g.find(2);
     // cout << "Found: " << n->data << endl;
 
