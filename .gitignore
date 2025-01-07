@@ -38,6 +38,7 @@
 
 
 # Database files
+!*.sql
 !*.sqlite
 !*.db
 
