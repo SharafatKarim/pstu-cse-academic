@@ -34,7 +34,7 @@ rem The activity.sql Start File
 rem ***************************
 
 rem  Bookshelf activity report
-set headsep OFF
+set headsep 'OFF'
 
 ttitle 'Checkout Log for 1/1/02-3/31/02'
 btitle 'from the Bookshelf'
@@ -389,7 +389,7 @@ Insert into AUTHOR values
 Insert into AUTHOR values
 ('THOMAS SWEARS', 'PASTOR AND AUTHOR');
 Insert into AUTHOR values
-('E. ANNIE PROULX,NULL);
+('E. ANNIE PROULX',NULL);
 
 commit;
 
@@ -1447,4 +1447,4 @@ insert into WEATHER values ('CHICAGO',66,88,'RAIN');
 insert into WEATHER values ('SYDNEY',69,99,'SUNNY');
 insert into WEATHER values ('SPARTA',74,63,'CLOUDY');
 	
-
+commit;
