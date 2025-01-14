@@ -71,3 +71,27 @@ select weather.city,
   from location,
        weather
  where location.city = weather.city;
+
+
+-- view
+
+create or replace view INVASION as 
+select weather.city,
+       continent,
+       temperature
+  from location,
+       weather
+ where location.city = weather.city;
+
+ DESCRIBE INVASION;
+ select * from INVASION;
+
+create table testing_zone as 
+select weather.city,
+       continent,
+       temperature
+  from location,
+       weather
+ where location.city = weather.city;
+
+select * from TESTING_ZONE;
