@@ -106,13 +106,36 @@ create table teaches (
     foreign key (ID) references instructor
 );
 
+DROP TABLE IF EXISTS parent;
+
+CREATE TABLE parent (
+    Name VARCHAR(1),
+    Age NUMERIC(2, 0),
+    PRIMARY KEY (Name, Age)
+);
+
+DESCRIBE parent;
+
+CREATE TABLE child (
+    Name VARCHAR(1),
+    Age NUMERIC(2, 0),
+    PRIMARY KEY (Name, Age),
+    FOREIGN KEY (Name, Age)
+        REFERENCES parent (Name, Age)
+);
+
+drop table child;
+desc child;
+
 -- 11:01:04	create table course (  course_id varchar(7),     title varchar(50),     dept_name varchar (20),     credits numeric (2, 0),     primary key (course_id),     foreign key (dept_name) references department(dept_name) )	0 row(s) affected	0.020 sec
 -- 11:03:46	create table instructor (  ID varchar(5),     number varchar (20) not null,     dept_name varchar (20),     salary numeric(8,2),     primary key (ID),     foreign key (dept_name) references department )	0 row(s) affected	0.022 sec
 -- 11:06:53	create table section (  course_id varchar(8),     sec_id varchar(8),     semester varchar (6),     year numeric(4, 0),     building varchar (15),     room_number varchar(7),     time_slot_id varchar(4),     primary key (course_id, sec_id, semester, year),     foreign key (course_id) references course )	0 row(s) affected	0.025 sec
 -- 11:14:51	create table teaches (  ID varchar (5),     course_id varchar(8),     sec_id varchar(8),     semester varchar(6),     year numeric (4, 0),     primary key (ID, course_id, sec_id, semester, year),     foreign key (course_id, sec_id, semester, year) references section,     foreign key (ID) references instructor )	0 row(s) affected	0.028 sec
 
+-- use university
 use university;
 
+-- select name from instructor
 select name from instructor;
 
 -- 'Lembr'
@@ -166,6 +189,7 @@ select name from instructor;
 -- 'Bertolino'
 -- 'Dale'
 
+-- select departments from instructor
 select dept_name from instructor;
 
 -- 'Accounting'
@@ -219,6 +243,7 @@ select dept_name from instructor;
 -- 'Statistics'
 -- 'Statistics'
 
+-- select department names but with all
 select all dept_name from instructor;
 
 -- 'Accounting'
@@ -272,6 +297,7 @@ select all dept_name from instructor;
 -- 'Statistics'
 -- 'Statistics'
 
+-- select only distinct departments from instructor
 select distinct dept_name from instructor;
 
 -- 'Accounting'
@@ -292,6 +318,7 @@ select distinct dept_name from instructor;
 -- 'Psychology'
 -- 'Statistics'
 
+-- select all districts from instructor
 select distinct * from instructor;
 
 -- '14365', 'Lembr', 'Accounting', '32241.56'
@@ -345,6 +372,7 @@ select distinct * from instructor;
 -- '97302', 'Bertolino', 'Mech. Eng.', '51647.57'
 -- '99052', 'Dale', 'Cybernetics', '93348.83'
 
+-- list all properties of instructor
 describe instructor;
 
 -- 'ID', 'varchar(5)', 'NO', 'PRI', NULL, ''
@@ -352,6 +380,7 @@ describe instructor;
 -- 'dept_name', 'varchar(20)', 'YES', 'MUL', NULL, ''
 -- 'salary', 'decimal(8,2)', 'YES', '', NULL, ''
 
+-- select all from instructor but with their salaries multiplied by 0
 select name, dept_name, salary * 0 from instructor;
 
 -- 'Lembr', 'Accounting', '0.00'
@@ -405,7 +434,11 @@ select name, dept_name, salary * 0 from instructor;
 -- 'Bertolino', 'Mech. Eng.', '0.00'
 -- 'Dale', 'Cybernetics', '0.00'
 
+
+-- selecting instructor whose dept name is comp sci and salary is 70k
 select name from instructor where dept_name = 'Comp. Sci.' and salary > 70000;
 
 -- 'Bourrier'
 -- 'Bondi'
+
+
