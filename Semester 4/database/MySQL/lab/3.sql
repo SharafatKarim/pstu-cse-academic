@@ -441,4 +441,334 @@ select name from instructor where dept_name = 'Comp. Sci.' and salary > 70000;
 -- 'Bourrier'
 -- 'Bondi'
 
+-- custom names support 
+select T.name, S.course_id
+from instructor as T, teaches as S
+where T .ID= S.ID;
 
+-- # name, course_id
+-- 'Romero', '105'
+-- 'Romero', '105'
+-- 'Mingoz', '137'
+-- 'Bietzk', '158'
+-- 'Dale', '158'
+-- 'Gustafsson', '169'
+-- 'Gustafsson', '169'
+-- 'Liley', '192'
+-- 'Lembr', '200'
+-- 'Ullman ', '200'
+-- 'Dale', '237'
+-- 'Dale', '237'
+-- 'Voronina', '239'
+-- 'Morris', '242'
+-- 'Sakurai', '258'
+-- 'Sakurai', '270'
+-- 'Bondi', '274'
+-- 'Mingoz', '304'
+-- 'Morris', '313'
+-- 'Mingoz', '319'
+-- 'Jaekel', '334'
+-- 'DAgostino', '338'
+-- 'DAgostino', '338'
+-- 'Ullman ', '345'
+-- 'Mingoz', '349'
+-- 'DAgostino', '352'
+-- 'Mingoz', '362'
+-- 'Mingoz', '362'
+-- 'Mingoz', '362'
+-- 'Kean', '366'
+-- 'Voronina', '376'
+-- 'DAgostino', '400'
+-- 'DAgostino', '400'
+-- 'Tung', '401'
+-- 'Ullman ', '408'
+-- 'Ullman ', '408'
+-- 'Valtchev', '415'
+-- 'Tung', '421'
+-- 'Mingoz', '426'
+-- 'Voronina', '443'
+-- 'Voronina', '443'
+-- 'Mingoz', '445'
+-- 'Bawa', '457'
+-- 'Choll', '461'
+-- 'Sakurai', '468'
+-- 'Shuming', '468'
+-- 'Romero', '476'
+-- 'DAgostino', '482'
+-- 'Mahmoud', '486'
+-- 'Romero', '489'
+-- 'Mahmoud', '493'
+-- 'Dale', '496'
+-- 'Mingoz', '527'
+-- 'Wieland', '545'
+-- 'Queiroz', '559'
+-- 'Gustafsson', '561'
+-- 'Bondi', '571'
+-- 'Wieland', '581'
+-- 'Wieland', '591'
+-- 'DAgostino', '599'
+-- 'Atanassov', '603'
+-- 'Atanassov', '604'
+-- 'Voronina', '612'
+-- 'Lent', '626'
+-- 'Dale', '629'
+-- 'Gustafsson', '631'
+-- 'DAgostino', '642'
+-- 'DAgostino', '663'
+-- 'Luo', '679'
+-- 'Tung', '692'
+-- 'Sullivan', '694'
+-- 'Morris', '696'
+-- 'Valtchev', '702'
+-- 'Mahmoud', '704'
+-- 'Mahmoud', '735'
+-- 'Mahmoud', '735'
+-- 'Bondi', '747'
+-- 'Dale', '748'
+-- 'Ullman ', '760'
+-- 'Morris', '791'
+-- 'Vicentino', '793'
+-- 'Morris', '795'
+-- 'Dale', '802'
+-- 'Kean', '808'
+-- 'Lembr', '843'
+-- 'Jaekel', '852'
+-- 'Mahmoud', '864'
+-- 'DAgostino', '867'
+-- 'Sarkar', '867'
+-- 'Pimenta', '875'
+-- 'Dale', '893'
+-- 'Dale', '927'
+-- 'Bourrier', '949'
+-- 'Voronina', '959'
+-- 'Bourrier', '960'
+-- 'Sakurai', '960'
+-- 'DAgostino', '962'
+-- 'DAgostino', '972'
+-- 'Ullman ', '974'
+-- 'DAgostino', '991'
+
+select distinct T.name
+from instructor as T , instructor as S
+where T.salary > S.salary and S.dept_name = 'Biology';
+
+-- # name
+-- 'Bawa'
+-- 'Yazdi'
+-- 'Wieland'
+-- 'DAgostino'
+-- 'Liley'
+-- 'Atanassov'
+-- 'Moreira'
+-- 'Gustafsson'
+-- 'Bourrier'
+-- 'Bondi'
+-- 'Soisalon-Soininen'
+-- 'Arias'
+-- 'Murata'
+-- 'Tung'
+-- 'Luo'
+-- 'Romero'
+-- 'Lent'
+-- 'Sarkar'
+-- 'Shuming'
+-- 'Bancilhon'
+-- 'Dusserre'
+-- 'Desyl'
+-- 'Jaekel'
+-- 'McKinnon'
+-- 'Mingoz'
+-- 'Pimenta'
+-- 'Yin'
+-- 'Sullivan'
+-- 'Voronina'
+-- 'Kenje'
+-- 'Mahmoud'
+-- 'Pingr'
+-- 'Ullman '
+-- 'Levine'
+-- 'Valtchev'
+-- 'Bietzk'
+-- 'Choll'
+-- 'Arinb'
+-- 'Sakurai'
+-- 'Mird'
+-- 'Bertolino'
+-- 'Dale'
+
+-- selecting building with custom like
+select distinct dept_name, building
+from department
+where building like '%auc_n%';
+
+-- # dept_name, building
+-- 'Accounting', 'Saucon'
+
+-- select all order by salary descending and name ascending
+select *
+from instructor
+order by salary desc, name asc;
+
+-- # ID, name, dept_name, salary
+-- '19368', 'Wieland', 'Pol. Sci.', '124651.41'
+-- '74420', 'Voronina', 'Physics', '121141.99'
+-- '96895', 'Mird', 'Marketing', '119921.41'
+-- '95709', 'Sakurai', 'English', '118143.98'
+-- '90376', 'Bietzk', 'Cybernetics', '117836.50'
+-- '34175', 'Bondi', 'Comp. Sci.', '115469.11'
+-- '50330', 'Shuming', 'Physics', '108011.81'
+-- '48507', 'Lent', 'Mech. Eng.', '107978.47'
+-- '74426', 'Kenje', 'Marketing', '106554.73'
+-- '6569', 'Mingoz', 'Finance', '105311.38'
+-- '37687', 'Arias', 'Statistics', '104563.38'
+-- '63287', 'Jaekel', 'Athletics', '103146.87'
+-- '77346', 'Mahmoud', 'Geology', '99382.59'
+-- '16807', 'Yazdi', 'Athletics', '98333.65'
+-- '63395', 'McKinnon', 'Cybernetics', '94333.99'
+-- '99052', 'Dale', 'Cybernetics', '93348.83'
+-- '25946', 'Liley', 'Languages', '90891.69'
+-- '73623', 'Sullivan', 'Elec. Eng.', '90038.09'
+-- '79653', 'Levine', 'Elec. Eng.', '89805.83'
+-- '4233', 'Luo', 'English', '88791.45'
+-- '52647', 'Bancilhon', 'Pol. Sci.', '87958.01'
+-- '48570', 'Sarkar', 'Pol. Sci.', '87549.80'
+-- '28400', 'Atanassov', 'Statistics', '84982.92'
+-- '3199', 'Gustafsson', 'Elec. Eng.', '82534.37'
+-- '3335', 'Bourrier', 'Comp. Sci.', '80797.83'
+-- '65931', 'Pimenta', 'Cybernetics', '79866.95'
+-- '43779', 'Romero', 'Astronomy', '79070.08'
+-- '81991', 'Valtchev', 'Biology', '77036.18'
+-- '15347', 'Bawa', 'Athletics', '72140.88'
+-- '31955', 'Moreira', 'Accounting', '71351.42'
+-- '58558', 'Dusserre', 'Marketing', '66143.25'
+-- '35579', 'Soisalon-Soininen', 'Psychology', '62579.61'
+-- '4034', 'Murata', 'Athletics', '61387.56'
+-- '22591', 'DAgostino', 'Psychology', '59706.49'
+-- '78699', 'Pingr', 'Statistics', '59303.62'
+-- '90643', 'Choll', 'Statistics', '57807.09'
+-- '95030', 'Arinb', 'Statistics', '54805.11'
+-- '97302', 'Bertolino', 'Mech. Eng.', '51647.57'
+-- '41930', 'Tung', 'Athletics', '50482.03'
+-- '59795', 'Desyl', 'Languages', '48803.38'
+-- '79081', 'Ullman ', 'Accounting', '47307.10'
+-- '72553', 'Yin', 'English', '46397.59'
+-- '80759', 'Queiroz', 'Biology', '45538.32'
+-- '64871', 'Gutierrez', 'Statistics', '45310.53'
+-- '57180', 'Hau', 'Accounting', '43966.29'
+-- '36897', 'Morris', 'Marketing', '43770.36'
+-- '28097', 'Kean', 'English', '35023.18'
+-- '42782', 'Vicentino', 'Elec. Eng.', '34272.67'
+-- '50885', 'Konstantinides', 'Languages', '32570.50'
+-- '14365', 'Lembr', 'Accounting', '32241.56'
+
+-- select instructor name with defined salary
+select name
+from instructor
+where salary between 90000 and 100000;
+
+-- # name
+-- 'Yazdi'
+-- 'Liley'
+-- 'McKinnon'
+-- 'Sullivan'
+-- 'Mahmoud'
+-- 'Dale'
+
+-- union to combine 2 diff tables
+(select course_id, semester
+from section
+where semester = 'Fall' and year= 2007)
+union
+(select course_id, semester
+from section
+where semester = 'Spring' and year= 2008);
+
+-- # course_id, semester
+-- '893', 'Fall'
+-- '489', 'Fall'
+-- '612', 'Fall'
+-- '258', 'Fall'
+-- '468', 'Fall'
+-- '949', 'Fall'
+-- '362', 'Spring'
+-- '852', 'Spring'
+-- '991', 'Spring'
+-- '962', 'Spring'
+-- '237', 'Spring'
+-- '349', 'Spring'
+-- '345', 'Spring'
+-- '158', 'Spring'
+-- '704', 'Spring'
+
+-- union to combine 2 diff tables but with duplicates
+(select course_id, semester
+from section
+where semester = 'Fall' and year= 2007)
+union all
+(select course_id, semester
+from section
+where semester = 'Spring' and year= 2008);
+
+-- # course_id, semester
+-- '893', 'Fall'
+-- '489', 'Fall'
+-- '612', 'Fall'
+-- '258', 'Fall'
+-- '468', 'Fall'
+-- '949', 'Fall'
+-- '362', 'Spring'
+-- '852', 'Spring'
+-- '991', 'Spring'
+-- '962', 'Spring'
+-- '237', 'Spring'
+-- '349', 'Spring'
+-- '345', 'Spring'
+-- '158', 'Spring'
+-- '704', 'Spring'
+
+-- same thing just course_id
+(select course_id
+from section
+where semester = 'Fall')
+union all
+(select course_id
+from section
+where semester = 'Spring');
+
+-- # course_id
+-- '893'
+-- '489'
+-- '612'
+-- '258'
+-- '468'
+-- '949'
+-- '362'
+-- '852'
+-- '991'
+-- '962'
+-- '237'
+-- '349'
+-- '345'
+-- '158'
+-- '704'
+
+-- intersecting two tables
+(select course_id
+from section
+where semester = 'Fall' order by course_id)
+intersect all
+(select course_id
+from section
+where semester = 'Spring' order by course_id);
+
+-- # course_id
+-- '362'
+-- '200'
+-- '169'
+-- '237'
+-- '400'
+-- '158'
+
+select name
+from instructor
+where salary > 10000 is unknown;
