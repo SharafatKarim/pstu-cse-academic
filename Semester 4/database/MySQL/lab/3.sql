@@ -768,7 +768,3 @@ where semester = 'Spring' order by course_id);
 -- '237'
 -- '400'
 -- '158'
-
-select name
-from instructor
-where salary > 10000 is unknown;
