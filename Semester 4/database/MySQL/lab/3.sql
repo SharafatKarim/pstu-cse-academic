@@ -768,3 +768,27 @@ where semester = 'Spring' order by course_id);
 -- '237'
 -- '400'
 -- '158'
+
+describe instructor;
+
+-- finds the average salary
+select avg (salary)
+from instructor
+where dept_name = 'Comp. Sci.';
+
+-- # avg (salary)
+-- '98133.470000'
+
+SELECT sum(value)
+FROM (
+    SELECT 2 AS value
+    UNION ALL
+    SELECT 1
+    UNION ALL
+    SELECT 3
+) AS temp_table;
+
+-- 6
+
+
+
