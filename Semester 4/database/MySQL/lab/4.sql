@@ -358,3 +358,23 @@ where semester = 'Spring');
 -- '603'
 -- '486'
 -- '482'
+
+select * from section;
+
+select distinct course_id 
+from section
+where semester = 'Fall' and 
+course_id in (select course_id from section where semester = 'Spring');
+
+select S.ID, S.name
+from student as S
+where exists ((select course_id
+from course
+where dept_name = 'Biology')
+except
+(select T.course_id
+from takes as T
+where S.ID = T.ID));
+
+
+
