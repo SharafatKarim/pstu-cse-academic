@@ -257,3 +257,104 @@ from (select dept_name, AVG(salary) as avg_salary
       from instructor           
       group by dept_name) as T(dept_name, avg_salary)
       where avg_salary>42000;
+      
+-- select all distinct course_id
+-- where semester is Fall
+select distinct course_id
+from section
+where semester = 'Fall' and
+course_id not in (select course_id
+from section
+where semester = 'Spring');
+
+-- # course_id
+-- '694'
+-- '105'
+-- '313'
+-- '476'
+-- '242'
+-- '843'
+-- '893'
+-- '421'
+-- '468'
+-- '415'
+-- '559'
+-- '867'
+-- '960'
+-- '304'
+-- '489'
+-- '612'
+-- '626'
+-- '274'
+-- '461'
+-- '258'
+-- '561'
+-- '192'
+-- '808'
+-- '974'
+-- '376'
+-- '527'
+-- '642'
+-- '401'
+-- '545'
+-- '748'
+-- '927'
+-- '949'
+-- '959'
+-- '366'
+-- '239'
+-- '334'
+-- '496'
+-- '603'
+-- '486'
+-- '482'
+
+-- 
+select distinct course_id
+from section
+where semester = 'Fall' and
+course_id not in (select course_id
+from section
+where semester = 'Spring');
+
+-- # course_id
+-- '694'
+-- '105'
+-- '313'
+-- '476'
+-- '242'
+-- '843'
+-- '893'
+-- '421'
+-- '468'
+-- '415'
+-- '559'
+-- '867'
+-- '960'
+-- '304'
+-- '489'
+-- '612'
+-- '626'
+-- '274'
+-- '461'
+-- '258'
+-- '561'
+-- '192'
+-- '808'
+-- '974'
+-- '376'
+-- '527'
+-- '642'
+-- '401'
+-- '545'
+-- '748'
+-- '927'
+-- '949'
+-- '959'
+-- '366'
+-- '239'
+-- '334'
+-- '496'
+-- '603'
+-- '486'
+-- '482'
