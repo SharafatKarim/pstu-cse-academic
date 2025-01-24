@@ -8,7 +8,7 @@ create profile c##random_profile limit
    password_life_time 10
    password_grace_time 8
    password_reuse_max 2
-   password_reuse_time 5;
+   password_reuse_time default;
 
 -- list all profiles
 select profile
@@ -50,11 +50,34 @@ alter user c##random
    quota 5M on users;
 
 -- create a new table
-CREATE TABLE logic_gates (
-    id NUMBER PRIMARY KEY,
-    name VARCHAR2(50) NOT NULL,
-    description VARCHAR2(200)
+create table logic_gates (
+   id          number primary key,
+   name        varchar2(50) not null,
+   description varchar2(200)
 );
 
 -- list description of the table
 DESCRIBE logic_gates;
+
+alter user c##random identified by random;
+alter user c##random identified by a;
+alter user c##random identified by aa;
+alter user c##random identified by aaa;
+alter user c##random identified by b;
+alter user c##random identified by bb;
+alter user c##random identified by bbb;
+alter user c##random identified by bbbb;
+
+alter profile c##random_profile limit
+   failed_login_attempts 3
+   password_lock_time 1
+   password_life_time 10
+   password_grace_time 8
+   password_reuse_max 2
+   password_reuse_time unlimited;
+
+select *
+  from dba_profiles
+ where profile = 'C##RANDOM_PROFILE'
+   and resource_name in ( 'PASSWORD_REUSE_MAX',
+                          'PASSWORD_REUSE_TIME' );
