@@ -125,11 +125,10 @@ from
 	( select distinct S.ID, count(T.ID) as cnt
 		from student as S natural left join takes as T
 		group by S.ID ) as D natural inner join takes
-where D.cnt>1 ;
+where D.cnt>1 ; 
 
 -- select distinct S.ID, count(T.ID) as cnt
 -- from student as S natural left join takes as T
 -- group by S.ID;
 
 -- Find the names of Biology students who have taken at least 3 Accounting courses.
-
