@@ -1,6 +1,10 @@
 use universipedia;
 use university;
 
+-- simple instruction to list all instructors
+select name
+from instructor;
+
 SELECT 
     name, course_id
 FROM
@@ -57,68 +61,71 @@ GROUP BY I.ID
 ORDER BY I.ID;
 
 SELECT 
-    I.ID, COUNT(T.ID)
+    I.ID, COUNT(T.ID) as number_of_sections
 FROM
     instructor AS I
         NATURAL LEFT JOIN
     teaches AS T
-GROUP BY I.ID;
+GROUP BY I.ID
+ORDER BY number_of_sections;
 
--- # ID, count(T.ID)
--- '14365', '2'
--- '15347', '1'
--- '16807', '0'
--- '19368', '3'
--- '22591', '13'
--- '25946', '1'
--- '28097', '2'
--- '28400', '2'
--- '31955', '0'
--- '3199', '4'
--- '3335', '2'
--- '34175', '3'
+-- # ID, number_of_sections
 -- '35579', '0'
--- '36897', '5'
--- '37687', '0'
--- '4034', '0'
--- '41930', '3'
--- '4233', '1'
--- '42782', '1'
--- '43779', '4'
--- '48507', '1'
--- '48570', '1'
--- '50330', '1'
--- '50885', '0'
 -- '52647', '0'
+-- '50885', '0'
 -- '57180', '0'
 -- '58558', '0'
 -- '59795', '0'
--- '63287', '2'
 -- '63395', '0'
 -- '64871', '0'
--- '6569', '10'
--- '65931', '1'
 -- '72553', '0'
--- '73623', '1'
--- '74420', '6'
+-- '4034', '0'
+-- '37687', '0'
 -- '74426', '0'
--- '77346', '6'
 -- '78699', '0'
--- '79081', '6'
 -- '79653', '0'
+-- '31955', '0'
+-- '95030', '0'
+-- '96895', '0'
+-- '16807', '0'
+-- '97302', '0'
+-- '15347', '1'
+-- '73623', '1'
+-- '65931', '1'
 -- '80759', '1'
--- '81991', '2'
 -- '90376', '1'
 -- '90643', '1'
--- '95030', '0'
+-- '48570', '1'
+-- '25946', '1'
+-- '50330', '1'
+-- '4233', '1'
+-- '42782', '1'
+-- '48507', '1'
+-- '14365', '2'
+-- '63287', '2'
+-- '3335', '2'
+-- '28400', '2'
+-- '81991', '2'
+-- '28097', '2'
+-- '41930', '3'
+-- '19368', '3'
+-- '34175', '3'
+-- '43779', '4'
 -- '95709', '4'
--- '96895', '0'
--- '97302', '0'
+-- '3199', '4'
+-- '36897', '5'
+-- '77346', '6'
+-- '79081', '6'
+-- '74420', '6'
 -- '99052', '9'
+-- '6569', '10'
+-- '22591', '13'
 
 -- For each student who has retaken a course at least twice (i.e., the student has taken the course at
 -- least three times), show the course ID and the student&#39;s ID. Please display your results in order
 -- of course ID and do not display duplicate rows. 
+
+describe takes;
 
 select distinct takes.course_id, D.ID 
 from
@@ -126,6 +133,25 @@ from
 		from student as S natural left join takes as T
 		group by S.ID ) as D natural inner join takes
 where D.cnt>1 ; 
+
+select distinct course_id, ID
+	from takes
+    group by ID, course_id having count(*) > 2
+    order by course_id;
+
+-- # course_id, ID
+-- '362', '16480'
+-- '362', '16969'
+-- '362', '27236'
+-- '362', '39925'
+-- '362', '39978'
+-- '362', '44881'
+-- '362', '49611'
+-- '362', '5414'
+-- '362', '69581'
+-- '362', '9993'
+
+
 
 -- select distinct S.ID, count(T.ID) as cnt
 -- from student as S natural left join takes as T
