@@ -157,4 +157,86 @@ select distinct course_id, ID
 -- from student as S natural left join takes as T
 -- group by S.ID;
 
+show tables;
+describe course;
+select * from course;
+describe student;
+
 -- Find the names of Biology students who have taken at least 3 Accounting courses.
+
+select name 
+from student natural inner join (
+select ID, course_id
+from takes
+group by id, course_id having count(*) > 2 ) as T
+where T.course_id in ( select course_id from course
+	where dept_name = "Accounting" );
+    
+select ID from takes
+where course_id in ( select course_id from course
+	where dept_name = "Accounting")
+    group by ID having count(*) > 2
+    ;
+    
+    describe student;
+select ID, course_id
+from takes
+group by id, course_id having count(*) > 2;
+
+SELECT 
+    name
+FROM
+    student
+        NATURAL JOIN
+    (SELECT 
+        ID
+    FROM
+        takes
+    WHERE
+        course_id IN (SELECT 
+                course_id
+            FROM
+                course
+            WHERE
+                dept_name = 'Accounting')
+    GROUP BY ID
+    HAVING COUNT(*) > 2) AS T
+WHERE
+    dept_name = 'Biology';
+
+-- # name
+-- 'Michael'
+-- 'Dalton'
+-- 'Shoji'
+-- 'Wehen'
+-- 'Uchiyama'
+-- 'Schill'
+-- 'Kaminsky'
+-- 'Giannoulis'
+
+-- Find the sections that had maximum enrollment in Fall 2010. 
+show tables;
+desc takes;
+select * from section;
+
+
+select max(cnt) from (
+	select count(*) as cnt from takes as T2
+	group by course_id, sec_id
+) as D;
+
+select count(*) as cnt from takes as T2
+	group by course_id, sec_id
+    order by cnt;
+    
+select course_id, sec_id from takes as T1
+where semester = "Fall" and year = 2010
+group by course_id, sec_id
+having count(*) = ( select max(cnt) from (
+	select count(*) as cnt from takes as T2
+    where semester = "Fall" and year = 2010
+	group by course_id, sec_id
+) as D );
+
+-- # course_id, sec_id
+-- '867', '2'
