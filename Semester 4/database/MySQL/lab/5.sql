@@ -203,6 +203,15 @@ FROM
     HAVING COUNT(*) > 2) AS T
 WHERE
     dept_name = 'Biology';
+    
+SELECT s.name
+FROM student s
+JOIN takes t ON s.ID = t.ID
+JOIN course c ON t.course_id = c.course_id
+WHERE s.dept_name = 'Biology'
+AND c.dept_name = 'Accounting'
+GROUP BY s.ID
+HAVING COUNT(*) > 2;
 
 -- # name
 -- 'Michael'
@@ -238,5 +247,51 @@ having count(*) = ( select max(cnt) from (
 	group by course_id, sec_id
 ) as D );
 
+SELECT course_id, sec_id 
+FROM takes
+WHERE semester = 'Fall' AND year = 2010
+GROUP BY course_id, sec_id
+HAVING COUNT(ID) = (
+    SELECT MAX(enrollment_count) 
+    FROM (
+        SELECT COUNT(ID) AS enrollment_count
+        FROM takes
+        WHERE semester = 'Fall' AND year = 2010
+        GROUP BY course_id, sec_id
+    ) AS subquery
+);
+
 -- # course_id, sec_id
 -- '867', '2'
+
+--  Find student names and the number of law courses taken for students who have taken at least half of the available law courses. 
+-- (These courses are named things like 'Tort Law' or 'Environmental Law'). 
+
+describe student;
+describe takes;
+describe course;
+
+select name, count(*)
+from student as S
+join takes T on S.ID = T.ID
+where T.course_id in (
+	select course_id
+    from course
+    where title like "%Law%" )
+group by S.ID
+having count(*) >= ( 
+	select count(course_id) / 2 
+	from (   
+		select course_id
+		from course
+		where title like "%Law%" ) 
+        as D 
+	);
+
+-- # name, count(*)
+-- 'Nakajima', '4'
+-- 'Nikut', '4'
+-- 'Hahn-', '4'
+-- 'Nanda', '4'
+-- 'Schinag', '4'
+
