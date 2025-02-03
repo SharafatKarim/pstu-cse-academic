@@ -282,3 +282,53 @@ natural join instructor
 group by dept_name;
 
 -- Find the number of instructors in each department who teach a course in the Spring-2010 semester.
+select dept_name, count(ID)
+from department
+natural join instructor
+where ID in (
+	select ID from teaches
+    where semester = "Spring" 
+    and year = 2010
+) 
+group by dept_name;
+
+-- List out the departments where the average salary of the instructors is more than $42,000.
+select dept_name
+from department D
+where ( select avg(salary) from (
+	select salary
+    from instructor I
+    where D.dept_name = I.dept_name
+) as T ) > 42000;
+
+select distinct dept_name
+from instructor
+group by dept_name
+having avg(salary) > 42000;
+
+-- For each course section offered in 2009, find the average total credits (tot cred) of all students enrolled
+-- in the section, if the section had at least 2 students.
+select course_id, sec_id, avg(tot_cred)
+from takes 
+natural join student 
+where year = 2009
+group by sec_id, course_id
+having count(*) > 1;
+
+-- Find all the courses taught in both the Fall-2009 and Spring-2010 semesters.
+select course_id from teaches
+where (semester = "Fall" and year = 2009) and (semester = "Spring" and year = 2010);
+
+( select course_id from teaches
+where semester = "Fall" and year = 2009 )
+intersect ( select course_id from teaches
+where semester = "Spring" and year = 2010 );
+
+-- Select the names of instructors whose names are neither 'Mozart' nor 'Einstein'.
+select name from instructor
+where name not in ("Mozart", "Einstein");
+
+select name from instructor;
+
+-- Find the total number of (distinct) students who have taken course sections taught by the instructor
+-- with ID 110011.
