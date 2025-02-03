@@ -295,3 +295,5 @@ having count(*) >= (
 -- 'Nanda', '4'
 -- 'Schinag', '4'
 
+-- Find the rank and name of the 10 students who earned the most A grades (A-, A, A+). 
+-- Use alphabetical order by name to break ties. Note: the browser SQLite does not support window functions. 
