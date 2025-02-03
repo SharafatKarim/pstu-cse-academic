@@ -463,3 +463,53 @@ LEFT JOIN instructor i ON d.dept_name = i.dept_name
 GROUP BY d.dept_name;
 
 -- Find the titles of courses in the Comp. Sci. department that have 3 credits.
+select title
+from course
+where dept_name = "Comp. Sci."
+and credits = 3;
+
+-- Find the IDs of all students who were taught by an instructor named Einstein; make
+-- sure there are no duplicates in the result.
+select ID from instructor
+where name = "Einstein";
+
+select takes_table.ID 
+from takes takes_table
+join teaches teaches_table
+	on takes_table.course_id = teaches_table.course_id
+    and takes_table.sec_id = teaches_table.sec_id
+    and takes_table.semester = teaches_table.semester
+    and takes_table.year = teaches_table.year 
+where teaches_table.ID = ( select ID from instructor
+where name = "Einstein" ) ;
+
+select * from teaches;
+
+-- Find the ID and name of each student who has taken at least one Comp. Sci. course;
+-- make sure there are no duplicate names in the result.
+select distinct ID, name
+from student 
+natural join takes 
+where takes.course_id in (
+	select course_id
+    from course 
+    where dept_name = "Comp. Sci."
+);
+
+-- Find the course id, section id, and building for each section of a Biology course.
+select course_id, sec_id, building 
+from section
+natural join course
+where dept_name = "Biology";
+
+-- Output instructor names sorted by the ratio of their salary to their department's budget
+-- (in ascending order).
+select name
+from instructor
+natural left join department
+order by (salary/ budget) asc;
+
+-- Output instructor names and buildings for each building an instructor has taught in.
+-- Include instructor names who have not taught any classes (the building name should
+-- be NULL in this case).
+
