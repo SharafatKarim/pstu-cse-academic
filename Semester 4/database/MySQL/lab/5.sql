@@ -297,3 +297,38 @@ having count(*) >= (
 
 -- Find the rank and name of the 10 students who earned the most A grades (A-, A, A+). 
 -- Use alphabetical order by name to break ties. Note: the browser SQLite does not support window functions. 
+show tables;
+describe student;
+describe takes;
+
+select * from student;
+select * from takes;
+
+select name, grade
+from student S
+join takes T on S.ID = T.ID
+where grade in ("A+", "A", "A-")
+;
+
+select row_number() over () as rnk, P.name from ( 
+	select name, count(*) as cnt
+	from student S
+	join takes T on S.ID = T.ID
+	where T.grade in ("A+", "A", "A-")
+	group by T.ID
+    ) as P
+order by P.cnt desc, P.name
+limit 10;
+
+-- # rnk, name
+-- '1', 'Lepp'
+-- '2', 'Eller'
+-- '3', 'Masri'
+-- '4', 'Vries'
+-- '5', 'Åström'
+-- '6', 'Gandhi'
+-- '7', 'Greene'
+-- '8', 'Haigh'
+-- '9', 'McCarter'
+-- '10', 'Sanchez'
+
