@@ -226,3 +226,59 @@ natural left join teaches
 where dept_name = "Biology";
 
 -- Find the courses taught in Fall-2009 semester.
+select course_id from teaches
+where semester = "Fall" and year = 2009;
+
+-- Find the set of all courses taught either in Fall-2009 or in Spring-2010.
+select course_id from teaches
+where (semester = "Fall" and year = 2009) or (semester = "Spring" and year = 2010);
+
+( select course_id from teaches
+where semester = "Fall" and year = 2009 )
+union ( select course_id from teaches
+where semester = "Spring" and year = 2010 );
+
+-- Find the set of all courses taught in the Fall-2009 as well as in Spring-2010.
+select course_id from teaches
+where (semester = "Fall" and year = 2009) and (semester = "Spring" and year = 2010);
+
+( select course_id from teaches
+where semester = "Fall" and year = 2009 )
+intersect ( select course_id from teaches
+where semester = "Spring" and year = 2010 );
+
+-- Find all courses taught in the Fall-2009 semester but not in the Spring-2010 semester.
+select course_id from teaches
+where (semester = "Fall" and year = 2009) and not (semester = "Spring" and year = 2010);
+
+( select course_id from teaches
+where semester = "Fall" and year = 2009 )
+except ( select course_id from teaches
+where semester = "Spring" and year = 2010 );
+
+-- Find all instructors who appear in the instructor relation with null values for salary.
+select * from instructor
+where salary = NULL;
+
+select * from instructor;
+
+-- Find the average salary of instructors in the Finance department.
+select avg(T.salary) from
+( select salary from instructor
+where dept_name = "Finance" ) as T;
+
+-- Find the total number of instructors who teach a course in the Spring-2010 semester.
+describe teaches;
+select  count(T.id) from
+( select id from instructor
+	natural join teaches
+    where semester = "Spring" 
+    and year = 2010 ) as T ;
+    
+-- Find the average salary in each department.
+select dept_name, avg(salary)
+from department
+natural join instructor
+group by dept_name;
+
+-- Find the number of instructors in each department who teach a course in the Spring-2010 semester.
