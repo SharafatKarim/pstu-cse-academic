@@ -332,3 +332,134 @@ select name from instructor;
 
 -- Find the total number of (distinct) students who have taken course sections taught by the instructor
 -- with ID 110011.
+select count(T.ID)
+from takes T
+natural join section S
+where "110011" in (
+	select ID
+    from teaches ST
+    where T.course_id = ST.course_id
+    and T.sec_id = ST.sec_id
+    and T.semester = ST.semester
+    and T.year = ST.year
+);
+
+SELECT COUNT(DISTINCT t.ID) AS total_students
+FROM takes t
+JOIN teaches te ON t.course_id = te.course_id 
+               AND t.sec_id = te.sec_id 
+               AND t.semester = te.semester 
+               AND t.year = te.year
+WHERE te.ID = '110011';
+
+
+select * from teaches;
+
+-- Find the ID and names of all instructors whose salary is greater than at least one instructor in the History
+-- department.
+desc instructor;
+
+select ID, name
+from instructor
+where salary > ( select min(T.salary) from (
+	select salary
+    from instructor
+    where dept_name = "History"
+) as T );
+
+-- Find the names of all instructors that have a salary value greater than that of each instructor in the
+-- Biology department.
+select name
+from instructor
+where salary > ( select max(T.salary) from (
+	select salary
+    from instructor
+    where dept_name = "Biology"
+) as T );
+
+-- Find the departments that have the highest average salary. 
+select dept_name
+from department
+natural join instructor
+group by dept_name
+order by avg(salary) desc
+limit 1;
+
+select dept_name
+from instructor
+group by dept_name
+order by avg(salary) desc
+limit 1;
+
+-- Find all courses taught in both the Fall 2009 semester and in the Spring-2010 semester.
+
+select course_id from teaches
+where (semester = "Fall" and year = 2009) and (semester = "Spring" and year = 2010);
+
+( select course_id from teaches
+where semester = "Fall" and year = 2009 )
+intersect ( select course_id from teaches
+where semester = "Spring" and year = 2010 );
+
+-- Find all students who have taken all the courses offered in the Biology department.
+with cnt as (
+	select count(course_id) as ct
+    from course 
+    where dept_name = "Biology"
+)
+select ID
+from takes
+where course_id in (
+	select course_id
+    from course
+    where dept_name = "Biology"
+) 
+group by ID
+having count(*) = (
+	select ct from cnt
+);
+
+-- Find all courses that were offered at most once in 2009.
+select course_id 
+from takes
+where year = 2009 
+group by course_id
+having count(*) = 1;
+
+-- Find all courses that were offered at least twice in 2009.
+select course_id 
+from takes
+where year = 2009 
+group by course_id
+having count(*) > 1;
+
+-- Find the average instructors' salaries of those departments where the average salary is greater than
+-- $42,000.
+
+-- Find the maximum across all departments of the total salary at each department.
+select sum(salary)
+from department 
+natural join instructor
+group by dept_name
+order by sum(salary) desc
+limit 1;
+
+SELECT MAX(total_salary) AS max_total_salary
+FROM (
+    SELECT dept_name, SUM(salary) AS total_salary
+    FROM instructor
+    GROUP BY dept_name
+) AS dept_salaries;
+
+-- List all departments along with the number of instructors in each department.
+select dept_name, count(ID)
+from department
+natural left join instructor
+group by dept_name;
+
+SELECT d.dept_name, COUNT(i.ID) AS num_instructors
+FROM department d
+LEFT JOIN instructor i ON d.dept_name = i.dept_name
+GROUP BY d.dept_name;
+
+-- Find the titles of courses in the Comp. Sci. department that have 3 credits.
