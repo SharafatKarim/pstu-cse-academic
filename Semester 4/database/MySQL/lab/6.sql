@@ -1,8 +1,8 @@
 create database small_uni;
 use small_uni;
-
 use university;
 
+show tables;
 
 desc instructor;
 select ID, salary from instructor;
@@ -133,3 +133,96 @@ select ID, salary from instructor
 where salary > 85000;
 
 -- small db
+-- # ID, salary
+-- '12121', '90000.00'
+-- '22222', '95000.00'
+-- '33456', '87000.00'
+-- '83821', '92000.00'
+
+-- big db
+-- # ID, salary
+-- '16807', '98333.65'
+-- '19368', '124651.41'
+-- '25946', '90891.69'
+-- '34175', '115469.11'
+-- '37687', '104563.38'
+-- '4233', '88791.45'
+-- '48507', '107978.47'
+-- '48570', '87549.80'
+-- '50330', '108011.81'
+-- '52647', '87958.01'
+-- '63287', '103146.87'
+-- '63395', '94333.99'
+-- '6569', '105311.38'
+-- '73623', '90038.09'
+-- '74420', '121141.99'
+-- '74426', '106554.73'
+-- '77346', '99382.59'
+-- '79653', '89805.83'
+-- '90376', '117836.50'
+-- '95709', '118143.98'
+-- '96895', '119921.41'
+-- '99052', '93348.83'
+
+-- Find out the department names and their budget at the university.
+show tables;
+desc department;
+
+select dept_name, budget from department;
+
+-- List out the names of the instructors from Computer Science who have more than $70,000.
+desc instructor;
+select name from instructor
+where salary > 70000;
+
+-- For all instructors in the university who have taught some course, find their names and the course ID of
+-- all courses they taught.
+desc instructor;
+desc teaches;
+
+select I.name, T.course_id
+from instructor I
+natural join teaches T
+order by I.name;
+
+-- Find the names of all instructors whose salary is greater than at least one instructor in the Biology
+-- department.
+select name 
+from instructor
+where dept_name = "Biology"
+and salary > ( select min(S.salary) from (
+	select salary
+    from instructor
+    where dept_name = "Biology"
+) as S );
+
+select min(S.salary) from ( select salary
+    from instructor
+    where dept_name = "Biology") as S;
+
+select * from instructor;
+
+-- Find the advisor of the student with ID 12345
+select * from advisor
+where s_ID = 12345;
+
+-- Find the average salary of all instructors.
+select avg(I.salary) average_salary from
+(select salary from instructor) as I;
+
+-- Find the names of all departments whose building name includes the substring 'Watson'.
+select dept_name from department
+where building like "%Watson%";
+
+-- Find the names of instructors with salary amounts between $90,000 and $100,000.
+select name from instructor
+where salary between 90000 and 100000;
+
+-- Find the instructor names and the courses they taught for all instructors in the Biology department who
+-- have taught some course.
+select name, course_id
+from instructor 
+natural left join teaches
+where dept_name = "Biology";
+
+-- Find the courses taught in Fall-2009 semester.
