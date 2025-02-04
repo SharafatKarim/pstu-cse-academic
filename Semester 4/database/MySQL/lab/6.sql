@@ -513,3 +513,7 @@ order by (salary/ budget) asc;
 -- Include instructor names who have not taught any classes (the building name should
 -- be NULL in this case).
 
+select name, building
+from instructor
+natural left join teaches 
+natural left join section;
