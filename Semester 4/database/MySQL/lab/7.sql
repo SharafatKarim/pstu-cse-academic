@@ -202,3 +202,20 @@ where course_id not in (
 );
 
 -- c. Insert every student whose tot_cred attribute is greater than 100 as an instructor in the same department, with a salary of $10,000.
+desc instructor;
+desc student;
+
+insert into instructor 
+select ID, name, dept_name, 100000 
+from student
+where tot_cred > 100;
+
+select
+ count(distinct person.driver_id)
+from
+ accident, participated, person, owns
+where
+ accident.report_number = participated.report_number
+and owns.driver_id = person.driver_id
+and owns.license_plate = participated.license_plate
+and year = 2017;
