@@ -219,3 +219,6 @@ where
 and owns.driver_id = person.driver_id
 and owns.license_plate = participated.license_plate
 and year = 2017;
+
+select * from student where ID = "12345";
+create index studentID_index on student(ID);
