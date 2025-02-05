@@ -187,3 +187,18 @@ where
  takes.grade = grade_points.grade
 and takes.course_id = course.course_id
 group by ID;
+
+--  In rease the salary of ea h instru tor in the Comp. S i. department by
+-- 10%.
+
+update instructor
+set salary = salary * 1
+where dept_name = "Comp. Sci.";
+
+-- b. Delete all courses that have never been offered (i.e., do not occur in the section relation).
+delete from course
+where course_id not in (
+	select course_id from section
+);
+
+-- c. Insert every student whose tot_cred attribute is greater than 100 as an instructor in the same department, with a salary of $10,000.
