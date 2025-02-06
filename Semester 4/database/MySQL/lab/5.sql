@@ -320,6 +320,43 @@ select row_number() over () as rnk, P.name from (
 order by P.cnt desc, P.name
 limit 10;
 
+WITH StudentAGrades AS (
+    SELECT s.ID, s.name, COUNT(*) AS a_count
+    FROM student s
+    JOIN takes t ON s.ID = t.ID
+    WHERE t.grade IN ('A', 'A-', 'A+')
+    GROUP BY s.ID, s.name
+)
+-- SELECT RANK() OVER (ORDER BY a_count DESC, name ASC) AS rnk, name
+-- FROM StudentAGrades
+-- ORDER BY rank
+-- LIMIT 10
+select ID, name, a_count
+from StudentAGrades
+order by a_count desc;
+
+-- weirdness overloaded
+SELECT s.ID, s.name, COUNT(*) AS a_count
+    FROM student s
+    JOIN takes t ON s.ID = t.ID
+    WHERE t.grade IN ('A', 'A-', 'A+')
+    GROUP BY s.ID, s.name
+    order by a_count desc;
+
+FROM student s
+    JOIN takes t ON s.ID = t.ID
+    WHERE t.grade IN ('A', 'A-', 'A+')
+    GROUP BY s.ID, s.name
+)
+SELECT name, a_count
+FROM (
+    SELECT name, a_count, @curRank := @curRank + 1 AS rnk
+    FROM StudentAGrades, (SELECT @curRank := 0) r
+    ORDER BY a_count DESC, name ASC
+) ranked
+WHERE rnk <= 10
+ORDER BY rnk;
+
 -- # rnk, name
 -- '1', 'Lepp'
 -- '2', 'Eller'
