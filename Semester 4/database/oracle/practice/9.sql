@@ -22,25 +22,26 @@ select *
   from bookshelf;
 
 -- set triggers
--- create or replace trigger bookshelf_bef_upd_row before
---    update on bookshelf
---    for each row
---    when ( new.rating < old.rating )
--- begin
---    insert into bookshelf_audit (
---       title,
---       publisher,
---       categoryname,
---       old_rating,
---       new_rating,
---       audit_date
---    ) values ( :old.title,
---               :old.publisher,
---               :old.categoryname,
---               :old.rating,
---               :new.rating,
---               sysdate );
--- end;
+create or replace trigger bookshelf_bef_upd_row before
+   update on bookshelf
+   for each row
+   when ( new.rating < old.rating )
+begin
+   insert into bookshelf_audit (
+      title,
+      publisher,
+      categoryname,
+      old_rating,
+      new_rating,
+      audit_date
+   ) values ( :old.title,
+              :old.publisher,
+              :old.categoryname,
+              :old.rating,
+              :new.rating,
+              sysdate );
+end;
+/
 
 -- test trigger
 insert into bookshelf values ( 'The Hobbit',
@@ -48,8 +49,19 @@ insert into bookshelf values ( 'The Hobbit',
                                'Fantasy',
                                'A' );
 
+insert into bookshelf values ( 'The old man and the sea',
+                               'Ernest Hemingway',
+                               'Tragedy',
+                               'A' );
+
+commit;
+
 select *
   from bookshelf;
 
 UPDATE bookshelf
-   SET rating = 'B';
+   SET rating = 'A'
+   where title = 'The old man and the sea';
+
+select *
+    from bookshelf_audit;
