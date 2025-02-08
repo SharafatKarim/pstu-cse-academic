@@ -222,3 +222,154 @@ and year = 2017;
 
 select * from student where ID = "12345";
 create index studentID_index on student(ID);
+
+desc student;
+
+	select ID, 
+		case
+			when name=score < 40 then "F"
+			when name=score < 60 then "C"
+			when name=score < 80 then "B"
+			else "A"
+		end
+	from marks;
+
+with grades as ( 
+select ID, 
+	case
+		when name=score < 40 then "F"
+        when name=score < 60 then "C"
+        when name=score < 80 then "B"
+        else "A"
+    end
+from marks ) 
+select grade, count(ID)
+from grades
+group by grade;
+
+select dept_name
+from department
+where lower(dept_name) like "%sci%";
+
+-- a. Find the ID, name, and city of residence of each employee who works for
+-- “First Bank Corporation”.
+select e.ID, e.person name, city
+from employee as e, works as w
+where w.company_name = "First Bank Corporation" and
+	w.ID = e.ID;
+
+-- b. Find the ID, name, and city of residence of each employee who works for “First Bank Corporation” and earns more than $10000.
+select e.ID, e.person name, city
+from employee as e, works as w
+where w.company_name = "First Bank Corporation" and
+	w.salary > 10000 and
+	w.ID = e.ID;
+    
+describe instructor;
+
+with tb as (
+	select salary
+    from instructor
+)
+select salary from tb
+;
+
+describe student;
+SELECT DISTINCT student.ID, student.name
+FROM student
+JOIN takes ON student.ID = takes.ID
+JOIN course ON takes.course_id = course.course_id
+WHERE course.dept_name = 'Comp. Sci.';
+
+    -- 11. Write the following queries in SQL, using the university schema:
+-- a. Find the ID and name of each student who has taken at least one Comp. Sci. course; make sure there are no duplicate names in the result.
+SELECT DISTINCT student.ID, student.name
+FROM student
+JOIN takes ON student.ID = takes.ID
+JOIN course ON takes.course_id = course.course_id
+WHERE course.dept_name = 'Comp. Sci.';
+
+-- b. Find the ID and name of each student who has not taken any course offered before 2017.
+SELECT student.ID, student.name
+FROM student
+WHERE student.ID NOT IN (
+    SELECT takes.ID
+    FROM takes
+    WHERE takes.year < 2017
+);
+
+-- c. For each department, find the maximum salary of instructors in that department. You may assume that every department has at least one instructor.
+SELECT dept_name, MAX(salary) AS max_salary
+FROM instructor
+GROUP BY dept_name;
+-- d. Find the lowest, across all departments, of the per-department maximum salary computed by the preceding query.
+SELECT MIN(max_salary) AS lowest_max_salary
+FROM (
+    SELECT dept_name, MAX(salary) AS max_salary
+    FROM instructor
+    GROUP BY dept_name
+) AS dept_max_salaries;
+
+-- Write the SQL statements using the university schema to perform the following operations:
+-- a. Create a new course “CS-001”, titled “Weekly Seminar”, with 0 credits.
+desc course;
+show create table course;
+SHOW COLUMNS FROM course;
+INSERT INTO course (course_id, title, dept_name, credits)
+VALUES ('CS-001', 'Weekly Seminar', 'Comp. Sci.', 0);
+-- b. Create a section of this course in Fall 2017, with sec_id of 1, and with the location of this section not yet specified.
+desc section;
+INSERT INTO section (course_id, sec_id, semester, year)
+VALUES ('CS-101', 1, 'Fall', 2017);
+select * from course;
+-- c. Enroll every student in the Comp. Sci. department in the above section.
+INSERT INTO takes (ID, course_id, sec_id, semester, year)
+SELECT student.ID, 'CS-001', 1, 'Fall', 2017
+FROM student
+WHERE student.dept_name = 'Comp. Sci.';
+-- d. Delete enrollments in the above section where the student’s ID is 12345.
+DELETE FROM takes
+WHERE course_id = 'CS-001'
+  AND sec_id = 1
+  AND semester = 'Fall'
+  AND year = 2017
+  AND ID = '12345';
+-- e. Delete the course CS-001. What will happen if you run this delete statement without first deleting offerings (sections) of this course?
+DELETE FROM course
+WHERE course_id = 'CS-001';
+-- f. Delete all takes tuples corresponding to any section of any course with the word “advanced” as a part of the title; ignore case when matching the word with the title.
+DELETE FROM takes
+WHERE course_id IN (
+    SELECT course_id
+    FROM course
+    WHERE LOWER(title) LIKE '%advanced%'
+);
+
+-- Write SQL DDL corresponding to the schema in Figure 3.17. Make any reasonable assumptions about data types, and be sure to declare primary and foreign keys.
+create table person(
+	driver_id integer primary,
+    name varchar(100) not null,
+    address varchar(100)
+);
+create table car(
+    license_plate varchar(100) primary,
+    model varchar(50),
+    year varchar(10)
+);
+create table accident(
+	report_number integer primary,
+    year varchar(10),
+    location varchar(100)
+);
+create table owns(
+	driver_id integer,
+    license_plate varchar(100),
+    primary key (report_number, license_plate)
+);
+create table participated(
+	report_number integer,
+    license_plate varchar(100),
+	driver_id integer,
+    damage_amount varchar(100),
+    primary key (report_number, license_plate)
+);
