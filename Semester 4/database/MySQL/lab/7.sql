@@ -346,30 +346,178 @@ WHERE course_id IN (
 );
 
 -- Write SQL DDL corresponding to the schema in Figure 3.17. Make any reasonable assumptions about data types, and be sure to declare primary and foreign keys.
-create table person(
-	driver_id integer primary,
-    name varchar(100) not null,
-    address varchar(100)
+CREATE DATABASE InsuranceDB;
+USE InsuranceDB;
+
+-- Drop things a bit
+DROP TABLE person;
+DROP TABLE car;
+DROP TABLE accident;
+DROP TABLE owns;
+DROP TABLE participated;
+
+-- Person Table
+CREATE TABLE person (
+    driver_id INT PRIMARY KEY, 
+    name VARCHAR(100) NOT NULL, 
+    address VARCHAR(100)
 );
-create table car(
-    license_plate varchar(100) primary,
-    model varchar(50),
-    year varchar(10)
+
+-- Car Table
+CREATE TABLE car (
+    license_plate VARCHAR(20) PRIMARY KEY, 
+    model VARCHAR(50), 
+    year YEAR
 );
-create table accident(
-	report_number integer primary,
-    year varchar(10),
-    location varchar(100)
+
+-- Accident Table
+CREATE TABLE accident (
+    report_number INT PRIMARY KEY, 
+    year YEAR,  -- Changed from VARCHAR(10) to YEAR
+    location VARCHAR(100)
 );
-create table owns(
-	driver_id integer,
-    license_plate varchar(100),
-    primary key (report_number, license_plate)
+
+-- Owns Table 
+-- (Relationship between person and car)
+CREATE TABLE owns (
+    driver_id INT, 
+    license_plate VARCHAR(20), 
+    PRIMARY KEY (driver_id, license_plate), 
+    FOREIGN KEY (driver_id) REFERENCES person(driver_id) ON DELETE CASCADE, 
+    FOREIGN KEY (license_plate) REFERENCES car(license_plate) ON DELETE CASCADE
 );
-create table participated(
-	report_number integer,
-    license_plate varchar(100),
-	driver_id integer,
-    damage_amount varchar(100),
-    primary key (report_number, license_plate)
+
+-- Participated Table 
+-- (Records cars and drivers involved in accidents)
+CREATE TABLE participated (
+    report_number INT, 
+    license_plate VARCHAR(20), 
+    driver_id INT, 
+    damage_amount DECIMAL(10,2) DEFAULT 0.00,  
+    PRIMARY KEY (report_number, license_plate, driver_id), 
+    FOREIGN KEY (report_number) REFERENCES accident(report_number) ON DELETE CASCADE, 
+    FOREIGN KEY (license_plate) REFERENCES car(license_plate) ON DELETE SET NULL, 
+    FOREIGN KEY (driver_id) REFERENCES person(driver_id) ON DELETE SET NULL
 );
+
+SELECT employee.ID, employee.name
+FROM employee
+JOIN works ON employee.ID = works.ID
+WHERE works.salary > (
+    SELECT AVG(salary)
+    FROM works w2
+    WHERE w2.company_name = works.company_name
+);
+
+SELECT AVG(borrowed_count) AS avg_books_borrowed
+FROM (
+    SELECT m.memb_no, COUNT(b.isbn) AS borrowed_count
+    FROM member m
+    LEFT JOIN borrowed b ON m.memb_no = b.memb_no
+    GROUP BY m.memb_no
+) AS member_borrow_counts;
+
+SELECT DISTINCT t.course_id, t.ID
+FROM takes t
+WHERE t.grade IS NOT NULL
+GROUP BY t.ID, t.course_id
+HAVING COUNT(t.course_id) >= 3
+ORDER BY t.course_id;
+
+SELECT t.ID
+FROM takes t
+WHERE t.grade IS NOT NULL 
+AND 2 <= (
+	select count(course_id)
+    from takes t2
+    where t2.ID = t.ID
+    and t2.course_id = t.course_id
+)
+GROUP BY t.ID
+HAVING COUNT(DISTINCT t.course_id) >= 3;
+
+SELECT i.name, i.ID
+FROM instructor i
+WHERE NOT EXISTS (
+    SELECT c.course_id
+    FROM course c
+    WHERE c.dept_name = i.dept_name
+    EXCEPT
+    SELECT t.course_id
+    FROM teaches t
+    WHERE t.ID = i.ID
+)
+ORDER BY i.name;
+
+SELECT i.name, i.ID
+FROM instructor i
+WHERE NOT EXISTS (
+    SELECT c.course_id
+    FROM course c
+    WHERE c.dept_name = i.dept_name
+    AND NOT EXISTS (
+        SELECT t.course_id
+        FROM teaches t
+        WHERE t.ID = i.ID AND t.course_id = c.course_id
+    )
+)
+ORDER BY i.name;
+
+SELECT s.ID, s.name
+FROM student s
+WHERE s.dept_name = 'History'
+AND s.name LIKE 'D%'
+AND (
+    SELECT COUNT(*)
+    FROM takes t
+    WHERE t.ID = s.ID
+    AND t.course_id IN (
+        SELECT c.course_id
+        FROM course c
+        WHERE c.dept_name = 'Music'
+    )
+) < 5;
+
+	SELECT AVG(salary) - (SUM(salary) / COUNT(*))
+	FROM instructor;
+
+SELECT distinct i.ID, i.name
+FROM instructor i
+LEFT JOIN teaches t ON i.ID = t.ID
+LEFT JOIN takes tk ON t.course_id = tk.course_id
+WHERE tk.grade != 'A' AND EXISTS (
+	select tk2.grade
+    from takes tk2
+    where t.course_id = tk2.course_id
+    and tk2.grade is not null
+);
+
+SELECT i.ID, i.name
+FROM instructor i
+LEFT JOIN teaches t ON i.ID = t.ID
+LEFT JOIN takes tk ON t.course_id = tk.course_id
+WHERE tk.grade != 'A' OR tk.grade IS NULL
+GROUP BY i.ID;
+
+SELECT DISTINCT c.course_id, c.title
+FROM course c
+JOIN section s ON c.course_id = s.course_id
+JOIN time_slot t ON s.time_slot_id = t.time_slot_id
+WHERE t.end_hr >= 12 AND c.dept_name = 'Comp. Sci.';
+
+SELECT s.course_id, s.sec_id, s.year, s.semester, COUNT(t.ID) AS num
+FROM section s
+LEFT JOIN takes t ON s.course_id = t.course_id 
+AND s.sec_id = t.sec_id
+GROUP BY course_id, sec_id, year, semester
+HAVING num > 0;
+
+WITH section_enrollment AS (
+    SELECT s.course_id, s.sec_id, s.year, s.semester, COUNT(t.ID) AS num
+    FROM section s
+    LEFT JOIN takes t ON s.course_id = t.course_id AND s.sec_id = t.sec_id
+    GROUP BY course_id, sec_id, year, semester
+)
+SELECT course_id, sec_id, year, semester, num
+FROM section_enrollment
+WHERE num = (SELECT MAX(num) FROM section_enrollment);
