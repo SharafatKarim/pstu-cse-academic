@@ -521,3 +521,13 @@ WITH section_enrollment AS (
 SELECT course_id, sec_id, year, semester, num
 FROM section_enrollment
 WHERE num = (SELECT MAX(num) FROM section_enrollment);
+
+SELECT instructor.name
+FROM instructor 
+WHERE instructor.dept_name = 'History';
+
+SELECT instructor.ID, department.dept_name
+FROM instructor,department
+WHERE instructor.dept_name = department.dept_name
+AND department.budget > 95000;
+
