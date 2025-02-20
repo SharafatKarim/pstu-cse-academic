@@ -531,3 +531,4 @@ FROM instructor,department
 WHERE instructor.dept_name = department.dept_name
 AND department.budget > 95000;
 
+
