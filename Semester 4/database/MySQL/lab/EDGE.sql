@@ -3,6 +3,7 @@ use small_uni;
 -- Create a relational database for employee salary maintenance with attributes EmployeeID (PK), EmployeeName, Department, Salary, Month. 
 -- From Employee Table, transform rows into columns in MySQL
 
+
 CREATE TABLE employee (
     employee_id INT,
     employee_name VARCHAR(50),
