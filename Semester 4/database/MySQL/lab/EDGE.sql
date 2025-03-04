@@ -12,14 +12,16 @@ CREATE TABLE employee (
     PRIMARY KEY (employee_id, month)
 );
 
+truncate employee;
+
 INSERT INTO employee (employee_id, employee_name, department, salary, month)
 VALUES
-(1, 'Alice', 'HR', 5555, 'January'),
-(1, 'Alice', 'HR', 5555, 'February'),
-(1, 'Alice', 'HR', 5555, 'March'),
-(2, 'BOB', 'IT', 5555, 'January'),
-(2, 'BOB', 'IT', 5555, 'February'),
-(2, 'BOB', 'IT', 5555, 'March');
+(1, 'Alice', 'HR', 1, 'January'),
+(1, 'Alice', 'HR', 2, 'February'),
+(1, 'Alice', 'HR', 3, 'March'),
+(2, 'BOB', 'IT', 4, 'January'),
+(2, 'BOB', 'IT', 5, 'February'),
+(2, 'BOB', 'IT', 6, 'March');
 
 INSERT INTO employee (employee_id, employee_name, department, salary, month)
 VALUES
@@ -35,7 +37,7 @@ SELECT
     MAX(CASE WHEN Month = 'February' THEN Salary END) AS February,
     MAX(CASE WHEN Month = 'March' THEN Salary END) AS March
 FROM employee
-GROUP BY employee_id, employee_name, department;
+GROUP BY employee_id, employee_name, department; 
 
 SELECT 
     employee_id, 
