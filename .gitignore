@@ -33,6 +33,7 @@
 !*.bmp
 !*.tiff
 !*.dwg
+!*.circ
 
 !*.pdf
 
