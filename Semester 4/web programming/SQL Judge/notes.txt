@@ -5,3 +5,22 @@ A platform to host SQL problems with online judge support.
 A MySQL database for authentication, problem set and corresponding answers. My strategy is
 to let the users of my application run their own command and test it against some predefined
 results. So that we can host competitions on database problem.
+
+:: Pages
+
+- Home
+- Blog
+- Learn
+- Cheatsheet
+- Problemsets
+- GYM
+- Contests
+- Leaderboard
+
+- Profile
+- Log in
+- Log out
+
+- F.A.Q.
+- Terms of service
+- About us
