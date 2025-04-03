@@ -24,3 +24,19 @@ results. So that we can host competitions on database problem.
 - F.A.Q.
 - Terms of service
 - About us
+
+:: Structure
+
+index.php
+.env
+.env.sample
+/components
+    - header
+    - navbar
+    - footer
+/lib
+    - db
+    -
+/pages
+/auth
+/database
