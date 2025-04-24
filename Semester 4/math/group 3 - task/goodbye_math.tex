@@ -1,0 +1,89 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{Laplace Transform of Derivatives}
+
+\subsection*{Example:}
+Given that $ L\{F(t)\} = f(s) $, then show that:
+\[
+L\{F'(t)\} = sf(s) - F(0).
+\]
+
+\subsection*{Solution:}
+Given that $ L\{F(t)\} = f(s) $ \quad ... (1)
+
+By the definition of the Laplace transform, we get:
+\[
+L\{F'(t)\} = \int_{0}^{\infty} e^{-st} F'(t) \, dt.
+\]
+
+Using integration by parts:
+\[
+L\{F'(t)\} = \left[ e^{-st} F(t) \right]_{0}^{\infty} + s \int_{0}^{\infty} e^{-st} F(t) \, dt.
+\]
+
+Since $ e^{-\infty} = 0 $:
+\[
+L\{F'(t)\} = 0 - e^{0} F(0) + s \int_{0}^{\infty} e^{-st} F(t) \, dt,
+\]
+\[
+L\{F'(t)\} = -F(0) + s f(s). \quad \text{(Using equation (1))}
+\]
+
+Thus:
+\[
+L\{F'(t)\} = sf(s) - F(0). \quad \text{(Proved)}
+\]
+
+\subsection*{Key Equations:}
+
+\subsection*{First-Order Derivative:}
+The Laplace transform of the first derivative is given by:
+\[
+L\{F'(t)\} = s f(s) - F(0).
+\]
+
+\subsection*{Second-Order Derivative:}
+The Laplace transform of the second derivative is given by:
+\[
+L\{F''(t)\} = s^2 f(s) - s F(0) - F'(0).
+\]
+
+\subsection*{Third-Order Derivative:}
+The Laplace transform of the third derivative is given by:
+\[
+L\{F^{(3)}(t)\} = s^3 f(s) - s^2 F(0) - s F'(0) - F''(0).
+\]
+
+\subsection*{$n$-th Order Derivative:}
+The Laplace transform of the $n$-th derivative is given by:
+\[
+L\{F^{(n)}(t)\} = s^n f(s) - s^{n-1} F(0) - s^{n-2} F'(0) - \dots - s F^{(n-2)}(0) - F^{(n-1)}(0).
+\]
+
+\section*{Laplace Transform of a Function Divided by $t$}
+
+\textbf{Example:} If $ L\{F(t)\} = f(s) $, then:
+\[
+L\left\{\frac{F(t)}{t}\right\} = \int_s^\infty f(u) \, du.
+\]
+
+
+\section*{Laplace Transform of Integrals}
+
+\textbf{Example:} If $ L\{F(t)\} = f(s) $, then:
+\begin{enumerate}
+    \item
+    \[
+    L\left\{\int_0^t F(u) \, du\right\} = \frac{f(s)}{s}.
+    \]
+
+    \item
+    \[
+    L\left\{\int_0^t \frac{\sin u}{u} \, du\right\} = \frac{1}{s} \tan^{-1}\frac{1}{s}.
+    \]
+\end{enumerate}
+
+\end{document}
