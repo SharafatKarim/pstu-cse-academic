@@ -8,7 +8,7 @@ create table NEWSPAPER (
 
 DESCRIBE NEWSPAPER;
 
-INSERT INTO NEWSPAPER (Feature, Section, Page) VALUES ('Headline', 'A', 1);
+INSERT INTO NEWSPAPER (Feature, Section, Page) VALUES ('Headline', 'A', 1.5);
 INSERT INTO NEWSPAPER (Feature, Section, Page) VALUES ('Weather', 'A', 1);
 INSERT INTO NEWSPAPER (Feature, Section, Page) VALUES ('Sports', 'B', 1);
 INSERT INTO NEWSPAPER (Feature, Section, Page) VALUES ('Comics', 'B', 2);
