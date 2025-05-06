@@ -19,6 +19,7 @@
 !*.odp
 !*.odg
 !*.odt
+!*.drawio
 
 !*.xlsx
 !*.xls
@@ -49,3 +50,4 @@
 # Markdown files
 !*.md
 !*.tex
+!*.typ
