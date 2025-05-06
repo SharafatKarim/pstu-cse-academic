@@ -72,6 +72,8 @@
 
 = Binary System
 
+
+
 // --------------------------
 // Chapter 2
 // --------------------------
@@ -100,25 +102,21 @@
 // Chapter 6
 // --------------------------
 
-= Binary System
+= Sequential Logic
 
 // --------------------------
-// Chapter 1
+// Chapter 7
 // --------------------------
 
-= Chapter 1 (Binary System)
+= Registers, Counters and the Memory Unit
 
 // --------------------------
-// Chapter 1
+// Chapter 8
 // --------------------------
 
-= Chapter 1 (Binary System)
+= Register-Transfer Logic
 
-// --------------------------
-// Chapter 1
-// --------------------------
 
-= Chapter 1 (Binary System)
 
 #align(right + bottom)[
   --- \
