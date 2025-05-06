@@ -43,8 +43,9 @@
     *Legends* \
   ]
   #parbreak()
-  - *Bold texts* were included in previous years questions.
-  - ⭐ mark represents repentance amount.
+  - *Bold texts* mark importance.
+  - ⭐ mark represents repentance amount in the previous questions,
+  - while, single ⭐ mark represents appearance.
   - #strike[Strike-through] refers to out of syllabus.
   - #highlight[Highlighted texts] are something I didn't find in materials, so help me to find it :)
 ]
@@ -118,23 +119,14 @@ In our mid, r-1's complement was required!
 = Simplification of Boolean Functions
 
 == Definitions
-== Thoery
-
-+ 3-2 Two AND Three Variable Maps
-+ Example 3-1
-+ Example 3-2
-+ Figure 3.5 
-+ Figure 3.6 
-+ Four Variable Map
-+ Example 3-5
-+ Example 3-6
-+ Five and six variable maps
-+ 3.8 - Don't care conditions
-+ Figure 3.26 (a, b (H.W))
 + Prime implicants
 + Essential prime implicants
-+ Tabular Method 
-+ Simplify Don’t Care Condition using Tabular Method.
+
+== Thoery
++ 2-3-4-5-6 Variable Maps (Simplification)
++ *Don't care condition*
++ *Tabular Method *
+  - Simplify Don't Care Condition using Tabular Method.
 
 == Logical implementation
 
