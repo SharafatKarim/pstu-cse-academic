@@ -19,13 +19,13 @@
   #align(
     left,
     text(18pt)[
-      *A fluid dynamic model for glacier flow*
+      *Questions Summary & Analysis*
     ],
   )
   #align(
     left,
     text(14pt)[
-      *Sharafat Karim*
+      *CCE 221 :: Digital Logic Design*
     ],
   )
   #line(length: 100%)
@@ -66,17 +66,59 @@
 // Contents
 // --------------------------
 
-= Introduction
-In this report, we will explore the
-various factors that influence fluid
-dynamics in glaciers and how they
-contribute to the formation and
-behaviour of these natural structures.
+// --------------------------
+// Chapter 1
+// --------------------------
 
+= Binary System
 
-#lorem(50)
+// --------------------------
+// Chapter 2
+// --------------------------
 
-\ ...
+= Boolean Algebra and Logic Gates
+
+// --------------------------
+// Chapter 3
+// --------------------------
+
+= Simplification of Boolean Functions
+
+// --------------------------
+// Chapter 4
+// --------------------------
+
+= Combinational Logic
+
+// --------------------------
+// Chapter 5
+// --------------------------
+
+= Combinational Logic with MSI and LSI
+
+// --------------------------
+// Chapter 6
+// --------------------------
+
+= Binary System
+
+// --------------------------
+// Chapter 1
+// --------------------------
+
+= Chapter 1 (Binary System)
+
+// --------------------------
+// Chapter 1
+// --------------------------
+
+= Chapter 1 (Binary System)
+
+// --------------------------
+// Chapter 1
+// --------------------------
+
+= Chapter 1 (Binary System)
 
 #align(right + bottom)[
   --- \
