@@ -19,7 +19,7 @@
   #align(
     left,
     text(18pt)[
-      *Questions Summary & Analysis*
+      *Questions Summary & Overview*
     ],
   )
   #align(
@@ -78,14 +78,16 @@ Not really that important, but still you can read...\
 In our mid, r-1's complement was required!
 ]
 == Definitions
+
 + Flat and dual-in-line package (Mahbub sir)
 
-== Thoery
+== Thoery + implementation
 
 
-+ Number base conversion (decimal, binary, octal, hexa)
++ Number base conversion (decimal, binary, octal, hexa or *base-n*) ⭐
 + complements (r's and r-1's)
 + substruction with r's complement
++ Advantages and disadvantages of digital techniques over analog techniques ⭐
 
 // --------------------------
 // Chapter 2
@@ -93,10 +95,9 @@ In our mid, r-1's complement was required!
 
 = Boolean Algebra and Logic Gates
 
-== Definitions
-== Thoery
+== Thoery + implementation
 
-+ Basic theorems and properties of bool algebra 
++ Basic theorems and properties of bool algebra ⭐
   - basic therorem :: postulates
   - Operator precedence
   - Venn Diagram
@@ -107,38 +108,50 @@ In our mid, r-1's complement was required!
   - Sum of Maxterm
   - Product of Maxterm 
     - Example 2-5
-  - Conversation between Canonical Forms
+  - Conversation between Canonical Forms ⭐⭐
   - Standard Form
-
-== Logical implementation
 
 // --------------------------
 // Chapter 3
 // --------------------------
 
 = Simplification of Boolean Functions
-
 == Definitions
 + Prime implicants
 + Essential prime implicants
 
-== Thoery
-+ 2-3-4-5-6 Variable Maps (Simplification)
-+ *Don't care condition*
-+ *Tabular Method *
+== Thoery + implementation
++ *2-3-4-5-6 Variable Maps (Simplification)* ⭐
+  - Find prime implicants and essential prime implicants using K-map. ⭐
++ *Don't care condition* ⭐
+  - *"An expression with the minimum number of literals is not necessarily unique."* ⭐⭐
++ *Tabular Method * ⭐
   - Simplify Don't Care Condition using Tabular Method.
 
-== Logical implementation
 
 // --------------------------
 // Chapter 4
 // --------------------------
 
+#pagebreak()
 = Combinational Logic
-
-== Definitions
+#rect(width: 100%)[
+For Mahbub sir's part, it's recommended to solve exercise problems from both books.
+]
 == Thoery
++ Design procedures (x7)
+
 == Logical implementation
++ Adders  
+  - Half adder
+  - Full adder
++ Subtractors
+  - Half subtractor
+  - Full subtractor
++ BCD to excess-3 
++ implementation with universal Gates
++ XOR & XNOR
++ Parity
 
 // --------------------------
 // Chapter 5
@@ -146,8 +159,8 @@ In our mid, r-1's complement was required!
 
 = Combinational Logic with MSI and LSI
 
-== Definitions
 == Thoery
+
 == Logical implementation
 
 // --------------------------
