@@ -5,9 +5,7 @@
   columns: 1,
 )
 // #set text(font: "Ubuntu Nerd Font")
-#set par(
-  justify: true
-)
+#set par(justify: true)
 #set heading(numbering: "1.1")
 
 // --------------------------
@@ -74,8 +72,8 @@
 = Binary System
 
 #rect(width: 100%)[
-Not really that important, but still you can read...\
-In our mid, r-1's complement was required!
+  Not really that important, but still you can read...\
+  In our mid, r-1's complement was required!
 ]
 == Definitions
 
@@ -106,7 +104,7 @@ In our mid, r-1's complement was required!
 + Canonical and standard forms
   - Minterm & Maxterm examples
   - Sum of Maxterm
-  - Product of Maxterm 
+  - Product of Maxterm
     - Example 2-5
   - Conversation between Canonical Forms ⭐⭐
   - Standard Form
@@ -136,19 +134,19 @@ In our mid, r-1's complement was required!
 #pagebreak()
 = Combinational Logic
 #rect(width: 100%)[
-For Mahbub sir's part, it's recommended to solve exercise problems from both books.
+  For Mahbub sir's part, it's recommended to solve exercise problems from both books.
 ]
 == Thoery
 + Design procedures (x7)
 
 == Logical implementation
-+ Adders  
++ Adders
   - Half adder
   - Full adder
 + Subtractors
   - Half subtractor
   - Full subtractor
-+ BCD to excess-3 
++ BCD to excess-3
 + implementation with universal Gates
 + XOR & XNOR
 + Parity
@@ -159,7 +157,7 @@ For Mahbub sir's part, it's recommended to solve exercise problems from both boo
 
 = Combinational Logic with MSI and LSI
 #rect(width: 100%)[
-For Mahbub sir's part, it's recommended to solve exercise problems from both books.
+  For Mahbub sir's part, it's recommended to solve exercise problems from both books.
 ]
 
 == Definitions
@@ -177,7 +175,7 @@ For Mahbub sir's part, it's recommended to solve exercise problems from both boo
 + Boolean function implementation
 + Read-only memory (ROM)
   - Combinational logic implementation
-  - Types of ROM 
+  - Types of ROM
 + Programmable logic array (PLA)
 
 // --------------------------
@@ -187,7 +185,7 @@ For Mahbub sir's part, it's recommended to solve exercise problems from both boo
 = Sequential Logic
 
 == Definitions
-+ Sequencial logic 
++ Sequencial logic
 
 == Thoery + implementation
 + Clocked RS flip-flop
@@ -196,12 +194,12 @@ For Mahbub sir's part, it's recommended to solve exercise problems from both boo
 + Clocked T flip-flop
 + Triggering of flip-flops
   - Master-slave flip-flop
-  - Edge-triggered flip-flop 
+  - Edge-triggered flip-flop
 
   #rect(width: 100%)[
-    For the following topics, it's recommended to watch YouTube videos. \ 
+    For the following topics, it's recommended to watch YouTube videos. \
     *"Sequential Circuits"* by *Neso Academy* is a good one. \
-    Also there're some recommended ones from Mahbub sir. 
+    Also there're some recommended ones from Mahbub sir.
   ]
 + Analysis of clocked sequential circuits
   - Example of a sequential circuit
@@ -218,9 +216,28 @@ For Mahbub sir's part, it's recommended to solve exercise problems from both boo
 
 = Registers, Counters and the Memory Unit
 
-== Definitions
 == Thoery
-== Logical implementation
+
++ Registers
+  - 4 bit register with parallel load
+  - register with parallel load (D flip-flops)
+  - Block diagram of a sequential circuit
+  - Example 7-1
++ Shift register
+  - Serial transfer from register A to register B
+  - Bidirectional shift register with parallel load
+  - 4-bit Bidirectional shift register with parallel load
++ Serial addition
++ Ripple counter (asynchronous counter)
++ BCD Ripple counter (asynchronous counter)
++ Synchronous counter
+  - 4-bit synchronous binary counter
++ Johnson counter (construction)
++ The memory unit 
++ Examples of Random Access Memory (RAM)
+  - Memory cell
+  - Integrated circuit memory
+  - Magnetic core memory
 
 // --------------------------
 // Chapter 8
@@ -228,9 +245,32 @@ For Mahbub sir's part, it's recommended to solve exercise problems from both boo
 
 = Register-Transfer Logic
 
-== Definitions
+#rect(width: 100%)[
+  From this chapter we actually need to know only simple statements. \
+  Don't get overloaded with the details. \
+]
+
+== Definition
++ Register 
++ Binary information
++ Microoperation
++ MBR
++ 
+
 == Thoery
-== Logical implementation
++ Microoperation types
++ Interregister transfer
+  - Fig 8-2
+  - Table 8-1
+  - Fig 8-3
++ Memory transfer
++ Arithmetic, logic and shift microoperations
+  - Basics and statements  
+    - Table 8-2
+  - Logic microoperation
+    - Table 8-3
+  - Shift microoperation
++ Overflow
 
 
 #align(right + bottom)[
