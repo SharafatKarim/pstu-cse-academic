@@ -59,6 +59,10 @@
 #pagebreak()
 
 #outline()
+#align(bottom)[
+  #line(length: 100%)
+  Revision 01 \
+]
 #pagebreak()
 
 // --------------------------
@@ -137,7 +141,8 @@
   For Mahbub sir's part, it's recommended to solve exercise problems from both books.
 ]
 == Thoery
-+ Design procedures (x7)
++ Design procedures (x7 steps)
++ Universal Gate (definition) ⭐
 
 == Logical implementation
 + Adders
@@ -147,6 +152,8 @@
   - Half subtractor
   - Full subtractor
 + BCD to excess-3
++ Analysis procedure ⭐⭐
++ Multilevel NAND and NOR implementation ⭐
 + implementation with universal Gates
 + XOR & XNOR
 + Parity
@@ -161,17 +168,21 @@
 ]
 
 == Definitions
++ Adder ⭐
++ Decoder ⭐
 + Binary parallel adder
++ Programmable read only memory (ROM) ⭐
+
 
 == Thoery + implementation
 + Carry propagation
   - Look ahead carry generator
 + Decimal adder
-  - BCD adder
-+ Magnitude comparator
-+ Decoder & Demultiplexer
+  - BCD adder ⭐
++ Magnitude comparator ⭐
++ Decoder & Demultiplexer ⭐⭐
   - Decoder with enable (E) input
-+ Encoder & Multiplexer
++ Encoder & Multiplexer ⭐⭐
 + Boolean function implementation
 + Read-only memory (ROM)
   - Combinational logic implementation
@@ -186,25 +197,28 @@
 
 == Definitions
 + Sequencial logic
++ Flip flop ⭐
++ Synchronous vs asynchronous circuits ⭐
 
 == Thoery + implementation
-+ Clocked RS flip-flop
-+ Clocked D flip-flop
-+ Clocked JK flip-flop
++ Combinational vs sequential circuits ⭐
++ Clocked RS flip-flop ⭐
++ Clocked D flip-flop ⭐
++ Clocked JK flip-flop ⭐⭐
 + Clocked T flip-flop
 + Triggering of flip-flops
   - Master-slave flip-flop
   - Edge-triggered flip-flop
 
   #rect(width: 100%)[
-    For the following topics, it's recommended to watch YouTube videos. \
+    For the following topics, it's *recommended to watch YouTube videos*. \
     *"Sequential Circuits"* by *Neso Academy* is a good one. \
-    Also there're some recommended ones from Mahbub sir.
+    Also there're some recommended ones from *Mahbub sir* (link availabe on 🌄✨ or Classroom).
   ]
 + Analysis of clocked sequential circuits
   - Example of a sequential circuit
-  - State table
-  - State diagram
+  - State table ⭐
+  - State diagram ⭐
   - State equation
 + State reduction
   - State assignment
@@ -220,23 +234,29 @@
   Go through Rising Flare's progress for capturing exact tables and figures.
 ]
 
+= Definition
++ Register ⭐
++ Bidirectional shift register ⭐
++ Binary ripple counter ⭐
++ Serial vs parallel transfer ⭐
+
 == Thoery
 
-+ Registers
-  - 4 bit register with parallel load
-  - register with parallel load (D flip-flops)
++ Registers 
+  - 4 bit register with parallel load ⭐
+  - register with parallel load (D flip-flops) ⭐
   - Block diagram of a sequential circuit
   - Example 7-1
 + Shift register
-  - Serial transfer from register A to register B
+  - Serial transfer from register A to register B ⭐⭐
   - Bidirectional shift register with parallel load
   - 4-bit Bidirectional shift register with parallel load
-+ Serial addition
++ Serial addition ⭐⭐
 + Ripple counter (asynchronous counter)
-+ BCD Ripple counter (asynchronous counter)
++ BCD Ripple counter (asynchronous counter) ⭐⭐
 + Synchronous counter
   - 4-bit synchronous binary counter
-+ Johnson counter (construction)
++ Johnson counter (construction) ⭐
 + The memory unit 
 + Examples of Random Access Memory (RAM)
   - Memory cell
@@ -251,8 +271,8 @@
 
 #rect(width: 100%)[
   From this chapter we actually need to know only simple statements. \
-  Don't skip statements please, \
-  and don't get overloaded with the details! \
+  Don't skip statements, \
+  and get overloaded with the details! \
 ]
 
 == Definition
