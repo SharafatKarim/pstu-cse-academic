@@ -216,6 +216,10 @@
 
 = Registers, Counters and the Memory Unit
 
+#rect(width: 100%)[
+  Go through Rising Flare's progress for capturing exact tables and figures.
+]
+
 == Thoery
 
 + Registers
@@ -247,15 +251,15 @@
 
 #rect(width: 100%)[
   From this chapter we actually need to know only simple statements. \
-  Don't get overloaded with the details. \
+  Don't skip statements please, \
+  and don't get overloaded with the details! \
 ]
 
 == Definition
 + Register 
 + Binary information
 + Microoperation
-+ MBR
-+ 
++ MBR (previous chapter)
 
 == Thoery
 + Microoperation types
