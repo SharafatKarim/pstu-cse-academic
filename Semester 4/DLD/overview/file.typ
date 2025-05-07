@@ -17,7 +17,7 @@
   #align(
     left,
     text(18pt)[
-      *Questions Summary & Overview*
+      *Questions Summary & Overview :: 2025*
     ],
   )
   #align(
@@ -61,7 +61,8 @@
 #outline()
 #align(bottom)[
   #line(length: 100%)
-  Revision 01 \
+  *Revision 01* \
+  Try to directly open the file from Rising Flare, to avoid missing any updates. \
 ]
 #pagebreak()
 
@@ -252,7 +253,7 @@
   - Bidirectional shift register with parallel load
   - 4-bit Bidirectional shift register with parallel load
 + Serial addition ⭐⭐
-+ Ripple counter (asynchronous counter)
++ Ripple counter (asynchronous counter) ⭐
 + BCD Ripple counter (asynchronous counter) ⭐⭐
 + Synchronous counter
   - 4-bit synchronous binary counter
@@ -299,5 +300,7 @@
 
 #align(right + bottom)[
   --- \
-  *There's no end to EXPLORATION!*
+  *Nobody can go back and start a new beginning, \
+  but anyone can start today and make a new ending.* \
+  \~ Maria Robinson
 ]
