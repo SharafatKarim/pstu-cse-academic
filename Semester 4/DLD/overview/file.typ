@@ -158,10 +158,27 @@ For Mahbub sir's part, it's recommended to solve exercise problems from both boo
 // --------------------------
 
 = Combinational Logic with MSI and LSI
+#rect(width: 100%)[
+For Mahbub sir's part, it's recommended to solve exercise problems from both books.
+]
 
-== Thoery
+== Definitions
++ Binary parallel adder
 
-== Logical implementation
+== Thoery + implementation
++ Carry propagation
+  - Look ahead carry generator
++ Decimal adder
+  - BCD adder
++ Magnitude comparator
++ Decoder & Demultiplexer
+  - Decoder with enable (E) input
++ Encoder & Multiplexer
++ Boolean function implementation
++ Read-only memory (ROM)
+  - Combinational logic implementation
+  - Types of ROM 
++ Programmable logic array (PLA)
 
 // --------------------------
 // Chapter 6
@@ -170,16 +187,34 @@ For Mahbub sir's part, it's recommended to solve exercise problems from both boo
 = Sequential Logic
 
 == Definitions
-== Thoery
-== Logical implementation
++ Sequencial logic 
+
+== Thoery + implementation
++ Clocked RS flip-flop
++ Clocked D flip-flop
++ Clocked JK flip-flop
++ Clocked T flip-flop
++ Triggering of flip-flops
+  - Master-slave flip-flop
+  - Edge-triggered flip-flop 
+
+  #rect(width: 100%)[
+    For the following topics, it's recommended to watch YouTube videos. \ 
+    *"Sequential Circuits"* by *Neso Academy* is a good one. \
+    Also there're some recommended ones from Mahbub sir. 
+  ]
++ Analysis of clocked sequential circuits
+  - Example of a sequential circuit
+  - State table
+  - State diagram
+  - State equation
++ State reduction
+  - State assignment
++ Design procedure
 
 // --------------------------
 // Chapter 7
 // --------------------------
-
-== Definitions
-== Thoery
-== Logical implementation
 
 = Registers, Counters and the Memory Unit
 
