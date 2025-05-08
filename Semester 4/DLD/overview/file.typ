@@ -235,7 +235,7 @@
   Go through Rising Flare's progress for capturing exact tables and figures.
 ]
 
-= Definition
+== Definition
 + Register ⭐
 + Bidirectional shift register ⭐
 + Binary ripple counter ⭐
