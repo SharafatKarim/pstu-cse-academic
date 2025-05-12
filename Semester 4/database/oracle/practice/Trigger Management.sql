@@ -61,12 +61,12 @@ end;
 insert into bookshelf values ( 'The Hobbit',
                                'Houghton Mifflin',
                                'Fantasy',
-                               'A' );
+                               'B' );
 
 insert into bookshelf values ( 'The old man and the sea',
                                'Ernest Hemingway',
                                'Tragedy',
-                               'A' );
+                               'C' );
 
 commit;
 
@@ -76,7 +76,7 @@ select *
 
 -- Update a record to trigger the row-level trigger
 UPDATE bookshelf
-   SET rating = 'A'
+   SET rating = 'D'
    where title = 'The old man and the sea';
 
 -- Select all records from the audit table to verify the trigger
@@ -103,7 +103,7 @@ END;
 
 -- Update multiple rows to trigger both row-level and statement-level triggers
 UPDATE bookshelf
-   SET rating = 'A';
+   SET rating = 'E';
 
 -- Select all records from the audit table to verify the row-level trigger
 SELECT *
