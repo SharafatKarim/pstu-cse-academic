@@ -26,10 +26,10 @@ CREATE TABLE NEWSPAPER (
 
 -- On linux system we use system as tablespace
 -- alter user c##Person1
--- default tablespace users
--- quota 5m on users;
+-- default tablespace  SYSTEM
+-- quota 5m on  SYSTEM;
 
-ALTER USER C##PERSON1 DEFAULT TABLESPACE SYSTEM QUOTA 100M ON SYSTEM;
+ALTER USER C##PERSON1 DEFAULT TABLESPACE USERS QUOTA 100M ON USERS;
 
 -- 4. Insert data into NEWSPAPER table as user Person1
 INSERT INTO NEWSPAPER (ID, TITLE, PUBLISHER) VALUES (1, 'The Times', 'Times Group');
