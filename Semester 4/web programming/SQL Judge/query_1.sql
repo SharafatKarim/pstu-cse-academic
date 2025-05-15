@@ -88,3 +88,12 @@ CREATE TABLE blog_reactions (
 select * from blog_reactions;
 desc blog_reactions;
 SELECT reaction, COUNT(*) as count FROM blog_reactions WHERE blog_id = 2 GROUP BY reaction;
+
+SELECT * FROM users
+ORDER BY total_solved DESC;
+
+SELECT * FROM users
+ORDER BY total_submissions DESC;
+
+SELECT * FROM users
+ORDER BY total_contributions DESC;
