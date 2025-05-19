@@ -1,0 +1,34 @@
+Experiment 4:
+1: Encoder Circuits.
+2: Decoder Circuits.
+
+Experiment 5:
+3: Design using Multiplexers.
+
+Experiment 6:
+4: Arithmetic circuit design (half adder).
+5: Arithmetic circuit design (full adder).
+6: Arithmetic circuit design (half subtractor).
+7: Arithmetic circuit design (full subtractor).
+
+Experiment 7:
+8: Circuit design using IC 7483. (addition operation)
+9: Circuit design using IC 7483. (BCD sum)
+
+Experiment 8:
+10: Flip-Flops (RS).
+11: Flip-Flops (master slave JK).
+
+Experiment 9:
+12: Universal shift register
+
+Experiment 10:
+13: Counters (synchronous)
+14: Counters (Asynchronous)
+
+Experiment 11:
+15: Sequence Detector (use deepseek/ chatGPT/ johnson/ ring counter)
+
+Experiment 12:
+16: BCD-to-7 Segment display.
+
