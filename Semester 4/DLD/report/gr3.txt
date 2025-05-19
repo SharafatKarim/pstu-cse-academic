@@ -1,34 +1,34 @@
 Experiment 4:
-1: Encoder Circuits.
-2: Decoder Circuits.
+1: Encoder Circuits. (akash)
+2: Decoder Circuits. (akash)
 
 Experiment 5:
-3: Design using Multiplexers.
+3: Design using Multiplexers. (rahat)
 
 Experiment 6:
 4: Arithmetic circuit design (half adder). - Mamun
 5: Arithmetic circuit design (full adder). - Mamun
-6: Arithmetic circuit design (half subtractor). - Senarul
+6: Arithmetic circuit design (half subtractor). - semanta
 7: Arithmetic circuit design (full subtractor). - Senarul
 
 Experiment 7:
-8: Circuit design using IC 7483. (addition operation)
-9: Circuit design using IC 7483. (BCD sum)
+8: Circuit design using IC 7483. (addition operation) (nayema)
+9: Circuit design using IC 7483. (BCD sum) (nayema)
 
 Experiment 8:
-10: Flip-Flops (RS).
-11: Flip-Flops (master slave JK).
+10: Flip-Flops (RS). (arafat)
+11: Flip-Flops (master slave JK). (arafat)
 
 Experiment 9:
-12: Universal shift register
+12: Universal shift register (sharafat)
 
 Experiment 10:
-13: Counters (synchronous)
-14: Counters (Asynchronous)
+13: Counters (synchronous) (afridi)
+14: Counters (Asynchronous) (afridi)
 
 Experiment 11:
-15: Sequence Detector (use deepseek/ chatGPT/ johnson/ ring counter)
+15: Sequence Detector (use deepseek/ chatGPT/ johnson/ ring counter) (sharafat)
 
 Experiment 12:
-16: BCD-to-7 Segment display.
+16: BCD-to-7 Segment display. (masum)
 
