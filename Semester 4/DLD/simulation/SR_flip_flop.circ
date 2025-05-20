@@ -68,9 +68,7 @@
     <comp lib="0" loc="(120,630)" name="Pin">
       <a name="appearance" val="NewPins"/>
     </comp>
-    <comp lib="0" loc="(120,720)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-    </comp>
+    <comp lib="0" loc="(120,720)" name="Clock"/>
     <comp lib="0" loc="(160,420)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
@@ -146,11 +144,8 @@
     <comp lib="8" loc="(415,765)" name="Text">
       <a name="text" val="clk"/>
     </comp>
-    <comp lib="8" loc="(447,517)" name="Text">
+    <comp lib="8" loc="(445,515)" name="Text">
       <a name="text" val="(simulation will crush if both s and r is set to 1)"/>
-    </comp>
-    <comp lib="8" loc="(55,725)" name="Text">
-      <a name="text" val="clk"/>
     </comp>
     <comp lib="8" loc="(600,850)" name="Text">
       <a name="text" val="Q"/>
@@ -175,6 +170,9 @@
     </comp>
     <comp lib="8" loc="(65,635)" name="Text">
       <a name="text" val="r"/>
+    </comp>
+    <comp lib="8" loc="(85,728)" name="Text">
+      <a name="text" val="clk"/>
     </comp>
     <wire from="(110,240)" to="(140,240)"/>
     <wire from="(110,260)" to="(160,260)"/>
