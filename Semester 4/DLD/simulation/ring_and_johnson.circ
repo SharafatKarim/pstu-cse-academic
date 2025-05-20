@@ -81,10 +81,10 @@
     <comp lib="4" loc="(440,240)" name="D Flip-Flop">
       <a name="appearance" val="logisim_evolution"/>
     </comp>
-    <comp lib="8" loc="(424,330)" name="Text">
+    <comp lib="8" loc="(420,330)" name="Text">
       <a name="text" val="johnson counter"/>
     </comp>
-    <comp lib="8" loc="(426,67)" name="Text">
+    <comp lib="8" loc="(425,65)" name="Text">
       <a name="text" val="ring counter"/>
     </comp>
     <wire from="(100,150)" to="(100,290)"/>
