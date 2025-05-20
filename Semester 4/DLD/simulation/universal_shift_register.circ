@@ -62,6 +62,7 @@
     <comp lib="0" loc="(110,860)" name="Pin">
       <a name="appearance" val="NewPins"/>
     </comp>
+    <comp lib="0" loc="(160,930)" name="Clock"/>
     <comp lib="0" loc="(170,540)" name="Pin">
       <a name="appearance" val="NewPins"/>
     </comp>
@@ -77,6 +78,9 @@
     <comp lib="0" loc="(170,900)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="width" val="2"/>
+    </comp>
+    <comp lib="0" loc="(170,960)" name="Pin">
+      <a name="appearance" val="NewPins"/>
     </comp>
     <comp lib="0" loc="(590,510)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -125,6 +129,27 @@
     <comp lib="8" loc="(100,843)" name="Text">
       <a name="text" val="left-shift input"/>
     </comp>
+    <comp lib="8" loc="(103,966)" name="Text">
+      <a name="text" val="reset"/>
+    </comp>
+    <comp lib="8" loc="(110,935)" name="Text">
+      <a name="text" val="clock"/>
+    </comp>
+    <comp lib="8" loc="(391,443)" name="Text">
+      <a name="text" val="Universal shift register"/>
+    </comp>
+    <comp lib="8" loc="(714,615)" name="Text">
+      <a name="text" val="1 0 left-shift"/>
+    </comp>
+    <comp lib="8" loc="(720,596)" name="Text">
+      <a name="text" val="0 1 right-shift"/>
+    </comp>
+    <comp lib="8" loc="(730,635)" name="Text">
+      <a name="text" val="1 1 parallel load"/>
+    </comp>
+    <comp lib="8" loc="(738,576)" name="Text">
+      <a name="text" val="0 0 parallel output"/>
+    </comp>
     <comp lib="8" loc="(78,904)" name="Text">
       <a name="text" val="selection"/>
     </comp>
@@ -133,11 +158,13 @@
     </comp>
     <wire from="(110,520)" to="(330,520)"/>
     <wire from="(110,860)" to="(330,860)"/>
+    <wire from="(160,930)" to="(480,930)"/>
     <wire from="(170,540)" to="(330,540)"/>
     <wire from="(170,560)" to="(200,560)"/>
     <wire from="(170,580)" to="(190,580)"/>
     <wire from="(170,600)" to="(180,600)"/>
     <wire from="(170,900)" to="(210,900)"/>
+    <wire from="(170,960)" to="(490,960)"/>
     <wire from="(180,600)" to="(180,870)"/>
     <wire from="(180,870)" to="(330,870)"/>
     <wire from="(190,580)" to="(190,760)"/>
@@ -184,10 +211,29 @@
     <wire from="(370,640)" to="(510,640)"/>
     <wire from="(370,750)" to="(510,750)"/>
     <wire from="(370,860)" to="(510,860)"/>
+    <wire from="(480,550)" to="(480,660)"/>
+    <wire from="(480,550)" to="(510,550)"/>
+    <wire from="(480,660)" to="(480,770)"/>
+    <wire from="(480,660)" to="(510,660)"/>
+    <wire from="(480,770)" to="(480,880)"/>
+    <wire from="(480,770)" to="(510,770)"/>
+    <wire from="(480,880)" to="(480,930)"/>
+    <wire from="(480,880)" to="(510,880)"/>
+    <wire from="(490,580)" to="(490,690)"/>
+    <wire from="(490,580)" to="(540,580)"/>
+    <wire from="(490,690)" to="(490,800)"/>
+    <wire from="(490,690)" to="(540,690)"/>
+    <wire from="(490,800)" to="(490,960)"/>
+    <wire from="(490,800)" to="(540,800)"/>
+    <wire from="(490,960)" to="(540,960)"/>
     <wire from="(510,510)" to="(510,530)"/>
     <wire from="(510,620)" to="(510,640)"/>
     <wire from="(510,730)" to="(510,750)"/>
     <wire from="(510,840)" to="(510,860)"/>
+    <wire from="(540,560)" to="(540,580)"/>
+    <wire from="(540,670)" to="(540,690)"/>
+    <wire from="(540,780)" to="(540,800)"/>
+    <wire from="(540,890)" to="(540,960)"/>
     <wire from="(570,490)" to="(570,510)"/>
     <wire from="(570,510)" to="(590,510)"/>
     <wire from="(570,600)" to="(570,620)"/>
