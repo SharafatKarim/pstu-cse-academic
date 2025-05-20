@@ -146,7 +146,7 @@
     <comp lib="8" loc="(415,765)" name="Text">
       <a name="text" val="clk"/>
     </comp>
-    <comp lib="8" loc="(424,519)" name="Text">
+    <comp lib="8" loc="(447,517)" name="Text">
       <a name="text" val="(simulation will crush if both s and r is set to 1)"/>
     </comp>
     <comp lib="8" loc="(55,725)" name="Text">
