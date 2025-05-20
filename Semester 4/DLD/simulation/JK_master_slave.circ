@@ -62,8 +62,26 @@
     <comp lib="0" loc="(120,630)" name="Pin">
       <a name="appearance" val="NewPins"/>
     </comp>
-    <comp lib="0" loc="(120,720)" name="Pin">
+    <comp lib="0" loc="(120,720)" name="Clock"/>
+    <comp lib="0" loc="(490,820)" name="Pin">
       <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,860)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(820,560)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(820,650)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
     </comp>
     <comp lib="1" loc="(360,560)" name="NAND Gate">
       <a name="inputs" val="3"/>
@@ -78,27 +96,48 @@
     <comp lib="1" loc="(630,650)" name="NAND Gate"/>
     <comp lib="1" loc="(740,560)" name="NAND Gate"/>
     <comp lib="1" loc="(740,650)" name="NAND Gate"/>
-    <comp lib="8" loc="(177,484)" name="Text">
+    <comp lib="4" loc="(300,810)" name="J-K Flip-Flop">
+      <a name="appearance" val="logisim_evolution"/>
+    </comp>
+    <comp lib="4" loc="(440,810)" name="J-K Flip-Flop">
+      <a name="appearance" val="logisim_evolution"/>
+    </comp>
+    <comp lib="8" loc="(175,480)" name="Text">
       <a name="text" val="JK master-slave Flip-flop"/>
     </comp>
-    <comp lib="8" loc="(55,725)" name="Text">
-      <a name="text" val="clk"/>
-    </comp>
-    <comp lib="8" loc="(65,540)" name="Text">
-      <a name="text" val="s"/>
-    </comp>
-    <comp lib="8" loc="(65,635)" name="Text">
-      <a name="text" val="r"/>
-    </comp>
-    <comp lib="8" loc="(810,544)" name="Text">
+    <comp lib="8" loc="(545,825)" name="Text">
       <a name="text" val="Q"/>
     </comp>
-    <comp lib="8" loc="(819,679)" name="Text">
+    <comp lib="8" loc="(545,865)" name="Text">
       <a name="text" val="Q'"/>
     </comp>
-    <wire from="(120,540)" to="(300,540)"/>
-    <wire from="(120,630)" to="(300,630)"/>
-    <wire from="(120,720)" to="(200,720)"/>
+    <comp lib="8" loc="(65,540)" name="Text">
+      <a name="text" val="j"/>
+    </comp>
+    <comp lib="8" loc="(65,635)" name="Text">
+      <a name="text" val="k"/>
+    </comp>
+    <comp lib="8" loc="(80,725)" name="Text">
+      <a name="text" val="clk"/>
+    </comp>
+    <comp lib="8" loc="(835,540)" name="Text">
+      <a name="text" val="Q"/>
+    </comp>
+    <comp lib="8" loc="(840,680)" name="Text">
+      <a name="text" val="Q'"/>
+    </comp>
+    <wire from="(120,540)" to="(180,540)"/>
+    <wire from="(120,630)" to="(160,630)"/>
+    <wire from="(120,720)" to="(140,720)"/>
+    <wire from="(140,720)" to="(140,860)"/>
+    <wire from="(140,720)" to="(200,720)"/>
+    <wire from="(140,860)" to="(290,860)"/>
+    <wire from="(160,630)" to="(160,840)"/>
+    <wire from="(160,630)" to="(300,630)"/>
+    <wire from="(160,840)" to="(290,840)"/>
+    <wire from="(180,540)" to="(180,820)"/>
+    <wire from="(180,540)" to="(300,540)"/>
+    <wire from="(180,820)" to="(290,820)"/>
     <wire from="(200,580)" to="(200,670)"/>
     <wire from="(200,580)" to="(300,580)"/>
     <wire from="(200,670)" to="(200,720)"/>
@@ -114,9 +153,11 @@
     <wire from="(280,700)" to="(300,700)"/>
     <wire from="(280,720)" to="(280,740)"/>
     <wire from="(280,740)" to="(300,740)"/>
+    <wire from="(350,820)" to="(430,820)"/>
+    <wire from="(350,860)" to="(390,860)"/>
     <wire from="(360,560)" to="(390,560)"/>
     <wire from="(360,650)" to="(390,650)"/>
-    <wire from="(360,720)" to="(540,720)"/>
+    <wire from="(360,720)" to="(400,720)"/>
     <wire from="(390,540)" to="(390,560)"/>
     <wire from="(390,540)" to="(410,540)"/>
     <wire from="(390,580)" to="(390,600)"/>
@@ -127,6 +168,11 @@
     <wire from="(390,630)" to="(410,630)"/>
     <wire from="(390,650)" to="(390,670)"/>
     <wire from="(390,670)" to="(410,670)"/>
+    <wire from="(390,840)" to="(390,860)"/>
+    <wire from="(390,840)" to="(430,840)"/>
+    <wire from="(400,720)" to="(400,860)"/>
+    <wire from="(400,720)" to="(540,720)"/>
+    <wire from="(400,860)" to="(430,860)"/>
     <wire from="(470,560)" to="(490,560)"/>
     <wire from="(470,650)" to="(500,650)"/>
     <wire from="(490,560)" to="(490,610)"/>
