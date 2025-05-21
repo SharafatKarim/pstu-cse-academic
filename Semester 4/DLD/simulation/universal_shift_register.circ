@@ -141,10 +141,10 @@
     <comp lib="8" loc="(710,615)" name="Text">
       <a name="text" val="1 0 left-shift"/>
     </comp>
-    <comp lib="8" loc="(715,594)" name="Text">
+    <comp lib="8" loc="(715,590)" name="Text">
       <a name="text" val="0 1 right-shift"/>
     </comp>
-    <comp lib="8" loc="(725,634)" name="Text">
+    <comp lib="8" loc="(725,630)" name="Text">
       <a name="text" val="1 1 parallel load"/>
     </comp>
     <comp lib="8" loc="(735,575)" name="Text">
