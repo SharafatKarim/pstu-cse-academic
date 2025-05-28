@@ -88,30 +88,115 @@
 
 = Objective
 
+To develop a web-based system that provides intelligent recommendations for computer hardware components based on user selections, ensuring compatibility, performance optimization (via bottleneck analysis), and benchmarking. Additionally, the system will include an e-commerce portal for customers and an admin dashboard for managing products and data.
+
 = Scopes
 
 = Problem Statement
 
+Currently, users face difficulties when selecting compatible and balanced PC components. Existing platforms like Ryans Computers Limited allow purchasing but lack intelligent recommendation systems that consider performance metrics, bottlenecks, and benchmarks.
+
+== Target Audience
+- General users looking to build or upgrade their PCs.
+- Computer repair shops and technicians.
+- Gamers seeking optimal performance.
+- Professionals needing specific hardware configurations.
+
 = Requirements
+== Functional Requirements
 
-= System Design
++ User selects PC components (e.g., CPU, GPU, RAM)
++ System recommends compatible parts based on selection
++ Performance bottleneck detection and suggestions
++ Benchmark comparison between selected and recommended components
++ E-commerce functionality: product browsing, cart, checkout
++ Admin panel to manage inventory, add/edit products
++ User registration and login
++ Search and filter functionality
 
+== Non-Functional Requirements
+
++ System should be responsive and user-friendly
++ Fast response time for recommendations
++ Secure user data and transactions
++ Scalable to handle multiple users and products
 
 = Technology
 
-= Implementation
+#table(
+  columns: (auto, auto),
+  table.header(
+    [*Layer*], [*Technology*],
+  ),
+  [Frontend], [HTML/CSS, Bootstrap, JavaScript, React.js (Optional)],
+  [Backend], [ASP.NET MVC Core (.NET 8+)],
+  [Microservices], [ASP.NET Web API],
+  [Database], [Microsoft SQL Server],
+  [ORM], [Entity Framework Core],
+  [Authentication], [JWT / ASP.NET Identity],
+  [Hosting], [MonsterASP.net / Azure / AWS / Local IIS],
+  [CI/CD], [GitHub Actions],
+)
 
-= Testing
+= Architecture
+== Overview
+The system uses a microservices architecture with MVC pattern integration to ensure modularity, scalability, and maintainability. The Recommendation Microservice and E-commerce Microservice are independently deployable, communicating via RESTful APIs through an API Gateway. The MVC pattern structures the application logic within each microservice and the frontend, separating data (Model), presentation (View), and business logic (Controller).
+
+The architecture follows MACH principles (Microservices, API-first, Cloud-native, Headless) and is divided into:
+
+- Client Tier: Web and mobile interfaces built with React.js, following MVC for frontend logic.
+
+- Application Tier: Microservices with MVC-based backend logic (Node.js for E-commerce, Python for Recommendation).
+
+- Data Tier: Distributed databases tailored to each microservice's needs.
+
+= Implementation
+== Microservices Architecture
++ Component Recommendation Service  
+    - API Endpoints:  
+        - `/api/recommendations`
+            - POST: Accepts selected components
+            - Returns: Compatible components + bottleneck analysis
+
+    - Logic:  
+        - Parse selected components
+        - Query database for specifications and benchmarks
+        - Apply rules to detect bottlenecks
+        - Recommend compatible alternatives
+         
+     
+
++ E-Commerce & Admin Service  
+
+    - API Endpoints:  
+        - `/api/products`
+        - `/api/cart`
+        - `/api/orders`
+        - `/api/admin/products`
+         
+
+    - Features:  
+        - Customer can browse and purchase
+        - Admin can manage products, stock, categories
+     
 
 = Conclusion
+Board Autoprofiler aims to revolutionize the way users select PC components by combining intelligent recommendation systems with real-time performance analysis. By addressing the gaps in existing platforms like Ryans Computers, this system empowers users to make informed decisions while building or upgrading their desktop PCs. With a scalable microservices architecture, robust security, and user-friendly interface, the system is well-positioned for long-term success and expansion.
 
 = References
 == Feasibility study
 - #link("https://pc-builds.com/")
 - #link("https://pc-builds.com/bottleneck-calculator/")
+- #link("https://www.ryans.com/")
+- #link("https://www.startech.com.bd/")
+
 
 == Documentation
-- 
+- #link("https://www.w3schools.com/html/") [*W3Schools HTML*]
+- #link("https://www.w3schools.com/css/") [*W3Schools CSS*]
+- #link("https://www.w3schools.com/js/") [*W3Schools JavaScript*]
+- #link("https://www.w3schools.com/bootstrap5/index.php") [*W3Schools Bootstrap 5*]
+- #link("https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-8.0") [*ASP.NET Core docs*]
 
 #align(center + bottom)[
   *THE END*
