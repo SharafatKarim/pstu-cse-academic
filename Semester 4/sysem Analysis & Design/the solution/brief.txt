@@ -1,0 +1,5 @@
+I am gonna create a new project called, "Board Autoprofiler". In this project I am gonna build a website based on computer and laptops selling feature. My website's main duty is to provide the recommendation system. While selecting some parts while building a desktop PC, I will recommend other parts. So I will also keep track of bottleneck, and benchmark.
+
+My web project will have two microservices, in one part while building a desktop, I will recommend the rest of the components. It will also be helpful while upgrading or repairing the PC to find a suitable component. In another microservice I will make a website for customers to buy their products, and an admin site to manage the data to add new products in stock or watch over.
+
+I have visited an industry named "Ryans Computers Limited", The Leading Retail and Online Shop for Computers, Laptops, Monitors & Accessories in Bangladesh. In their website we can buy things but the recommendation system considering the bottleneck and benchmark is missing. So our main target is to solve this.

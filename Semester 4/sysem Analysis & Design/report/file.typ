@@ -6,7 +6,7 @@
 )
 // #set text(font: "Ubuntu Nerd Font")
 #set par(justify: true)
-#set heading(numbering: "1")
+#set heading(numbering: "1.")
 
 // --------------------------
 // Title page
@@ -32,7 +32,7 @@
 
 #align(bottom)[
   #line(length: 100%)
-  *Project Title   : Board Autoprofiler* \
+  *Project Title : Board Autoprofiler* \
   Last Updated on : Wed 28, May 2025 \
   Submission Date : Wed 28, May 2025 \
   #line(length: 100%)
@@ -80,24 +80,39 @@
 // Contents
 // --------------------------
 
+#align(center)[
+  #text(size: 20pt, weight: "bold")[Board Autoprofiler]
+]
+
 = Introduction
-In this report, we will explore the
-various factors that influence fluid
-dynamics in glaciers and how they
-contribute to the formation and
-behaviour of these natural structures.
+
+= Objective
+
+= Scopes
+
+= Problem Statement
+
+= Requirements
+
+= System Design
 
 
-#lorem(50)
+= Technology
 
+= Implementation
 
-= Feasibility study
+= Testing
 
+= Conclusion
+
+= References
+== Feasibility study
 - #link("https://pc-builds.com/")
 - #link("https://pc-builds.com/bottleneck-calculator/")
 
+== Documentation
+- 
 
-#align(right + bottom)[
-  --- \
-  *There's no end to EXPLORATION!*
+#align(center + bottom)[
+  *THE END*
 ]
