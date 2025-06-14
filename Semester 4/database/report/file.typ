@@ -127,6 +127,11 @@ To develop a web-based system that provides intelligent recommendations for comp
 #image("schema.png", width: 100%, height: auto, alt: "E-R Diagram")
 
 == E-R Diagram
+
+=== Without attributes
+a
+
+=== With all attributes
 #image("diagram.svg", width: 100%, height: auto, alt: "E-R Diagram")
 
 
