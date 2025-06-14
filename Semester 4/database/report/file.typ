@@ -204,48 +204,6 @@ CREATE TABLE blogs (
     FOREIGN KEY (author_id) REFERENCES users(ID)
 );
 
--- A trigger to increment total_contributions for the author when a new blog is published
-DELIMITER $$
-CREATE TRIGGER increment_contributions_after_insert
-AFTER INSERT ON blogs
-FOR EACH ROW
-BEGIN
-    IF NEW.is_published = TRUE THEN
-        UPDATE users
-        SET total_contributions = total_contributions + 5
-        WHERE ID = NEW.author_id;
-    END IF;
-END$$
-DELIMITER ;
-
--- Trigger to decrement total_contributions when a blog is updated from published to draft
-DELIMITER $$
-CREATE TRIGGER decrement_contributions_after_update_to_draft
-AFTER UPDATE ON blogs
-FOR EACH ROW
-BEGIN
-    IF OLD.is_published = TRUE AND NEW.is_published = FALSE THEN
-        UPDATE users
-        SET total_contributions = total_contributions - 5
-        WHERE ID = NEW.author_id;
-    END IF;
-END$$
-DELIMITER ;
-
--- Trigger to increment total_contributions when a blog is updated from draft to published
-DELIMITER $$
-CREATE TRIGGER increment_contributions_after_update_to_publish
-AFTER UPDATE ON blogs
-FOR EACH ROW
-BEGIN
-    IF OLD.is_published = FALSE AND NEW.is_published = TRUE THEN
-        UPDATE users
-        SET total_contributions = total_contributions + 5
-        WHERE ID = NEW.author_id;
-    END IF;
-END$$
-DELIMITER ;
-
 DROP TABLE IF EXISTS blog_comments;
 CREATE TABLE blog_comments (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -256,18 +214,6 @@ CREATE TABLE blog_comments (
     FOREIGN KEY (blog_id) REFERENCES blogs(ID),
     FOREIGN KEY (user_id) REFERENCES users(ID)
 );
-
--- Trigger to increment total_contributions by 1 when a new comment is added
-DELIMITER $$
-CREATE TRIGGER increment_contributions_after_comment
-AFTER INSERT ON blog_comments
-FOR EACH ROW
-BEGIN
-    UPDATE users
-    SET total_contributions = total_contributions + 1
-    WHERE ID = NEW.user_id;
-END$$
-DELIMITER ;
 
 DROP TABLE IF EXISTS blog_reactions;
 CREATE TABLE blog_reactions (
@@ -347,6 +293,76 @@ CREATE TABLE submissions (
     FOREIGN KEY (problem_id) REFERENCES problems(ID)
 );
 
+DROP TABLE IF EXISTS user_scores;
+CREATE TABLE user_scores (
+    user_id INT NOT NULL,
+    contest_id INT NOT NULL,
+    problem_id INT NOT NULL,
+    PRIMARY KEY (user_id, contest_id, problem_id),
+    FOREIGN KEY (user_id) REFERENCES users(ID),
+    FOREIGN KEY (contest_id) REFERENCES contests(ID),
+    FOREIGN KEY (problem_id) REFERENCES problems(ID)
+);
+```
+
+=== Triggers 
+
+```sql
+
+-- A trigger to increment total_contributions for the author when a new blog is published
+DELIMITER $$
+CREATE TRIGGER increment_contributions_after_insert
+AFTER INSERT ON blogs
+FOR EACH ROW
+BEGIN
+    IF NEW.is_published = TRUE THEN
+        UPDATE users
+        SET total_contributions = total_contributions + 5
+        WHERE ID = NEW.author_id;
+    END IF;
+END$$
+DELIMITER ;
+
+-- Trigger to decrement total_contributions when a blog is updated from published to draft
+DELIMITER $$
+CREATE TRIGGER decrement_contributions_after_update_to_draft
+AFTER UPDATE ON blogs
+FOR EACH ROW
+BEGIN
+    IF OLD.is_published = TRUE AND NEW.is_published = FALSE THEN
+        UPDATE users
+        SET total_contributions = total_contributions - 5
+        WHERE ID = NEW.author_id;
+    END IF;
+END$$
+DELIMITER ;
+
+-- Trigger to increment total_contributions when a blog is updated from draft to published
+DELIMITER $$
+CREATE TRIGGER increment_contributions_after_update_to_publish
+AFTER UPDATE ON blogs
+FOR EACH ROW
+BEGIN
+    IF OLD.is_published = FALSE AND NEW.is_published = TRUE THEN
+        UPDATE users
+        SET total_contributions = total_contributions + 5
+        WHERE ID = NEW.author_id;
+    END IF;
+END$$
+DELIMITER ;
+
+-- Trigger to increment total_contributions by 1 when a new comment is added
+DELIMITER $$
+CREATE TRIGGER increment_contributions_after_comment
+AFTER INSERT ON blog_comments
+FOR EACH ROW
+BEGIN
+    UPDATE users
+    SET total_contributions = total_contributions + 1
+    WHERE ID = NEW.user_id;
+END$$
+DELIMITER ;
+
 -- Trigger to increment total_submissions by 1 when a new submission is added
 DELIMITER $$
 CREATE TRIGGER increment_total_submissions_after_insert
@@ -359,17 +375,6 @@ BEGIN
 END$$
 DELIMITER ;
 
-DROP TABLE IF EXISTS user_scores;
-CREATE TABLE user_scores (
-    user_id INT NOT NULL,
-    contest_id INT NOT NULL,
-    problem_id INT NOT NULL,
-    PRIMARY KEY (user_id, contest_id, problem_id),
-    FOREIGN KEY (user_id) REFERENCES users(ID),
-    FOREIGN KEY (contest_id) REFERENCES contests(ID),
-    FOREIGN KEY (problem_id) REFERENCES problems(ID)
-);
-
 -- Trigger to increment total_solved by 1 when a new user_scores entry is added
 DELIMITER $$
 CREATE TRIGGER increment_total_solved_after_user_score_insert
@@ -381,6 +386,21 @@ BEGIN
     WHERE ID = NEW.user_id;
 END$$
 DELIMITER ;
+```
+
+=== Views
+```sql
+-- View to get the top 5 users based on total_solved
+CREATE VIEW top_rated_5 as
+SELECT username, first_name, last_name, total_solved 
+FROM users 
+ORDER BY total_solved DESC LIMIT 5;
+
+-- View to get the top 5 users based on total_contributions
+CREATE VIEW top_contributors_5 as
+SELECT username, first_name, last_name, total_contributions 
+FROM users 
+ORDER BY total_contributions DESC LIMIT 5;
 ```
 
 == SQL Queries
