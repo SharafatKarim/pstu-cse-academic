@@ -468,6 +468,25 @@ ORDER BY total_contributions DESC LIMIT 5;
   ```sql
   INSERT INTO blogs (author_id, title, content, is_published) VALUES (:author_id, :title, :content, :is_published)
   ```
++ *Update a blog*
+  ```sql
+  UPDATE blogs SET
+            title = :title,
+            content = :content,
+            is_published = :is_published
+          WHERE ID = :blog_id"
+  ```
++ *Delete a blog*
+  ```sql
+  DELETE FROM blogs WHERE ID = :blog_id
+  ```
+
+=== Comment & React 
+
++ *Insert a new comment*
+  ```sql
+  INSERT INTO blog_comments (blog_id, user_id, comment) VALUES (:blog_id, :user_id, :comment)
+  ```
 
 = Conclusion
 Finally we can conclude that, SQL Judge platform will help mentors and teachers to help spreading the knowledge of SQL and database management. It will also help students to learn and practice SQL queries in a fun and interactive way. The platform is designed to be user-friendly and easy to navigate, making it accessible to users of all skill levels.
