@@ -305,7 +305,7 @@ CREATE TABLE user_scores (
 );
 ```
 
-=== Triggers 
+=== Triggers
 
 ```sql
 
@@ -392,19 +392,82 @@ DELIMITER ;
 ```sql
 -- View to get the top 5 users based on total_solved
 CREATE VIEW top_rated_5 as
-SELECT username, first_name, last_name, total_solved 
-FROM users 
+SELECT username, first_name, last_name, total_solved
+FROM users
 ORDER BY total_solved DESC LIMIT 5;
 
 -- View to get the top 5 users based on total_contributions
 CREATE VIEW top_contributors_5 as
-SELECT username, first_name, last_name, total_contributions 
-FROM users 
+SELECT username, first_name, last_name, total_contributions
+FROM users
 ORDER BY total_contributions DESC LIMIT 5;
 ```
 
 == SQL Queries
 
+=== Authentication
+
++ *User Registration*
+  ```sql
+  INSERT INTO users (username, email, first_name, last_name, password, website, bio) VALUES (:username, :email, :first_name, :last_name, :password, :website, :bio)
+  ```
++ *User Login*
+  ```sql
+  SELECT id, username, password FROM users WHERE username = :username"
+  ```
+
++ *Check if user already exists*
+  ```sql
+  SELECT id FROM users WHERE username = :username"
+  ```
+
+=== User Profile
+
++ *Get user profile*
+  ```sql
+  SELECT * FROM users WHERE username = :username
+
+    # ID, username, email, first_name, last_name, country, institution, role, is_verified, verification_code, verification_code_expiry, reset_token, reset_token_expiry, profile_picture, bio, gendar, date_of_birth, phone_number, address, website, github, twitter, linkedin, facebook, telegram, last_login, total_solved, total_submissions, total_contributions, password, created_at
+    1, sharafat, sharafat@duck.com, Sharafat, Karim, Bangladesh, PSTU, user, 0, , , , , , There&#039;s no end to EXPLORATION!, Male, 2002-11-08, 01953546089, Patuakhali, https://sharafat.pages.dev, https://github.com/SharafatKarim, , , , https://t.me/SharafatKarim, , 0, 1, 32, $2y$12$CceqDu/Ww9T44k2SdgT5DuzeeyR2ZanlSD8rvZlA/MXcGd3iC2Gbe, 2025-04-08 06:44:18
+  ```
++ *Update user profile*
+  ```sql
+  UPDATE users SET
+            first_name = :first_name,
+            last_name = :last_name,
+            email = :email,
+            country = :country,
+            address = :address,
+            institution = :institution,
+            bio = :bio,
+            gender = :gender,
+            date_of_birth = :date_of_birth,
+            phone_number = :phone_number,
+            website = :website,
+            github = :github,
+            twitter = :twitter,
+            linkedin = :linkedin,
+            facebook = :facebook,
+            telegram = :telegram
+          WHERE username = :username"
+  ```
+=== Blog 
+
++ *Get all blogs*
+  ```sql
+  SELECT blogs.ID, blogs.title, blogs.content, blogs.created_at, users.username, blogs.is_published 
+  FROM blogs 
+  JOIN users ON blogs.author_id = users.ID 
+  WHERE blogs.is_published = 1 OR blogs.author_id = 1 
+  ORDER BY blogs.created_at DESC
+
+  # ID, title, content, created_at, username, is_published
+'9', 'Testing publishing feature of blogs!', 'This should be published publicly...', '2025-05-26 04:31:06', 'sharafat', '1'
+  ```
++ *Insert a new data (blog)*
+  ```sql
+  INSERT INTO blogs (author_id, title, content, is_published) VALUES (:author_id, :title, :content, :is_published)
+  ```
 
 = Conclusion
 Finally we can conclude that, SQL Judge platform will help mentors and teachers to help spreading the knowledge of SQL and database management. It will also help students to learn and practice SQL queries in a fun and interactive way. The platform is designed to be user-friendly and easy to navigate, making it accessible to users of all skill levels.
