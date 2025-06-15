@@ -129,7 +129,7 @@ To develop a web-based system that provides intelligent recommendations for comp
 == E-R Diagram
 
 === Without attributes
-a
+I will do it tomorrow, I guess 😅
 
 === With all attributes
 #image("diagram.svg", width: 100%, height: auto, alt: "E-R Diagram")
@@ -141,10 +141,14 @@ a
 
 Data definition language statements,
 
+=== Database Creation
 ```sql
 CREATE DATABASE IF NOT EXISTS sql_judge;
 USE sql_judge;
-
+```
+=== Table Creation
+==== Users Table
+```sql
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -179,7 +183,9 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
-
+```
+==== Feedback Table
+```sql
 DROP TABLE IF EXISTS feedback;
 CREATE TABLE feedback (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -191,7 +197,9 @@ CREATE TABLE feedback (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(ID)
 );
-
+```
+==== Blogs and Comments
+```sql
 DROP TABLE IF EXISTS blogs;
 CREATE TABLE blogs (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -225,14 +233,19 @@ CREATE TABLE blog_reactions (
     FOREIGN KEY (blog_id) REFERENCES blogs(ID),
     FOREIGN KEY (user_id) REFERENCES users(ID)
 );
+```
 
+==== Newsletters Table
+```sql
 DROP TABLE IF EXISTS newsletters;
 CREATE TABLE newsletters (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(100) NOT NULL UNIQUE,
     subscribed_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
-
+```
+==== Contests, Problems
+```sql
 DROP TABLE IF EXISTS contests;
 CREATE TABLE contests (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -278,7 +291,9 @@ CREATE TABLE test_cases (
     is_hidden BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (problem_id) REFERENCES problems(ID)
 );
-
+```
+==== Submissions and User Scores
+```sql
 DROP TABLE IF EXISTS submissions;
 CREATE TABLE submissions (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -308,7 +323,6 @@ CREATE TABLE user_scores (
 === Triggers
 
 ```sql
-
 -- A trigger to increment total_contributions for the author when a new blog is published
 DELIMITER $$
 CREATE TRIGGER increment_contributions_after_insert
@@ -451,18 +465,18 @@ ORDER BY total_contributions DESC LIMIT 5;
             telegram = :telegram
           WHERE username = :username"
   ```
-=== Blog 
+=== Blog
 
 + *Get all blogs*
   ```sql
-  SELECT blogs.ID, blogs.title, blogs.content, blogs.created_at, users.username, blogs.is_published 
-  FROM blogs 
-  JOIN users ON blogs.author_id = users.ID 
-  WHERE blogs.is_published = 1 OR blogs.author_id = 1 
-  ORDER BY blogs.created_at DESC
+    SELECT blogs.ID, blogs.title, blogs.content, blogs.created_at, users.username, blogs.is_published
+    FROM blogs
+    JOIN users ON blogs.author_id = users.ID
+    WHERE blogs.is_published = 1 OR blogs.author_id = 1
+    ORDER BY blogs.created_at DESC
 
-  # ID, title, content, created_at, username, is_published
-'9', 'Testing publishing feature of blogs!', 'This should be published publicly...', '2025-05-26 04:31:06', 'sharafat', '1'
+    # ID, title, content, created_at, username, is_published
+  '9', 'Testing publishing feature of blogs!', 'This should be published publicly...', '2025-05-26 04:31:06', 'sharafat', '1'
   ```
 + *Insert a new data (blog)*
   ```sql
@@ -481,11 +495,83 @@ ORDER BY total_contributions DESC LIMIT 5;
   DELETE FROM blogs WHERE ID = :blog_id
   ```
 
-=== Comment & React 
+=== Comment & React
 
 + *Insert a new comment*
   ```sql
   INSERT INTO blog_comments (blog_id, user_id, comment) VALUES (:blog_id, :user_id, :comment)
+  ```
+
++ *Get all comments for a blog*
+  ```sql
+    SELECT blog_comments.comment, blog_comments.created_at, users.username
+    FROM blog_comments
+    JOIN users
+    ON blog_comments.user_id = 1
+    WHERE blog_comments.blog_id = 1
+    ORDER BY blog_comments.created_at DESC
+
+    # comment, created_at, username
+  'interesting!', '2025-05-24 03:37:50', 'a'
+  ```
++ *Fetch reactions*
+  ```sql
+  SELECT reaction, COUNT(*) as count
+  FROM blog_reactions
+  WHERE blog_id = 1 GROUP BY reaction
+  ```
+=== Leaderboard
+
++ *Get top 5 users based on total_solved*
+  ```sql
+    SELECT *
+    FROM top_rated_5
+
+  # username, first_name, last_name, total_solved
+  'sharafat', 'Sharafat', 'Karim', '1'
+  'a', 'A', 'B', '0'
+  'b', 'b', 'b', '0'
+
+  ```
+
++ *Get 50 user's rank based on total_contribution*
+  ```sql
+  SELECT first_name, last_name, username, total_contributions
+                    FROM users
+                    ORDER BY total_contributions DESC
+                    LIMIT 50"
+
+  # first_name, last_name, username, total_solved
+  'Sharafat', 'Karim', 'sharafat', '1'
+  'A', 'B', 'a', '2'
+  'b', 'b', 'b', '0'
+  ```
+
++ *Get 50 user's rank based on total_submission*
+  ```sql
+  SELECT first_name, last_name, username, total_submissions
+                    FROM users
+                    ORDER BY total_submissions DESC
+                    LIMIT 50
+
+  # first_name, last_name, username, total_submissions
+  'Sharafat', 'Karim', 'sharafat', '1'
+  'A', 'B', 'a', '2'
+  'b', 'b', 'b', '0'
+  ```
+
++ *Get 50 user's rank based on total_contribution*
+  ```sql
+    SELECT first_name, last_name, username, total_contributions
+                    FROM users
+                    ORDER BY total_contributions DESC
+                    LIMIT 50
+
+  # first_name, last_name, username, total_contributions
+  'Sharafat', 'Karim', 'sharafat', '32'
+  'A', 'B', 'a', '1'
+  'b', 'b', 'b', '0'
+
   ```
 
 = Conclusion
