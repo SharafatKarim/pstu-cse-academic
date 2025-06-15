@@ -95,7 +95,8 @@ An SQL learning platform that allows users to learn and practice SQL queries. It
 - To create a platform that allows users to learn and practice SQL queries in a fun and interactive way.
 - To provide a set of features that will help users to learn and practice SQL queries.
 - To create a platform that will help mentors and teachers to help spreading the knowledge of SQL and database management.
-
+- To enable users to share their learningings through blogs and discussions.
+- A quick way to find chatsheet and resources related to SQL and database management.
 
 
 = Technology
@@ -116,7 +117,7 @@ An SQL learning platform that allows users to learn and practice SQL queries. It
   [CI/ CD], [GitHub],
 )
 
-== Database Characteristics
+= Database Characteristics
 
 - *CRUD Operations* = Create, Read, Update, Delete
 - *Data Integrity* is Enforced through foreign keys and constraints
@@ -524,6 +525,106 @@ ORDER BY total_contributions DESC LIMIT 5;
   FROM blog_reactions
   WHERE blog_id = 1 GROUP BY reaction
   ```
+
+=== feedback
+
++ *Insert a new feedback*
+  ```sql
+  INSERT INTO feedback (user_id, name, email, feedback, website) VALUES (:user_id, :name, :email, :feedback, :website)
+  ```
+
+=== Contest
+
++ *Get all upcoming contests*
+  ```sql
+  SELECT contests.*, users.username 
+  FROM contests 
+  JOIN users 
+	  ON contests.created_by = users.ID 
+  WHERE contests.start_time > NOW() 
+  ORDER BY contests.start_time ASC;
+```
+
++ *Get all ongoing contests*
+  ```sql
+SELECT contests.*, users.username 
+FROM contests 
+JOIN users 
+	ON contests.created_by = users.ID 
+WHERE contests.start_time <= NOW() 
+	AND contests.end_time > NOW() 
+ORDER BY contests.start_time ASC;
+```
+
++ *Get all previous contests*
+  ```sql
+  SELECT contests.*, users.username 
+  FROM contests 
+  JOIN users 
+    ON contests.created_by = users.ID 
+  WHERE contests.end_time <= NOW()
+  ORDER BY contests.start_time ASC;
+
+# ID, title, description, start_time, end_time, is_public, created_by, created_at, username
+'3', 'A past title!', 'A title happended to be happed in the past.', '1992-06-13 00:00:00', '2000-06-21 00:00:00', '1', '1', '2025-06-13 05:03:46', 'sharafat'
+'2', 'Second one...', 'A second contest!', '2025-06-13 10:00:00', '2025-06-13 11:00:00', '1', '1', '2025-06-13 04:28:17', 'sharafat'
+'1', 'Initial contest', 'An initial contest to test how things are, XD', '2025-06-13 22:00:00', '2025-06-13 13:00:00', '1', '1', '2025-06-13 04:22:07', 'sharafat'
+```
++ *Add new contest*
+  ```sql
+INSERT INTO contests (title, description, start_time, end_time, is_public, created_by) 
+VALUES (:title, :description, :start_time, :end_time, :is_public, :created_by)
+```
+
++ *Update contest*
+  ```sql
+  UPDATE contests SET
+            title = :title,
+            description = :description,
+            start_time = :start_time,
+            end_time = :end_time,
+            is_public = :is_public
+          WHERE ID = :contest_id"
+  ```
++ *Delete contest*
+  ```sql
+  DELETE FROM contests WHERE ID = :contest_id
+  ```
+=== Problemsets
+
++ *Add a new problem*
+  ```sql
+  INSERT INTO problems (contest_id, title, description, difficulty, time_limit, memory_limit) 
+  VALUES (:contest_id, :title, :description, :difficulty, :time_limit, :memory_limit)
+  ```
++ *Update a problem*
+  ```sql
+  UPDATE problems SET
+            title = :title,
+            description = :description,
+            difficulty = :difficulty,
+            time_limit = :time_limit,
+            memory_limit = :memory_limit
+          WHERE ID = :problem_id"
+  ```
++ *Delete a problem*
+  ```sql
+  DELETE FROM problems WHERE ID = :problem_id
+  ```
+
++ *Get all problems from previous contests*
+  ```sql
+  SELECT problems.*, contests.title AS contest_title 
+  FROM problems 
+  JOIN contests 
+  ON problems.contest_id = contests.ID 
+  WHERE contests.end_time <= NOW()
+  ORDER BY contests.end_time DESC, problems.ID ASC;
+
+  # ID, contest_id, title, description, difficulty, time_limit, memory_limit, created_at, contest_title
+'2', '1', 'Bye! Bye!', 'Print the title!', 'easy', '2', '256', '2025-06-13 15:42:11', 'Initial contest'
+```
+
 === Leaderboard
 
 + *Get top 5 users based on total_solved*
