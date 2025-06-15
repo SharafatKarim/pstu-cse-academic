@@ -92,7 +92,11 @@ An SQL learning platform that allows users to learn and practice SQL queries. It
 
 = Objective
 
-To develop a web-based system that provides intelligent recommendations for computer hardware components based on user selections, ensuring compatibility, performance optimization (via bottleneck analysis), and benchmarking. Additionally, the system will include an e-commerce portal for customers and an admin dashboard for managing products and data.
+- To create a platform that allows users to learn and practice SQL queries in a fun and interactive way.
+- To provide a set of features that will help users to learn and practice SQL queries.
+- To create a platform that will help mentors and teachers to help spreading the knowledge of SQL and database management.
+
+
 
 = Technology
 
