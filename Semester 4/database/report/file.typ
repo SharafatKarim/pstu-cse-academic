@@ -134,12 +134,12 @@ An SQL learning platform that allows users to learn and practice SQL queries. It
 == E-R Diagram
 
 === Without attributes
-I will do it tomorrow, I guess 😅
+#image("diagram-2.svg", width: 100%, height: auto, alt: "E-R Diagram")
 
 === With all attributes
 #image("diagram.svg", width: 100%, height: auto, alt: "E-R Diagram")
 
-
+#pagebreak()
 = Database Implementation
 
 == DDL
@@ -678,6 +678,11 @@ VALUES (:title, :description, :start_time, :end_time, :is_public, :created_by)
   'b', 'b', 'b', '0'
 
   ```
+
+= Limitations
+- The platform is currently hosted on a free hosting service, which may have limitations on performance and uptime.
+- Currenty the creator of the contest has to manually review the submissions and update the user scores. This can be automated in the future. 
+- Markdown editor is not implemented yet, so users cannot format their blogs and comments using markdown syntax everywhere.
 
 = Conclusion
 Finally we can conclude that, SQL Judge platform will help mentors and teachers to help spreading the knowledge of SQL and database management. It will also help students to learn and practice SQL queries in a fun and interactive way. The platform is designed to be user-friendly and easy to navigate, making it accessible to users of all skill levels.
