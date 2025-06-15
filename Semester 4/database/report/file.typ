@@ -13,7 +13,7 @@
 // --------------------------
 
 #align(left)[
-  #image("PSTU.png", width: 20%, height: auto, alt: "E-R Diagram")
+  #image("PSTU.png", width: 20%, height: auto, alt: "PSTU")
   #text(16pt)[
     *Patuakhali Science and Technology University* \
   ]
@@ -422,7 +422,7 @@ FROM users
 ORDER BY total_contributions DESC LIMIT 5;
 ```
 
-== SQL Queries
+== DML (SQL Queries)
 
 === Authentication
 
@@ -430,15 +430,19 @@ ORDER BY total_contributions DESC LIMIT 5;
   ```sql
   INSERT INTO users (username, email, first_name, last_name, password, website, bio) VALUES (:username, :email, :first_name, :last_name, :password, :website, :bio)
   ```
+  #image("ss/1.png", width: 100%, height: auto, alt: "PSTU")
+
 + *User Login*
   ```sql
-  SELECT id, username, password FROM users WHERE username = :username"
-  ```
+SELECT id, username, password FROM users WHERE username = :username"
+```
+  #image("ss/2.png", width: 100%, height: auto, alt: "PSTU")
 
 + *Check if user already exists*
   ```sql
   SELECT id FROM users WHERE username = :username"
   ```
+  #image("ss/3.png", width: 100%, height: auto, alt: "PSTU")
 
 === User Profile
 
@@ -449,6 +453,8 @@ ORDER BY total_contributions DESC LIMIT 5;
     # ID, username, email, first_name, last_name, country, institution, role, is_verified, verification_code, verification_code_expiry, reset_token, reset_token_expiry, profile_picture, bio, gendar, date_of_birth, phone_number, address, website, github, twitter, linkedin, facebook, telegram, last_login, total_solved, total_submissions, total_contributions, password, created_at
     1, sharafat, sharafat@duck.com, Sharafat, Karim, Bangladesh, PSTU, user, 0, , , , , , There&#039;s no end to EXPLORATION!, Male, 2002-11-08, 01953546089, Patuakhali, https://sharafat.pages.dev, https://github.com/SharafatKarim, , , , https://t.me/SharafatKarim, , 0, 1, 32, $2y$12$CceqDu/Ww9T44k2SdgT5DuzeeyR2ZanlSD8rvZlA/MXcGd3iC2Gbe, 2025-04-08 06:44:18
   ```
+  #image("ss/4.png", width: 100%, height: auto, alt: "PSTU")
+
 + *Update user profile*
   ```sql
   UPDATE users SET
@@ -470,6 +476,8 @@ ORDER BY total_contributions DESC LIMIT 5;
             telegram = :telegram
           WHERE username = :username"
   ```
+  #image("ss/5.png", width: 100%, height: auto, alt: "PSTU")
+
 === Blog
 
 + *Get all blogs*
@@ -483,10 +491,14 @@ ORDER BY total_contributions DESC LIMIT 5;
     # ID, title, content, created_at, username, is_published
   '9', 'Testing publishing feature of blogs!', 'This should be published publicly...', '2025-05-26 04:31:06', 'sharafat', '1'
   ```
+  #image("ss/6.png", width: 100%, height: auto, alt: "PSTU")
+
 + *Insert a new data (blog)*
   ```sql
   INSERT INTO blogs (author_id, title, content, is_published) VALUES (:author_id, :title, :content, :is_published)
   ```
+  #image("ss/7.png", width: 100%, height: auto, alt: "PSTU")
+
 + *Update a blog*
   ```sql
   UPDATE blogs SET
@@ -495,6 +507,8 @@ ORDER BY total_contributions DESC LIMIT 5;
             is_published = :is_published
           WHERE ID = :blog_id"
   ```
+  #image("ss/8.png", width: 100%, height: auto, alt: "PSTU")
+
 + *Delete a blog*
   ```sql
   DELETE FROM blogs WHERE ID = :blog_id
@@ -506,6 +520,7 @@ ORDER BY total_contributions DESC LIMIT 5;
   ```sql
   INSERT INTO blog_comments (blog_id, user_id, comment) VALUES (:blog_id, :user_id, :comment)
   ```
+  #image("ss/9.png", width: 100%, height: auto, alt: "PSTU")
 
 + *Get all comments for a blog*
   ```sql
@@ -532,6 +547,7 @@ ORDER BY total_contributions DESC LIMIT 5;
   ```sql
   INSERT INTO feedback (user_id, name, email, feedback, website) VALUES (:user_id, :name, :email, :feedback, :website)
   ```
+  #image("ss/10.png", width: 100%, height: auto, alt: "PSTU")
 
 === Contest
 
@@ -555,6 +571,7 @@ WHERE contests.start_time <= NOW()
 	AND contests.end_time > NOW() 
 ORDER BY contests.start_time ASC;
 ```
+  #image("ss/11.png", width: 100%, height: auto, alt: "PSTU")
 
 + *Get all previous contests*
   ```sql
@@ -575,6 +592,7 @@ ORDER BY contests.start_time ASC;
 INSERT INTO contests (title, description, start_time, end_time, is_public, created_by) 
 VALUES (:title, :description, :start_time, :end_time, :is_public, :created_by)
 ```
+  #image("ss/12.png", width: 100%, height: auto, alt: "PSTU")
 
 + *Update contest*
   ```sql
@@ -586,10 +604,14 @@ VALUES (:title, :description, :start_time, :end_time, :is_public, :created_by)
             is_public = :is_public
           WHERE ID = :contest_id"
   ```
+  #image("ss/13.png", width: 100%, height: auto, alt: "PSTU")
+
 + *Delete contest*
   ```sql
   DELETE FROM contests WHERE ID = :contest_id
   ```
+  #image("ss/14.png", width: 100%, height: auto, alt: "PSTU")
+
 === Problemsets
 
 + *Add a new problem*
@@ -597,16 +619,8 @@ VALUES (:title, :description, :start_time, :end_time, :is_public, :created_by)
   INSERT INTO problems (contest_id, title, description, difficulty, time_limit, memory_limit) 
   VALUES (:contest_id, :title, :description, :difficulty, :time_limit, :memory_limit)
   ```
-+ *Update a problem*
-  ```sql
-  UPDATE problems SET
-            title = :title,
-            description = :description,
-            difficulty = :difficulty,
-            time_limit = :time_limit,
-            memory_limit = :memory_limit
-          WHERE ID = :problem_id"
-  ```
+  #image("ss/15.png", width: 100%, height: auto, alt: "PSTU")
+
 + *Delete a problem*
   ```sql
   DELETE FROM problems WHERE ID = :problem_id
@@ -624,6 +638,7 @@ VALUES (:title, :description, :start_time, :end_time, :is_public, :created_by)
   # ID, contest_id, title, description, difficulty, time_limit, memory_limit, created_at, contest_title
 '2', '1', 'Bye! Bye!', 'Print the title!', 'easy', '2', '256', '2025-06-13 15:42:11', 'Initial contest'
 ```
+  #image("ss/16.png", width: 100%, height: auto, alt: "PSTU")
 
 === Leaderboard
 
@@ -636,8 +651,8 @@ VALUES (:title, :description, :start_time, :end_time, :is_public, :created_by)
   'sharafat', 'Sharafat', 'Karim', '1'
   'a', 'A', 'B', '0'
   'b', 'b', 'b', '0'
-
   ```
+  #image("ss/17.png", width: 100%, height: auto, alt: "PSTU")
 
 + *Get 50 user's rank based on total_contribution*
   ```sql
@@ -664,6 +679,7 @@ VALUES (:title, :description, :start_time, :end_time, :is_public, :created_by)
   'A', 'B', 'a', '2'
   'b', 'b', 'b', '0'
   ```
+  #image("ss/19.png", width: 100%, height: auto, alt: "PSTU")
 
 + *Get 50 user's rank based on total_contribution*
   ```sql
@@ -678,6 +694,14 @@ VALUES (:title, :description, :start_time, :end_time, :is_public, :created_by)
   'b', 'b', 'b', '0'
 
   ```
+  #image("ss/18.png", width: 100%, height: auto, alt: "PSTU")
+
+=== Newsletters
++ *Insert a new newsletter subscription*
+  ```sql
+  INSERT INTO newsletters (email) VALUES (:email)
+  ```
+  #image("ss/20.png", width: 100%, height: auto, alt: "PSTU")
 
 = Limitations
 - The platform is currently hosted on a free hosting service, which may have limitations on performance and uptime.
