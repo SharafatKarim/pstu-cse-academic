@@ -139,6 +139,9 @@ An SQL learning platform that allows users to learn and practice SQL queries. It
 === With all attributes
 #image("diagram.svg", width: 100%, height: auto, alt: "E-R Diagram")
 
+== Gantt Chart 
+#image("gantt.png", width: 100%, height: auto, alt: "Gantt Chart")
+
 #pagebreak()
 = Database Implementation
 
