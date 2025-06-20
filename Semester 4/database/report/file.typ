@@ -90,6 +90,11 @@
 
 An SQL learning platform that allows users to learn and practice SQL queries. It it provides a set of features including user registration, problem submission, and a leaderboard. And last but not least, it has built in Blog and chatsheet.
 
+#rect(width: 100%)[
+    Live URL #h(0.61cm) : #link("http://sql-judge.sharafat.xyz/") \
+    GitHub Repo : #link("https://github.com/SharafatKarim/SQL-Judge")
+  ]
+
 = Objective
 
 - To create a platform that allows users to learn and practice SQL queries in a fun and interactive way.
@@ -119,13 +124,14 @@ An SQL learning platform that allows users to learn and practice SQL queries. It
 
 = Database Characteristics
 
-- *CRUD Operations* = Create, Read, Update, Delete
-- *Data Integrity* is Enforced through foreign keys and constraints
-- *Normalization*: Applied to reduce redundancy
+- *CRUD Operations* (Create, Read, Update, Delete) are used in the database in a centralized manner.
+- *Data Integrity* is Enforced through foreign keys and constraints. Also a DDL file is provided to create the database and tables alongside grapical references.
+- *Normalization* is applied to reduce redundancy and save disk memory.
 - *Auth Security*: Implemented through user authentication and authorization. Mainly session storage is used for user authentication.
-- *Php PDO driver* is used for database interactions, so that it can also connect to other databases like PostgreSQL, SQLite, etc.
+- Php *PDO driver* is used for database interactions, so that it can also connect to other databases like PostgreSQL, SQLite, etc.
 - *Parameterized arguments* were used to prevent SQL injection attacks.
 - *Database triggers* were used to automatically update total_contribution, total_submission and total_solved per user.
+- *Environment variables* (`.env`) are used to store sensitive information like database credentials, so that they are not hardcoded in the codebase.
 
 == Schema Diagram
 
