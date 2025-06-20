@@ -124,14 +124,14 @@ An SQL learning platform that allows users to learn and practice SQL queries. It
 
 = Database Characteristics
 
-- *CRUD Operations* (Create, Read, Update, Delete) are used in the database in a centralized manner.
+- *CRUD Operations* (Create, Read, Update, Delete) are used in the database in a centralized manner among different frontend instances.
 - *Data Integrity* is Enforced through foreign keys and constraints. Also a DDL file is provided to create the database and tables alongside grapical references.
 - *Normalization* is applied to reduce redundancy and save disk memory.
 - *Auth Security*: Implemented through user authentication and authorization. Mainly session storage is used for user authentication.
 - Php *PDO driver* is used for database interactions, so that it can also connect to other databases like PostgreSQL, SQLite, etc.
-- *Parameterized arguments* were used to prevent SQL injection attacks.
+- *Parameterized arguments* were used to prevent SQL injection attacks and form validations.
 - *Database triggers* were used to automatically update total_contribution, total_submission and total_solved per user.
-- *Environment variables* (`.env`) are used to store sensitive information like database credentials, so that they are not hardcoded in the codebase.
+- *Environment variables* (`.env`) are used to store sensitive information like database credentials, so that they are not hardcoded in the codebase. Also, a *`.gitignore`* file is used so that database credentials and other sensitive information are not pushed to the public GitHub repository.
 
 == Schema Diagram
 
@@ -601,7 +601,7 @@ ORDER BY contests.start_time ASC;
 INSERT INTO contests (title, description, start_time, end_time, is_public, created_by) 
 VALUES (:title, :description, :start_time, :end_time, :is_public, :created_by)
 ```
-  #image("ss/12.png", width: 100%, height: auto, alt: "PSTU")
+  #image("ss/12.png", width: 85%, height: auto, alt: "PSTU")
 
 + *Update contest*
   ```sql
@@ -613,13 +613,13 @@ VALUES (:title, :description, :start_time, :end_time, :is_public, :created_by)
             is_public = :is_public
           WHERE ID = :contest_id"
   ```
-  #image("ss/13.png", width: 100%, height: auto, alt: "PSTU")
+  #image("ss/13.png", width: 85%, height: auto, alt: "PSTU")
 
 + *Delete contest*
   ```sql
   DELETE FROM contests WHERE ID = :contest_id
   ```
-  #image("ss/14.png", width: 100%, height: auto, alt: "PSTU")
+  #image("ss/14.png", width: 90%, height: auto, alt: "PSTU")
 
 === Problemsets
 
@@ -628,7 +628,7 @@ VALUES (:title, :description, :start_time, :end_time, :is_public, :created_by)
   INSERT INTO problems (contest_id, title, description, difficulty, time_limit, memory_limit) 
   VALUES (:contest_id, :title, :description, :difficulty, :time_limit, :memory_limit)
   ```
-  #image("ss/15.png", width: 100%, height: auto, alt: "PSTU")
+  #image("ss/15.png", width: 95%, height: auto, alt: "PSTU")
 
 + *Delete a problem*
   ```sql
@@ -661,7 +661,7 @@ VALUES (:title, :description, :start_time, :end_time, :is_public, :created_by)
   'a', 'A', 'B', '0'
   'b', 'b', 'b', '0'
   ```
-  #image("ss/17.png", width: 100%, height: auto, alt: "PSTU")
+  #image("ss/17.png", width: 45%, height: auto, alt: "PSTU")
 
 + *Get 50 user's rank based on total_contribution*
   ```sql
