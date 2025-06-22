@@ -89,7 +89,7 @@
 The Board Autoprofiler is a web-based system designed to simplify the process of selecting compatible PC components. It leverages intelligent recommendation algorithms to ensure optimal performance, compatibility, and benchmarking. The system also integrates e-commerce functionality, enabling users to purchase recommended components directly.
 
 #rect(width: 100%)[
-  Store URL : #link("https://board-autoprofiler.runasp.net") \
+  Online Store URL : #link("https://demo.board-autoprofiler.sharafat.xyz/") \
   Admin URL : #link("http://board-autoprofiler.runasp.net") \
   Business URL : #link("https://board-autoprofiler.sharafat.xyz") 
 ]
@@ -206,7 +206,6 @@ The architecture follows MACH principles (Microservices, API-first, Cloud-native
         - `/api/products`
         - `/api/cart`
         - `/api/orders`
-        - `/api/admin/products`
          
 
     - Features:  
