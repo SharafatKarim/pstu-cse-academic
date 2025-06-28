@@ -13,19 +13,20 @@
 // --------------------------
 
 #align(left)[
+  #image("PSTU.png", width: 20%, height: auto, alt: "PSTU")
+  #text(16pt)[
+    *Patuakhali Science and Technology University* \
+  ]
+  #text(14pt)[
+    Faculty of Computer Science and Engineering
+  ]
   #line(length: 100%)
-  #align(
-    left,
-    text(18pt)[
-      *CIT 222 - Information System Analysis and Design*
-    ],
-  )
-  #align(
-    left,
-    text(14pt)[
-      *Sessional Project Report*
-    ],
-  )
+  #align(left, text(18pt)[
+    *CIT 222 - Information System Analysis and Design*
+  ])
+  #align(left, text(14pt)[
+    *Sessional Project Report*
+  ])
   #line(length: 100%)
 
 ]
@@ -91,12 +92,35 @@ The Board Autoprofiler is a web-based system designed to simplify the process of
 #rect(width: 100%)[
   Online Store URL : #link("https://demo.board-autoprofiler.sharafat.xyz/") \
   Admin URL : #link("http://board-autoprofiler.runasp.net") \
-  Business URL : #link("https://board-autoprofiler.sharafat.xyz") 
+  Business URL : #link("https://board-autoprofiler.sharafat.xyz")
 ]
 
 = Objective
 
 To develop a web-based system that provides intelligent recommendations for computer hardware components based on user selections, ensuring compatibility, performance optimization (via bottleneck analysis), and benchmarking. Additionally, the system will include an e-commerce portal for customers and an admin dashboard for managing products and data.
+
+= Industry visit
+
+For industry visit, we went to "Rayan's Computer Ltd, Barishal branch" in ordeer to gain experience from a real deployed system and the workaround behing the overall architecture. It also helped us to learn about the overall e-commerce and POS system. And last but not least, how it integrates with each of the componenets such as frontend and backend with a shared sigular database connection.
+
+#grid(
+  columns: 2,
+  gutter: 2mm,
+  image("img/1.jpg", width: 100%, height: auto, alt: "PSTU"),
+  image("img/2.jpg", width: 100%, height: auto, alt: "PSTU"),
+)
+
+== Interviewing
+
+As for data collection, we interviewed several users and technicians to understand their needs and pain points when selecting PC components.
+
++ The feedback highlighted the need for a system that *not only recommends compatible parts* but also provides insights into *performance bottlenecks and benchmarks*.
+
++ Another important aspect was user interface with a *clean design* that allows users to easily navigate.
+
++ The admin panel should be *intuitive* for managing products and inventory.
+
++ The e-commerce functionality should support a *seamless shopping experience*, including product browsing, cart management, and secure checkout.
 
 = Scopes
 
@@ -133,18 +157,29 @@ Currently, users face difficulties when selecting compatible and balanced PC com
 
 = Technology
 
+== For admin panel
+The admin panel is built using ASP.NET MVC Core (.NET 8+) with Razor Pages, providing a robust backend for managing products, categories, and orders. It uses Entity Framework Core for database interactions and Microsoft SQL Server for data storage.
+
 #table(
   columns: (auto, auto),
-  table.header(
-    [*Layer*], [*Technology*],
-  ),
-  [Frontend], [HTML/CSS, Bootstrap, JavaScript, React.js (Optional)],
+  table.header([*Layer*], [*Technology*]),
+  [Frontend], [HTML/CSS, Bootstrap, JavaScript],
   [Backend], [ASP.NET MVC Core (.NET 8+)],
-  [Microservices], [ASP.NET Web API],
   [Database], [Microsoft SQL Server],
   [ORM], [Entity Framework Core],
   [Authentication], [JWT / ASP.NET Identity],
-  [Hosting], [MonsterASP.net / Azure / AWS / Local IIS],
+  [Hosting], [MonsterASP.net/ Local IIS],
+)
+
+== For e-commerce
+The e-commerce microservice is built using Node.js. It handles product management, cart functionality, and order processing. The service communicates via RESTful APIs through an API Gateway, ensuring modularity and scalability. The e-commerce service uses MongoDB for product data, PostgreSQL for order management, and Redis for caching.
+#table(
+  columns: (auto, auto),
+  table.header([*Layer*], [*Technology*]),
+  [Frontend], [React.js (Next JS integration), Tailwind CSS, Shadcn UI],
+  [Backend], [Next JS (for ASP.NET MVC Core integration)],
+  [Database], [Microsoft SQL Server],
+  [Hosting], [Vercel],
   [CI/CD], [GitHub Actions],
 )
 
@@ -179,39 +214,49 @@ The architecture follows MACH principles (Microservices, API-first, Cloud-native
 
   - In microservices, Controllers are RESTful API endpoints (Node.js for E-commerce, Python/Flask for Recommendation) that process requests, query Models, and return data to Views.
 
-  - Frontend Controllers in React.js handle user events (e.g., component selection, checkout) and update Views accordingly.
-
+= Visualizations
 == E-R Diagram
+
+The Entity-Relationship (E-R) diagram illustrates the relationships between different entities in the system, such as Users, Products, Orders, and Recommendations. It helps visualize how data is structured and how different components interact with each other.
+
 #image("diagram.svg", width: 100%, height: auto, alt: "E-R Diagram")
 
+== Data Visualization
+
+Visualization on the sample dataset of PC components, in order to make sure that the recommendation system is working as expected. The visualization includes component specifications, compatibility rules, and performance benchmarks.
+
+#image("img/3.png", width: 100%, height: auto, alt: "Data Visualization")
+
 = Implementation
-== Microservices Architecture
-+ Component Recommendation Service  
-    - API Endpoints:  
-        - `/api/recommendations`
-            - POST: Accepts selected components
-            - Returns: Compatible components + bottleneck analysis
 
-    - Logic:  
-        - Parse selected components
-        - Query database for specifications and benchmarks
-        - Apply rules to detect bottlenecks
-        - Recommend compatible alternatives
-         
-     
+== Admin Panel
 
-+ E-Commerce & Admin Service  
 
-    - API Endpoints:  
-        - `/api/products`
-        - `/api/cart`
-        - `/api/orders`
-         
+#rect(width: 100%)[
+  Online Store URL : #link("https://demo.board-autoprofiler.sharafat.xyz/") \
+  Live URL : #link("http://board-autoprofiler.runasp.net") \
+  Business URL : #link("https://board-autoprofiler.sharafat.xyz")
+]
 
-    - Features:  
-        - Customer can browse and purchase
-        - Admin can manage products, stock, categories
-     
+The Admin Panel is built using ASP.NET MVC Core (.NET 8+) with Razor Pages, providing a robust backend for managing products, categories, and orders. It uses Entity Framework Core for database interactions and Microsoft SQL Server for data storage.
+
+#grid(
+  columns: 2,
+  gutter: 2mm,
+  image("img/4.png", width: 100%, height: auto, alt: "PSTU"),
+  image("img/5.png", width: 100%, height: auto, alt: "PSTU"),
+)
+
+
+The Admin Panel provides a user-friendly interface for administrators to manage the system effectively. Key features include:
+
+- **User Management**: Admins can view, edit, and delete user accounts, as well as manage user roles and permissions.
+
+- **Product Management**: Admins can add, edit, and remove products from the catalog, including specifications, pricing, and availability.
+
+- **Order Management**: Admins can view and manage customer orders, including order status, payment processing, and shipment tracking.
+
+- **Analytics Dashboard**: Admins can access real-time analytics on user behavior, sales performance, and system health.
 
 = Conclusion
 Board Autoprofiler aims to revolutionize the way users select PC components by combining intelligent recommendation systems with real-time performance analysis. By addressing the gaps in existing platforms like Ryans Computers, this system empowers users to make informed decisions while building or upgrading their desktop PCs. With a scalable microservices architecture, robust security, and user-friendly interface, the system is well-positioned for long-term success and expansion.

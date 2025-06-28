@@ -35,7 +35,6 @@
     ],
   )
   #line(length: 100%)
-
 ]
 
 #align(bottom)[
