@@ -228,6 +228,13 @@ Visualization on the sample dataset of PC components, in order to make sure that
 
 *`Visualization Tool: Microsoft Power BI`*
 
+== Gantt Chart
+
+The Gantt chart outlines the project timeline, including key milestones, tasks, and their durations. It provides a visual representation of the project schedule, helping to track progress and manage resources effectively.
+
+#image("gantt.png", width: 100%, height: auto, alt: "Gantt Chart")
+
+
 = Implementation
 
 == Admin Panel
@@ -264,10 +271,11 @@ The Admin Panel provides a user-friendly interface for administrators to manage 
 - *User Management*: Admins can view, edit, and delete user accounts, as well as manage user roles and permissions.
 #image("img/9.png", width: 100%, height: auto, alt: "Data Visualization")
 
+- *Order Management*: Admins can view and manage customer orders, including order status, payment processing, and shipping details.
+
 - *Benchmarking and Bottleneck Analysis*: Admins can analyze system performance, identify bottlenecks, and optimize resource allocation.
 #image("img/10.png", width: 100%, height: auto, alt: "Data Visualization")
 
-- *Order Management*: Admins can view and manage customer orders, including order status, payment processing, and shipping details.
 
 == E-commerce Portal
 
@@ -281,28 +289,28 @@ The E-commerce Portal is built using React.js with Next.js integration, providin
 - *Eye-catching Design*: The portal features a visually appealing design that enhances user experience and engagement.
 #image("img/11.png", width: 100%, height: auto, alt: "Data Visualization")
 
-- *Advanced categories*: The portal supports advanced category management, allowing for better organization and filtering of products.
-#image("img/12.png", width: 100%, height: auto, alt: "Data Visualization")
-
 - *Pagination & Sorting*: The portal implements pagination for product listings, improving performance and usability. It also supports sorting options to help users find products more easily. Users can sort products by randomness, price, popularity, or rating, enhancing their shopping experience.
 
 - *Zero Authentication*: The portal allows users to browse products and categories without requiring an account or login. It provides a seamless shopping experience, enabling users to explore the catalog without barriers.
 
+- *Advanced categories*: The portal supports advanced category management, allowing for better organization and filtering of products.
+#image("img/12.png", width: 100%, height: auto, alt: "Data Visualization")
+
 - *Mobile App*: The portal is designed to be mobile-friendly, ensuring a smooth experience on smartphones and tablets. It adapts to different screen sizes and resolutions, providing a consistent user interface across devices.
 #image("img/13.png", width: 100%, height: auto, alt: "Data Visualization")
 
+- *Stock Status*: The portal displays real-time stock status for each product, helping users know product availability before making a purchase. This feature ensures that users are aware of whether a product is in stock or out of stock, preventing frustration during the shopping process. This settings can be easily managed by the admin through the admin panel.
+
 - *Product Details*: Each product page includes detailed specifications, images, and pricing information. Users can view product details to make informed purchasing decisions.
 #image("img/14.png", width: 100%, height: auto, alt: "Data Visualization")
-
-- *Stock Status*: The portal displays real-time stock status for each product, helping users know product availability before making a purchase. This feature ensures that users are aware of whether a product is in stock or out of stock, preventing frustration during the shopping process. This settings can be easily managed by the admin through the admin panel.
 
 - *User Reviews*: Users can leave reviews and ratings for products they have purchased, helping other customers make informed decisions. This feature encourages user engagement and provides valuable feedback to the admin.
 #image("img/16.png", width: 100%, height: auto, alt: "Data Visualization")
 
 - *Add to Cart*: Users can easily add products to their cart with a single click, streamlining the shopping process.
-#image("img/15.png", width: 100%, height: auto, alt: "Data Visualization")
 
 - *Cart Management*: The portal allows users to view and manage their cart, including adding or removing items, updating quantities, and proceeding to checkout. Users can easily navigate to their cart to review selected items before finalizing their purchase.
+#image("img/15.png", width: 100%, height: auto, alt: "Data Visualization")
 
 - *Invoice Generation*: The portal generates invoices for completed orders, providing users with a record of their purchases. This feature enhances transparency and helps users keep track of their transactions. This invoice is also exported as a PDF file, making it easy for users to save or print their purchase records.
 
@@ -335,16 +343,30 @@ The business model for Board Autoprofiler is based on selling our e-commerce sof
 == Revenue Model
 - *Subscription Fees*: Monthly or annual subscription fees for using the software, which includes access to updates, support, and new features.
 
+#image("img/21.png", width: 100%, height: auto, alt: "Data Visualization")
+
 - *Transaction Fees*: A small percentage of each sale made through the platform, incentivizing us to improve the system continuously.
 
 - *Customization Fees*: Additional fees for custom features or integrations requested by retailers, allowing us to tailor the system to their specific needs.
 
-#image("img/21.png", width: 100%, height: auto, alt: "Data Visualization")
+== Future Expansion
+
+- *AI-Powered Recommendations*: Integrating advanced AI algorithms to provide personalized product recommendations based on user behavior and preferences.
+- *International Expansion*: Expanding the platform to support multiple languages and currencies, allowing retailers to reach a global audience.
+- *Partnerships with Hardware Manufacturers*: Collaborating with hardware manufacturers to offer exclusive deals and promotions on their products through our platform.
+
+== Marketing Strategy
+
+- *Targeted Advertising*: Online advertising campaigns targeting computer hardware retailers and repair shops, highlighting the benefits of our e-commerce solution.
+- *Partnerships*: Collaborating with computer hardware manufacturers and distributors to promote our platform as a preferred e-commerce solution.
+- *Content Marketing*: Creating informative content, such as blog posts and tutorials, to educate potential customers about the advantages of using our system.
+- *Social Media Engagement*: Building a presence on social media platforms to connect with potential customers and showcase success stories from existing users.
 
 = Conclusion
 Board Autoprofiler aims to revolutionize the way users select PC components by combining intelligent recommendation systems with real-time performance analysis. By addressing the gaps in existing platforms like Ryans Computers, this system empowers users to make informed decisions while building or upgrading their desktop PCs. With a scalable microservices architecture, robust security, and user-friendly interface, the system is well-positioned for long-term success and expansion.
 
 
+#pagebreak()
 = References
 == Feasibility study
 - #link("https://www.ryans.com/")
@@ -359,8 +381,16 @@ Board Autoprofiler aims to revolutionize the way users select PC components by c
 - #link("https://www.w3schools.com/js/") [*W3Schools JavaScript*]
 - #link("https://www.w3schools.com/bootstrap5/index.php") [*W3Schools Bootstrap 5*]
 - #link("https://reactjs.org/docs/getting-started.html") [*React.js docs*]
+- #link("https://nextjs.org/docs") [*Next.js docs*]
 - #link("https://tailwindcss.com/docs") [*Tailwind CSS docs*]
+- #link("https://ui.shadcn.com/") [*ShadCN UI docs*]
 - #link("https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-8.0") [*ASP.NET Core docs*]
+
+== Report Building & Docs
+- #link("https://app.powerbi.com/home") [*Microsoft Power BI*]
+- #link("https://typst.app/") [*Typst*]
+- #link("https://www.draw.io/") [*Draw.io*]
+- #link("www.plantuml.com") [*PlantUML*]
 
 #align(center + bottom)[
   *THE END*
