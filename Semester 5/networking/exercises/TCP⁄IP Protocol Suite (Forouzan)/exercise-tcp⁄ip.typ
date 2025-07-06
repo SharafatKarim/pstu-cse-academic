@@ -39,7 +39,7 @@
   #parbreak()
   - *Bold texts* mark importance.
   - #strike[Strike-through] refers to out of syllabus/ context.
-  - #highlight[Highlighted texts] are some optional  :)
+  - #highlight[Highlighted texts] are some optional texts :)
 ]
 
 #align(bottom)[
@@ -216,9 +216,84 @@
     আগের প্রশ্নটির অনুরূপ, তবে এখানে domain নাম যেকোনো একটা ধরে নিতে হবে (variable length)। এখন এটা standard response হবে নাকি inverse response, তা আমি নিশ্চিত নই।
   ]
 
-+ What is the size of a query message requesting the IP address for challenger. atc.fhda.edu?
++ What is the size of a query message requesting the IP address for `challenger.atc.fhda.edu`?
+
+  *Ans:* Query message = Header + Question record \
+
+  Header is fixed at 12 bytes. \
+  
+  #h(0.85cm) Question record = Query name + Query type + Query class \
+  Here, query type and query class are fixed at 2 bytes each. \
+  Query name is variable length, but in this case, it will be stored like,
+
+  #table(
+    columns: 9,
+    [10], ['challenger'], [3], ['atc'], [4], ['fhda'], [3], ['edu'], [0]
+  )
+
+  So here 25 byte can store the query name. \
+  Question Record Size = 25 (query name) + 2 (query type) + 2 (query class) = 29 bytes. \
+
+  Finally, \
+  Query Message Size = 12 (header) + 29 (question record) = 41 bytes. \
+
 + What is the size of a query message requesting the domain name for 185.34.23.12?
+
+  *Ans:* Query message = Header + Question record \
+
+  Header is fixed at 12 bytes. \
+  
+  #h(0.85cm) Question record = Query name + Query type + Query class \
+  Here, query type and query class are fixed at 2 bytes each. \
+  Query name is variable length, but in this case, it will be stored like,
+
+  #table(
+    columns: 13,
+    [2], ['12'], [2], ['23'], [2], ['34'], [3], ['185'], [7], ['in-addr'], [4], ['arpa'], [0]
+  )
+
+  So here 27 byte can store the query name. \
+  Question Record Size = 27 (query name) + 2 (query type) + 2 (query class) = 31 bytes. \
+
+  Finally, \
+  Query Message Size = 12 (header) + 31 (question record) = 43 bytes. \
+
 + What is the size of the response message responding to the query message in Exercise 13?
+
+*Ans:* Response message = Header + Question record + Answer record \
+
+  Header is fixed at 12 bytes. \
+  
+  #h(0.85cm) Question record = Query name + Query type + Query class \
+  Here, query type and query class are fixed at 2 bytes each. \
+  Query name is variable length, but in this case, it will be stored like,
+
+  #table(
+    columns: 9,
+    [10], ['challenger'], [3], ['atc'], [4], ['fhda'], [3], ['edu'], [0]
+  )
+
+  So here 25 byte can store the query name. \
+  Question Record Size = 25 (query name) + 2 (query type) + 2 (query class) = 29 bytes. \
+
+  #h(0.85cm) Answer record = Name + Type + Class + TTL + Data length + RDATA \
+  Here, Name is variable length, but in this case, it will also be stored like the previous one,
+
+  #table(
+    columns: 9,
+    [10], ['challenger'], [3], ['atc'], [4], ['fhda'], [3], ['edu'], [0]
+  )
+
+  So here 25 byte can store the query name. \
+  Type and Class are fixed at 2 bytes each. \
+  TTL is fixed at 4 bytes. \
+  Data length is fixed at 2 bytes. \
+  RDATA is the IP address, which is assumed to be 4 bytes (written in octets). \
+  Answer Record Size = 25 (name) + 2 (type) + 2 (class) + 4 (ttl) + 2 (data length) + 4 (rdata) = 39 bytes. \
+
+  Finally, \
+  Response Message Size = 12 (header) + 29 (question record) + 39 (answer record) = 80 bytes. \
+
 + What is the size of the response message responding to the query message in Exercise 14?
 + Redo Example 19.1 using a response message with one answer record and one authoritative record which defines “fhda.edu.” as the authoritative server.
 + Redo Exercise 17, but add one additional record that defines the address of the authoritative server as 153.18.9.0.
