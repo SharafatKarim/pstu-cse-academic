@@ -87,15 +87,93 @@
   *Ans:* a, b = *FQDN*; c, d = *PQDN*
 
 + Find the value of the flags field (in hexadecimal) for a query message requesting an address and demanding a recursive answer.
-  *Ans:* 0x0100
+  
+  *Ans:* 0x0100 \
+  Here, our flag field will be like, 
+
+  #table(
+    columns: 8,
+    [QR], [Opcode], [AA], [TC], [RD], [RA], [Three 0s], [rCode],
+    [0], [0000], [0], [0], [1], [0], [000], [0000]
+  )
 
 + Find the value of the flags field (in hexadecimal) for an unauthoritative message carrying an inverse response. The resolver had asked for a recursive response, but the recursive answer was not available.
 
+  *Ans:* 0x8900 \
+  Here, our flag field will be like, 
+
+  #table(
+    columns: 8,
+    [QR], [Opcode], [AA], [TC], [RD], [RA], [Three 0s], [rCode],
+    [1], [0001], [0], [0], [1], [0], [000], [0000]
+  )
+
 + Analyze the flag 0x8F80.
+
+  *Ans:* 
+  Here, our flag field will be like, 
+
+  #table(
+    columns: 8,
+    [QR], [Opcode], [AA], [TC], [RD], [RA], [Three 0s], [rCode],
+    [1], [0001], [1], [1], [1], [1], [000], [0000]
+  )
+
+  - QR = 1 (Response)
+  - Opcode = 0001 (Inverse Query)
+  - AA = 1 (Authoritative Answer)
+  - TC = 1 (Truncated)
+  - RD = 1 (Recursion Desired)
+  - RA = 1 (Recursion Available)
+  - rCode = 0000 (No Error)
+
 + Analyze the flag 0x0503. Is it valid?
+
+  *Ans:* 
+  Here, our flag field will be like, 
+
+  #table(
+    columns: 8,
+    [QR], [Opcode], [AA], [TC], [RD], [RA], [Three 0s], [rCode],
+    [0], [0000], [1], [0], [1], [0], [000], [0011]
+  )
+
+  - QR = 0 (Query)
+  - Opcode = 0000 (Standard Query)
+  - AA = 1 (Authoritative Answer - don't care)
+  - TC = 0 (Not Truncated - don't care)
+  - RD = 1 (Recursion Desired)
+  - RA = 0 (Recursion Available - don't care)
+  - rCode = 0001 (Format Error)
+
+  Here AA is a don't care condition, so it's value will not matter. And the rCode is not valid, as it should be 0000 (No Error) for a valid query. Becuase only the authoritative server can make the judgement for rCode. So, this flag is *not valid*.
+
 + Is the size of a question record fixed?
+
+  *Ans:* Nope.
+
 + Is the size of a resource record fixed?
+  
+  *Ans:* Nope.
+  
 + What is the size of a question record containing the domain name fhda.edu?
+
+  *Ans:* Header (12 bytes) + Question Record. \
+
+  Question record = Query name + Query type + Query class \
+  Here, query type and query class are fixed at 2 bytes each. \
+  Query name is variable length, but in this case, it will be stored like, \
+  
+  #table(
+    columns: 10,
+    [4], [f], [h], [d], [a], [3], [e], [d], [u], [0]
+  )
+
+  So here 2 byte or 16 bit is more than enough to store the query name. \
+
+  So we can say, \
+  Total Size = 12 (header) + 4 (question record) = 16 bytes.
+
 + What is the size of a question record containing an IP address?
 + What is the size of a resource record containing the domain name fhda.edu?
 + What is the size of a resource record containing an IP address?
