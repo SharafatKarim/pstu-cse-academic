@@ -12,10 +12,12 @@
 // Title page
 // --------------------------
 
+#set page(numbering: none)
+
 #align(left)[
   #line(length: 100%)
   #align(left, text(18pt)[
-    *TCP⁄IP Protocol Suite (Forouzan)*
+    *TCP/IP Protocol Suite (Forouzan)*
   ])
   #align(left, text(14pt)[
     *Chapter 19 (Exercises)*
@@ -54,6 +56,7 @@
 
 #pagebreak()
 
+#set page(numbering: "1")
 #outline()
 #align(bottom)[
   #line(length: 100%)
@@ -77,6 +80,10 @@
   d. zzz.yyy.xxx.edu.
 
   *Ans:* a, c = *PQDN*; b, d = *FQDN*
+
+  #highlight()[
+  সাধারণত FQDN এর শেষে একটি dot থাকে, যা DNS সার্ভারকে বলে দেয় যে এটি একটি সম্পূর্ণ ডোমেইন নাম। 
+  ]
 
 + Determine which of the following is an FQDN and which is a PQDN: \
   a. mil.
@@ -156,27 +163,59 @@
   
   *Ans:* Nope.
   
-+ What is the size of a question record containing the domain name fhda.edu?
++ What is the size of a question record containing the domain name `fhda.edu`?
 
-  *Ans:* Header (12 bytes) + Question Record. \
-
-  Question record = Query name + Query type + Query class \
+  *Ans:* Question record = Query name + Query type + Query class \
   Here, query type and query class are fixed at 2 bytes each. \
-  Query name is variable length, but in this case, it will be stored like, \
-  
+  Query name is variable length, but in this case, it will be stored like,
+
   #table(
-    columns: 10,
-    [4], [f], [h], [d], [a], [3], [e], [d], [u], [0]
+    columns: 5,
+    [4], ['fhda'], [3], ['edu'], [0]
   )
 
-  So here 2 byte or 16 bit is more than enough to store the query name. \
-
-  So we can say, \
-  Total Size = 12 (header) + 4 (question record) = 16 bytes.
+  So here 10 byte or 80 bit can store the query name. \
+  Question Record Size = 10 (query name) + 2 (query type) + 2 (query class) = 14 bytes. \
 
 + What is the size of a question record containing an IP address?
-+ What is the size of a resource record containing the domain name fhda.edu?
+
+  *Ans:* Question record = Query name + Query type + Query class \
+  Here, query type and query class are fixed at 2 bytes each. \
+  Query name is variable length, but in this case, it will be stored like,
+
+  #table(
+    columns: 13,
+    [3], ['aaa'], [3], ['aaa'],[3], ['aaa'],[3], ['aaa'], [7], ['in-addr'], [4], ['arpa'], [0]
+  )
+
+  Here for the maximum cases around 30 bytes will be requried to store the query name. \
+  Question Record Size = 30 (query name) + 2 (query type) + 2 (query class) = 34 bytes. \
+
++ What is the size of a resource record containing the domain name `fhda.edu`?
+
+  *Ans:* Resource record = Name + Type + Class + TTL + Data length + RDATA \
+  Here, Name is variable length, but in this case, it will be stored like,
+
+  #table(
+    columns: 5,
+    [4], ['fhda'], [3], ['edu'], [0]
+  )
+
+  So here 10 byte or 80 bit can store the query name. \
+  Type and Class are fixed at 2 bytes each. \
+  TTL is fixed at 4 bytes. \
+  Data length is fixed at 2 bytes. \
+  RDATA is the IP address, which is 4 bytes (written in octets). \
+  
+  Resource Record Size = 10 (name) + 2 (type) + 2 (class) + 4 (ttl) + 2 (data length) + 4 (rdata) \ 
+  #h(3.5cm) = 24 bytes.
+
 + What is the size of a resource record containing an IP address?
+
+  #highlight()[
+    আগের প্রশ্নটির অনুরূপ, তবে এখানে domain নাম যেকোনো একটা ধরে নিতে হবে (variable length)। এখন এটা standard response হবে নাকি inverse response, তা আমি নিশ্চিত নই।
+  ]
+
 + What is the size of a query message requesting the IP address for challenger. atc.fhda.edu?
 + What is the size of a query message requesting the domain name for 185.34.23.12?
 + What is the size of the response message responding to the query message in Exercise 13?
