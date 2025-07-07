@@ -353,11 +353,11 @@
     [0x1333], [0x8580], [1], [1], [1], [0],
     table.cell(colspan: 2)[4 'chal' 4 'fhda' 3 'edu' 0],
     [1], [1],
-    table.cell(colspan: 2)[0xC0C0],
+    table.cell(colspan: 2)[0xC00C],
     [1], [1],
     table.cell(colspan: 2)[1200],
     [4], [153 18 8 105],
-    table.cell(colspan: 2)[0xC0C0],
+    table.cell(colspan: 2)[0xC00C],
     [2], [1],
     table.cell(colspan: 2)[1200],
     [10], [4 'fhda' 3 'edu' 0],
@@ -376,15 +376,15 @@
     [0x1333], [0x8580], [1], [1], [1], [1],
     table.cell(colspan: 2)[4 'chal' 4 'fhda' 3 'edu' 0],
     [1], [1],
-    table.cell(colspan: 2)[0xC0C0],
+    table.cell(colspan: 2)[0xC00C],
     [1], [1],
     table.cell(colspan: 2)[1200],
     [4], [153 18 8 105],
-    table.cell(colspan: 2)[0xC0C0],
+    table.cell(colspan: 2)[0xC00C],
     [2], [1],
     table.cell(colspan: 2)[1200],
     [10], [4 'fhda' 3 'edu' 0],
-    table.cell(colspan: 2)[0xC0C0],
+    table.cell(colspan: 2)[0xC00C],
     [2], [1],
     table.cell(colspan: 2)[1200],
     [4], [153 18 9 0],
@@ -418,7 +418,7 @@
     [0x1333], [0x8180], [1], [1], [0], [0],
     table.cell(colspan: 2)[3 'xxx' 3 'yyy' 3 'com' 0],
     [1], [1],
-    table.cell(colspan: 2)[0xC0C0],
+    table.cell(colspan: 2)[0xC00C],
     [1], [1],
     table.cell(colspan: 2)[1200],
     [4], [201 34 23 12]
@@ -464,11 +464,11 @@
     [1], [1],
     table.cell(colspan: 2)[3 'aaa' 3 'bbb' 3 'edu' 0],
     [1], [1],
-    table.cell(colspan: 2)[0xC0C0],
+    table.cell(colspan: 2)[0xC00C],
     [1], [1],
     table.cell(colspan: 2)[1200],
     [4], [14 23 45 12],
-    table.cell(colspan: 2)[0xC0C0],
+    table.cell(colspan: 2)[0xC01D],
     [1], [1],
     table.cell(colspan: 2)[1200],
     [4], [131 34 67 89]
@@ -481,9 +481,77 @@
     [1], [0000], [0], [0], [1], [1], [000], [0000],
   )
 
+  #highlight()[
+    এবং 0xC00C হল xxx.yyy.com এর address। \
+    এখানে 0xC01D হল aaa.bbb.edu এর address। 
+  ]
+
 + Show the response message of Exercise 22 if the DNS server can resolve the first enquiry but not the second.
+
+  *Ans:* The response message will be like,
+
+  #table(
+    columns: 2,
+    [0x1333], [0x8180], [2], [1], [0], [0],
+    table.cell(colspan: 2)[3 'xxx' 3 'yyy' 3 'com' 0],
+    [1], [1],
+    table.cell(colspan: 2)[3 'aaa' 3 'bbb' 3 'edu' 0],
+    [1], [1],
+    table.cell(colspan: 2)[0xC00C],
+    [1], [1],
+    table.cell(colspan: 2)[1200],
+    [4], [14 23 45 12]
+  )
+
+  Here the flag field is 0x8180, which means it is a standard response with recursion available. The flag will be like, \
+  #table(
+    columns: 8,
+    [QR], [Opcode], [AA], [TC], [RD], [RA], [Three 0s], [rCode],
+    [1], [0000], [0], [0], [1], [1], [000], [0000],
+  )
+
 + A DNS client is looking for the name of the computer with IP address 132.1.17.8. Show the query message.
+
+  *Ans:* The query message will be like,
+  #table(
+    columns: 2,
+    [0x1333], [0x0900], [1], [0], [0], [0],
+    table.cell(colspan: 2)[1 '8' 2 '17' 1 '1' 3 '132' 7 'in-addr' 4 'arpa' 0],
+    [12], [1]
+  )
+
+  Here the flag field is 0x0900, which means it is a standard query with recursion desired. The flag will be like, \
+  #table(
+    columns: 8,
+    [QR], [Opcode], [AA], [TC], [RD], [RA], [Three 0s], [rCode],
+    [0], [0001], [0], [0], [1], [0], [000], [0000],
+  )
+
 + Show the response message sent by the server to the query in Exercise 24.
+
+  *Ans:* The response message will be like,
+  #table(
+    columns: 2,
+    [0x1333], [0x8980], [1], [1], [0], [0],
+    table.cell(colspan: 2)[1 '8' 2 '17' 1 '1' 3 '132' 7 'in-addr' 4 'arpa' 0],
+    [12], [1],
+    table.cell(colspan: 2)[0xC00C],
+    [12], [1],
+    table.cell(colspan: 2)[1200],
+    [13], [3 'aaa' 3 'bbb' 3 'edu' 0]
+  )
+
+  #highlight()[
+    এখানে 3 'aaa' 3 'bbb' 3 'edu' 0 মনমতো ধরে নিয়েছি :)
+  ]
+
+  Here the flag field is 0x8980, which means it is an inverse query with recursion available. The flag will be like, \
+  #table(
+    columns: 8,
+    [QR], [Opcode], [AA], [TC], [RD], [RA], [Three 0s], [rCode],
+    [1], [0001], [0], [0], [1], [1], [000], [0000],
+  )
+
 + Encapsulate the query message of Exercise 24 in a UDP user datagram.
 + Encapsulate the response message of Exercise 25 in a UDP user datagram.
 
