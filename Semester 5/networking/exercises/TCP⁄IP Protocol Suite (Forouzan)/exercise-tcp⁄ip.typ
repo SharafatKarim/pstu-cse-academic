@@ -552,13 +552,21 @@
     [1], [0001], [0], [0], [1], [1], [000], [0000],
   )
 
+#strike[
 + Encapsulate the query message of Exercise 24 in a UDP user datagram.
 + Encapsulate the response message of Exercise 25 in a UDP user datagram.
+]
+
+#highlight()[
+  উপরের দুটো প্রশ্ন UDP user diagram এর অংশ পড়ানোর সময় কভার হবে আশা করি :)
+]
 
 // --------------------------
 // Ending
 // --------------------------
 
-#align(center + bottom)[
-  *THE END*
+#align(bottom)[
+  "Never trust anyone too much; remember, the devil was once an angel." \
+  — Ken Kaneki, Tokyo Ghoul \
+  // *THE END*
 ]
