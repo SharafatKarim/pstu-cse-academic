@@ -19,8 +19,8 @@
   #align(left, text(18pt)[
     *TCP/IP Protocol Suite (Forouzan)*
   ])
-  #align(left, text(14pt)[
-    *Chapter 19 (Exercises)*
+  #align(left, text(16pt)[
+    *Exercises Solution*
   ])
   #line(length: 100%)
 
@@ -37,7 +37,7 @@
     *Legends* \
   ]
   #parbreak()
-  - *Bold texts* mark importance.
+  - *Bold texts* are used for decoration or emphasis.
   - #strike[Strike-through] refers to out of syllabus/ context.
   - #highlight[Highlighted texts] are some optional texts :)
 ]
@@ -45,7 +45,7 @@
 #align(bottom)[
   #line(length: 100%)
   #text(size: 14pt)[
-    *Terms* \
+    *Terms & Conditions* \
   ] \
   - This is just a *sample*, nothing more, nothing less :) \
   - I have tried to put things like *summary*, and obviously this is not the solution that I will submit or recommended! I am in no way responsible for any illegal use of this file. \
@@ -260,7 +260,7 @@
 
 + What is the size of the response message responding to the query message in Exercise 13?
 
-*Ans:* Response message = Header + Question record + Answer record \
+  *Ans:* Response message = Header + Question record + Answer record \
 
   Header is fixed at 12 bytes. \
   
@@ -292,9 +292,49 @@
   Answer Record Size = 25 (name) + 2 (type) + 2 (class) + 4 (ttl) + 2 (data length) + 4 (rdata) = 39 bytes. \
 
   Finally, \
-  Response Message Size = 12 (header) + 29 (question record) + 39 (answer record) = 80 bytes. \
+  Response Message Size = 12 (header) + 29 (question record) + 39 (answer record) = 32 bytes. \
 
 + What is the size of the response message responding to the query message in Exercise 14?
+
+  *Ans:* Response message = Header + Question record + Answer record \
+
+  Header is fixed at 12 bytes. \
+  
+  #h(0.85cm) Question record = Query name + Query type + Query class \
+  Here, query type and query class are fixed at 2 bytes each. \
+  Query name is variable length, but in this case, it will be stored like,
+
+  #table(
+    columns: 13,
+    [2], ['12'], [2], ['23'], [2], ['34'], [3], ['185'], [7], ['in-addr'], [4], ['arpa'], [0]
+  )
+
+  So here 27 byte can store the query name. \
+  Question Record Size = 27 (query name) + 2 (query type) + 2 (query class) = 31 bytes. \
+
+  #h(0.85cm) Answer record = Name + Type + Class + TTL + Data length + RDATA \
+  Here, Name is variable length, but in this case, it will also be stored like the previous one,
+
+  #table(
+    columns: 13,
+    [2], ['12'], [2], ['23'], [2], ['34'], [3], ['185'], [7], ['in-addr'], [4], ['arpa'], [0]
+  )
+
+  So here 27 byte can store the query name. \
+  Type and Class are fixed at 2 bytes each. \
+  TTL is fixed at 4 bytes. \
+  Data length is fixed at 2 bytes. \
+  RDATA is considered variable length, but in this case, let use consider it to be 16 bytes. \
+
+  Answer Record Size = 27 (name) + 2 (type) + 2 (class) + 4 (ttl) + 2 (data length) + 16 (rdata) = 53 bytes. \
+
+  Finally, \
+  Response Message Size = 12 (header) + 31 (question record) + 53 (answer record) = *96 bytes*. \
+
+  #highlight()[
+    এখানে আমি আন্দাজে ১৬ বাইট RDATA ধরেছি। যেটা নি:সন্দেহে ভুল। সঠিক কি করা উচিত, তা আমি জানি না।
+  ]
+
 + Redo Example 19.1 using a response message with one answer record and one authoritative record which defines “fhda.edu.” as the authoritative server.
 + Redo Exercise 17, but add one additional record that defines the address of the authoritative server as 153.18.9.0.
 + A DNS client is looking for the IP address of xxx.yyy.com. Show the query message with values for each field.
