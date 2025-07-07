@@ -6,7 +6,7 @@
 )
 // #set text(font: "Ubuntu Nerd Font")
 #set par(justify: true)
-// #set heading(numbering: "1.1")
+#set heading(numbering: "1.1")
 
 // --------------------------
 // Title page
