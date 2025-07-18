@@ -1,0 +1,19 @@
+Bookmark Manager
+A cross platofrom bookmark manager to sync links, notes and passwords between multiple devices.
+
+
+Existing solutions
+- Mozilla Pocket https://getpocket.com/ (deprecated July 8)
+- https://goodlinks.app/ (only mac + paid)
+- https://www.futurwise.com/ (only chromium browser extension)
+- https://instapaper.com/
+- https://hq.getmatter.com/ (no android app)
+- https://raindrop.io/
+- https://readwise.io (beta + only premium)
+
+In my app I want to let users create or organize bookmarks with nested folders. There will be five sections,
+- Bookmarks
+- Articles
+- RSS
+- Explore
+- Profile
