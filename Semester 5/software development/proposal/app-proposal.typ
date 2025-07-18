@@ -166,17 +166,23 @@ The development of Linkerine will follow an agile methodology, allowing for iter
 
 == Flow Chart Diagram
 
-#image("diagrams/linkerine.DFD.svg", width: 100%, height: auto, alt: "Flow Chart")
+#figure(
+  image("diagrams/linkerine.DFD.svg", width: 100%, height: auto, alt: "Flow Chart"),
+  caption: "Flow Chart of Linkerine Architecture",
+) <DFD>
 
-Here the above flow chart illustrates the high-level architecture of Linkerine, showing how different components interact with each other. Mainly the frontend communication is portrayed here.
+Here the above @DFD illustrates the high-level architecture of Linkerine, showing how different components interact with each other. Mainly the frontend communication is portrayed here.
 
 In the frontend part, the user interacts with the application, which communicates with the backend server. The backend server handles requests, processes data, and interacts with the database for storage and retrieval of bookmarks, articles, notes, passwords, and RSS feeds.
 
 == ERD (Entry Relationship Diagram)
 
-#image("diagrams/plantUML.svg", width: 100%, height: auto, alt: "Entity Relationship Diagram")
+#figure(
+  image("diagrams/plantUML.svg", width: 100%, height: auto, alt: "Entity Relationship Diagram"),
+  caption: "Entity Relationship Diagram of Linkerine",
+) <ERD>
 
-Here the above ERD illustrates the backend database structure of Linkerine, showing the relationships between different entities such as users, bookmarks, articles, notes, passwords, and RSS feeds. Each entity has its own attributes and relationships with other entities, allowing for efficient data management and retrieval.
+Here the above @ERD illustrates the backend database structure of Linkerine, showing the relationships between different entities such as users, bookmarks, articles, notes, passwords, and RSS feeds. 
 
 == Timeline
 
@@ -194,6 +200,13 @@ The base timeline for the development of Linkerine is as follows,
   [UI Polish & Documentation], [], [], [], [], [], [✓], [✓], [],
   [Final Testing & Deployment], [], [], [], [], [], [], [], [✓],
 )
+
+== UI Mockups
+
+#figure(
+  image("diagrams/ui-mockup.png", width: 100%, height: auto, alt: "UI Mockups"),
+  caption: "UI Mockups of Linkerine",
+) <UI>
 
 = Scope
 
