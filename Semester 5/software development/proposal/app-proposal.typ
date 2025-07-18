@@ -91,7 +91,7 @@
         Professor, \
         Department of Computer and Communication Engineering, \
         Patuakhali Science and Technology University.
-      + *Sarna Majumder* \
+      + *Arpita Howlader* \
         Associate Professor, \
         Department of Computer and Communication Engineering, \
         Patuakhali Science and Technology University.
@@ -153,7 +153,7 @@ The development of Linkerine will follow an agile methodology, allowing for iter
 
 #table(
   columns: (30%, 70%),
-  [*Frontend*], [Flutter (Dart)],
+  [*Frontend*], [Flutter@flutter (Dart)],
   [*Backend*], [Supabase],
   [*UI Design*], [Material Design (android), Cupertino (IOS)],
   [*Database*], [PostgreSQL],
@@ -204,16 +204,41 @@ The base timeline for the development of Linkerine is as follows,
 == UI Mockups
 
 #figure(
-  image("diagrams/ui-mockup.png", width: 100%, height: auto, alt: "UI Mockups"),
+  image("UI/1.png", height: 40%, alt: "UI Mockups"),
   caption: "UI Mockups of Linkerine",
-) <UI>
+) <UI1>
+
+#figure(
+    grid(
+        columns: (auto, auto),
+        rows:    (auto, auto),
+        gutter: 1em,
+        [ #image("UI/2.png",   width: 70%) ],
+        [ #image("UI/3.png", width: 70%) ],
+    ),
+    caption: [Add Bookmark page and reader page's UI concept]
+) <UI2>
+
+#figure(
+    grid(
+        columns: (auto, auto),
+        rows:    (auto, auto),
+        [ #image("UI/4.png",   width: 90%) ],
+        [ #image("UI/5.png", width: auto) ],
+    ),
+    caption: [Settings and sign in page's UI concept]
+) <UI3>
 
 = Scope
 
-Linkerine will be developed as a cross-platform application using Flutter, allowing it to run on Android, iOS, and web browsers. The application will focus on providing a rich set of features for managing bookmarks, articles, notes, passwords, and RSS feeds. It will also include advanced functionalities like nested folders, duplicate URL detection, and a powerful search engine.
+Linkerine will be developed as a cross-platform application using Flutter@flutter, allowing it to run on Android, iOS, and web browsers. The application will focus on providing a rich set of features for managing bookmarks, articles, notes, passwords, and RSS feeds. It will also include advanced functionalities like nested folders, duplicate URL detection, and a powerful search engine.
 
 Later on, it can be extended to include URL shortening, generating QR codes, importing or exporting bookmarks with different browsers compatibiolity, sharing bookmarks globally, tagging and so on...
 
+= Limitations
+
++ Currently browser extensions are not planned, but the application will be designed to allow easy integration with popular browsers in the future. 
++ The initial version will focus on core functionalities and may not include all advanced features like URL shortening or QR code generation.
 
 = Result
 The expected outcome of Linkerine is a fully functional, cross-platform application that allows users to manage their digital resources efficiently.
