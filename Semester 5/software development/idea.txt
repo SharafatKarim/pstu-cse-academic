@@ -1,4 +1,5 @@
-Bookmark Manager
+Linkerine - Bookmark, articles & RSS
+
 A cross platofrom bookmark manager to sync links, notes and passwords between multiple devices.
 
 
@@ -11,9 +12,30 @@ Existing solutions
 - https://raindrop.io/
 - https://readwise.io (beta + only premium)
 
-In my app I want to let users create or organize bookmarks with nested folders. There will be five sections,
+Technology
+As for technology, I may use flutter + supabase (for backend)
+
+In my app I want to let users create or organize bookmarks with nested folders.
+Users can have both android, ios, web or browser extension (to be added later) for accessing and adding their contents.
+
+There will be five sections,
 - Bookmarks
 - Articles
 - RSS
 - Explore
 - Profile
+
+First build features,
+- Anonymous mode
+- Optional cloud sync
+- View history
+- Duplicate URLs remover
+- Powerful search
+
+Future roadmapped fetures,
+- Shorten URLs
+- Generate QR links
+- Import/ Export
+- Share folders access
+- Share bookmarks
+- Tagging
