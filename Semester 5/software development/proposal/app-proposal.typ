@@ -5,6 +5,7 @@
   columns: 1,
 )
 // #set text(font: "Ubuntu Nerd Font")
+#set text(size: 12pt)
 #set par(justify: true)
 #set heading(numbering: "1.")
 
@@ -109,6 +110,10 @@
 // Contents
 // --------------------------
 
+
+#align(center)[
+  #image("logo/logo.svg", width: 30%, height: auto, alt: "Linkerine Logo")
+]
 #align(center)[
   #text(size: 20pt, weight: "bold")[Linkerine]
 ]
@@ -147,24 +152,55 @@ Existing solutions for bookmark and content management are either limited to spe
 
 - @readwise *Readwise* - Premium-focused and still in beta.
 
+= Scope
+
+Linkerine will be developed as a cross-platform application using Flutter@flutter, allowing it to run on Android, iOS, and web browsers. The application will focus on providing a rich set of features for managing bookmarks, articles, notes, passwords, and RSS feeds. It will also include advanced functionalities like nested folders, duplicate URL detection, and a powerful search engine.
+
+Later on, it can be extended to include URL shortening, generating QR codes, importing or exporting bookmarks with different browsers compatibiolity, sharing bookmarks globally, tagging and so on...
+
 = Methodology
 
+== Technology Stack
 The development of Linkerine will follow an agile methodology, allowing for iterative improvements and user feedback. Our technology stack will includes,
 
-#table(
-  columns: (30%, 70%),
-  [*Frontend*], [Flutter@flutter (Dart)],
-  [*Backend*], [Supabase],
-  [*UI Design*], [Material Design (android), Cupertino (IOS)],
-  [*Database*], [PostgreSQL],
-  [*Authentication*], [JWT, OAuth2],
-  [*Hosting (web app)*], [Vercel or Netlify],
-  [*CI/CD*], [GitHub Actions, Docker],
+#figure(
+  table(
+    columns: (30%, 70%),
+    [*Frontend*], [Flutter@flutter (Dart)],
+    [*Backend*], [Supabase],
+    [*UI/ UX Design*], [Figma],
+    [*Database*], [PostgreSQL],
+    [*Authentication*], [JWT or OAuth2],
+    [*Hosting (web app)*], [Vercel or Netlify],
+    [*CI/CD*], [GitHub Actions, Docker (optional)],
+  ),
+  caption: "Technology Stack for Linkerine",
+)
+
+== Design Principles
+
+The design of Linkerine will adhere to the following principles,
+
+#figure(
+  table(
+    columns: (30%, 70%),
+    [*Material Design*], [Following Google's Material Design guidelines for a consistent and modern UI/UX in Android],
+    [*Responsive Design*],
+    [Ensuring the application works seamlessly on various screen sizes and orientations including web app.],
+
+    [*User-Centric Design*],
+    [Focusing on user experience and ease of use, with intuitive navigation and clear UI elements.],
+
+    [*Cross-Platform*], [Ensuring consistent functionality and design across Android, iOS, and web platforms.],
+    [*Documentation*],
+    [Providing comprehensive documentation for developers and users, including API documentation and user guides.],
+  ),
+  caption: "Design Principles for Linkerine"
 )
 
 = Visual Models
 
-== Flow Chart Diagram
+== Flow Chart Diagram 
 
 #figure(
   image("diagrams/linkerine.DFD.svg", width: 100%, height: auto, alt: "Flow Chart"),
@@ -173,8 +209,6 @@ The development of Linkerine will follow an agile methodology, allowing for iter
 
 Here the above @DFD illustrates the high-level architecture of Linkerine, showing how different components interact with each other. Mainly the frontend communication is portrayed here.
 
-In the frontend part, the user interacts with the application, which communicates with the backend server. The backend server handles requests, processes data, and interacts with the database for storage and retrieval of bookmarks, articles, notes, passwords, and RSS feeds.
-
 == ERD (Entry Relationship Diagram)
 
 #figure(
@@ -182,23 +216,24 @@ In the frontend part, the user interacts with the application, which communicate
   caption: "Entity Relationship Diagram of Linkerine",
 ) <ERD>
 
-Here the above @ERD illustrates the backend database structure of Linkerine, showing the relationships between different entities such as users, bookmarks, articles, notes, passwords, and RSS feeds. 
-
-== Timeline
+== Timeline (Gantt Chart)
 
 The base timeline for the development of Linkerine is as follows,
 
-#table(
-  columns: (20%, 10%, 10%, 10%, 10%, 10%, 10%, 10%, 10%),
-  [*Task*], [*Week 1-2*], [*Week 3-4*], [*Week 5-6*], [*Week 7-8*], [*Week 9*], [*Week 10*], [*Week 11*], [*Week 12*],
-  [Requirements & UI Mockup], [✓], [], [✓], [], [], [], [], [],
-  [Authentication + Supabase DB], [], [✓], [✓], [], [], [], [], [],
-  [Bookmark CRUD + Nested Folders], [], [], [✓], [✓], [], [], [], [],
-  [Article Reader + RSS Parsing], [], [], [], [✓], [], [], [], [],
-  [History + Search Module], [], [], [✓], [✓], [✓], [], [], [],
-  [Duplicate Removal & Testing], [], [], [], [], [], [✓], [], [],
-  [UI Polish & Documentation], [], [], [], [], [], [✓], [✓], [],
-  [Final Testing & Deployment], [], [], [], [], [], [], [], [✓],
+#figure(
+  table(
+    columns: (20%, 10%, 10%, 10%, 10%, 10%, 10%, 10%, 10%),
+    [*Task*], [*Week 1-2*], [*Week 3-4*], [*Week 5-6*], [*Week 7-8*], [*Week 9*], [*Week 10*], [*Week 11*], [*Week 12*],
+    [Requirements & UI Mockup], [✓], [], [✓], [], [], [], [], [],
+    [Authentication + Supabase DB], [], [✓], [✓], [], [], [], [], [],
+    [Bookmark CRUD + Nested Folders], [], [], [✓], [✓], [], [], [], [],
+    [Article Reader + RSS Parsing], [], [], [], [✓], [], [], [], [],
+    [History + Search Module], [], [], [✓], [✓], [✓], [], [], [],
+    [Duplicate Removal & Testing], [], [], [], [], [], [✓], [], [],
+    [UI Polish & Documentation], [], [], [], [], [], [✓], [✓], [],
+    [Final Testing & Deployment], [], [], [], [], [], [], [], [✓],
+  ),
+  caption: "Development Timeline of Linkerine",
 )
 
 == UI Mockups
@@ -209,35 +244,27 @@ The base timeline for the development of Linkerine is as follows,
 ) <UI1>
 
 #figure(
-    grid(
-        columns: (auto, auto),
-        rows:    (auto, auto),
-        gutter: 1em,
-        [ #image("UI/2.png",   width: 70%) ],
-        [ #image("UI/3.png", width: 70%) ],
-    ),
-    caption: [Add Bookmark page and reader page's UI concept]
+  grid(
+    columns: (auto, auto),
+    rows: (auto, auto),
+    gutter: 1em,
+    [ #image("UI/2.png", width: 70%) ], [ #image("UI/3.png", width: 70%) ],
+  ),
+  caption: [Add Bookmark page and reader page's UI concept],
 ) <UI2>
 
 #figure(
-    grid(
-        columns: (auto, auto),
-        rows:    (auto, auto),
-        [ #image("UI/4.png",   width: 90%) ],
-        [ #image("UI/5.png", width: auto) ],
-    ),
-    caption: [Settings and sign in page's UI concept]
+  grid(
+    columns: (auto, auto),
+    rows: (auto, auto),
+    [ #image("UI/4.png", width: 90%) ], [ #image("UI/5.png", width: auto) ],
+  ),
+  caption: [Settings and sign in page's UI concept],
 ) <UI3>
-
-= Scope
-
-Linkerine will be developed as a cross-platform application using Flutter@flutter, allowing it to run on Android, iOS, and web browsers. The application will focus on providing a rich set of features for managing bookmarks, articles, notes, passwords, and RSS feeds. It will also include advanced functionalities like nested folders, duplicate URL detection, and a powerful search engine.
-
-Later on, it can be extended to include URL shortening, generating QR codes, importing or exporting bookmarks with different browsers compatibiolity, sharing bookmarks globally, tagging and so on...
 
 = Limitations
 
-+ Currently browser extensions are not planned, but the application will be designed to allow easy integration with popular browsers in the future. 
++ Currently browser extensions are not planned, but the application will be designed to allow easy integration with popular browsers in the future.
 + The initial version will focus on core functionalities and may not include all advanced features like URL shortening or QR code generation.
 
 = Result
