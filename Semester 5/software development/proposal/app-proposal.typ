@@ -113,7 +113,7 @@
   #text(size: 20pt, weight: "bold")[Linkerine]
 ]
 
-= Introduction
+= Abstract
 
 Linkerine is a cross-platform bookmark management application designed to help users seamlessly store, organize, and sync *bookmarks*, *articles*, *notes*, *passwords*, and *RSS feeds* across multiple devices. In an age of increasing digital information overload, Linkerine aims to provide a simplified and powerful interface to manage and retrieve valuable resources from anywhere.
 
@@ -133,19 +133,25 @@ Existing solutions for bookmark and content management are either limited to spe
 
 = Related Work
 
-- *Mozilla Pocket* - Popular read-it-later app, but now has been *deprecated* (as of July 8, 2025).
+- @pocket *Mozilla Pocket* - Popular read-it-later app, but now has been *deprecated* (as of July 8, 2025).
 
-- *Goodlinks* - Paid and available only on macOS.
+- @goodlinks *Goodlinks* - Paid and available only on macOS.
 
-- *Futurwise* - Chromium-only extension.
+- @futurwise *Futurwise* - Chromium-only extension. Won't work on Firefox or Safari. Also web app or mobile app isn't available.
 
-- *Instapaper* - Focused on reading but lacks strong organization.
+- @instapaper *Instapaper* - Focused on reading but lacks strong organization.
 
-- *Matter* - No Android support, limited availability.
+- @matter *Matter* - No Android support, limited availability.
 
-- *Raindrop.io* - Feature-rich but lacks anonymous mode and some sync customizations.
+- @raindrop *Raindrop.io* - Feature-rich but lacks anonymous mode and some sync customizations.
 
-- *Readwise* - Premium-focused and still in beta.
+- @readwise *Readwise* - Premium-focused and still in beta.
+
+= Scope
+
+Linkerine will be developed as a cross-platform application using Flutter, allowing it to run on Android, iOS, and web browsers. The application will focus on providing a rich set of features for managing bookmarks, articles, notes, passwords, and RSS feeds. It will also include advanced functionalities like nested folders, duplicate URL detection, and a powerful search engine.
+
+Later on, it can be extended to include URL shortening, generating QR codes, 
 
 = Methodology
 
@@ -159,10 +165,13 @@ The development of Linkerine will follow an agile methodology, allowing for iter
   [*Database*], [PostgreSQL],
   [*Authentication*], [JWT, OAuth2],
   [*Hosting (web app)*], [Vercel or Netlify],
-  [*CI/CD*], [GitHub Actions, Docker]
+  [*CI/CD*], [GitHub Actions, Docker],
 )
 
 = Result
+The expected outcome of Linkerine is a fully functional, cross-platform application that allows users to manage their digital resources efficiently. 
+
+#bibliography("refs.bib")
 
 #align(center + bottom)[
   *THE END*
