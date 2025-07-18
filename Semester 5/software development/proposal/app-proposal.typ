@@ -12,6 +12,8 @@
 // Title page
 // --------------------------
 
+#set page(numbering: none)
+
 #align(left)[
   #image("PSTU.png", width: 20%, height: auto, alt: "PSTU")
   #text(16pt)[
@@ -38,36 +40,68 @@
   #line(length: 100%)
 ]
 
-#align(bottom)[
-  // Submitted to,
-  #rect(width: 100%)[
-    #text(size: 14pt)[
-      *Submitted to,* \
-    ]
-    #parbreak()
-    *Prof. Dr. Md Samsuzzaman* \
-    Professor, \
-    Department of Computer and Communication Engineering, \
-    Patuakhali Science and Technology University.
-  ]
+// #align(bottom)[
+//   // Submitted to,
+//   #rect(width: 100%)[
+//     #text(size: 14pt)[
+//       *Submitted to,* \
+//     ]
+//     #parbreak()
+//     *Prof. Dr. Md Samsuzzaman* \
+//     Professor, \
+//     Department of Computer and Communication Engineering, \
+//     Patuakhali Science and Technology University.
+//   ]
+// ]
+
+// #align(bottom)[
+
+//   // Submitted by,
+//   #rect(width: 100%)[
+//     #text(size: 14pt)[
+//       *Submitted by,* \
+//     ]
+
+//     *Md. Sharafat Karim* \
+//     ID : 2102024, \
+//     Reg: 10151, \
+//     Semester: 5 (L-3, S-1)
+//   ]
+// ]
+
+#align(top)[
+  #table(
+    columns: (35%, auto),
+    [
+      #text(size: 14pt)[
+        *Submitted from,* \
+      ]
+
+      *Md. Sharafat Karim* \
+      *ID* : 2102024, \
+      *Reg* : 10151, \
+      *Semester* : 5 \ (Level-3, Semester-1)
+    ],
+    [
+      #text(size: 14pt)[
+        *Submitted to,* \
+      ]
+      #parbreak()
+      + *Prof. Dr. Md Samsuzzaman* \
+        Professor, \
+        Department of Computer and Communication Engineering, \
+        Patuakhali Science and Technology University.
+      + *Sarna Majumder* \
+        Associate Professor, \
+        Department of Computer and Communication Engineering, \
+        Patuakhali Science and Technology University.
+    ],
+  )
 ]
 
-#align(bottom)[
-
-  // Submitted by,
-  #rect(width: 100%)[
-    #text(size: 14pt)[
-      *Submitted by,* \
-    ]
-
-    *Md. Sharafat Karim* \
-    ID : 2102024, \
-    Reg: 10151 \
-  ]
-]
 
 #pagebreak()
-
+#set page(numbering: "1")
 #outline()
 #pagebreak()
 
@@ -117,7 +151,18 @@ Existing solutions for bookmark and content management are either limited to spe
 
 The development of Linkerine will follow an agile methodology, allowing for iterative improvements and user feedback. Our technology stack will includes,
 
+#table(
+  columns: (30%, 70%),
+  [*Frontend*], [Flutter (Dart)],
+  [*Backend*], [Supabase],
+  [*UI Design*], [Material Design (android), Cupertino (IOS)],
+  [*Database*], [PostgreSQL],
+  [*Authentication*], [JWT, OAuth2],
+  [*Hosting (web app)*], [Vercel or Netlify],
+  [*CI/CD*], [GitHub Actions, Docker]
+)
 
+= Result
 
 #align(center + bottom)[
   *THE END*
