@@ -93,7 +93,7 @@
         Department of Computer and Communication Engineering, \
         Patuakhali Science and Technology University.
       + *Arpita Howlader* \
-        Associate Professor, \
+        Assistant Professor, \
         Department of Computer and Communication Engineering, \
         Patuakhali Science and Technology University.
     ],
