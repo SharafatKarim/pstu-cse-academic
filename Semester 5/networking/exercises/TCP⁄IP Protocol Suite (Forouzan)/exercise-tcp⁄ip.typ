@@ -60,7 +60,7 @@
 #outline()
 #align(bottom)[
   #line(length: 100%)
-  *Revision 01* \
+  *Revision 02* \
   Try to directly open the file from Rising Flare, to avoid missing any updates. \
 ]
 #pagebreak()
@@ -292,7 +292,7 @@
   Answer Record Size = 25 (name) + 2 (type) + 2 (class) + 4 (ttl) + 2 (data length) + 4 (rdata) = 39 bytes. \
 
   Finally, \
-  Response Message Size = 12 (header) + 29 (question record) + 39 (answer record) = 32 bytes. \
+  Response Message Size = 12 (header) + 29 (question record) + 39 (answer record) = 80 bytes. \
 
 + What is the size of the response message responding to the query message in Exercise 14?
 
