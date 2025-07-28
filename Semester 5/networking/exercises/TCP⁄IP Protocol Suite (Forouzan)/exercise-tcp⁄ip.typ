@@ -60,7 +60,7 @@
 #outline()
 #align(bottom)[
   #line(length: 100%)
-  *Revision 02* \
+  *Revision 03* \
   Try to directly open the file from Rising Flare, to avoid missing any updates. \
 ]
 #pagebreak()
@@ -289,10 +289,14 @@
   TTL is fixed at 4 bytes. \
   Data length is fixed at 2 bytes. \
   RDATA is the IP address, which is assumed to be 4 bytes (written in octets). \
-  Answer Record Size = 25 (name) + 2 (type) + 2 (class) + 4 (ttl) + 2 (data length) + 4 (rdata) = 39 bytes. \
+  Answer Record Size = 2 (name) + 2 (type) + 2 (class) + 4 (ttl) + 2 (data length) + 4 (rdata) = 16 bytes. \
+
+  #highlight[
+    আমি এখানে name = ২ বাইট ধরেছি, কিন্তু যদি compression না থাকে তাহলে কিন্তু ঠিকই ২৫ বাটট দরকার হবে।
+  ]
 
   Finally, \
-  Response Message Size = 12 (header) + 29 (question record) + 39 (answer record) = 80 bytes. \
+  Response Message Size = 12 (header) + 29 (question record) + 16 (answer record) = 57 bytes. \
 
 + What is the size of the response message responding to the query message in Exercise 14?
 
@@ -326,10 +330,10 @@
   Data length is fixed at 2 bytes. \
   RDATA is considered variable length, but in this case, let use consider it to be 16 bytes. \
 
-  Answer Record Size = 27 (name) + 2 (type) + 2 (class) + 4 (ttl) + 2 (data length) + 16 (rdata) = 53 bytes. \
+  Answer Record Size = 2 (name) + 2 (type) + 2 (class) + 4 (ttl) + 2 (data length) + 16 (rdata) = 28 bytes. \
 
   Finally, \
-  Response Message Size = 12 (header) + 31 (question record) + 53 (answer record) = *96 bytes*. \
+  Response Message Size = 12 (header) + 31 (question record) + 28 (answer record) = *71 bytes*. \
 
   #highlight()[
     এখানে আমি আন্দাজে ১৬ বাইট RDATA ধরেছি। যেটা নি:সন্দেহে ভুল। সঠিক কি করা উচিত, তা আমি জানি না।
@@ -398,7 +402,7 @@
     columns: 2,
     [0x1333], [0x0100], [1], [0], [0], [0],
     table.cell(colspan: 2)[3 'xxx' 3 'yyy' 3 'com' 0],
-    [1], [1]
+    [1], [1],
   )
 
   Here the flag field is 0x0100, which means it is a standard query with recursion desired. The flag will be like, \
@@ -421,7 +425,7 @@
     table.cell(colspan: 2)[0xC00C],
     [1], [1],
     table.cell(colspan: 2)[1200],
-    [4], [201 34 23 12]
+    [4], [201 34 23 12],
   )
 
   Here the flag field is 0x8180, which means it is a standard response with recursion available. The flag will be like, \
@@ -442,7 +446,7 @@
     table.cell(colspan: 2)[3 'xxx' 3 'yyy' 3 'com' 0],
     [1], [1],
     table.cell(colspan: 2)[3 'aaa' 3 'bbb' 3 'edu' 0],
-    [1], [1]
+    [1], [1],
   )
 
   Here the flag field is 0x0100, which means it is a standard query with recursion desired. The flag will be like, \
@@ -471,7 +475,7 @@
     table.cell(colspan: 2)[0xC01D],
     [1], [1],
     table.cell(colspan: 2)[1200],
-    [4], [131 34 67 89]
+    [4], [131 34 67 89],
   )
 
   Here the flag field is 0x8180, which means it is a standard response with recursion available. The flag will be like, \
@@ -483,7 +487,7 @@
 
   #highlight()[
     এবং 0xC00C হল xxx.yyy.com এর address। \
-    এখানে 0xC01D হল aaa.bbb.edu এর address। 
+    এখানে 0xC01D হল aaa.bbb.edu এর address।
   ]
 
 + Show the response message of Exercise 22 if the DNS server can resolve the first enquiry but not the second.
@@ -500,7 +504,7 @@
     table.cell(colspan: 2)[0xC00C],
     [1], [1],
     table.cell(colspan: 2)[1200],
-    [4], [14 23 45 12]
+    [4], [14 23 45 12],
   )
 
   Here the flag field is 0x8180, which means it is a standard response with recursion available. The flag will be like, \
@@ -517,7 +521,7 @@
     columns: 2,
     [0x1333], [0x0900], [1], [0], [0], [0],
     table.cell(colspan: 2)[1 '8' 2 '17' 1 '1' 3 '132' 7 'in-addr' 4 'arpa' 0],
-    [12], [1]
+    [12], [1],
   )
 
   Here the flag field is 0x0900, which means it is a standard query with recursion desired. The flag will be like, \
@@ -538,7 +542,7 @@
     table.cell(colspan: 2)[0xC00C],
     [12], [1],
     table.cell(colspan: 2)[1200],
-    [13], [3 'aaa' 3 'bbb' 3 'edu' 0]
+    [13], [3 'aaa' 3 'bbb' 3 'edu' 0],
   )
 
   #highlight()[
@@ -553,8 +557,8 @@
   )
 
 #strike[
-+ Encapsulate the query message of Exercise 24 in a UDP user datagram.
-+ Encapsulate the response message of Exercise 25 in a UDP user datagram.
+  + Encapsulate the query message of Exercise 24 in a UDP user datagram.
+  + Encapsulate the response message of Exercise 25 in a UDP user datagram.
 ]
 
 #highlight()[
