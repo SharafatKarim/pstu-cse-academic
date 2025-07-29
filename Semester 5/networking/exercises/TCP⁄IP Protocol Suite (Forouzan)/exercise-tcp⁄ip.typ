@@ -277,19 +277,13 @@
   Question Record Size = 25 (query name) + 2 (query type) + 2 (query class) = 29 bytes. \
 
   #h(0.85cm) Answer record = Name + Type + Class + TTL + Data length + RDATA \
-  Here, Name is variable length, but in this case, it will also be stored like the previous one,
-
-  #table(
-    columns: 9,
-    [10], ['challenger'], [3], ['atc'], [4], ['fhda'], [3], ['edu'], [0],
-  )
-
-  So here 25 byte can store the query name. \
-  Type and Class are fixed at 2 bytes each. \
-  TTL is fixed at 4 bytes. \
-  Data length is fixed at 2 bytes. \
-  RDATA is the IP address, which is assumed to be 4 bytes (written in octets). \
-  Answer Record Size = 2 (name) + 2 (type) + 2 (class) + 4 (ttl) + 2 (data length) + 4 (rdata) = 16 bytes. \
+  Here, 
+  + Name is variable length, but in this case, Name is variable length, but in this case, we can use compression, which will cost 2 bytes. \
+  + Type and Class are fixed at 2 bytes each. \
+  + TTL is fixed at 4 bytes. \
+  + Data length is fixed at 2 bytes. \
+  + RDATA is the IP address, which is assumed to be 4 bytes (written in octets). \
+  + Answer Record Size = 2 (name) + 2 (type) + 2 (class) + 4 (ttl) + 2 (data length) + 4 (rdata) = 16 bytes. \
 
   #highlight[
     আমি এখানে name = ২ বাইট ধরেছি, কিন্তু যদি compression না থাকে তাহলে কিন্তু ঠিকই ২৫ বাটট দরকার হবে।
@@ -317,18 +311,12 @@
   Question Record Size = 27 (query name) + 2 (query type) + 2 (query class) = 31 bytes. \
 
   #h(0.85cm) Answer record = Name + Type + Class + TTL + Data length + RDATA \
-  Here, Name is variable length, but in this case, it will also be stored like the previous one,
-
-  #table(
-    columns: 13,
-    [2], ['12'], [2], ['23'], [2], ['34'], [3], ['185'], [7], ['in-addr'], [4], ['arpa'], [0],
-  )
-
-  So here 27 byte can store the query name. \
-  Type and Class are fixed at 2 bytes each. \
-  TTL is fixed at 4 bytes. \
-  Data length is fixed at 2 bytes. \
-  RDATA is considered variable length, but in this case, let use consider it to be 16 bytes. \
+  Here, 
+  + Name is variable length, but in this case, we can use compression, which will cost 2 bytes. \
+  + Type and Class are fixed at 2 bytes each. \
+  + TTL is fixed at 4 bytes. \
+  + Data length is fixed at 2 bytes. \
+  + RDATA is considered variable length, but in this case, let use consider it to be 16 bytes. \
 
   Answer Record Size = 2 (name) + 2 (type) + 2 (class) + 4 (ttl) + 2 (data length) + 16 (rdata) = 28 bytes. \
 
