@@ -278,7 +278,7 @@
 
   #h(0.85cm) Answer record = Name + Type + Class + TTL + Data length + RDATA \
   Here, 
-  + Name is variable length, but in this case, Name is variable length, but in this case, we can use compression, which will cost 2 bytes. \
+  + lName is variable length, but in this case, Name is variable length, but in this case, we can use compression, which will cost 2 bytes. \
   + Type and Class are fixed at 2 bytes each. \
   + TTL is fixed at 4 bytes. \
   + Data length is fixed at 2 bytes. \
