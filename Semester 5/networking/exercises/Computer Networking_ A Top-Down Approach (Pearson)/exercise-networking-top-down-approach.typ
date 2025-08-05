@@ -4,6 +4,7 @@
   numbering: "1",
   columns: 1,
 )
+
 // #set text(font: "Ubuntu Nerd Font")
 #set par(justify: true)
 #set heading()
