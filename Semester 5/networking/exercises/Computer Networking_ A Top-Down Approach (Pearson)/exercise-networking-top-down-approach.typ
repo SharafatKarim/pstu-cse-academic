@@ -74,7 +74,9 @@
 
 = Chapter 2: Domain Name System (DNS)
 
-== Section 2.1
+== Chapter 2 Review Questions
+
+=== Section 2.1
 
 + List five nonproprietary Internet applications and the application-layer protocols that they use.
 
