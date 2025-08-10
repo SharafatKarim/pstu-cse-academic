@@ -8,6 +8,7 @@
 #set text(size: 12pt)
 #set par(justify: true)
 #set heading(numbering: "1.")
+#show bibliography: set heading(numbering: "1.")
 
 // --------------------------
 // Title page
@@ -195,12 +196,12 @@ The design of Linkerine will adhere to the following principles,
     [*Documentation*],
     [Providing comprehensive documentation for developers and users, including API documentation and user guides.],
   ),
-  caption: "Design Principles for Linkerine"
+  caption: "Design Principles for Linkerine",
 )
 
 = Visual Models
 
-== Flow Chart Diagram 
+== Flow Chart Diagram
 
 #figure(
   image("diagrams/linkerine.DFD.svg", width: 100%, height: auto, alt: "Flow Chart"),
@@ -270,8 +271,32 @@ The base timeline for the development of Linkerine is as follows,
 = Result
 The expected outcome of Linkerine is a fully functional, cross-platform application that allows users to manage their digital resources efficiently.
 
-#bibliography("refs.bib")
+#bibliography(title: "References","refs.bib")
 
 #align(center + bottom)[
   *THE END*
 ]
+
+#pagebreak()
+
+= Weekly Report 
+
+#table(
+  columns: (8%, 12%, 50%, 30%),
+  [*No.*], [*Date*], [*Objective*], [*Remarks*],
+  [1], [], [Project proposal with initial R&D], [],
+  [2], [], [], [],
+  [3], [], [], [],
+  [4], [], [], [],
+  [5], [], [], [],
+  [6], [], [], [],
+  [7], [], [], [],
+  [8], [], [], [],
+  [9], [], [], [],
+  [10], [], [], [],
+  [11], [], [], [],
+  [12], [], [], [],
+  [13], [], [], [],
+  [14], [], [], [],
+  [15], [], [], [],
+)
