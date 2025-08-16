@@ -3,11 +3,11 @@ def dfs(graph, start, visited=None):
         visited = set()
     visited.add(start)
 
+    print(start)
 
     for next in graph[start] - visited:
         dfs(graph, next, visited)
     return visited
-    print(start)
 
 
 graph = {'0': set(['1', '2']),
