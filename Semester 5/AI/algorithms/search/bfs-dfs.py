@@ -39,6 +39,14 @@ def dfs_limited(tree, start, limit, visited=[]):
     for node in tree[start]:
         dfs_limited(tree, node, limit-1, visited)
 
+def iterative_deepening(tree, start, target=""):
+    dfs_limited(tree, 'A', 3)
+    highest_len = len(tree.keys())
+    for i in range(highest_len):
+        print(f"\tIteration {i+1} : ", end="")
+        # dfs_limited(tree, start, i+1)
+        print()
+
 if __name__ == "__main__":
     print("BFS: ", end="")
     bfs(tree, 'A')
@@ -50,3 +58,11 @@ if __name__ == "__main__":
     print()
     print("DFS limited: ", end="")
     dfs_limited(tree, 'A', 3)
+
+    print()
+    print("DFS limited: ", end="")
+    dfs_limited(tree, 'A', 3)
+
+    print()
+    print("Iterative deepening: ")
+    iterative_deepening(tree, 'A')
