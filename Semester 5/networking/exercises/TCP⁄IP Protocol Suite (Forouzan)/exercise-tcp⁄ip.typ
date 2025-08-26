@@ -554,7 +554,7 @@
 ]
 
 // --------------------------
-// Ending
+// Ending of ch 1
 // --------------------------
 
 #align(bottom)[
@@ -562,3 +562,194 @@
   — Ken Kaneki, Tokyo Ghoul \
   // *THE END*
 ]
+
+#pagebreak()
+
+= Chapter 19: Domain Name System (DNS)
+== Exercises
+
++ What is the address space in each of the following systems? \
+  a. a system with 8-bit addresses \
+    *Ans:* $2^8$ = *256 addresses* 
+
+  b. a system with 16-bit addresses \
+    *Ans:* $2^16$ = *65,536 addresses* 
+
+  c. a system with 64-bit addresses \
+    *Ans:* $2^64$ = *$1.844674407 times 10^19$ addresses* 
+
++ An address space has a total of 1,024 addresses. How many bits are needed to represent an address? \
+  *Ans:* $log_2(1024)$ = *10 bits*
+
++ An address space uses three symbols: 0, 1, and 2 to represent addresses. If each address is made of 10 symbols, how many addresses are available in this system? \
+  *Ans:* $3^10$ = *59,049 addresses*
+
++ Change the following IP addresses from dotted-decimal notation to binary notation: \
+  a. 114.34.2.8 \
+  *Ans:* 01110010 #h(0.2cm) 00100010 #h(0.2cm) 00000010 #h(0.2cm) 00001000
+  
+  b. 129.14.6.8 \
+  c. 208.34.54.12 \
+  d. 238.34.2.1 
+
+  #highlight()[
+  কেবল dec থেকে bin conversion :) \
+  In python, write `bin(129)` for conversion!
+]
+
++ Change the following IP addresses from dotted-decimal notation to hexadecimal notation: \
+  a. 114.34.2.8 \
+  b. 129.14.6.8 \
+  c. 208.34.54.12 \
+  d. 238.34.2.1 
+
+  #highlight()[
+  কেবল dec থেকে hex conversion :) \
+  In python, write `hex(129)` for conversion!
+]
+
++ Change the following IP addresses from hexadecimal notation to binary notation: \
+  a. 0x1347FEAB \
+  b. 0xAB234102 \
+  c. 0x0123A2BE \
+  d. 0x00001111 \
+
+  #highlight()[
+  কেবল hex থেকে bin conversion :) \
+  In python, write `bin(0x1347FEAB)` for conversion!
+]
+
++ How many hexadecimal digits are needed to define the netid in each of the following classes? \
+  a. Class A \
+  *Ans:* 2 hex digits (8 bits)
+
+  b. Class B \
+  *Ans:* 4 hex digits (16 bits)
+
+  c. Class C
+  *Ans:* 6 hex digits (24 bits)
+
+8. Change the following IP addresses from binary notation to dotted-decimal
+notation:
+a. 01111111 11110000 01100111 01111101
+b. 10101111 11000000 11111000 00011101
+c. 11011111 10110000 00011111 01011101
+d. 11101111 11110111 11000111 00011101
+9. Find the class of the following IP addresses:
+a. 208.34.54.12
+b. 238.34.2.1
+c. 242.34.2.8
+d. 129.14.6.8
+10. Find the class of the following IP addresses:
+a. 11110111 11110011 10000111 11011101
+b. 10101111 11000000 11110000 00011101
+c. 11011111 10110000 00011111 01011101
+d. 11101111 11110111 11000111 00011101
+11. Find the netid and the hostid of the following IP addresses:
+a. 114.34.2.8
+b. 132.56.8.6
+c. 208.34.54.12
+d. 251.34.98.5
+12. Find the number of addresses in the range if the first address is 14.7.24.0 and the
+last address is 14.14.34.255.
+13. If the first address in a range is 122.12.7.0 and there are 2048 addresses in the
+range, what is the last address?
+14. Find the result of each operation:
+a. NOT (22.14.70.34)
+b. NOT (145.36.12.20)
+c. NOT (200.7.2.0)
+d. NOT (11.20.255.255)
+15. Find the result of each operation:
+a. (22.14.70.34) AND (255.255.0.0)
+b. (12.11.60.12) AND (255.0.0.0)
+c. (14.110.160.12) AND (255.200.140.0)
+d. (28.14.40.100) AND (255.128.100.0)
+16. Find the result of each operation:
+a. (22.14.70.34) OR (255.255.0.0)
+b. (12.11.60.12) OR (255.0.0.0)
+c. (14.110.160.12) OR (255.200.140.0)
+d. (28.14.40.100) OR (255.128.100.0)
+17. In a class A subnet, we know the IP address of one of the hosts and the subnet
+mask as given below:
+IP Address: 25.34.12.56
+ Subnet mask: 255.255.0.0
+ What is the first address (subnet address)? What is the last address?
+18. In a class B subnet, we know the IP address of one of the hosts and the subnet
+mask as given below:
+IP Address: 131.134.112.66
+ Subnet mask: 255.255.224.0
+What is the first address (subnet address)? What is the last address?
+19. In a class C subnet, we know the IP address of one of the hosts and the subnet
+mask as given below:
+IP Address: 202.44.82.16
+ Subnet mask: 255.255.255.192
+What is the first address (subnet address)? What is the last address?
+20. Find the subnet mask in each case:
+a. 1024 subnets in class A
+b. 256 subnets in class B
+c. 32 subnets in class C
+d. 4 subnets in class C
+21. In a block of addresses, we know the IP address of one host is 25.34.12.56/16.
+What is the first address (network address) and the last address (limited broadcast
+address) in this block?
+22. In a block of addresses, we know the IP address of one host is 182.44.82.16/26.
+What is the first address (network address) and the last address (limited broadcast
+address) in this block?
+23. In fixed-length subnetting, find the number of 1s that must be added to the mask if
+the number of desired subnets is.
+a. 2
+b. 62
+c. 122
+d. 250
+24. An organization is granted the block 16.0.0.0/8. The administrator wants to create
+500 fixed-length subnets.
+a. Find the subnet mask.
+b. Find the number of addresses in each subnet.
+c. Find the first and the last address in the first subnet.
+d. Find the first and the last address in the last subnet (subnet 500).
+25. An organization is granted the block 130.56.0.0/16. The administrator wants to
+create 1024 subnets.
+a. Find the subnet mask.
+b. Find the number of addresses in each subnet.
+c. Find the first and the last address in the first subnet.
+d. Find the first and the last address in the last subnet (subnet 1024).
+26. An organization is granted the block 211.17.180.0/24. The administrator wants to
+create 32 subnets.
+a. Find the subnet mask.
+b. Find the number of addresses in each subnet.
+c. Find the first and the last address in the first subnet.
+d. Find the first and the last address in the last subnet (subnet 32).
+27. Write the following mask in slash notation (/n):
+a. 255.255.255.0
+b. 255.0.0.0
+c. 255.255.224.0
+d. 255.255.240.0
+28. Find the range of addresses in the following blocks:
+a. 123.56.77.32/29
+b. 200.17.21.128/27
+c. 17.34.16.0/23
+d. 180.34.64.64/30
+29. In classless addressing, we know the first and the last address in the block. Can we
+find the prefix length? If the answer is yes, show the process and give an example.
+30. In classless addressing, we know the first address and the number of addresses in
+the block. Can we find the prefix length? If the answer is yes, show the process and
+give an example.
+31. In classless addressing, can two blocks have the same prefix length? Explain.
+32. In classless addressing, we know the first address and one of the addresses in
+the block (not necessarily the last address). Can we find the prefix length?
+Explain.
+33. An ISP is granted a block of addresses starting with 150.80.0.0/16. The ISP wants
+to distribute these blocks to 2600 customers as follows:
+a. The first group has 200 medium-size businesses; each needs approximately
+128 addresses.
+b. The second group has 400 small businesses; each needs approximately
+16 addresses.
+c. The third group has 2000 households; each needs 4 addresses.
+Design the subblocks and give the slash notation for each subblock. Find out how
+many addresses are still available after these allocations.
+34. An ISP is granted a block of addresses starting with 120.60.4.0/20. The ISP wants
+to distribute these blocks to 100 organizations with each organization receiving
+8 addresses only. Design the subblocks and give the slash notation for each subblock.
+Find out how many addresses are still available after these allocations.
+35. An ISP has a block of 1024 addresses. It needs to divide the addresses to 1024 cus-
+tomers. Does it need subnetting? Explain your answer.
