@@ -6,7 +6,7 @@
 )
 // #set text(font: "Ubuntu Nerd Font")
 #set par(justify: true)
-#set heading(numbering: "1.1")
+// #set heading(numbering: "1.1")
 
 // --------------------------
 // Title page
@@ -60,7 +60,7 @@
 #outline()
 #align(bottom)[
   #line(length: 100%)
-  *Revision 03* \
+  *Revision 04* \
   Try to directly open the file from Rising Flare, to avoid missing any updates. \
 ]
 #pagebreak()
@@ -565,7 +565,7 @@
 
 #pagebreak()
 
-= Chapter 19: Domain Name System (DNS)
+= Chapter 5: IPv4 Addresses
 == Exercises
 
 + What is the address space in each of the following systems? \
@@ -747,7 +747,7 @@
 + Find the result of each operation: \
   a. (22.14.70.34) OR (255.255.0.0) \
   *Ans:* 255.255.70.34
-  
+
   b. (12.11.60.12) OR (255.0.0.0) \
   *Ans:* 255.11.60.12
 
@@ -765,82 +765,97 @@
   What is the first address (subnet address)? *25.34.0.0* \
   What is the last address? *25.34.255.255*
 
-18. In a class B subnet, we know the IP address of one of the hosts and the subnet
-mask as given below:
-IP Address: 131.134.112.66
-Subnet mask: 255.255.224.0
-What is the first address (subnet address)? What is the last address?
-19. In a class C subnet, we know the IP address of one of the hosts and the subnet
-mask as given below:
-IP Address: 202.44.82.16
-Subnet mask: 255.255.255.192
-What is the first address (subnet address)? What is the last address?
-20. Find the subnet mask in each case:
-a. 1024 subnets in class A
-b. 256 subnets in class B
-c. 32 subnets in class C
-d. 4 subnets in class C
-21. In a block of addresses, we know the IP address of one host is 25.34.12.56/16.
-What is the first address (network address) and the last address (limited broadcast
-address) in this block?
-22. In a block of addresses, we know the IP address of one host is 182.44.82.16/26.
-What is the first address (network address) and the last address (limited broadcast
-address) in this block?
-23. In fixed-length subnetting, find the number of 1s that must be added to the mask if
-the number of desired subnets is.
-a. 2
-b. 62
-c. 122
-d. 250
-24. An organization is granted the block 16.0.0.0/8. The administrator wants to create
-500 fixed-length subnets.
-a. Find the subnet mask.
-b. Find the number of addresses in each subnet.
-c. Find the first and the last address in the first subnet.
-d. Find the first and the last address in the last subnet (subnet 500).
-25. An organization is granted the block 130.56.0.0/16. The administrator wants to
-create 1024 subnets.
-a. Find the subnet mask.
-b. Find the number of addresses in each subnet.
-c. Find the first and the last address in the first subnet.
-d. Find the first and the last address in the last subnet (subnet 1024).
-26. An organization is granted the block 211.17.180.0/24. The administrator wants to
-create 32 subnets.
-a. Find the subnet mask.
-b. Find the number of addresses in each subnet.
-c. Find the first and the last address in the first subnet.
-d. Find the first and the last address in the last subnet (subnet 32).
-27. Write the following mask in slash notation (/n):
-a. 255.255.255.0
-b. 255.0.0.0
-c. 255.255.224.0
-d. 255.255.240.0
-28. Find the range of addresses in the following blocks:
-a. 123.56.77.32/29
-b. 200.17.21.128/27
-c. 17.34.16.0/23
-d. 180.34.64.64/30
-29. In classless addressing, we know the first and the last address in the block. Can we
-find the prefix length? If the answer is yes, show the process and give an example.
-30. In classless addressing, we know the first address and the number of addresses in
-the block. Can we find the prefix length? If the answer is yes, show the process and
-give an example.
-31. In classless addressing, can two blocks have the same prefix length? Explain.
-32. In classless addressing, we know the first address and one of the addresses in
-the block (not necessarily the last address). Can we find the prefix length?
-Explain.
-33. An ISP is granted a block of addresses starting with 150.80.0.0/16. The ISP wants
-to distribute these blocks to 2600 customers as follows:
-a. The first group has 200 medium-size businesses; each needs approximately
-128 addresses.
-b. The second group has 400 small businesses; each needs approximately
-16 addresses.
-c. The third group has 2000 households; each needs 4 addresses.
-Design the subblocks and give the slash notation for each subblock. Find out how
-many addresses are still available after these allocations.
-34. An ISP is granted a block of addresses starting with 120.60.4.0/20. The ISP wants
-to distribute these blocks to 100 organizations with each organization receiving
-8 addresses only. Design the subblocks and give the slash notation for each subblock.
-Find out how many addresses are still available after these allocations.
-35. An ISP has a block of 1024 addresses. It needs to divide the addresses to 1024 cus-
-tomers. Does it need subnetting? Explain your answer.
++ In a class B subnet, we know the IP address of one of the hosts and the subnet mask as given below:
+  ```IP Address: 131.134.112.66
+  Subnet mask: 255.255.224.0```
+  What is the first address (subnet address)? *131.134.96.0* \
+  What is the last address? *131.134.127.255*
+
++ In a class C subnet, we know the IP address of one of the hosts and the subnet mask as given below:
+  ```IP Address: 202.44.82.16
+  Subnet mask: 255.255.255.192```
+  What is the first address (subnet address)? 202.44.82.0 \
+  What is the last address? 202.44.82.63
+
++ Find the subnet mask in each case:
+  a. 1024 subnets in class A \*255.255.252.0\*
+  b. 256 subnets in class B \*255.255.255.0\*
+  c. 32 subnets in class C \*255.255.255.224\*
+  d. 4 subnets in class C \*255.255.255.252\*
+
++ In a block of addresses, we know the IP address of one host is `25.34.12.56/16`.
+  What is the first address (network address) and the last address (limited broadcast address) in this block? \
+  *Ans:* The first address is 25.34.0.0 and the last address is 25.34.255.255.
+
++ In a block of addresses, we know the IP address of one host is 182.44.82.16/26.
+  What is the first address (network address) and the last address (limited broadcast address) in this block? \
+  *Ans:* The first address is 182.44.82.0 and the last address is 182.44.82.63.
+
+// 23. In fixed-length subnetting, find the number of 1s that must be added to the mask if
+// the number of desired subnets is.
+// a. 2
+// b. 62
+// c. 122
+// d. 250
+// 24. An organization is granted the block 16.0.0.0/8. The administrator wants to create
+// 500 fixed-length subnets.
+// a. Find the subnet mask.
+// b. Find the number of addresses in each subnet.
+// c. Find the first and the last address in the first subnet.
+// d. Find the first and the last address in the last subnet (subnet 500).
+// 25. An organization is granted the block 130.56.0.0/16. The administrator wants to
+// create 1024 subnets.
+// a. Find the subnet mask.
+// b. Find the number of addresses in each subnet.
+// c. Find the first and the last address in the first subnet.
+// d. Find the first and the last address in the last subnet (subnet 1024).
+// 26. An organization is granted the block 211.17.180.0/24. The administrator wants to
+// create 32 subnets.
+// a. Find the subnet mask.
+// b. Find the number of addresses in each subnet.
+// c. Find the first and the last address in the first subnet.
+// d. Find the first and the last address in the last subnet (subnet 32).
+// 27. Write the following mask in slash notation (/n):
+// a. 255.255.255.0
+// b. 255.0.0.0
+// c. 255.255.224.0
+// d. 255.255.240.0
+// 28. Find the range of addresses in the following blocks:
+// a. 123.56.77.32/29
+// b. 200.17.21.128/27
+// c. 17.34.16.0/23
+// d. 180.34.64.64/30
+// 29. In classless addressing, we know the first and the last address in the block. Can we
+// find the prefix length? If the answer is yes, show the process and give an example.
+// 30. In classless addressing, we know the first address and the number of addresses in
+// the block. Can we find the prefix length? If the answer is yes, show the process and
+// give an example.
+// 31. In classless addressing, can two blocks have the same prefix length? Explain.
+// 32. In classless addressing, we know the first address and one of the addresses in
+// the block (not necessarily the last address). Can we find the prefix length?
+// Explain.
+// 33. An ISP is granted a block of addresses starting with 150.80.0.0/16. The ISP wants
+// to distribute these blocks to 2600 customers as follows:
+// a. The first group has 200 medium-size businesses; each needs approximately
+// 128 addresses.
+// b. The second group has 400 small businesses; each needs approximately
+// 16 addresses.
+// c. The third group has 2000 households; each needs 4 addresses.
+// Design the subblocks and give the slash notation for each subblock. Find out how
+// many addresses are still available after these allocations.
+// 34. An ISP is granted a block of addresses starting with 120.60.4.0/20. The ISP wants
+// to distribute these blocks to 100 organizations with each organization receiving
+// 8 addresses only. Design the subblocks and give the slash notation for each subblock.
+// Find out how many addresses are still available after these allocations.
+// 35. An ISP has a block of 1024 addresses. It needs to divide the addresses to 1024 cus-
+// tomers. Does it need subnetting? Explain your answer.
+
+// --------------------------
+// Ending of ch 5
+// --------------------------
+
+#align(bottom)[
+  "The night might seem endless right now, but I promise, the morning will come again." \
+  — Suzume, Suzume no Tojimari \
+  // *THE END*
+]
