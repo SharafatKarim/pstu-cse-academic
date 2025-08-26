@@ -277,7 +277,7 @@
   Question Record Size = 25 (query name) + 2 (query type) + 2 (query class) = 29 bytes. \
 
   #h(0.85cm) Answer record = Name + Type + Class + TTL + Data length + RDATA \
-  Here, 
+  Here,
   + lName is variable length, but in this case, Name is variable length, but in this case, we can use compression, which will cost 2 bytes. \
   + Type and Class are fixed at 2 bytes each. \
   + TTL is fixed at 4 bytes. \
@@ -311,7 +311,7 @@
   Question Record Size = 27 (query name) + 2 (query type) + 2 (query class) = 31 bytes. \
 
   #h(0.85cm) Answer record = Name + Type + Class + TTL + Data length + RDATA \
-  Here, 
+  Here,
   + Name is variable length, but in this case, we can use compression, which will cost 2 bytes. \
   + Type and Class are fixed at 2 bytes each. \
   + TTL is fixed at 4 bytes. \
@@ -570,13 +570,13 @@
 
 + What is the address space in each of the following systems? \
   a. a system with 8-bit addresses \
-    *Ans:* $2^8$ = *256 addresses* 
+  *Ans:* $2^8$ = *256 addresses*
 
   b. a system with 16-bit addresses \
-    *Ans:* $2^16$ = *65,536 addresses* 
+  *Ans:* $2^16$ = *65,536 addresses*
 
   c. a system with 64-bit addresses \
-    *Ans:* $2^64$ = *$1.844674407 times 10^19$ addresses* 
+  *Ans:* $2^64$ = *$1.844674407 times 10^19$ addresses*
 
 + An address space has a total of 1,024 addresses. How many bits are needed to represent an address? \
   *Ans:* $log_2(1024)$ = *10 bits*
@@ -587,26 +587,26 @@
 + Change the following IP addresses from dotted-decimal notation to binary notation: \
   a. 114.34.2.8 \
   *Ans:* 01110010 #h(0.2cm) 00100010 #h(0.2cm) 00000010 #h(0.2cm) 00001000
-  
+
   b. 129.14.6.8 \
   c. 208.34.54.12 \
-  d. 238.34.2.1 
+  d. 238.34.2.1
 
   #highlight()[
-  কেবল dec থেকে bin conversion :) \
-  In python, write `bin(129)` for conversion!
-]
+    কেবল dec থেকে bin conversion :) \
+    In python, write `bin(129)` for conversion!
+  ]
 
 + Change the following IP addresses from dotted-decimal notation to hexadecimal notation: \
   a. 114.34.2.8 \
   b. 129.14.6.8 \
   c. 208.34.54.12 \
-  d. 238.34.2.1 
+  d. 238.34.2.1
 
   #highlight()[
-  কেবল dec থেকে hex conversion :) \
-  In python, write `hex(129)` for conversion!
-]
+    কেবল dec থেকে hex conversion :) \
+    In python, write `hex(129)` for conversion!
+  ]
 
 + Change the following IP addresses from hexadecimal notation to binary notation: \
   a. 0x1347FEAB \
@@ -615,9 +615,9 @@
   d. 0x00001111 \
 
   #highlight()[
-  কেবল hex থেকে bin conversion :) \
-  In python, write `bin(0x1347FEAB)` for conversion!
-]
+    কেবল hex থেকে bin conversion :) \
+    In python, write `bin(0x1347FEAB)` for conversion!
+  ]
 
 + How many hexadecimal digits are needed to define the netid in each of the following classes? \
   a. Class A \
@@ -626,63 +626,154 @@
   b. Class B \
   *Ans:* 4 hex digits (16 bits)
 
-  c. Class C
+  c. Class C \
   *Ans:* 6 hex digits (24 bits)
 
-8. Change the following IP addresses from binary notation to dotted-decimal
-notation:
-a. 01111111 11110000 01100111 01111101
-b. 10101111 11000000 11111000 00011101
-c. 11011111 10110000 00011111 01011101
-d. 11101111 11110111 11000111 00011101
-9. Find the class of the following IP addresses:
-a. 208.34.54.12
-b. 238.34.2.1
-c. 242.34.2.8
-d. 129.14.6.8
-10. Find the class of the following IP addresses:
-a. 11110111 11110011 10000111 11011101
-b. 10101111 11000000 11110000 00011101
-c. 11011111 10110000 00011111 01011101
-d. 11101111 11110111 11000111 00011101
-11. Find the netid and the hostid of the following IP addresses:
-a. 114.34.2.8
-b. 132.56.8.6
-c. 208.34.54.12
-d. 251.34.98.5
-12. Find the number of addresses in the range if the first address is 14.7.24.0 and the
-last address is 14.14.34.255.
-13. If the first address in a range is 122.12.7.0 and there are 2048 addresses in the
-range, what is the last address?
-14. Find the result of each operation:
-a. NOT (22.14.70.34)
-b. NOT (145.36.12.20)
-c. NOT (200.7.2.0)
-d. NOT (11.20.255.255)
-15. Find the result of each operation:
-a. (22.14.70.34) AND (255.255.0.0)
-b. (12.11.60.12) AND (255.0.0.0)
-c. (14.110.160.12) AND (255.200.140.0)
-d. (28.14.40.100) AND (255.128.100.0)
-16. Find the result of each operation:
-a. (22.14.70.34) OR (255.255.0.0)
-b. (12.11.60.12) OR (255.0.0.0)
-c. (14.110.160.12) OR (255.200.140.0)
-d. (28.14.40.100) OR (255.128.100.0)
-17. In a class A subnet, we know the IP address of one of the hosts and the subnet
-mask as given below:
-IP Address: 25.34.12.56
- Subnet mask: 255.255.0.0
- What is the first address (subnet address)? What is the last address?
++ Change the following IP addresses from binary notation to dotted-decimal notation: \
+  a. 01111111 11110000 01100111 01111101 \
+  *Ans:* 127.240.103.125
+
+  b. 10101111 11000000 11111000 00011101 \
+  c. 11011111 10110000 00011111 01011101 \
+  d. 11101111 11110111 11000111 00011101 \
+
+  #highlight()[
+    কেবল bin থেকে decimal conversion :) \
+    In python, write `int(0b10101111)` for conversion!
+  ]
+
++ Find the class of the following IP addresses: \
+  a. 208.34.54.12 \
+  *Ans:* Class C
+
+  b. 238.34.2.1 \
+  *Ans:* Class D
+
+  c. 242.34.2.8 \
+  *Ans:* Class E
+
+  d. 129.14.6.8 \
+  *Ans:* Class B
+
++ Find the class of the following IP addresses: \
+  a. 11110111 11110011 10000111 11011101 \
+  *Ans:* Class E
+
+  b. 10101111 11000000 11110000 00011101 \
+  *Ans:* Class B
+
+  c. 11011111 10110000 00011111 01011101 \
+  *Ans:* Class C
+
+  d. 11101111 11110111 11000111 00011101 \
+  *Ans:* Class D
+
++ Find the netid and the hostid of the following IP addresses: \
+  a. 114.34.2.8 \
+  *Ans:*
+  #table(
+    columns: 3,
+    [Class], [Netid], [Hostid],
+    [A], [114], [34.2.8],
+  )
+
+  b. 132.56.8.6 \
+  *Ans:*
+  #table(
+    columns: 3,
+    [Class], [Netid], [Hostid],
+    [B], [132.56], [8.6],
+  )
+
+  c. 208.34.54.12 \
+  *Ans:*
+  #table(
+    columns: 3,
+    [Class], [Netid], [Hostid],
+    [C], [208.34.54], [12],
+  )
+
+  d. 251.34.98.5 \
+  *Ans:* It's class E, which doesn't have a defined netid and hostid. Therefore, all bits in a Class E address are used for the network ID, and it is not typically used for standard networking. (#link("https://www.geeksforgeeks.org/computer-networks/what-is-network-id-and-host-id-in-ip-addresses/")[read more here...])
+
++ Find the number of addresses in the range if the first address is 14.7.24.0 and the last address is 14.14.34.255. \
+  *Ans:* We can subtract the first address from the last address to find the number of addresses in the range.
+
+  The result is 0.7.10.255. We convert this number to base 10 and add 1 to it, \
+  Number of addresses = $(0 * 256^3) + (7 * 256^2) + (10 * 256^1) + (255 * 256^0) + 1 = 461568$
+
++ If the first address in a range is 122.12.7.0 and there are 2048 addresses in the range, what is the last address?
+  *Ans:* We convert the number of addresses minus 1 to base 256, which is 0.0.8.7. Then we add this number to the first address, \
+  The last address is (122.12.7.0 + 0.0.8.7) = 122.12.15.7
+
+  #highlight()[
+    This one is a bit critical, think like money divide algorithm!
+  ]
+
++ Find the result of each operation: \
+  a. NOT (22.14.70.34) \
+  *Ans:* 233.241.185.221
+
+  b. NOT (145.36.12.20) \
+  *Ans:* 110.219.243.235
+
+  c. NOT (200.7.2.0) \
+  *Ans:* 55.248.253.255
+
+  d. NOT (11.20.255.255) \
+  *Ans:* 244.235.0.0
+
+  #highlight()[
+    `(255 - decimal)` for not conversion!
+  ]
+
++ Find the result of each operation: \
+  a. (22.14.70.34) AND (255.255.0.0) \
+  *Ans:* 22.14.0.0
+
+  b. (12.11.60.12) AND (255.0.0.0) \
+  *Ans:* 12.0.0.0
+
+  c. (14.110.160.12) AND (255.200.140.0) \
+  *Ans:* 14.70.128.0
+
+  d. (28.14.40.100) AND (255.128.100.0) \
+  *Ans:* 28.0.32.0
+
+  #highlight()[
+    AND, OR calculator এই করা যাবে :)
+  ]
+
++ Find the result of each operation: \
+  a. (22.14.70.34) OR (255.255.0.0) \
+  *Ans:* 255.255.70.34
+  
+  b. (12.11.60.12) OR (255.0.0.0) \
+  *Ans:* 255.11.60.12
+
+  c. (14.110.160.12) OR (255.200.140.0) \
+  *Ans:* 255.238.172.12
+
+  d. (28.14.40.100) OR (255.128.100.0) \
+  *Ans:* 255.142.108.100
+
++ In a class A subnet, we know the IP address of one of the hosts and the subnet mask as given below:
+  ```
+  IP Address: 25.34.12.56
+  Subnet mask: 255.255.0.0
+  ```
+  What is the first address (subnet address)? *25.34.0.0* \
+  What is the last address? *25.34.255.255*
+
 18. In a class B subnet, we know the IP address of one of the hosts and the subnet
 mask as given below:
 IP Address: 131.134.112.66
- Subnet mask: 255.255.224.0
+Subnet mask: 255.255.224.0
 What is the first address (subnet address)? What is the last address?
 19. In a class C subnet, we know the IP address of one of the hosts and the subnet
 mask as given below:
 IP Address: 202.44.82.16
- Subnet mask: 255.255.255.192
+Subnet mask: 255.255.255.192
 What is the first address (subnet address)? What is the last address?
 20. Find the subnet mask in each case:
 a. 1024 subnets in class A
