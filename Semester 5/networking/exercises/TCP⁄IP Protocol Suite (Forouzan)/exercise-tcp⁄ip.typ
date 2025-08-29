@@ -60,7 +60,7 @@
 #outline()
 #align(bottom)[
   #line(length: 100%)
-  *Revision 04* \
+  *Revision 05* \
   Try to directly open the file from Rising Flare, to avoid missing any updates. \
 ]
 #pagebreak()
@@ -702,12 +702,13 @@
   The result is 0.7.10.255. We convert this number to base 10 and add 1 to it, \
   Number of addresses = $(0 * 256^3) + (7 * 256^2) + (10 * 256^1) + (255 * 256^0) + 1 = 461568$
 
-+ If the first address in a range is 122.12.7.0 and there are 2048 addresses in the range, what is the last address?
-  *Ans:* We convert the number of addresses minus 1 to base 256, which is 0.0.8.7. Then we add this number to the first address, \
-  The last address is (122.12.7.0 + 0.0.8.7) = 122.12.15.7
++ If the first address in a range is 122.12.7.0 and there are 2048 addresses in the range, what is the last address? \
+  *Ans:* We convert the number of addresses minus 1 to base 256, which is 0.0.7.255. Then we add this number to the first address, \
+  The last address is (122.12.7.0 + 0.0.7.255) = 122.12.14.255
 
   #highlight()[
-    This one is a bit critical, think like money divide algorithm!
+    This one is a bit critical, think like money divide algorithm! \
+    Courtesy *Imamul Anan*
   ]
 
 + Find the result of each operation: \
