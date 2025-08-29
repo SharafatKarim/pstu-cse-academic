@@ -60,7 +60,7 @@
 #outline()
 #align(bottom)[
   #line(length: 100%)
-  *Revision 05* \
+  *Revision 06* \
   Try to directly open the file from Rising Flare, to avoid missing any updates. \
 ]
 #pagebreak()
@@ -778,11 +778,11 @@
   What is the first address (subnet address)? 202.44.82.0 \
   What is the last address? 202.44.82.63
 
-+ Find the subnet mask in each case:
-  a. 1024 subnets in class A \*255.255.252.0\*
-  b. 256 subnets in class B \*255.255.255.0\*
-  c. 32 subnets in class C \*255.255.255.224\*
-  d. 4 subnets in class C \*255.255.255.252\*
++ Find the subnet mask in each case: \
+  a. 1024 subnets in class A *255.255.252.0* \
+  b. 256 subnets in class B *255.255.255.0* \
+  c. 32 subnets in class C *255.255.255.224* \
+  d. 4 subnets in class C *255.255.255.252* 
 
 + In a block of addresses, we know the IP address of one host is `25.34.12.56/16`.
   What is the first address (network address) and the last address (limited broadcast address) in this block? \
