@@ -60,7 +60,7 @@
 #outline()
 #align(bottom)[
   #line(length: 100%)
-  *Revision 06* \
+  *Revision 07* \
   Try to directly open the file from Rising Flare, to avoid missing any updates. \
 ]
 #pagebreak()
@@ -779,7 +779,7 @@
   What is the last address? 202.44.82.63
 
 + Find the subnet mask in each case: \
-  a. 1024 subnets in class A *255.255.252.0* \
+  a. 1024 subnets in class A *255.255.192.0* \
   b. 256 subnets in class B *255.255.255.0* \
   c. 32 subnets in class C *255.255.255.224* \
   d. 4 subnets in class C *255.255.255.252* 
