@@ -119,17 +119,16 @@
   #text(size: 20pt, weight: "bold")[PSTU Diary]
 ]
 
-= Abstract
+= Introduction
 
 PSTU Diary is a cross-platform application designed to help students and faculty members of Patuakhali Science and Technology University (PSTU) efficiently access resources and contact information of various departments, faculties, and administrative offices. The app aims to provide a user-friendly interface for quick navigation and retrieval of essential information, enhancing the overall experience of the university community.
 
-It stores contact information of our University "Patuakhali Science and Technology University" all employees including Teacher, Staff, MLSS and Others who are directly or indirectly related to this University. Contact information includes phone number, email address. 
+It stores contact information of our University "Patuakhali Science and Technology University" all employees including Teacher, Staff, MLSS and Others who are directly or indirectly related to this University. Contact information includes phone number, email address.
 
 = Objectives
 
 - To develop a user-friendly mobile application that provides easy access to contact information of PSTU departments and personnel.
 - To ensure the application is accessible on Web, Android and iOS platforms.
-- To enhance the overall communication and connectivity within the PSTU community.
 - To provide administrative features for updating and managing contact information.
 - Implement different pages for different club and societies of PSTU.
 - Implement a notice board for important announcements and updates.
@@ -142,7 +141,7 @@ It stores contact information of our University "Patuakhali Science and Technolo
 
 = Problem Statement
 
-Existing applications and websites often lack a centralized and user-friendly platform for accessing university contact information. Users may face difficulties in finding accurate and up-to-date information, leading to inefficiencies in communication. 
+Existing applications and websites often lack a centralized and user-friendly platform for accessing university contact information. Users may face difficulties in finding accurate and up-to-date information, leading to inefficiencies in communication.
 
 Also the existing application "PSTU Diary (পবিপ্রবি ডায়েরি)" is no longer maintained and has several limitations, including a less intuitive user interface, lack of features for updating contact information, and limited platform support (only available on Android). This creates a need for a more modern, efficient, and accessible solution.
 
@@ -246,6 +245,8 @@ The base timeline for the development of PSTU Diary is as follows,
   caption: "Development Timeline of PSTU Diary",
 )
 
+The timeline is divided into 12 weeks, with specific tasks allocated to each period which describes an approximate timeline for the whole development process.
+
 == UI Mockups
 
 // #figure(
@@ -272,15 +273,11 @@ The base timeline for the development of PSTU Diary is as follows,
   caption: [Settings and sign in page's UI concept],
 ) <UI3>
 
-= Limitations
-
-+ Currently, it's not 100% translated.
-+ Students can't update club related and co-curricular activities.
-
 = Future Plans
 
 + Implementing more features like event calendar, campus map, lost and found section, blood donor finder etc.
-+ Adding more departments and personnel to the contact list.
++ Adding more information about club activities.
++ Implementing student section for students to enable self-service features and recommendations.
 + Enhancing the admin panel with more functionalities.
 + Improving the UI/UX based on user feedback.
 + Implementing push notifications for important updates and announcements.
@@ -290,30 +287,92 @@ The project is aimed to give students and faculty members of Patuakhali Science 
 
 #bibliography(title: "References", "refs.bib")
 
-#align(center + bottom)[
-  *THE END*
-]
+// #align(center + bottom)[
+//   *THE END*
+// ]
 
 #pagebreak()
 
 = Weekly Report
 
 #table(
-  columns: (8%, 12%, 50%, 30%),
-  [*No.*], [*Date*], [*Objective*], [*Remarks*],
-  [1], [], [Project proposal with initial R&D], [],
-  [2], [], [], [],
-  [3], [], [], [],
-  [4], [], [], [],
-  [5], [], [], [],
-  [6], [], [], [],
-  [7], [], [], [],
-  [8], [], [], [],
-  [9], [], [], [],
-  [10], [], [], [],
-  [11], [], [], [],
-  [12], [], [], [],
-  [13], [], [], [],
-  [14], [], [], [],
-  [15], [], [], [],
+  columns: (8%, 12%, 50%, 10%, auto),
+  [*No.*], [*Date*], [*Objective*], [*Status*], [*Remarks*],
+  [1],
+  [],
+  [*Project proposal* \
+    - Initial research on existing solutions \
+    - Defining objectives and scope \
+    - Creating initial UI mockups \
+  ],
+  [],
+  [],
+
+  [2],
+  [],
+  [
+    *Environment and navigation setup* \
+    - Setting up development environment \
+    - Designing app structure and navigation \
+    - Creating basic UI components \
+  ],
+  [],
+  [],
+
+  [3],
+  [],
+  [
+    *Basic UI and backend integration* \
+    - Implementing basic UI screens \
+    - Integrating with Supabase for authentication and authorization \
+    - Theming and multilingual support \
+  ],
+  [],
+  [],
+
+  [4],
+  [],
+  [
+    *Admin panel design with role-based access control* \
+    - Designing admin panel UI \
+    - Implementing role-based access control for different user types \
+    - Testing admin functionalities \
+  ],
+  [],
+  [],
+
+  [5],
+  [],
+  [
+    *Realtime data fetching from database* \
+    - Implementing real-time data fetching using Supabase \
+    - Testing data synchronization across devices \
+    - Optimizing data queries for performance \
+  ],
+  [],
+  [],
+
+  [6],
+  [],
+  [
+    *UI Polish & Documentation* \
+    - Refining UI elements for better user experience \
+    - Creating comprehensive documentation for users and developers \
+    - Preparing for final testing and deployment \
+  ],
+  [],
+  [],
+
+  [7],
+  [],
+  [
+    *Final Testing & Deployment* \
+    - Conducting final testing on all platforms \
+    - Fixing bugs and issues identified during testing \
+    - Deploying the application to app stores and web hosting platforms \
+  ],
+  [],
+  [],
+
+  // [8], [], [], [], [],
 )
