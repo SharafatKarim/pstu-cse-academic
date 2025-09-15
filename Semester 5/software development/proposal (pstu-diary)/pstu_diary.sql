@@ -118,3 +118,27 @@ CREATE TABLE `course_course` (
   `semester` varchar(200) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
+--
+-- Constraints for table `academy_deanoffice`
+--
+ALTER TABLE `academy_deanoffice`
+  ADD CONSTRAINT `academy_deanoffice_department_id_ea381d2c_fk_academy_d` FOREIGN KEY (`department_id`) REFERENCES `academy_deanfaculty` (`id`);
+
+--
+-- Constraints for table `academy_staff`
+--
+ALTER TABLE `academy_staff`
+  ADD CONSTRAINT `academy_staff_department_id_0e45780b_fk_academy_s` FOREIGN KEY (`department_id`) REFERENCES `academy_staffdepartment` (`id`);
+
+--
+-- Constraints for table `administration_administration`
+--
+ALTER TABLE `administration_administration`
+  ADD CONSTRAINT `administration_admin_department_id_fc0992f4_fk_administr` FOREIGN KEY (`department_id`) REFERENCES `administration_administrationdepartment` (`id`);
+
+--
+-- Constraints for table `administration_services`
+--
+ALTER TABLE `administration_services`
+  ADD CONSTRAINT `administration_servi_department_id_80d0a933_fk_administr` FOREIGN KEY (`department_id`) REFERENCES `administration_servicedepartment` (`id`);

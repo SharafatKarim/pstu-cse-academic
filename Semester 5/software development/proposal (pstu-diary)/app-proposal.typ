@@ -38,7 +38,7 @@
 #align(bottom)[
   #line(length: 100%)
   *Project Title : PSTU Diary* \
-  Submission Date : Fri 18, July 2025 \
+  Submission Date : Mon 15, Sep 2025 \
   #line(length: 100%)
 ]
 
@@ -201,7 +201,7 @@ The design of PSTU Diary will adhere to the following principles,
 == Flow Chart Diagram
 
 #figure(
-  image("diagrams/linkerine.DFD.png", width: 100%, height: auto, alt: "Flow Chart"),
+  image("diagrams/pstu-diary.DFD.drawio.png", width: 51%, height: auto, alt: "Flow Chart"),
   caption: "Flow Chart of PSTU Diary Architecture",
 ) <DFD>
 
@@ -223,20 +223,23 @@ The above @Schema illustrates the database schema for PSTU Diary, showing the ta
   caption: "Entity Relationship Diagram of PSTU Diary",
 ) <ERD>
 
+The above @ERD illustrates the entity-relationship diagram for PSTU Diary, showing the entities, their attributes, and relationships between them. The ERD helps in understanding the data model and how different entities interact with each other.
+
+More details about the database schema and relationships can be found in the documentation. Also there can be changes in the schema as per the requirement. More constrains and relationships can be added as needed. For example, adding foreign key constraints, indexes, and other optimizations for performance and data integrity.
+
 == Timeline (Gantt Chart)
 
 The base timeline for the development of PSTU Diary is as follows,
 
 #figure(
   table(
-    columns: (20%, 10%, 10%, 10%, 10%, 10%, 10%, 10%, 10%),
+    columns: (auto, 7.5%, 7.5%, 7.5%, 7.5%, 7.5%, 7.5%, 7.5%, 7.5%),
     [*Task*], [*Week 1-2*], [*Week 3-4*], [*Week 5-6*], [*Week 7-8*], [*Week 9*], [*Week 10*], [*Week 11*], [*Week 12*],
     [Requirements & UI Mockup], [✓], [], [✓], [], [], [], [], [],
-    [Authentication + Supabase DB], [], [✓], [✓], [], [], [], [], [],
-    [Bookmark CRUD + Nested Folders], [], [], [✓], [✓], [], [], [], [],
-    [Article Reader + RSS Parsing], [], [], [], [✓], [], [], [], [],
-    [History + Search Module], [], [], [✓], [✓], [✓], [], [], [],
-    [Duplicate Removal & Testing], [], [], [], [], [], [✓], [], [],
+    [App structure and navigation design], [], [✓], [✓], [], [], [], [], [],
+    [Basic UI and supabase/ backend integration], [], [], [✓], [✓], [], [], [], [],
+    [Admin panel design with role-based access control], [], [], [✓], [✓], [✓], [], [], [],
+    [Fetch data realtime from db], [], [], [], [], [], [✓], [], [],
     [UI Polish & Documentation], [], [], [], [], [], [✓], [✓], [],
     [Final Testing & Deployment], [], [], [], [], [], [], [], [✓],
   ),
@@ -245,17 +248,17 @@ The base timeline for the development of PSTU Diary is as follows,
 
 == UI Mockups
 
-#figure(
-  image("UI/1.png", height: 40%, alt: "UI Mockups"),
-  caption: "UI Mockups of PSTU Diary",
-) <UI1>
+// #figure(
+//   image("UI/1.png", height: 50%, alt: "UI Mockups"),
+//   caption: "UI Mockups of PSTU Diary",
+// ) <UI1>
 
 #figure(
   grid(
     columns: (auto, auto),
     rows: (auto, auto),
     gutter: 1em,
-    [ #image("UI/2.png", width: 70%) ], [ #image("UI/3.png", width: 70%) ],
+    [ #image("UI/2.png", width: 61%) ], [ #image("UI/3.png", width: 61%) ],
   ),
   caption: [Add Bookmark page and reader page's UI concept],
 ) <UI2>
@@ -264,18 +267,26 @@ The base timeline for the development of PSTU Diary is as follows,
   grid(
     columns: (auto, auto),
     rows: (auto, auto),
-    [ #image("UI/4.png", width: 90%) ], [ #image("UI/5.png", width: auto) ],
+    [ #image("UI/4.png", width: 61%) ], [ #image("UI/5.png", width: 61%) ],
   ),
   caption: [Settings and sign in page's UI concept],
 ) <UI3>
 
 = Limitations
 
-+ Currently browser extensions are not planned, but the application will be designed to allow easy integration with popular browsers in the future.
-+ The initial version will focus on core functionalities and may not include all advanced features like URL shortening or QR code generation.
++ Currently, it's not 100% translated.
++ Students can't update club related and co-curricular activities.
+
+= Future Plans
+
++ Implementing more features like event calendar, campus map, lost and found section, blood donor finder etc.
++ Adding more departments and personnel to the contact list.
++ Enhancing the admin panel with more functionalities.
++ Improving the UI/UX based on user feedback.
++ Implementing push notifications for important updates and announcements.
 
 = Result
-The expected outcome of PSTU Diary is a fully functional, cross-platform application that allows users to manage their digital resources efficiently.
+The project is aimed to give students and faculty members of Patuakhali Science and Technology University (PSTU) a centralized platform to access contact information and resources efficiently. The application is expected to enhance communication within the university community and provide a user-friendly experience across multiple platforms.
 
 #bibliography(title: "References", "refs.bib")
 
