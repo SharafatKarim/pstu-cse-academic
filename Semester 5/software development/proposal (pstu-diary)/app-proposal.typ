@@ -35,6 +35,11 @@
   #line(length: 100%)
 ]
 
+#align(left)[
+  #v(12pt)
+  #image("logo/splash-2.png", width: 25%, height: auto, alt: "Divider")
+]
+
 #align(bottom)[
   #line(length: 100%)
   *Project Title : PSTU Diary* \
@@ -147,9 +152,9 @@ Also the existing application "PSTU Diary (পবিপ্রবি ডায়ে
 
 = Related Work
 
-- @pstu_old_diary *PSTU Diary (পবিপ্রবি ডায়েরি) - Old Version* - Old version, no longer maintained. It lacks the ability to update contact information and has a less intuitive user interface. It also doesn't support iOS or web platforms.
+- @pstu_old_diary *PSTU Diary (পবিপ্রবি ডায়েরি) - Old Version* - Old version, no longer maintained. It lacks the ability to update contact information and has a less intuitive user interface. It also doesn't support iOS or web platforms.[1]
 
-- @pstu_old_diary_admin *PSTU Diary (পবিপ্রবি ডায়েরি) - Admin Version* - Only for Admin, with unstable API. It is not available for general users and has limited functionality. Database is not well-structured.
+- @pstu_old_diary_admin *PSTU Diary (পবিপ্রবি ডায়েরি) - Admin Version* - Only for Admin, with unstable API. It is not available for general users and has limited functionality. Database is not well-structured. And it uses MySQL as for the database source, which is not well protected with row level security.[2]
 
 = Scope
 
@@ -160,51 +165,33 @@ The application will focus on providing contact information for all departments 
 == Technology Stack
 The development of PSTU Diary will follow an agile methodology, allowing for iterative improvements and user feedback. Our technology stack will includes,
 
-#figure(
-  table(
-    columns: (30%, 70%),
-    [*Frontend*], [Flutter@flutter (Dart)],
-    [*Backend*], [Supabase],
-    [*UI/ UX Design*], [Figma],
-    [*Database*], [PostgreSQL],
-    [*Authentication*], [JWT or OAuth2],
-    [*Hosting (web app)*], [Vercel or Netlify],
-    [*CI/CD*], [GitHub Actions, Docker (optional)],
-  ),
-  caption: "Technology Stack for PSTU Diary",
-)
+- *Frontend*: Flutter@flutter (Dart)
+- *Backend*: Supabase
+- *UI/ UX Design*: Figma
+- *Database*: PostgreSQL
+- *Authentication*: JWT or OAuth2
+- *Hosting (web app)*: Vercel or Netlify
+- *CI/CD*: GitHub Actions, Docker (optional)
 
 == Design Principles
 
 The design of PSTU Diary will adhere to the following principles,
 
-#figure(
-  table(
-    columns: (30%, 70%),
-    [*Material Design*], [Following Google's Material Design guidelines for a consistent and modern UI/UX in Android],
-    [*Responsive Design*],
-    [Ensuring the application works seamlessly on various screen sizes and orientations including web app.],
-
-    [*User-Centric Design*],
-    [Focusing on user experience and ease of use, with intuitive navigation and clear UI elements.],
-
-    [*Cross-Platform*], [Ensuring consistent functionality and design across Android, iOS, and web platforms.],
-    [*Documentation*],
-    [Providing comprehensive documentation for developers and users, including API documentation and user guides.],
-  ),
-  caption: "Design Principles for PSTU Diary",
-)
+- *Material Design*: Following Google's Material Design guidelines for a consistent and modern UI/UX in Android.
+- *Responsive Design*: Ensuring the application works seamlessly on various screen sizes and orientations, including the web app.
+- *User-Centric Design*: Focusing on user experience and ease of use, with intuitive navigation and clear UI elements.
+- *Cross-Platform*: Ensuring consistent functionality and design across Android, iOS, and web platforms.
+- *Documentation*: Providing comprehensive documentation for developers and users, including API documentation and user guides.
+- *Security*: Implementing best practices for data security and user privacy, including secure authentication and data encryption.
 
 = Visual Models
 
 == Flow Chart Diagram
 
 #figure(
-  image("diagrams/pstu-diary.DFD.drawio.png", width: 51%, height: auto, alt: "Flow Chart"),
+  image("diagrams/pstu-diary.DFD.drawio.png", width: 61%, height: auto, alt: "Flow Chart"),
   caption: "Flow Chart of PSTU Diary Architecture",
 ) <DFD>
-
-Here the above @DFD illustrates the high-level architecture of PSTU Diary (পবিপ্রবি ডায়েরি), showing how different components interact with each other. Mainly the frontend communication is portrayed here.
 
 == Schema Diagram
 
@@ -213,18 +200,16 @@ Here the above @DFD illustrates the high-level architecture of PSTU Diary (প�
   caption: "Database Schema Diagram of PSTU Diary",
 ) <Schema>
 
-The above @Schema illustrates the database schema for PSTU Diary, showing the tables, their fields, and relationships between them. The schema is designed to efficiently store and retrieve bookmark data, user information, and other related entities.
 
 == ERD (Entry Relationship Diagram)
 
 #figure(
-  image("diagrams/plantUML.svg", width: 100%, height: auto, alt: "Entity Relationship Diagram"),
+  image("diagrams/ERD.drawio.svg", width: 75%, height: auto, alt: "Entity Relationship Diagram"),
   caption: "Entity Relationship Diagram of PSTU Diary",
 ) <ERD>
 
 The above @ERD illustrates the entity-relationship diagram for PSTU Diary, showing the entities, their attributes, and relationships between them. The ERD helps in understanding the data model and how different entities interact with each other.
 
-More details about the database schema and relationships can be found in the documentation. Also there can be changes in the schema as per the requirement. More constrains and relationships can be added as needed. For example, adding foreign key constraints, indexes, and other optimizations for performance and data integrity.
 
 == Timeline (Gantt Chart)
 
