@@ -20,7 +20,6 @@ class Board:
         return attacks
 
     def random_neighbor(self):
-        """Return a slightly changed board."""
         new_state = self.state[:]
         col = random.randint(0, self.size - 1)
         new_row = random.randint(0, self.size - 1)
@@ -66,16 +65,16 @@ def print_board(state):
         print(row)
     print()
 
+def simulated_annealing_test(board):
+    for i in range(1000):
+        solver = SimulatedAnnealingSolver(board)
+        if solver.solve():
+            print_board(board.state)
+            return
+    else:
+        print("No solution found.")
 
 if __name__ == "__main__":
     board = Board()
-    for i in range(1000):
-        solver = SimulatedAnnealingSolver(board)
+    simulated_annealing_test(board)
 
-        if solver.solve():
-            print("✅ Solution found!\n")
-            print_board(board.state)
-            exit()
-
-        # else:
-        #     print("❌ No solution found. Try running again.")
