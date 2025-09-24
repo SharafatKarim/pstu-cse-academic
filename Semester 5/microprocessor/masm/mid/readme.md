@@ -4,7 +4,7 @@
 
 ### Sample equation by Chinmoy Sir
 
-$$\frac{3X^2 + 2X - 5}{2X^2 - 1}$$
+$\frac{3X^2 + 2X - 5}{2X^2 - 1}$
 
 ```asm
 MOV AX, 0Eh
