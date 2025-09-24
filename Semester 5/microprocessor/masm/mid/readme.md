@@ -2,7 +2,41 @@
 
 ## Problemsets
 
-### Write a program to add two number as well as form a Fibonacci series
+### Sample equation by Chinmoy Sir
+
+$$\frac{3X^2 + 2X - 5}{2X^2 - 1}$$
+
+```asm
+MOV AX, 0Eh
+MOV BX, 0EH
+
+MUL BX            ; AX = X^2
+MOV [2008], AX 
+
+MOV BX, 3
+MUL BX            ; AX = 3X^2
+MOV [2002], AX
+
+MOV AX, 0Eh
+MOV BX, 2
+MUL BX
+MOV BX, AX
+ADD BX, [2002]
+SUB BX, 5         ; BX = 3X^2+2X-5
+
+MOV AX, [2008]
+MOV DX, 2
+MUL DX            ; AX = 2X^2
+SUB AX, 1
+MOV DX, AX        ; DX = 2X^2-1
+MOV AX, BX        ; AX = 3X^2+2X-5      
+
+MOV BX, DX
+XOR DX, DX
+DIV BX
+```
+
+### Write a program to add two number as well as form a Fibonacci series 🎯
 
 ```asm
 org 100h
@@ -111,17 +145,62 @@ ret
 
 ### Write a program to multiply two 16-bit numbers
 
+```asm
+org 100h
+    mov ax, 1234h ; first 16-bit number
+    mov bx, 0020h ; second 16-bit number
+    mul bx        ; multiply ax by bx, result in dx:ax
+ret
+```
+
 ### Write a program to subtract two 16-bit numbers with or without borrow
+
+```asm
+org 100h
+    mov ax, 1234h ; first 16-bit number
+    mov bx, 0020h ; second 16-bit number
+    sub ax, bx    ; subtract bx from ax
+    sbb ax, 0      ; subtract with borrow if needed
+ret
+```
 
 ### Write a program to add two 8 bit BCD numbers
 
-### Write a program  for Binary To Decimal Conversion
+```asm
+org 100h
+    mov al, 25h ; first BCD number
+    mov bl, 12h ; second BCD number
+    add al, bl  ; add
+    daa         ; adjust for BCD
+ret
+```
+
+### Write a program  for Binary To Decimal Conversion 🎯
 
 ### Write a program  to find the factorial of a number
 
-### Write a program  for Decimal to Binary Conversion
+```asm
+org 100h
+    mov ax, 1h
+    mov cx, 5h ; number to do factorial
+    
+count:
+    mul cx
+    loop count     
+ret
+```
+
+### Write a program  for Decimal to Binary Conversion 🎯
 
 ### Write a program to add two 16 bit numbers
+
+```asm
+org 100h
+    mov ax, 1234h ; first 16-bit number
+    mov bx, 0020h ; second 16-bit number
+    add ax, bx    ; add bx to ax
+ret
+```
 
 ### Some basic computing code
 
