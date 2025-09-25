@@ -123,13 +123,23 @@ ret
 ### Write a program  to print a String
 
 ```asm
-org 100h
-
-    mov dx, offset msg
-    mov ah, 09h
+.model small
+.stack 100h
+.data
+    input db 20           ; Max length (19 chars + Enter)
+.model small
+.stack 100h
+.data
+    var db 'hi there,$'
+.code
+main proc     
+    mov ax, @data
+    mov ds, ax
+    
+    mov ah, 9h
+    lea dx, var
     int 21h
-
-msg db 'Hello, World!$'
+main endp
 ```
 
 ### Write a program to subtract two 8 bit BCD numbers
@@ -177,6 +187,68 @@ ret
 
 ### Write a program  for Binary To Decimal Conversion 🎯
 
+```asm
+.model small
+.stack 100h
+.data
+result db 0
+.code
+main proc
+    mov ax,@data
+    mov ds,ax
+
+  
+    mov ah,1
+    int 21h
+    sub al,30h
+    mov bl,al   ; b3
+
+    mov ah,1
+    int 21h
+    sub al,30h
+    mov bh,al   ; b2
+
+    mov ah,1
+    int 21h
+    sub al,30h
+    mov cl,al   ; b1
+
+    mov ah,1
+    int 21h
+    sub al,30h
+    mov ch,al   ; b0
+
+    ; ---- result initialize ----
+    mov result,0
+
+    ; b3 * 8
+    mov al,bl
+    mov ah,0
+    mov dl,8
+    mul dl
+    add result,al
+
+    ; b2 * 4
+    mov al,bh
+    mov ah,0
+    mov dl,4
+    mul dl
+    add result,al
+
+    ; b1 * 2
+    mov al,cl
+    mov ah,0
+    mov dl,2
+    mul dl
+    add result,al
+
+    ; b0 * 1
+    add result,ch
+
+    ; ---- print result ----
+    mov al,result
+```
+
 ### Write a program  to find the factorial of a number
 
 ```asm
@@ -191,6 +263,48 @@ ret
 ```
 
 ### Write a program  for Decimal to Binary Conversion 🎯
+
+```asm
+.model small
+.stack 100h
+.data
+    decnum db 0
+    binstr db '0000$'    ; store 4-bit binary as string
+.code
+main proc
+    mov ax,@data
+    mov ds,ax
+
+    ; input one decimal digit (0–15 only)
+    mov ah,1
+    int 21h
+    sub al,30h       ; convert ASCII -> number
+    mov decnum,al
+
+    ; convert decimal to 4-bit binary
+    mov cl,4         ; 4 bits
+    mov si,3         ; index into binstr from rightmost
+    mov al,decnum
+
+convert_loop:
+    mov ah,0
+    mov bl,2
+    div bl           ; AL / 2 -> quotient in AL, remainder in AH
+    add ah,30h       ; convert remainder to ASCII
+    mov binstr[si],ah
+    dec si
+    loop convert_loop
+
+    ; print result
+    mov ah,9
+    lea dx,binstr
+    int 21h
+
+    mov ah,4ch
+    int 21h
+main endp
+end main
+```
 
 ### Write a program to add two 16 bit numbers
 
@@ -207,6 +321,31 @@ ret
 Not sure!
 
 ## Misc
+
+### Input/ Output 
+
+Single digit,
+
+```asm
+.model small
+.stack
+.data
+    result db 0
+.code
+main proc
+
+    mov ah, 1h
+    int 21h
+    sub al, '0'
+    
+    mov result, al
+    mov ah, 2h
+    mov dl, result
+    add dl, '0'
+    int 21h
+
+ret
+```
 
 ### Printing digits
 
