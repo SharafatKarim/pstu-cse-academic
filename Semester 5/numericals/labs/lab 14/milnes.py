@@ -24,5 +24,6 @@ final_y = milnes_method(fun_avg, x0, x1, x2, x3, y0, y1, y2, y3, x4=2)
 
 # Now let's plot it...
 plt.plot([x0, x1, x2, x3, 2], [y0, y1, y2, y3, final_y], marker='o', label="Milne's Method", color='green')
+
 plt.title("Milne's Method for Solving ODE")
 plt.show()
