@@ -1,6 +1,5 @@
 import socket
 import threading
-import time
 
 class ChatClient:
     def __init__(self, host='localhost', port=9999):
