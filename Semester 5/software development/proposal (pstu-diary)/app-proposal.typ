@@ -189,16 +189,20 @@ The design of PSTU Diary will adhere to the following principles,
 == Flow Chart Diagram
 
 #figure(
-  image("diagrams/pstu-diary.DFD.drawio.png", width: 61%, height: auto, alt: "Flow Chart"),
+  image("diagrams/pstu-diary.drawio.svg", width: 100%, height: auto, alt: "Flow Chart"),
   caption: "Flow Chart of PSTU Diary Architecture",
 ) <DFD>
+
+The above @DFD illustrates the overall architecture of the PSTU Diary application, showing the interaction between users, the frontend application, backend services, and the database. It highlights the flow of data and the key components involved in the system.
 
 == Schema Diagram
 
 #figure(
-  image("diagrams/schema.svg", width: 100%, height: auto, alt: "Database Schema Diagram"),
+  image("diagrams/schema.png", width: 100%, height: auto, alt: "Database Schema Diagram"),
   caption: "Database Schema Diagram of PSTU Diary",
 ) <Schema>
+
+The above @Schema illustrates the database schema for PSTU Diary, showing the tables, their fields, and relationships between them. The schema is designed to efficiently store and retrieve contact information and user data.
 
 
 == ERD (Entry Relationship Diagram)
