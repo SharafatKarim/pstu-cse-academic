@@ -1,3 +1,99 @@
+## I. Questions from January-June 2023 (Session 2020-2021)
+
+### Q. 1. Networking Concepts and Performance
+1.  What distinguishes a host from an end system? Provide examples of various end systems. Would a web server be considered an end system? Why are end systems related to hosts, and what distinguishes clients from servers within this context?
+
+    1.  **Host vs. End System:** There is **no significant distinction** between these two terms. They are used interchangeably to describe any device connected to the "edge" of the internet (i.e., not a core network device like a router or switch). These devices run user applications.
+    2.  **Examples of End Systems:** PCs, laptops, smartphones, tablets, smart TVs, game consoles, IoT devices (like a smart thermostat), and file servers.
+    3.  **Is a Web Server an End System?** **Yes.** It is an "end system" because it is the final destination for a request. It sits at the edge of the network and runs an application (the web server software) that provides a service to other end systems.
+    4.  **Client vs. Server:** This distinction describes the *role* a host plays in a specific communication.
+        * **Client:** An end system that *requests* a service (e.g., your laptop running a web browser to *get* a webpage).
+        * **Server:** An end system that *provides* a service (e.g., the web server that *sends* the webpage).
+        * A single host can be both. For example, in a peer-to-peer (P2P) file-sharing application, your computer acts as a server when uploading a file to a peer and as a client when downloading a file from a peer.
+
+2.  HFC, DSL, and FTTH are all used for residential access. For each of these access technologies, provide a range of transmission rates and comment on whether the transmission rate is shared or dedicated.
+
+
+    | Technology | Full Name | Typical Rates (Downstream / Upstream) | Medium (Shared or Dedicated) |
+    | :--- | :--- | :--- | :--- |
+    | **HFC** | Hybrid Fiber-Coax | 25 Mbps – 1 Gbps+ / 5 Mbps – 50 Mbps (Asymmetric) | **Shared.** Users in a neighborhood (typically 100-500 homes) share the capacity of the coaxial cable segment. This can lead to slowdowns during peak hours. |
+    | **DSL** | Digital Subscriber Line | 5 Mbps – 100+ Mbps / 1 Mbps – 20 Mbps (Asymmetric) | **Dedicated (in the last mile).** The copper phone line from your home to the local switching office (or street-side cabinet) is dedicated to you. The backhaul from that point is shared. |
+    | **FTTH** | Fiber to the Home | 100 Mbps – 10 Gbps / 100 Mbps – 10 Gbps (Often Symmetric) | **Dedicated.** A dedicated fiber line (or a non-contended slot in a Passive Optical Network) runs directly to the home, providing consistent, high speeds. |
+
+
+3.  Suppose users share a 2 Mbps link. Also suppose each user transmits continuously at 1 Mbps when transmitting, but each user transmits only 20 percent of the time.
+    *   When circuit switching is used, how many users can be supported?
+    *   For the remainder of this problem, suppose packet switching is used. Why will there be essentially no queuing delay before the link if two or fewer users transmit at the same time?
+    *   Why will there be queuing delay if three users transmit at the same time?
+    *   Find the probability that a given user is transmitting.
+    *   Suppose now there are three users. Find the probability that at any given time, all three users are transmitting simultaneously.
+    *   Find the fraction of time during which the queue grows.
+
+    * **When circuit switching is used, how many users can be supported?**
+    * **Answer:** **2 users.**
+    * **Reasoning:** Circuit switching reserves a dedicated, fixed-rate "circuit" for each user. Each user needs 1 Mbps of *guaranteed* capacity. Since the total link capacity is 2 Mbps, you can only support $2 \text{ Mbps} / 1 \text{ Mbps per user} = 2 \text{ users}$.
+
+        * **Why will there be essentially no queuing delay... if two or fewer users transmit?**
+            * **Answer:** The total arrival rate is less than or equal to the link's capacity.
+            * **Reasoning:** The link's capacity (service rate) is 2 Mbps.
+                * If 1 user transmits, the arrival rate is 1 Mbps.
+                * If 2 users transmit, the arrival rate is $1 + 1 = 2 \text{ Mbps}$.
+                * In both cases, the arrival rate is $\leq$ the service rate. Packets are forwarded as fast as they arrive, so no backlog (queue) forms.
+
+        * **Why will there be queuing delay... if three users transmit at the same time?**
+            * **Answer:** The total arrival rate (3 Mbps) is **greater than** the link's capacity (2 Mbps).
+            * **Reasoning:** Packets arrive faster ($3 \text{ Mbps}$) than they can be sent ($2 \text{ Mbps}$). The excess packets (1 Mbps worth) must be stored in a buffer (queue) to wait for their turn to be transmitted.
+
+        * **Find the probability that a given user is transmitting.**
+            * **Answer:** **0.2** (or 20%). This is stated directly in the problem ("each user transmits only 20 percent of the time").
+
+        * **Find the probability that... all three users are transmitting simultaneously.**
+            * **Answer:** **0.008** (or 0.8%).
+            * **Reasoning:** Since each user's transmission is an independent event, we multiply their individual probabilities:
+                $P(\text{all three}) = P(\text{user 1}) \times P(\text{user 2}) \times P(\text{user 3})$
+                $P(\text{all three}) = 0.2 \times 0.2 \times 0.2 = \mathbf{0.008}$
+
+        * **Find the fraction of time during which the queue grows.**
+            * **Answer:** **0.008** (or 0.8%).
+            * **Reasoning:** As we determined, the queue *only* grows when the arrival rate is greater than the 2 Mbps capacity. This *only* happens when all three users transmit simultaneously (creating 3 Mbps of traffic). Therefore, the fraction of time the queue grows is equal to the probability that all three users are transmitting, which we just calculated.
+    
+4.  In this problem, we consider sending real-time voice from Host A to Host B over a packet-switched network (VoIP). Host A converts the analog voice signal into a digital bit stream at a rate of 64 kbps. Host A then collects the bits into packets, each containing 4000 bytes. There is a single link between Host A and B with a transmission rate of 10 Mbps and propagation delay of 10 milliseconds. As soon as Host A gathers a packet, it sends it to Host B. Immediately upon receiving the entire packet, Host B converts the packet’s bits back into an analog signal. What is the total time that elapses from the moment a bit is created (from the original analog signal at Host A) until it is decoded (as part of the analog signal at Host B)?
+
+    The total time (delay) is the sum of all the delays from the moment the bit is created until it is decoded. A bit cannot be decoded until the *entire packet* it belongs to has been received.
+
+    The total delay has three components:
+    1.  **Packetization Delay ($d_{\text{packet}}$):** The time it takes for Host A to *collect* enough bits to fill one packet.
+    2.  **Transmission Delay ($d_{\text{trans}}$):** The time it takes for Host A to *push* all the packet's bits onto the link.
+    3.  **Propagation Delay ($d_{\text{prop}}$):** The time it takes for a bit to *travel* across the link from A to B.
+
+    **1. Packetization Delay:**
+    * **Packet Size:** 4000 bytes $\times$ 8 bits/byte = 32,000 bits
+    * **Conversion Rate:** 64 kbps = 64,000 bits per second
+    * **Time:** $d_{\text{packet}} = \text{Packet Size} / \text{Conversion Rate} = 32,000 \text{ bits} / 64,000 \text{ bits/s} = \mathbf{0.5 \text{ s}}$
+
+    **2. Transmission Delay:**
+    * **Packet Size:** 32,000 bits
+    * **Link Rate:** 10 Mbps = 10,000,000 bits per second
+    * **Time:** $d_{\text{trans}} = \text{Packet Size} / \text{Link Rate} = 32,000 \text{ bits} / 10,000,000 \text{ bits/s} = \mathbf{0.0032 \text{ s}}$
+
+    **3. Propagation Delay:**
+    * **Given:** 10 milliseconds = $\mathbf{0.01 \text{ s}}$
+
+    **Total Time:**
+    * $d_{\text{total}} = d_{\text{packet}} + d_{\text{trans}} + d_{\text{prop}}$
+    * $d_{\text{total}} = 0.5 \text{ s} + 0.0032 \text{ s} + 0.01 \text{ s}$
+    * $d_{\text{total}} = \mathbf{0.5132 \text{ seconds}}$ (or 513.2 ms)
+
+5.  What are an application-layer message? A transport-layer segment? A network-layer datagram? A link-layer frame?
+
+    These are the names for the "packet" of data at each layer of the TCP/IP model. This process is called **encapsulation**, where each layer wraps the data from the layer above it in a new header.
+
+    * **Application-layer message:** This is the raw data generated by a user application, such as an HTTP GET request, an email (SMTP), or a file transfer (FTP).
+    * **Transport-layer segment:** This is the application-layer message encapsulated with a transport header (like **TCP** or **UDP**). This header adds source and destination **port numbers**, which identify the specific application/process on the host.
+    * **Network-layer datagram:** This is the transport-layer segment encapsulated with a network header (like **IP**). This header adds source and destination **IP addresses**, which identify the specific hosts on the network.
+    * **Link-layer frame:** This is the network-layer datagram encapsulated with a link-layer header and trailer (like **Ethernet**). This header adds source and destination **MAC addresses**, which identify the specific network interface cards (NICs) for the next hop.
+
+
 ### Q. 2. IP Addressing and NAT
 1.  **A router receives a packet with the destination address 201.24.67.32. Show how the router finds the next-hop address of the packet.**
 
@@ -22,23 +118,7 @@
     *   The third group has 2000 households; each needs 4 addresses.
     *   Design the subblocks and give the slash notation for each subblock. Find out how many addresses are still available after the allocations.**
 
-    *   **Group 1 (200 businesses, 128 addresses each):**
-        *   Each business needs 128 addresses, which is 2^7 addresses. So, we need a /25 prefix for each business.
-        *   Total addresses needed: 200 * 128 = 25600 addresses.
-        *   We can assign the block 150.80.0.0/19 to this group. This block has 2^(32-19) = 2^13 = 8192 addresses, which is enough to accommodate the 200 businesses.
-    *   **Group 2 (400 businesses, 16 addresses each):**
-        *   Each business needs 16 addresses, which is 2^4 addresses. So, we need a /28 prefix for each business.
-        *   Total addresses needed: 400 * 16 = 6400 addresses.
-        *   We can assign the block 150.80.32.0/20 to this group. This block has 2^(32-20) = 2^12 = 4096 addresses. This is not enough.
-        *   Let's try 150.80.32.0/19. This has 8192 addresses. This is enough.
-    *   **Group 3 (2000 households, 4 addresses each):**
-        *   Each household needs 4 addresses, which is 2^2 addresses. So, we need a /30 prefix for each household.
-        *   Total addresses needed: 2000 * 4 = 8000 addresses.
-        *   We can assign the block 150.80.64.0/19 to this group. This block has 8192 addresses.
-    *   **Available Addresses:**
-        *   Total addresses in 150.80.0.0/16: 2^16 = 65536
-        *   Addresses allocated: 8192 + 8192 + 8192 = 24576
-        *   Available addresses: 65536 - 24576 = **40960**
+    *   ... check exercise for similar ;)
 
 ### Q. 3. Classless Addressing, Routing, and Protocols
 1.  **In classless addressing, we know the first and the last address in the block. Can we find the prefix length? If yes, show the process and give an example.**
