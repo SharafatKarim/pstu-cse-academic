@@ -839,10 +839,10 @@
     *Ans:* 16.255.128.0 - 16.255.255.255
 
 + An organization is granted the block 130.56.0.0/16. The administrator wants to create 1024 subnets. \
-  a. Find the subnet mask.
-  b. Find the number of addresses in each subnet.
-  c. Find the first and the last address in the first subnet.
-  d. Find the first and the last address in the last subnet (subnet 1024).
+  + Find the subnet mask.
+  + Find the number of addresses in each subnet.
+  + Find the first and the last address in the first subnet.
+  + Find the first and the last address in the last subnet (subnet 1024).
   *Ans:* check Rising's other solution...
 
 26. An organization is granted the block 211.17.180.0/24. The administrator wants to
