@@ -549,20 +549,32 @@
    #table(
     columns: 2,
     [30000], [53],
-    [], [0x0000],
+    [49], [0x0000],
     [0x1333], [0x0900], [1], [0], [0], [0],
     table.cell(colspan: 2)[1 '8' 2 '17' 1 '1' 3 '132' 7 'in-addr' 4 'arpa' 0],
     [12], [1],
   )
 
-#strike[
-  + Encapsulate the response message of Exercise 25 in a UDP user datagram.
-]
+  #highlight()[
+    এখানে 30000 হল source port (আন্দাজে ধরেছি) এবং 53 হল destination port (DNS server এর জন্য)। আর 49 হলো length। \
+  ]
 
-#highlight()[
-  উপরের দুটো প্রশ্ন UDP user diagram এর অংশ পড়ানোর সময় কভার হবে আশা করি :)
-]
++ Encapsulate the response message of Exercise 25 in a UDP user datagram. \
+  *Ans:* The UDP user datagram will be like,
+     #table(
+    columns: 2,
+    [53], [30000],
+    [57], [0x0000],
+    [0x1333], [0x8980], [1], [1], [0], [0],
+    table.cell(colspan: 2)[1 '8' 2 '17' 1 '1' 3 '132' 7 'in-addr' 4 'arpa' 0],
+    [12], [1],
+    table.cell(colspan: 2)[0xC00C],
+    [12], [1],
+    table.cell(colspan: 2)[1200],
+    [13], [3 'aaa' 3 'bbb' 3 'edu' 0],
+  )
 
+  
 // --------------------------
 // Ending of ch 1
 // --------------------------
