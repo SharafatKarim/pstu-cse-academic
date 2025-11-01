@@ -544,8 +544,18 @@
     [1], [0001], [0], [0], [1], [1], [000], [0000],
   )
 
++ Encapsulate the query message of Exercise 24 in a UDP user datagram. \
+  *Ans:* The UDP user datagram will be like,
+   #table(
+    columns: 2,
+    [30000], [53],
+    [], [0x0000],
+    [0x1333], [0x0900], [1], [0], [0], [0],
+    table.cell(colspan: 2)[1 '8' 2 '17' 1 '1' 3 '132' 7 'in-addr' 4 'arpa' 0],
+    [12], [1],
+  )
+
 #strike[
-  + Encapsulate the query message of Exercise 24 in a UDP user datagram.
   + Encapsulate the response message of Exercise 25 in a UDP user datagram.
 ]
 
