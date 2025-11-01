@@ -177,3 +177,272 @@
 6.  **Describe how installing a proxy server can reduce the delay in receiving a requested object.**
 
     A proxy server can cache frequently requested objects. When a user requests a cached object, the proxy server can deliver it to the user immediately, without having to fetch it from the origin server. This can significantly reduce the delay in receiving the object.
+
+## III. Questions from January-June 2021 (Session 2018-2019)
+
+### Q. 1. Access Technologies and Network Services
+1.  **Describe the most popular wireless internet access technologies today. Compare and contrast the different wireless access technologies. Classify each one as home access, enterprise access, or wide-area wireless access.**
+
+    *   **Wi-Fi (802.11):** Home and enterprise access.
+    *   **Cellular (4G, 5G):** Wide-area wireless access.
+    *   **WiMAX:** Can be used for both enterprise and wide-area access.
+
+2.  **Write the duties/services and protocol of each specific OSI layer.**
+
+    *   **Physical Layer:** Transmit bits over a medium. Protocols: Ethernet, 802.11.
+    *   **Data Link Layer:** Node-to-node delivery of frames. Protocols: Ethernet, PPP.
+    *   **Network Layer:** Host-to-host delivery of datagrams. Protocols: IP, ICMP.
+    *   **Transport Layer:** Process-to-process delivery of segments. Protocols: TCP, UDP.
+    *   **Session Layer:** Manages sessions between applications.
+    *   **Presentation Layer:** Translates, encrypts, and compresses data.
+    *   **Application Layer:** Provides services to the user. Protocols: HTTP, SMTP, FTP.
+
+3.  **In the problem, we consider sending real-time voice from Host A to Host B over a packet-switched network... What is the total time that elapses from the moment a bit is created (from the original analog signal at Host A) until it is decoded (as part of the analog signal at Host B)?**
+
+    (This is a duplicate question. See the answer in Section I, Q. 1, part 4.)
+
+4.  **Explain whether a packet-switched network or a circuit-switched network be more appropriate for this application. Why?**
+
+    Packet switching is more appropriate for this application because it is more efficient for bursty traffic, which is typical of voice communication.
+
+5.  **Compare and contrast the properties of a centralized and a distributed routing algorithm. Give an example of a routing protocol that takes a centralized and a decentralized approach.**
+
+    (This is a duplicate question. See the answer in Section I, Q. 3, part 3.)
+
+### Q. 2. IP Addressing and Subnetting
+1.  **How are the blocks allocated? What are the restrictions need to be applied to the allocated block.**
+
+    Blocks are allocated by IANA and RIRs. The restrictions are that the number of addresses in a block must be a power of 2, and the first address must be divisible by the number of addresses in the block.
+
+2.  **The address 192.168.12.0/20 is given. Find the number of addresses, the first address, and the last address in the block.**
+
+    *   Number of addresses: 2^(32-20) = 2^12 = 4096
+    *   First address: 192.168.0.0
+    *   Last address: 192.168.15.255
+
+3.  **An ISP is granted a block of addresses 23.34.252.0/24. The organization needs to have 4 subblocks of addresses to use in its four zones at shown below. Distribute the addresses.**
+
+    With 4 sub-blocks, we need to borrow 2 bits from the host part. The subnet mask will be 255.255.255.192. The subnets would be 23.34.252.0/26, 23.34.252.64/26, 23.34.252.128/26, and 23.34.252.192/26.
+
+4.  **Write the steps need to be carefully followed to guarantee the proper operation of the sub-networks.**
+
+    1.  Determine the number of subnets needed.
+    2.  Determine the number of bits to borrow from the host part.
+    3.  Calculate the new subnet mask.
+    4.  Determine the address range for each subnet.
+
+### Q. 3. Routing and Forwarding
+1.  **Discuss the forwarding process of a packet arrives at R1 in below Figure with the destination address 180.70.65.140.**
+
+    (Assuming a figure was provided, which is missing here. The router would use its forwarding table to find the next hop for the given destination address.)
+
+2.  **What is NAT? How can NAT help in address depletion?**
+
+    (This is a duplicate question. See the answer in Section II, Q. 2, part 2.)
+
+3.  **Briefly define subnetting and supernetting. How do the subnet mask and supernet mask differ from a default mask in classful addressing?**
+
+    *   **Subnetting:** Dividing a large block of addresses into smaller sub-blocks.
+    *   **Supernetting:** Combining smaller blocks of addresses into a larger block.
+    *   A subnet mask has more 1s than the default mask, and a supernet mask has fewer 1s.
+
+4.  **A block of addresses is granted to a small organization. We know that one of the addresses is 205.16.37.19/24. Find out the first address, last address, and the number of addresses in the block. Also show this network structure through a block.**
+
+    *   First address: 205.16.37.0
+    *   Last address: 205.16.37.255
+    *   Number of addresses: 256
+
+### Q. 4. Transport Layer and Physical Layer
+1.  **Where do we find the netid and the hostid of the following IP addresses: a. 117.14.15.5, b. 47.20.17.25, c. 200.10.20.30, d. 250.8.2.3.**
+
+    (This is a duplicate question. See the answer in Section II, Q. 1.)
+
+2.  **In TCP, if the value of HLEN is 1000, how many bytes of option are included in the segment?**
+
+    HLEN is a 4-bit field that specifies the length of the TCP header in 32-bit words. If HLEN is 1000 (binary), which is 8 in decimal, the header length is 8 * 4 = 32 bytes. Since the base TCP header is 20 bytes, there are 32 - 20 = 12 bytes of options.
+
+3.  **A TCP connection is using a window size of 12,000 bytes...**
+
+    (This question requires drawing a diagram to show the window movement, which is difficult to represent in text.)
+
+4.  **In the standard Ethernet, if the maximum transmission rate is 25.0 ps, what is the minimum size of the frame?**
+
+    The minimum frame size in Ethernet is 64 bytes.
+
+## IV. Questions from January-June 2020
+
+### A. Session 2019-2020 Exam
+
+1.  **Queuing Delay and Traffic:**
+    *   **In practice, does the queuing delay tend to vary a lot? Answer Yes or No and why.**
+        *   Yes, the queuing delay can vary a lot depending on the traffic intensity and the router's buffer size.
+    *   **What is R = 2R, what is the needed value of $\lambda$?**
+        *   This question is unclear.
+    *   **Assuming the router's buffer is infinite, the queuing delay is 0.4357 ms, and 1218 packets arrive. How many packets will be in the buffer?**
+        *   This question is unanswerable without knowing the arrival rate and the service rate.
+    *   **If the buffer has a maximum size of 563 packets, how many of the 1218 packets would be dropped upon arrival from the previous question?**
+        *   This question is unanswerable without knowing the arrival rate and the service rate.
+2.  **General Network Concepts:**
+    *   (These are duplicate questions. See answers in previous sections.)
+3.  **IP Addressing and Subnetting:**
+    *   (These are duplicate questions. See answers in previous sections.)
+4.  **Specific Calculations and Routing:**
+    *   **You have an interface on a router with the IP address of 192.168.192.10/29. What is the broadcast address for the subnet that this LAN?**
+        *   The broadcast address is 192.168.192.15.
+    *   **What is the last valid host on the subnetwork 165.21.80.128/26?**
+        *   The last valid host is 165.21.80.190.
+    *   **In the mask-length notation, find the number of 1’s that must be added to the mask if the number of desired subnets will be 8 and 122.**
+        *   For 8 subnets, you need to add 3 bits (2^3 = 8). For 122 subnets, you need to add 7 bits (2^7 = 128).
+    *   **Construct least-cost-path tree by tracing predecessor nodes. Also find out the resulting least-cost-path tree from u and also show the resulting forwarding table in u.**
+        *   (This question requires a network diagram.)
+    *   **When the algorithm converges, what are the distance vectors from router 'y' to all routers? Write your answer as u,v,w,x.**
+        *   (This question requires a network diagram and the initial distance vectors.)
+    *   **What is the initial distance vectors for router W? Write your answer as u,v,w,x,y and if a distance is $\infty$, write 'x'.**
+        *   (This question requires a network diagram.)
+
+## V. Questions from Session 2018-2019 Mid I
+
+1.  **An classful address in a block is given as 223.4.17.9. Find the number of addresses in the block, the first address, and the last address. Draw also the block diagram of this IP address topology.**
+
+    *   This is a Class C address. The first address is 223.4.17.0, and the last address is 223.4.17.255. The number of addresses is 256.
+
+2.  **Suppose you have given a classful block of IP 140.15.0.0. Now you need to divide this IP block to four subnetwork with equal IP address space of each block. Now extracting the first address, the last address, subnetwork mask to follow the proper procedure and also show the diagram of the sub network.**
+
+    *   This is a Class B address. To create four subnets, we need to borrow 2 bits from the host part. The subnet mask will be 255.255.192.0. The subnets will be 140.15.0.0/18, 140.15.64.0/18, 140.15.128.0/18, and 140.15.192.0/18.
+
+3.  **Suppose Alice, who always accesses the Web using Internet Explorer from her home PC, contacts the Amazon.com for the first time. Let us also suppose that in the past she has already visited the eBay site. Now what will happen, when she request comes into the Amazon Web server for the first time and then one week later? Illustrate the communication process between Alice's browser and the Amazon web server with respect to cookies.**
+
+    *   When Alice visits Amazon for the first time, the Amazon server will create a cookie and send it to Alice's browser. The browser will store the cookie. When Alice visits Amazon again, the browser will send the cookie back to the server. The server can then use the cookie to identify Alice and retrieve her shopping cart, for example.
+
+4.  **What is the function of conditional GET?**
+
+    *   A conditional GET is an HTTP request that includes an `If-Modified-Since` header. If the requested object has not been modified since the date specified in the header, the server will respond with a `304 Not Modified` status code, and the client can use its cached version of the object.
+
+## VI. Questions from January-June 2018
+
+1.  **Protocols and Topologies:**
+    *   **Discuss about the protocols in computer networking.**
+        *   Protocols are rules that govern communication between devices on a network.
+    *   **Discuss about bus, ring, star and mesh topology with cable link connection of the given topology.**
+        *   **Bus:** All devices are connected to a single cable.
+        *   **Ring:** All devices are connected in a circle.
+        *   **Star:** All devices are connected to a central hub.
+        *   **Mesh:** All devices are connected to each other.
+2.  **Data Link Layer:**
+    *   **What are the major duties of data link layer? How data link layer completes node-to-node delivery?**
+        *   The data link layer is responsible for node-to-node delivery of frames. It does this by adding a header and a trailer to the network-layer datagram to create a frame.
+    *   **Write down the short note on congestion control, flow control and error control in transport layer.**
+        *   **Congestion Control:** Prevents the network from being overloaded with too much traffic.
+        *   **Flow Control:** Prevents the sender from overwhelming the receiver with too much data.
+        *   **Error Control:** Detects and corrects errors that occur during transmission.
+3.  **Addressing and Ethernet:**
+    *   **Distinguish a unicast address from multicast address.**
+        *   A unicast address identifies a single host. A multicast address identifies a group of hosts.
+    *   **Discuss the functions of 802.3 MAC frame.**
+        *   The 802.3 MAC frame is used to encapsulate network-layer datagrams for transmission over an Ethernet network.
+    *   **Why bridged and switched Ethernet are used in networking systems?**
+        *   Bridges and switches are used to segment a LAN into smaller collision domains, which improves performance.
+4.  **Physical Layer and LANs:**
+    *   **Show the encoding of 1000 base-X and 1000 base-T Ethernet.**
+        *   1000Base-X uses fiber-optic cable, and 1000Base-T uses twisted-pair copper cable.
+    *   **What are the features of RS and MII of fast Ethernet?**
+        *   RS (Reconciliation Sublayer) and MII (Medium Independent Interface) are part of the Fast Ethernet standard that allow for different types of media to be used.
+    *   **Why repeater is used in networking system? Compare the performance of repeater and hub.**
+        *   A repeater is used to extend the length of a network. A hub is a multi-port repeater. A hub is less efficient than a switch because it forwards all packets to all ports.
+5.  **Bridging and Subnetting:**
+    *   **What are the loop problems for bridge connections? Show the example of loop problems.**
+        *   Loops can occur in a bridged network if there are multiple paths between two bridges. This can cause packets to be forwarded endlessly in a loop.
+    *   **Show the steps of spanning tree in a bridged LAN.**
+        *   The spanning tree protocol is used to prevent loops in a bridged network by disabling redundant paths.
+    *   **How does a VLAN reduce network traffic?**
+        *   A VLAN can reduce network traffic by dividing a LAN into smaller broadcast domains.
+6.  **Routing and Subnet Calculations:**
+    *   **Discuss about store and forward packet switching in network layer.**
+        *   In store-and-forward packet switching, a router must receive the entire packet before it can begin to forward it.
+    *   **How each node is labeled in shortest path routing algorithm?**
+        *   Each node is labeled with its distance from the source node.
+    *   **Why subnet masks are used in computer networking?**
+        *   Subnet masks are used to divide a large block of addresses into smaller subnets.
+    *   **In a computer network, Network address is given as 196.64.10.0 Subnet Mask is given as 255.255.255.248. Find the answer of following questions: i. What are the valid subnets? ii. What are the valid first hosts?**
+        *   i. The valid subnets are 196.64.10.0/29, 196.64.10.8/29, 196.64.10.16/29, etc.
+        *   ii. The first valid host on the 196.64.10.0/29 subnet is 196.64.10.1.
+
+## VII. Questions from January-June 2014
+
+1.  **Network Topology:** Which topology in computer networks is better according to your perception? Show your justifications.
+
+    The best topology depends on the specific needs of the network. A star topology is easy to install and manage, but it has a single point of failure. A mesh topology is more reliable but is more expensive and difficult to manage.
+
+2.  **Layer Responsibilities:** Write down the responsibilities of data link layer and transport layer in internet model.
+
+    *   **Data Link Layer:** Node-to-node delivery of frames.
+    *   **Transport Layer:** Process-to-process delivery of segments.
+
+3.  **Ethernet and Gigabit:**
+    *   **Discuss about the MAC frame in Traditional Ethernet.**
+        *   The Ethernet MAC frame is used to encapsulate network-layer datagrams for transmission over an Ethernet network.
+    *   **Write down the short note on RS, GMII, PHY, and MDI in Gigabit Ethernet.**
+        *   RS (Reconciliation Sublayer), GMII (Gigabit Medium Independent Interface), PHY (Physical Layer), and MDI (Medium Dependent Interface) are all part of the Gigabit Ethernet standard.
+
+4.  **ARP and IP:**
+    *   **What is ARP? Discuss about the fields in ARP packet.**
+        *   ARP (Address Resolution Protocol) is used to map an IP address to a MAC address. The ARP packet contains the sender and target IP and MAC addresses.
+    *   **Find out the checksum in the given IP packet.**
+        *   (This question requires an IP packet.)
+
+5.  **Network Layer Implementation:**
+    *   **Implement the connection-oriented service in the network layer.**
+        *   A connection-oriented service can be implemented in the network layer using a virtual-circuit network.
+    *   **What is datagram subnet? Implement the datagram subnet.**
+        *   A datagram subnet is a network in which each packet is routed independently.
+
+6.  **Routing and Switching:**
+    *   **Show how distance vector routing works in a subnet.**
+        *   In distance-vector routing, each router maintains a table of distances to all other routers in the network. The routers periodically exchange their tables with their neighbors.
+    *   **What is routing algorithm? Discuss about the shortest path routing algorithm.**
+        *   A routing algorithm is used to find the best path for a packet to travel from its source to its destination. The shortest path routing algorithm finds the path with the lowest cost.
+    *   **Show the timing of events in circuit switching and packet switching.**
+        *   In circuit switching, a dedicated circuit is established between the source and destination before any data is transferred. In packet switching, packets are sent independently and may take different paths.
+    *   **In a computer network, Network address is given as 192.168.10.0 Subnet Mask is given as 255.255.255.248. Find the answer of following questions: i. How many subnets? ii. How many hosts? iii. What are the valid subnets? iv. What are the valid hosts? v. What are the broadcast addresses for each subnet?**
+        *   i. 8 subnets
+        *   ii. 6 hosts per subnet
+        *   iii. 192.168.10.0/29, 192.168.10.8/29, ...
+        *   iv. 192.168.10.1-192.168.10.6, 192.168.10.9-192.168.10.14, ...
+        *   v. 192.168.10.7, 192.168.10.15, ...
+
+## VIII. Undated Mid-Examinations/Sessions
+
+### A. Mid-Exam Set 1
+1.  **BTCL is granted a block of addresses starting with 254.103.0.0/15...**
+
+    (This is a subnetting problem similar to others that have been answered.)
+
+2.  **One of the addresses in a block is 167.199.170.82/24. Find the number of addresses in the network, the first address, and the last address with proper procedure.**
+
+    *   Number of addresses: 256
+    *   First address: 167.199.170.0
+    *   Last address: 167.199.170.255
+
+### B. Mid-Exam Set 2
+1.  **What is the network address in a block of addresses? How can we find the network address if one of the addresses in a block is given?**
+
+    The network address is the first address in a block of addresses. It can be found by performing a bitwise AND operation on the given IP address and the subnet mask.
+
+2.  **An ISP is granted a block of addresses starting with 120.60.4.0/22. The ISP wants to distribute these blocks to 100 organizations with each organization receiving just eight addresses. Design the subblocks and give the slash notation for each subblock. Find out how many addresses are still available after these allocations.**
+
+    *   Each organization needs 8 addresses, which is 2^3 addresses. So, we need a /29 prefix for each organization.
+    *   Total addresses needed: 100 * 8 = 800
+    *   The ISP has a /22 block, which has 2^(32-22) = 2^10 = 1024 addresses. This is enough to accommodate the 100 organizations.
+    *   Available addresses: 1024 - 800 = 224
+
+3.  **In a connection, the value of cwnd is 2500 and the value of rwnd is 4500. The host has sent 2000 bytes which has not been acknowledged. How many more bytes can be sent?**
+
+    The number of bytes that can be sent is the minimum of cwnd and rwnd, minus the number of unacknowledged bytes. So, the host can send min(2500, 4500) - 2000 = 500 more bytes.
+
+4.  **A window holds bytes 2001 to 6000. The next byte to be sent is 3001. Draw a figure to show the situation of the window after the following two events: a. An ACK segment with the acknowledgement number 3500 and window size advertisement 4000 is received. b. A segment carrying 1500 bytes is sent.**
+
+    (This question requires drawing a diagram to show the window movement, which is difficult to represent in text.)
+
+5.  **What is a socket address?**
+
+    A socket address is the combination of an IP address and a port number.
