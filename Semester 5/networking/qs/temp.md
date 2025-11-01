@@ -1,69 +1,134 @@
-### 3. Circuit vs. Packet Switching
+## **Sobuj Sir**
 
-* **When circuit switching is used, how many users can be supported?**
-    * **Answer:** **2 users.**
-    * **Reasoning:** Circuit switching reserves a dedicated, fixed-rate "circuit" for each user. Each user needs 1 Mbps of *guaranteed* capacity. Since the total link capacity is 2 Mbps, you can only support $2 \text{ Mbps} / 1 \text{ Mbps per user} = 2 \text{ users}$.
+### 🟦 1. Chapter 1 (Basics)
 
-* **Why will there be essentially no queuing delay... if two or fewer users transmit?**
-    * **Answer:** The total arrival rate is less than or equal to the link's capacity.
-    * **Reasoning:** The link's capacity (service rate) is 2 Mbps.
-        * If 1 user transmits, the arrival rate is 1 Mbps.
-        * If 2 users transmit, the arrival rate is $1 + 1 = 2 \text{ Mbps}$.
-        * In both cases, the arrival rate is $\leq$ the service rate. Packets are forwarded as fast as they arrive, so no backlog (queue) forms.
+**Key Concepts:** Network types, topology, protocols, socket, host vs end system, ISP, ARP, NAT, etc.
 
-* **Why will there be queuing delay... if three users transmit at the same time?**
-    * **Answer:** The total arrival rate (3 Mbps) is **greater than** the link's capacity (2 Mbps).
-    * **Reasoning:** Packets arrive faster ($3 \text{ Mbps}$) than they can be sent ($2 \text{ Mbps}$). The excess packets (1 Mbps worth) must be stored in a buffer (queue) to wait for their turn to be transmitted.
+|Question / Concept|Stars|Importance|
+|---|---|---|
+|Distinguish between host and end system; relation between hosts, clients, servers|⭐⭐|🔥 High|
+|What is a socket address?|⭐|Medium|
+|What is ARP? Fields in ARP packet|⭐⭐|🔥 High|
+|What is NAT and how it helps in address depletion?|⭐⭐|🔥 High|
+|Compare bus, ring, star, mesh topologies|⭐⭐|Medium|
+|Define unicast, multicast, broadcast|⭐⭐⭐|🔥🔥 Very High|
+|Explain store-and-forward packet switching|⭐⭐|High|
+|Connection-oriented vs connectionless services|⭐⭐|Medium|
+|What is congestion control, flow control, and error control|⭐⭐|Medium|
+|Explain duties/services of OSI layers|⭐⭐⭐⭐|🔥🔥 Very High|
+|Four levels of addressing in TCP/IP architecture|⭐⭐|High|
 
-* **Find the probability that a given user is transmitting.**
-    * **Answer:** **0.2** (or 20%). This is stated directly in the problem ("each user transmits only 20 percent of the time").
 
-* **Find the probability that... all three users are transmitting simultaneously.**
-    * **Answer:** **0.008** (or 0.8%).
-    * **Reasoning:** Since each user's transmission is an independent event, we multiply their individual probabilities:
-        $P(\text{all three}) = P(\text{user 1}) \times P(\text{user 2}) \times P(\text{user 3})$
-        $P(\text{all three}) = 0.2 \times 0.2 \times 0.2 = \mathbf{0.008}$
+### 🟦 2. IP Address (IPv4)
 
-* **Find the fraction of time during which the queue grows.**
-    * **Answer:** **0.008** (or 0.8%).
-    * **Reasoning:** As we determined, the queue *only* grows when the arrival rate is greater than the 2 Mbps capacity. This *only* happens when all three users transmit simultaneously (creating 3 Mbps of traffic). Therefore, the fraction of time the queue grows is equal to the probability that all three users are transmitting, which we just calculated.
+**Key Concepts:** Subnetting, CIDR, IP class, mask, address range, subnet design
 
----
+|Question / Concept|Stars|Importance|
+|---|---|---|
+|What is subnetting / supernetting / CIDR and difference from default mask|⭐⭐⭐|🔥🔥 Very High|
+|Given IP → find netid, hostid, mask|⭐⭐⭐|🔥🔥 Very High|
+|Why subnet masks are used in networking|⭐⭐|High|
+|Given IP → find first & last address, total addresses|⭐⭐⭐⭐|🔥🔥🔥 Top Priority|
+|Design subnets or subblocks for ISP/cities/customers|⭐⭐⭐⭐|🔥🔥🔥 Top Priority|
+|Design given number of subnets (e.g., 8, 122)|⭐⭐|High|
+|Calculate broadcast and network address for given mask|⭐⭐⭐|🔥🔥 Very High|
+|Determine mask bits required for given subnets|⭐⭐|High|
+|Explain CIDR rules and restrictions|⭐⭐⭐|🔥🔥 Very High|
+|Compare subnetting and supernetting|⭐⭐|High|
+|Describe three steps for subnet operation|⭐⭐⭐|High|
 
-### 4. VoIP End-to-End Delay Calculation
+✅ **Sobuj Sir — IP Address Focus Points:**
 
-The total time (delay) is the sum of all the delays from the moment the bit is created until it is decoded. A bit cannot be decoded until the *entire packet* it belongs to has been received.
+1. **Subnetting calculation practice** (design & range)
+    
+2. **CIDR design** and allocation examples
+    
+3. **Subnet mask / broadcast address**
+    
+4. **Real-world ISP block division** (e.g., 150.80.0.0/16, 254.103.0.0/15)
+    
+5. **CIDR restriction questions**
+    
 
-The total delay has three components:
-1.  **Packetization Delay ($d_{\text{packet}}$):** The time it takes for Host A to *collect* enough bits to fill one packet.
-2.  **Transmission Delay ($d_{\text{trans}}$):** The time it takes for Host A to *push* all the packet's bits onto the link.
-3.  **Propagation Delay ($d_{\text{prop}}$):** The time it takes for a bit to *travel* across the link from A to B.
+### 🟦 3. Network Layer: Data Plane & Control Plane
 
-**1. Packetization Delay:**
-* **Packet Size:** 4000 bytes $\times$ 8 bits/byte = 32,000 bits
-* **Conversion Rate:** 64 kbps = 64,000 bits per second
-* **Time:** $d_{\text{packet}} = \text{Packet Size} / \text{Conversion Rate} = 32,000 \text{ bits} / 64,000 \text{ bits/s} = \mathbf{0.5 \text{ s}}$
+**Key Concepts:** Routing, forwarding, algorithms (Dijkstra, distance vector), congestion
 
-**2. Transmission Delay:**
-* **Packet Size:** 32,000 bits
-* **Link Rate:** 10 Mbps = 10,000,000 bits per second
-* **Time:** $d_{\text{trans}} = \text{Packet Size} / \text{Link Rate} = 32,000 \text{ bits} / 10,000,000 \text{ bits/s} = \mathbf{0.0032 \text{ s}}$
+|Question / Concept|Stars|Importance|
+|---|---|---|
+|Explain network layer data plane and control plane|⭐⭐|🔥🔥 Very High|
+|Explain forwarding process in router R1 for given dest|⭐⭐⭐|🔥🔥 Very High|
+|Compare centralized vs distributed routing|⭐⭐⭐|🔥🔥 Very High|
+|Dijkstra’s shortest path algorithm (with table)|⭐⭐⭐⭐|🔥🔥🔥 Top Priority|
+|Distance vector routing working|⭐⭐|High|
+|Construct forwarding table / least-cost tree|⭐⭐|High|
+|Congestion control, flow control concepts|⭐⭐|Medium|
+|Explain datagram vs virtual circuit subnet|⭐⭐|Medium|
+|Protocols involved in traceroute|⭐⭐|Medium|
 
-**3. Propagation Delay:**
-* **Given:** 10 milliseconds = $\mathbf{0.01 \text{ s}}$
+## **Sarna Mam**
 
-**Total Time:**
-* $d_{\text{total}} = d_{\text{packet}} + d_{\text{trans}} + d_{\text{prop}}$
-* $d_{\text{total}} = 0.5 \text{ s} + 0.0032 \text{ s} + 0.01 \text{ s}$
-* $d_{\text{total}} = \mathbf{0.5132 \text{ seconds}}$ (or 513.2 ms)
+### 🟣 1. Application Layer
 
----
+**Key Concepts:** HTTP, Web caching, cookies, persistent connection, MIME, etc.
 
-### 5. Protocol Data Units (PDUs)
+|Question / Concept|Stars|Importance|
+|---|---|---|
+|HTTP persistent vs non-persistent connection|⭐⭐⭐|🔥🔥 Very High|
+|Explain cookie mechanism (Alice–Amazon)|⭐⭐|High|
+|How does web caching reduce delay|⭐⭐⭐|🔥🔥 Very High|
+|Discuss major protocols in networking (TCP, UDP, IP, HTTP, etc.)|⭐⭐|Medium|
+|How proxy server reduces delay|⭐⭐|High|
+|How SMTP marks end of message, compare with HTTP|⭐⭐|🔥🔥 Very High|
+|Persistent connection close in HTTP/1.1|⭐|Medium|
+|Encryption in HTTP|⭐|Medium|
+|Conditional GET|⭐|Medium|
+|Explain DNS, HTTP, FTP, SMTP functions overview|⭐|Medium|
 
-These are the names for the "packet" of data at each layer of the TCP/IP model. This process is called **encapsulation**, where each layer wraps the data from the layer above it in a new header.
+### 🟣 2. DNS
 
-* **Application-layer message:** This is the raw data generated by a user application, such as an HTTP GET request, an email (SMTP), or a file transfer (FTP).
-* **Transport-layer segment:** This is the application-layer message encapsulated with a transport header (like **TCP** or **UDP**). This header adds source and destination **port numbers**, which identify the specific application/process on the host.
-* **Network-layer datagram:** This is the transport-layer segment encapsulated with a network header (like **IP**). This header adds source and destination **IP addresses**, which identify the specific hosts on the network.
-* **Link-layer frame:** This is the network-layer datagram encapsulated with a link-layer header and trailer (like **Ethernet**). This header adds source and destination **MAC addresses**, which identify the specific network interface cards (NICs) for the next hop.
+|Question / Concept|Stars|Importance|
+|---|---|---|
+|DNS query and response encapsulation in UDP|⭐⭐|🔥🔥 Very High|
+|Protocols involved in requesting a webpage (DNS + HTTP + ARP)|⭐⭐|High|
+|Protocols involved in traceroute (DNS, UDP, ICMP)|⭐⭐|Medium|
+|DNS concept and structure (hierarchy, resolver, caching)|⭐⭐|🔥🔥 Very High|
+
+✅ **Sarna Mam — DNS Focus Points:**
+
+1. Query/response packet format
+    
+2. UDP encapsulation
+
+### 🟣 3. SMTP
+
+|Question / Concept|Stars|Importance|
+|---|---|---|
+|SMTP message boundary and comparison with HTTP|⭐⭐|🔥🔥 Very High|
+|Explain MIME and its function|⭐⭐|Medium|
+|MIME header for JPEG mail|⭐|Medium|
+|SMTP operation steps (connection, HELO, DATA, QUIT)|⭐|High|
+
+
+### 🟣 4. UDP
+
+|Question / Concept|Stars|Importance|
+|---|---|---|
+|UDP header fields, checksum calculation|⭐⭐|High|
+|UDP encapsulation examples (TFTP RRQ/WRQ)|⭐|Medium|
+|DNS query in UDP|⭐⭐|High|
+|Compare TCP vs UDP (reliability, connection)|⭐⭐|🔥🔥 Very High|
+
+
+### 🟣 5. TCP
+
+|Question / Concept|Stars|Importance|
+|---|---|---|
+|TCP 3-way handshake with ISN example|⭐⭐|🔥🔥 Very High|
+|Flow control with window diagram|⭐⭐|High|
+|TCP half-close case|⭐|Medium|
+|TCP segment exchange example (Hello ↔ Hi)|⭐|Medium|
+|Window & ACK calculation problems|⭐⭐⭐|🔥🔥🔥 Top Priority|
+|Connection establishment and teardown process|⭐⭐|High|
+|TCP congestion control, cwnd, rwnd behavior|⭐⭐|🔥🔥 Very High|
+
