@@ -8,8 +8,6 @@
 |---|---|---|
 |Distinguish between host and end system; relation between hosts, clients, servers|⭐⭐|🔥 High|
 |What is a socket address?|⭐|Medium|
-|What is ARP? Fields in ARP packet|⭐⭐|🔥 High|
-|What is NAT and how it helps in address depletion?|⭐⭐|🔥 High|
 |Compare bus, ring, star, mesh topologies|⭐⭐|Medium|
 |Define unicast, multicast, broadcast|⭐⭐⭐|🔥🔥 Very High|
 |Explain store-and-forward packet switching|⭐⭐|High|
@@ -35,6 +33,7 @@
 |Determine mask bits required for given subnets|⭐⭐|High|
 |Explain CIDR rules and restrictions|⭐⭐⭐|🔥🔥 Very High|
 |Compare subnetting and supernetting|⭐⭐|High|
+|What is NAT and how it helps in address depletion?|⭐⭐|🔥 High|
 |Describe three steps for subnet operation|⭐⭐⭐|High|
 
 ✅ **Sobuj Sir — IP Address Focus Points:**
