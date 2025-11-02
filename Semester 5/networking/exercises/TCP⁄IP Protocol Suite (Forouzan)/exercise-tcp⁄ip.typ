@@ -60,7 +60,7 @@
 #outline()
 #align(bottom)[
   #line(length: 100%)
-  *Revision 07* \
+  *Revision 08* \
   Try to directly open the file from Rising Flare, to avoid missing any updates. \
 ]
 #pagebreak()
@@ -835,8 +835,8 @@
     *Ans:* $2^{15}$ 
   + Find the first and the last address in the first subnet.
     *Ans:* 16.0.0.0 - 16.0.127.255
-  + Find the first and the last address in the last subnet (subnet 500).
-    *Ans:* 16.255.128.0 - 16.255.255.255
+  + Find the first and the last address in the last subnet (subnet 500). \
+    *Ans:* 16.249.128.0 - 16.249.255.255
 
 + An organization is granted the block 130.56.0.0/16. The administrator wants to create 1024 subnets. \
   + Find the subnet mask.
@@ -914,7 +914,7 @@
     - Each household requires a /30 subnet (4 addresses). \
       + First subnet: 150.80.125.0/30 - 150.80.125.3 \
       + Second subnet: 150.80.125.4/30 - 150.80.125.7 \
-      + 2000th subnet: 150.80.156.16/30 - 150.80.156.19 \
+      + 2000th subnet: 150.80.156.60/30 - 150.80.156.63 \
     - Total addresses used: $2000 times 4$ = 8,000 addresses. \
 
   - Total addresses used: 25,600 + 6,400 + 8,000 = 40,000 addresses. \
@@ -927,8 +927,8 @@
     + First subnet: 120.60.4.0/29 - 120.60.4.7 \
     + Second subnet: 120.60.4.8/29 - 120.60.4.15 \
     + Last subnet: 120.60.7.24/29 - 120.60.7.31 \
-  - Total addresses used: $103 times 8$ = 824 addresses. \
-  - Total addresses available: 4096 - 824 = 3272 addresses. \
+  - Total addresses used: $100 times 8$ = 800 addresses. \
+  - Total addresses available: 4096 - 800 = 3296 addresses. \
 
 + An ISP has a block of 1024 addresses. It needs to divide the addresses to 1024 cus-tomers. Does it need subnetting? Explain your answer. \
   *Ans:* No, it does not need subnetting. \
