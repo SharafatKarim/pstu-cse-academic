@@ -843,48 +843,65 @@
   + Find the number of addresses in each subnet.
   + Find the first and the last address in the first subnet.
   + Find the first and the last address in the last subnet (subnet 1024).
-  *Ans:* check Rising's other solution...
+  *Ans:* same as 24/ check Rising's other solution...
 
-26. An organization is granted the block 211.17.180.0/24. The administrator wants to
-create 32 subnets.
-a. Find the subnet mask.
-b. Find the number of addresses in each subnet.
-c. Find the first and the last address in the first subnet.
-d. Find the first and the last address in the last subnet (subnet 32).
-27. Write the following mask in slash notation (/n):
-a. 255.255.255.0
-b. 255.0.0.0
-c. 255.255.224.0
-d. 255.255.240.0
-28. Find the range of addresses in the following blocks:
-a. 123.56.77.32/29
-b. 200.17.21.128/27
-c. 17.34.16.0/23
-d. 180.34.64.64/30
-29. In classless addressing, we know the first and the last address in the block. Can we
-find the prefix length? If the answer is yes, show the process and give an example.
-30. In classless addressing, we know the first address and the number of addresses in
-the block. Can we find the prefix length? If the answer is yes, show the process and
-give an example.
-31. In classless addressing, can two blocks have the same prefix length? Explain.
-32. In classless addressing, we know the first address and one of the addresses in
-the block (not necessarily the last address). Can we find the prefix length?
-Explain.
-33. An ISP is granted a block of addresses starting with 150.80.0.0/16. The ISP wants
-to distribute these blocks to 2600 customers as follows:
-a. The first group has 200 medium-size businesses; each needs approximately
-128 addresses.
-b. The second group has 400 small businesses; each needs approximately
-16 addresses.
-c. The third group has 2000 households; each needs 4 addresses.
-Design the subblocks and give the slash notation for each subblock. Find out how
-many addresses are still available after these allocations.
-34. An ISP is granted a block of addresses starting with 120.60.4.0/20. The ISP wants
-to distribute these blocks to 100 organizations with each organization receiving
-8 addresses only. Design the subblocks and give the slash notation for each subblock.
-Find out how many addresses are still available after these allocations.
-35. An ISP has a block of 1024 addresses. It needs to divide the addresses to 1024 cus-
-tomers. Does it need subnetting? Explain your answer.
++ An organization is granted the block 211.17.180.0/24. The administrator wants to create 32 subnets.
+  + Find the subnet mask.
+  + Find the number of addresses in each subnet.
+  + Find the first and the last address in the first subnet.
+  + Find the first and the last address in the last subnet (subnet 32).
+  *Ans:* same as 24
+
++ Write the following mask in slash notation (/n):
+  + 255.255.255.0 *Ans:* /24
+  + 255.0.0.0 *Ans:* /8
+  + 255.255.224.0 *Ans:* /19
+  + 255.255.240.0 *Ans:* /20
+
++ Find the range of addresses in the following blocks:
+  + 123.56.77.32/29 *Ans:* 123.56.77.32 - 123.56.77.39
+  + 200.17.21.128/27 *Ans:* 200.17.21.128 - 200.17.21.159
+  + 17.34.16.0/23 *Ans:* 17.34.16.0 - 17.34.17.255
+  + 180.34.64.64/30 *Ans:* 180.34.64.64 - 180.34.64.67
+
++ In classless addressing, we know the first and the last address in the block. Can we find the prefix length? If the answer is yes, show the process and give an example. \
+  *Ans:* Yes, we can find the prefix length. \
+  Process: \
+  + Subtract the first address from the last address to find the number of addresses in the block. \
+  + Use $n = 32 - log_2 N$
+
+  For example, if the first address is 17.24.12.64 and the last address is 17.24.12.127, then the number of addresses in the block is 64. We can find the prefix length as follows: \
+  $n = 32 - log_2 N = 32 - log_2 64 = 26$
+
++ In classless addressing, we know the first address and the number of addresses in the block. Can we find the prefix length? If the answer is yes, show the process and give an example.
+  *Ans:* Yes, we can find the prefix length. \
+  Process: \
+  + Use $n = 32 - log_2 N$
+
+  For example, if the first address is 17.24.12.64 and the number of addresses is 64, then we can find the prefix length as follows: \
+  $n = 32 - log_2 N = 32 - log_2 64 = 26$
+
++ In classless addressing, can two blocks have the same prefix length? Explain. \
+  *Ans:* Yes, two blocks can have the same prefix length. \
+  Explanation: \
+  The prefix length indicates the number of bits used for the network portion of the address. Two different blocks can have the same number of bits allocated for the network portion, resulting in the same prefix length. However, the actual addresses within those blocks will be different.
+
++ In classless addressing, we know the first address and one of the addresses in the block (not necessarily the last address). Can we find the prefix length? Explain. \
+  *Ans:* No, we cannot find the prefix length. \
+  Knowing only one address within the block does not provide enough information to determine the size of the block or the number of addresses it contains. Without knowing either the last address or the total number of addresses in the block, we cannot calculate the prefix length.
+
++ An ISP is granted a block of addresses starting with 150.80.0.0/16. The ISP wants to distribute these blocks to 2600 customers as follows:
+  + The first group has 200 medium-size businesses; each needs approximately 128 addresses.
+  + The second group has 400 small businesses; each needs approximately 16 addresses.
+  + The third group has 2000 households; each needs 4 addresses.
+  Design the subblocks and give the slash notation for each subblock. Find out how many addresses are still available after these allocations.
+
+  *Ans:* Check rising's other solution...
+
++ An ISP is granted a block of addresses starting with 120.60.4.0/20. The ISP wants to distribute these blocks to 100 organizations with each organization receiving 8 addresses only. Design the subblocks and give the slash notation for each subblock. Find out how many addresses are still available after these allocations.
+
++ An ISP has a block of 1024 addresses. It needs to divide the addresses to 1024 cus- tomers. Does it need subnetting? Explain your answer. \
+  *Ans:* Check rising's other solution...
 
 // --------------------------
 // Ending of ch 5
