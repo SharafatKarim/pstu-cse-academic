@@ -3,8 +3,8 @@
 ## Sobuj Sir
 
 ### TCP/IP protocol suite (Behrouz Forouzan)
-#### **Chapters 1-4** (Slide)
 #### **Chapter 5** (IPv4)
+all
 
 ### Computer Networking : A top down approach (pearson)
 #### **Chapter 1** (Introduction)
@@ -19,6 +19,7 @@
 
 ### TCP/IP protocol suite (Behrouz Forouzan)
 #### **Chapter 19** (DNS)
+all
 
 #### **Chapter 23** (Email)
 all

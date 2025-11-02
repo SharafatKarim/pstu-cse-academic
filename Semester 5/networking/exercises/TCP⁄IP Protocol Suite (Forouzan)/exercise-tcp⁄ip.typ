@@ -896,12 +896,43 @@
   + The third group has 2000 households; each needs 4 addresses.
   Design the subblocks and give the slash notation for each subblock. Find out how many addresses are still available after these allocations.
 
-  *Ans:* Check rising's other solution...
+  *Ans:* 
+  - For the first group (200 medium-size businesses needing 128 addresses each): \
+    - Each business requires a /25 subnet (128 addresses). \
+      + First subnet: 150.80.0.0/25 - 150.80.0.127 \
+      + Second subnet: 150.80.0.128/25 - 150.80.0.255 \
+      + Last subnet: 150.80.99.128/25 - 150.80.99.255 \
+    - Total addresses used: $200 times 128$ = 25,600 addresses. \
+  - For the second group (400 small businesses needing 16 addresses each): \
+    - Each business requires a /28 subnet (16 addresses). \
+      + First subnet: 150.80.100.0/28 - 150.80.100.15 \
+      + Second subnet: 150.80.100.16/28 - 150.80.100.31 \
+      + Last subnet: 150.80.124.240/28 - 150.80.124.255 \
+    - Total addresses used: $400 times 16$ = 6,400 addresses. \
+
+  - For the third group (2000 households needing 4 addresses each): \
+    - Each household requires a /30 subnet (4 addresses). \
+      + First subnet: 150.80.125.0/30 - 150.80.125.3 \
+      + Second subnet: 150.80.125.4/30 - 150.80.125.7 \
+      + 2000th subnet: 150.80.156.16/30 - 150.80.156.19 \
+    - Total addresses used: $2000 times 4$ = 8,000 addresses. \
+
+  - Total addresses used: 25,600 + 6,400 + 8,000 = 40,000 addresses. \
+  - Total addresses available: 65,536 - 40,000 = 25,536 addresses. \
 
 + An ISP is granted a block of addresses starting with 120.60.4.0/20. The ISP wants to distribute these blocks to 100 organizations with each organization receiving 8 addresses only. Design the subblocks and give the slash notation for each subblock. Find out how many addresses are still available after these allocations.
 
-+ An ISP has a block of 1024 addresses. It needs to divide the addresses to 1024 cus- tomers. Does it need subnetting? Explain your answer. \
-  *Ans:* Check rising's other solution...
+  *Ans:* 
+  - Each organization requires a /29 subnet (8 addresses). \
+    + First subnet: 120.60.4.0/29 - 120.60.4.7 \
+    + Second subnet: 120.60.4.8/29 - 120.60.4.15 \
+    + Last subnet: 120.60.7.24/29 - 120.60.7.31 \
+  - Total addresses used: $103 times 8$ = 824 addresses. \
+  - Total addresses available: 4096 - 824 = 3272 addresses. \
+
++ An ISP has a block of 1024 addresses. It needs to divide the addresses to 1024 cus-tomers. Does it need subnetting? Explain your answer. \
+  *Ans:* No, it does not need subnetting. \
+  Since the ISP has exactly 1024 addresses and needs to allocate one address to each of its 1024 customers, it can directly assign one address to each customer without the need for subnetting. Each customer can be assigned a unique address from the available block.
 
 // --------------------------
 // Ending of ch 5
