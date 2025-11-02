@@ -16,6 +16,7 @@ all
 
 ### Computer Networking : A top down approach (pearson)
 #### **Chapter 2** (Application Layer)
+R1-R13, R15-R16, R18-R25, P1-P11, P13-P16, P20-P24, P26-P27, P30
 
 ### TCP/IP protocol suite (Behrouz Forouzan)
 #### **Chapter 19** (DNS)
@@ -25,4 +26,6 @@ all
 all
 
 #### **Chapter 14** (UDP)
+
+
 #### **Chapter 15** (TCP)
