@@ -1,0 +1,21 @@
+- [ ] Bisection Method
+- [ ] Iteration Method
+- [ ] Euler’s Method
+- [ ] Trapezoidal Rules
+- [ ] Linear Regression
+- [ ] Simpson 1/3 Rule
+- [ ] Simpson 3/8 Rule
+- [ ] False Position Method (Regula Falsi)
+- [ ] Newton Raphson Method
+- [ ] Lagrange Interpolation Method
+- [ ] Gauss Elimination Method
+- [ ] Gauss Jordan Elimination
+- [ ] Interpolation — Diagonal & Horizontal Differences
+- [ ] Runge-Kutta Method
+- [ ] Least Squares Regression
+- [ ] Polynomial Regression
+- [ ] Cramer's Rule
+- [ ] Stochastic Gradient Descent
+- [ ] Logistic Regression
+- [ ] Milne’s Method
+- [ ] Picard’s Method
