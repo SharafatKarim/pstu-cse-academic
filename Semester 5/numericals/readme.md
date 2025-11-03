@@ -1,21 +1,32 @@
-- [ ] Bisection Method
-- [ ] Iteration Method
-- [ ] Euler’s Method
-- [ ] Trapezoidal Rules
-- [ ] Linear Regression
-- [ ] Simpson 1/3 Rule
-- [ ] Simpson 3/8 Rule
-- [ ] False Position Method (Regula Falsi)
-- [ ] Newton Raphson Method
-- [ ] Lagrange Interpolation Method
-- [ ] Gauss Elimination Method
-- [ ] Gauss Jordan Elimination
+## Root Finding
+- [x] Iteration Method
+- [x] Bisection Method
+- [x] False Position Method (Regula Falsi)
+- [x] Newton Raphson Method
+
+## Equation Solving
+- [x] Cramer's Rule
+- [x] Gauss Elimination Method
+- [x] Gauss Jordan Elimination
+
+## Value Estimation
 - [ ] Interpolation — Diagonal & Horizontal Differences
-- [ ] Runge-Kutta Method
-- [ ] Least Squares Regression
-- [ ] Polynomial Regression
-- [ ] Cramer's Rule
-- [ ] Stochastic Gradient Descent
-- [ ] Logistic Regression
+- [ ] Lagrange Interpolation Method
+
+## Integration approximation
+- [x] Trapezoidal Rules
+- [x] Simpson 1/3 Rule
+- [x] Simpson 3/8 Rule
+
+## ODE
+- [x] Euler’s Method
 - [ ] Milne’s Method
-- [ ] Picard’s Method
+- [x] Picard’s Method
+- [x] Runge-Kutta Method
+
+## Regression
+- [x] Least Squares Regression
+- [x] Linear Regression
+- [x] Polynomial Regression
+- [x] Stochastic Gradient Descent
+- [x] Logistic Regression
