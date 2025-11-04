@@ -10,7 +10,7 @@
 - [x] Gauss Jordan Elimination
 
 ## Value Estimation
-- [ ] Interpolation — Diagonal & Horizontal Differences
+- [x] Interpolation — Diagonal & Horizontal Differences
 - [ ] Lagrange Interpolation Method
 
 ## Integration approximation
