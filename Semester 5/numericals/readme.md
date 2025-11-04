@@ -20,7 +20,7 @@
 
 ## ODE
 - [x] Euler’s Method
-- [ ] Milne’s Method
+- [x] Milne’s Method
 - [x] Picard’s Method
 - [x] Runge-Kutta Method
 
@@ -28,5 +28,7 @@
 - [x] Least Squares Regression
 - [x] Linear Regression
 - [x] Polynomial Regression
-- [x] Stochastic Gradient Descent
 - [x] Logistic Regression
+- [x] Stochastic Gradient Descent
+
+> Redirect to <https://github.com/SharafatKarim/python-data-science-notebook/>
