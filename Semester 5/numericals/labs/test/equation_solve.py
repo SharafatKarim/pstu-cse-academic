@@ -9,13 +9,22 @@ mat = [
 
 mat = np.array(mat)
 
-def deter():
-    pass
+def det(arr):
+    a =   arr[0][0] * ( arr[1][1] * arr[2][2] - arr[1][2] * arr[2][1] )
+    b = - arr[1][0] * ( arr[0][1] * arr[2][2] - arr[0][2] * arr[2][1] )
+    c =   arr[2][0] * ( arr[0][1] * arr[1][2] - arr[0][2] * arr[1][1] )
+    return a + b + c
 
 def cramers(mat):
-    D = mat[:,0:3]
-    Dx = mat[:,1:3]
+    D = np.array(mat[:,0:3])
+    C = np.array(mat[:,-1])
 
-    print(np.concatenate((mat, mat)))
+    Dx = np.array([C, D[:,1], D[:,2]])
+    Dy = np.array([D[:,0], C, D[:,2]])
+    Dz = np.array([D[:,0], D[:,1],C])
+
+    print(det(Dx) / det(D))
+    print(det(Dy) / det(D))
+    print(det(Dz) / det(D))
 
 cramers(mat)
