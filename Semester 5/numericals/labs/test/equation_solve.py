@@ -27,4 +27,28 @@ def cramers(mat):
     print(det(Dy) / det(D))
     print(det(Dz) / det(D))
 
-cramers(mat)
+def print_mat(mat):
+    for i in mat:
+        for j in i:
+            print(j, end=" | ")
+        print()
+    print("-" * 20)
+
+def gauss_jordan(mat):
+    n = len(mat)
+    for i in range(n):
+        for j in range(n):
+            if i != j:
+                for k in range(n+1):
+                    print(mat[j][k])
+                    # mat[j][k] -= mat[i][k] / mat[i][i] * mat[j][i]
+
+        # print_mat(mat)
+
+print_mat(mat)
+
+# cramers(mat)
+
+print("-+" * 10)
+
+gauss_jordan(mat)
