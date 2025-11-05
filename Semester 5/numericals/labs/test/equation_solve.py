@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 mat = [
-        [2, 1, -1, 8],
+        [2.0, 1, -1, 8],
         [-3, -1, 2, -11],
         [-2, 1, 2, -3]
     ]
@@ -39,14 +39,17 @@ def gauss_jordan(mat):
     for i in range(n):
         for j in range(n):
             if i != j:
+                temp = mat[j][i] / mat[i][i]
                 for k in range(n+1):
-                    print(mat[j][k])
-                    # mat[j][k] -= mat[i][k] / mat[i][i] * mat[j][i]
+                    mat[j][k] -= mat[i][k] * temp
 
-        # print_mat(mat)
+        print_mat(mat)
 
-print_mat(mat)
+print(mat)
 
+# 2.0
+# 3.0
+# -1.0
 # cramers(mat)
 
 print("-+" * 10)
