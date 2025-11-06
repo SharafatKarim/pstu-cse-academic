@@ -44,6 +44,8 @@ def gauss_jordan(mat):
                     mat[j][k] -= mat[i][k] * temp
 
         print_mat(mat)
+    for i in range(n):
+        print(mat[i][-1]/mat[i][i])
 
 print(mat)
 
