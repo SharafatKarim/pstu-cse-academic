@@ -316,6 +316,29 @@ org 100h
 ret
 ```
 
+### Multiplication with repeated actions
+
+```asm
+.MODEL SMALL
+.STACK 100H
+
+.DATA 
+
+.CODE
+Main PROC     
+    mov cx, 3h    
+    mov ax, 1h 
+    mov bx, 2h
+  repeat:   
+    mul bx   
+    dec cx
+    cmp cx, 0h
+    jne repeat
+Main ENDP
+
+END Main
+```
+
 ### Some basic computing code
 
 Not sure!
