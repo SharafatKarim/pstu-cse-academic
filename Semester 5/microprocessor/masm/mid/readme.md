@@ -415,3 +415,113 @@ print_dec:
     pop ax
     ret
 ```
+
+### Template
+
+```asm
+; -----------------------------------------------------------------------------
+; A basic template for a 16-bit MASM/TASM assembly program (.COM or .EXE)
+; This template is for an .EXE file which has separate segments.
+; -----------------------------------------------------------------------------
+
+; --- Model Directive ---
+; Defines the memory model.
+; SMALL: 1 code segment (64K), 1 data segment (64K). Good for most simple programs.
+.MODEL SMALL
+.STACK 100h     ; Define the stack size (256 bytes)
+
+; --- Data Segment ---
+; All initialized and uninitialized variables go here.
+.DATA
+    ; Example initialized variable
+    Message   DB  'Hello, world!', 0Dh, 0Ah, '$'  ; String terminated with $
+
+    ; Example uninitialized variable
+    UserInput DB  80 DUP(?)   ; A buffer to store 80 bytes
+
+; --- Code Segment ---
+; All executable instructions go here.
+.CODE
+; --- Main Procedure ---
+; This is the main entry point for the program.
+Main PROC
+    ; --- Boilerplate: Set up Data Segment (DS) ---
+    ; In an .EXE program, DS must be manually set to point to the .DATA segment.
+    mov ax, @DATA       ; Get the address of the .DATA segment
+    mov ds, ax          ; Set the Data Segment (DS) register
+
+    ; --- Your Code Goes Here ---
+    
+    ; Example: Call a custom procedure
+    ; We assume AX and CX might have important values before this call
+    mov ax, 1234h
+    mov cx, 5678h
+    call MyProcedure
+    ; After MyProcedure returns, AX and CX will still have
+    ; 1234h and 5678h because the procedure saved them.
+
+    ; Example: Print the 'Message' string using DOS interrupt 21h, function 09h
+    lea dx, Message     ; Load Effective Address of Message into DX
+    mov ah, 09h         ; Set DOS function 09h (print string)
+    int 21h             ; Call DOS interrupt
+
+    ; --- Program Exit ---
+    ; This is the standard way to exit a DOS program and return to the command line.
+    mov ax, 4C00h       ; Set DOS function 4C00h (Exit with return code 0)
+    int 21h             ; Call DOS interrupt
+
+Main ENDP
+
+; --- Other Procedures ---
+; It's good practice to define other procedures outside of Main.
+
+; MyProcedure: A simple example procedure
+; Description: This procedure demonstrates the NEAR type, the USES
+;              directive, and how to preserve register values.
+; Input: None
+; Output: None
+;
+; PROC [type]:
+;   - NEAR (default for .MODEL SMALL): The procedure is in the same
+;     code segment. 'call' and 'ret' will be 'near' (push/pop IP only).
+;   - FAR: The procedure is in a different code segment. 'call' and
+;     'ret' will be 'far' (push/pop CS and IP).
+;
+; USES [reg1] [reg2] ...:
+;   - This is a high-level MASM directive that automatically generates
+;     PUSH instructions for the listed registers at the start of
+;     the procedure and corresponding POP instructions just before
+;     the 'ret'.
+;   - This is critical for preserving the values of registers that
+;     the main program (the "caller") might be using.
+;
+MyProcedure PROC NEAR USES ax cx
+    ; The 'USES ax cx' directive automatically generates:
+    ;   push ax
+    ;   push cx
+    ; ...at the beginning of the procedure.
+
+    ; Procedure code would go here
+    ; We are free to use AX and CX without worrying about
+    ; messing up their values for the caller.
+    mov cx, 10          ; Example: use CX for a loop counter
+    mov ax, 0           ; Example: use AX as an accumulator
+
+MyLoop:
+    ; ... do something 10 times ...
+    add ax, cx
+    dec cx
+    jnz MyLoop
+
+    ; The assembler will automatically insert:
+    ;   pop cx
+    ;   pop ax
+    ; ...right before the 'ret' instruction, restoring the original values.
+    
+    ret                 ; Return from procedure (pops return address from stack)
+MyProcedure ENDP
+
+; --- End of Program ---
+; The 'END Main' directive tells the assembler where the program execution should start.
+END Main
+```
