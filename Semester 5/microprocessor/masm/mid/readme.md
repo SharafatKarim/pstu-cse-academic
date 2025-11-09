@@ -363,7 +363,7 @@ Single digit,
     message DB 'hi there,', cr, lf, '$'
     askName DB 'what is your name?', cr, lf, '$'
 
-    nameIT DB 100, ?, 100 DUP(?)
+    nameIT DB 100, ?, 100 DUP(?)  ; <-- FIX 1: Removed '$' from buffer definition
     yourName DB 'Your name is : ', cr, lf, '$'
 .CODE
 Main PROC
@@ -377,7 +377,7 @@ Main PROC
     call PrinterXL
 
     call Scanner
-    MOV N, DL
+    MOV N, AL       ; <-- FIX 2: Get result from AL, not DL
 
     mov dl, SPACE   ; space
     call Printer
@@ -396,6 +396,15 @@ Main PROC
     lea dx, nameIT
     call ScannerXL
 
+    MOV BH, 0               ; Clear BH register
+    MOV BL, [nameIT + 1]    ; Get the actual string length from buffer[1]
+
+    LEA SI, [nameIT + 2]    ; Point SI to the start of the text
+    ADD SI, BX              ; SI = (start of text) + (length)
+                            ; SI now points to the Carriage Return
+
+    MOV BYTE PTR [SI], '$'  ; Overwrite the Carriage Return with '$'
+
     mov dl, CR      ; newline
     call Printer
     mov dl, LF
@@ -404,16 +413,15 @@ Main PROC
     lea dx, yourName
     call PrinterXL
 
-    lea dx, nameIT
+    lea dx, [nameIT + 2]
     call PrinterXL
 
     call Exit
 Main ENDP
 
-Scanner PROC NEAR USES ax ; INPUT -> DL
+Scanner PROC NEAR USES ax ; Result -> AL
     mov ah, 01h
-    int 21h
-    mov dl, al
+    int 21h         ; Result is automatically in AL
     ret
 Scanner ENDP
 
@@ -489,7 +497,7 @@ print_dec:
     ret
 ```
 
-### Template
+### Template-Guide
 
 ```asm
 ; -----------------------------------------------------------------------------
