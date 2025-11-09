@@ -103,7 +103,7 @@ For hex,
 
 ```asm
 org 100h
-    mov ax, 4h ; number to find square root of
+    mov ax, 4h  ; number to find square root of
     mov bx, 1h  ; current guess
 
 next_guess:
@@ -196,7 +196,6 @@ result db 0
 main proc
     mov ax,@data
     mov ds,ax
-
 
     mov ah,1
     int 21h
