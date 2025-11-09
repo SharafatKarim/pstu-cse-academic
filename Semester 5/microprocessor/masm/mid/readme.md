@@ -11,7 +11,7 @@ MOV AX, 0Eh
 MOV BX, 0EH
 
 MUL BX            ; AX = X^2
-MOV [2008], AX 
+MOV [2008], AX
 
 MOV BX, 3
 MUL BX            ; AX = 3X^2
@@ -29,7 +29,7 @@ MOV DX, 2
 MUL DX            ; AX = 2X^2
 SUB AX, 1
 MOV DX, AX        ; DX = 2X^2-1
-MOV AX, BX        ; AX = 3X^2+2X-5      
+MOV AX, BX        ; AX = 3X^2+2X-5
 
 MOV BX, DX
 XOR DX, DX
@@ -40,15 +40,15 @@ DIV BX
 
 ```asm
 org 100h
-      
-    mov ax, 1h 
+
+    mov ax, 1h
     mov bx, 1h
     mov dx, 1h
-    
-    mov cx, 5h ; counter 
-    
+
+    mov cx, 5h ; counter
+
 repeat:
-    mov ax, dx ; ax = dx      
+    mov ax, dx ; ax = dx
     add dx, bx ; dx = dx + bx
     mov bx, ax ; bx = ax
 
@@ -63,10 +63,10 @@ ret
 
 ```asm
 org 100h
-      
-    mov ax, 1h 
+
+    mov ax, 1h
     mov bx, 2h
-    
+
     xchg ax, bx
 
 ret
@@ -108,10 +108,10 @@ org 100h
 
 next_guess:
     mov ax, 4h
-    div bx       ; ax = number / guess     
+    div bx       ; ax = number / guess
     cmp ax, bx
     je done
-    
+
     add bx, 1
     jmp next_guess
 done:
@@ -132,10 +132,10 @@ ret
 .data
     var db 'hi there,$'
 .code
-main proc     
+main proc
     mov ax, @data
     mov ds, ax
-    
+
     mov ah, 9h
     lea dx, var
     int 21h
@@ -197,7 +197,7 @@ main proc
     mov ax,@data
     mov ds,ax
 
-  
+
     mov ah,1
     int 21h
     sub al,30h
@@ -255,10 +255,10 @@ main proc
 org 100h
     mov ax, 1h
     mov cx, 5h ; number to do factorial
-    
+
 count:
     mul cx
-    loop count     
+    loop count
 ret
 ```
 
@@ -322,15 +322,15 @@ ret
 .MODEL SMALL
 .STACK 100H
 
-.DATA 
+.DATA
 
 .CODE
-Main PROC     
-    mov cx, 3h    
-    mov ax, 1h 
+Main PROC
+    mov cx, 3h
+    mov ax, 1h
     mov bx, 2h
-  repeat:   
-    mul bx   
+  repeat:
+    mul bx
     dec cx
     cmp cx, 0h
     jne repeat
@@ -345,29 +345,102 @@ Not sure!
 
 ## Misc
 
-### Input/ Output 
+### Input/ Output
 
 Single digit,
 
 ```asm
-.model small
-.stack
-.data
-    result db 0
-.code
-main proc
+.MODEL Small
+.STACK
+.DATA
+    CR EQU 0DH
+    LF EQU 0AH
+    SPACE EQU 20H
 
-    mov ah, 1h
-    int 21h
-    sub al, '0'
-    
-    mov result, al
-    mov ah, 2h
-    mov dl, result
-    add dl, '0'
-    int 21h
+    N DB ?
 
-ret
+    enterAChar DB 'enter a character:', cr, lf, '$'
+    message DB 'hi there,', cr, lf, '$'
+    askName DB 'what is your name?', cr, lf, '$'
+
+    nameIT DB 100, ?, 100 DUP(?)
+    yourName DB 'Your name is : ', cr, lf, '$'
+.CODE
+Main PROC
+    mov ax, @data
+    mov ds, ax
+
+    lea dx, message
+    call PrinterXL
+
+    lea dx, enterAChar
+    call PrinterXL
+
+    call Scanner
+    MOV N, DL
+
+    mov dl, SPACE   ; space
+    call Printer
+
+    MOV DL, N
+    call Printer
+
+    mov dl, CR      ; newline
+    call Printer
+    mov dl, LF
+    call Printer
+
+    lea dx, askName
+    call PrinterXL
+
+    lea dx, nameIT
+    call ScannerXL
+
+    mov dl, CR      ; newline
+    call Printer
+    mov dl, LF
+    call Printer
+
+    lea dx, yourName
+    call PrinterXL
+
+    lea dx, nameIT
+    call PrinterXL
+
+    call Exit
+Main ENDP
+
+Scanner PROC NEAR USES ax ; INPUT -> DL
+    mov ah, 01h
+    int 21h
+    mov dl, al
+    ret
+Scanner ENDP
+
+Printer PROC NEAR USES ax ; DL -> OUTPUT
+    mov ah, 02h
+    int 21h
+    ret
+Printer ENDP
+
+PrinterXL PROC NEAR USES ax ; DX addr -> OUTPUT
+    mov ah, 09h
+    int 21h
+    ret
+PrinterXl ENDP
+
+ScannerXL PROC NEAR USES ax ; INPUT -> DX addr
+    mov ah, 0Ah
+    int 21h
+    ret
+ScannerXL ENDP
+
+Exit PROC
+    mov ax, 4c00h
+    int 21h
+Exit ENDP
+
+END Main
 ```
 
 ### Printing digits
@@ -451,7 +524,7 @@ Main PROC
     mov ds, ax          ; Set the Data Segment (DS) register
 
     ; --- Your Code Goes Here ---
-    
+
     ; Example: Call a custom procedure
     ; We assume AX and CX might have important values before this call
     mov ax, 1234h
@@ -517,7 +590,7 @@ MyLoop:
     ;   pop cx
     ;   pop ax
     ; ...right before the 'ret' instruction, restoring the original values.
-    
+
     ret                 ; Return from procedure (pops return address from stack)
 MyProcedure ENDP
 
