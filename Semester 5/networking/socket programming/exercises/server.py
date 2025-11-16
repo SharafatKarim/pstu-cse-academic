@@ -12,5 +12,9 @@ from connection import *
 # con.server()
 
 # 3
-con = EchoBot()
-con.server()
+# con = EchoBot()
+# con.server()
+
+# 4
+# con = StreamingClient()
+# con.server()

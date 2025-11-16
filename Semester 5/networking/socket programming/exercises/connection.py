@@ -191,3 +191,45 @@ class EchoBot:
             client_socket.send(text.strip().encode())
             ans = client_socket.recv(self.chunk_size)
             print("💬 ", ans.decode())
+
+class StreamingClient:
+    def __init__(self, host="localhost", port=12345) -> None:
+        self.host = host
+        self.port = port
+        self.chunk_size = 5000
+        self.timeout = 2.0
+    
+    def server(self):
+        server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        server_socket.bind((self.host, self.port))
+        print(f"Streaming UDP server is listening on {self.host}:{self.port}")
+        data, addr = server_socket.recvfrom(self.chunk_size)
+        filename = data.decode()
+
+        if not os.path.exists(filename):
+            print("File not found.")
+            return
+        
+        with open(filename, "rb") as file:
+            for line in file:
+                server_socket.sendto(line, addr)
+                time.sleep(0.01)  # simulate streaming delay
+        server_socket.sendto(b'END', addr)
+
+        server_socket.close()
+
+    def client(self, filename):
+        client_socket = socket.socket(socket
+        
+        .AF_INET, socket.SOCK_DGRAM)
+        client_socket.sendto(filename.encode(), (self.host, self.port))
+
+        with open("received", "wb") as file:
+            while True:
+                data, addr = client_socket.recvfrom(self.chunk_size)
+                if data == b'END':
+                    break
+                file.write(data)
+                print(f"Received chunk of size {len(data)} bytes")
+        
+        client_socket.close()

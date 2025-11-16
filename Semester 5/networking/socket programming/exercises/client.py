@@ -13,5 +13,9 @@ from connection import *
 # con.client('test')
 
 # 3
-con = EchoBot()
-con.client()
+# con = EchoBot()
+# con.client()
+
+# 4
+# con = StreamingClient()
+# con.client('test')
