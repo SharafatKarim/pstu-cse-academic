@@ -21,5 +21,11 @@ from connection import *
 # con.client('test')
 
 # 5
-con = ConnectionOrientedChat()
+# con = ConnectionOrientedChat()
+# con.client()
+# con = ConnectionLessChat()
+# con.client()
+
+# 6 
+con = MultiClientConnOrientedChat()
 con.client()

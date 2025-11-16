@@ -235,6 +235,7 @@ class StreamingClient:
         client_socket.close()
 
 
+
 class ConnectionOrientedChat:
     def __init__(self, host="localhost", port=12345) -> None:
         self.host = host
@@ -266,7 +267,100 @@ class ConnectionOrientedChat:
     def client(self):
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client_socket.connect((self.host, self.port))
-        client_socket.settimeout(self.timeout)
+        print("Client started...")
+
+        try:
+            while True:
+                msg = input()
+                if msg:
+                    client_socket.send(msg.strip().encode())
+
+                msg = client_socket.recv(self.chunk_size)
+                print("Server -> ", msg.decode())
+
+        except KeyboardInterrupt:
+            print("Exitting...")
+            exit()        
+
+
+class ConnectionLessChat:
+    def __init__(self, host="localhost", port=12345) -> None:
+        self.host = host
+        self.port = port
+        self.chunk_size = 100
+        self.timeout = 2.0
+    
+    def server(self):
+        server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        server_socket.bind((self.host, self.port))
+        print("Server running...")
+
+        try:
+            while True:
+                msg, addr = server_socket.recvfrom(self.chunk_size)
+                print("Client -> ", msg.decode())
+
+                msg = input()
+                if msg:
+                    server_socket.sendto(msg.strip().encode(), addr)
+
+        except KeyboardInterrupt:
+            print("Exitting...")
+            exit()
+    
+    def client(self):
+        client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        print("Client started...")
+
+        try:
+            while True:
+                msg = input()
+                if msg:
+                    client_socket.sendto(msg.strip().encode(), (self.host, self.port))
+
+                msg, addr = client_socket.recvfrom(self.chunk_size)
+                print("Server -> ", msg.decode())
+
+        except KeyboardInterrupt:
+            print("Exitting...")
+            exit()        
+
+
+class MultiClientConnOrientedChat:
+    def __init__(self, host="localhost", port=12345) -> None:
+        self.host = host
+        self.port = port
+        self.chunk_size = 100
+        self.timeout = 2.0
+    
+
+    def handle_client(self, conn, addr):
+        try:
+            while True:
+                msg = conn.recv(self.chunk_size)
+                print("Client -> ", msg.decode())
+
+                msg = input()
+                if msg:
+                    conn.send(msg.strip().encode())
+
+        except KeyboardInterrupt:
+            print("Exitting...")
+            exit()
+
+    def server(self):
+        server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        server_socket.bind((self.host, self.port))
+        print("Server running...")
+
+        server_socket.listen()
+        conn, addr = server_socket.accept()
+        thread = threading.Thread(target=self.handle_client, args=(conn, addr))
+        thread.start()
+
+    def client(self):
+        client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client_socket.connect((self.host, self.port))
         print("Client started...")
 
         try:
