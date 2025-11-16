@@ -1,8 +1,8 @@
 from connection import *
 
 # 1
-# con = ConnectionOrientedFTP()
-# con.server()
+con = ConnectionOrientedFTP()
+con.server()
 
 # con = ConnectionLessFTP()
 # con.server()
@@ -26,5 +26,5 @@ from connection import *
 # con.server()
 
 # 6 
-con = MultiClientConnOrientedChat()
-con.server()
+# con = MultiClientConnOrientedChat()
+# con.server()

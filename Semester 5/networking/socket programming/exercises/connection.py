@@ -353,10 +353,11 @@ class MultiClientConnOrientedChat:
         server_socket.bind((self.host, self.port))
         print("Server running...")
 
-        server_socket.listen()
-        conn, addr = server_socket.accept()
-        thread = threading.Thread(target=self.handle_client, args=(conn, addr))
-        thread.start()
+        while True:
+            server_socket.listen()
+            conn, addr = server_socket.accept()
+            thread = threading.Thread(target=self.handle_client, args=(conn, addr))
+            thread.start()
 
     def client(self):
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
