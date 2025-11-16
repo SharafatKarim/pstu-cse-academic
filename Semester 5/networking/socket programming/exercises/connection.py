@@ -1,6 +1,7 @@
 import socket
 import os
 import time
+import threading
 
 class ConnectionOrientedFTP:
     def __init__(self, host="localhost", port=12345) -> None:
@@ -14,24 +15,29 @@ class ConnectionOrientedFTP:
         server_socket.bind((self.host, self.port))
         server_socket.listen()
 
-        data, addr = server_socket.accept()
+        conn, addr = server_socket.accept()
         with open("received", "wb") as file:
             while True:
-                try:
-                    chunk = data.recv(self.chunk_size)
-                    file.write(chunk)
-                finally:
-                    server_socket.
+                chunk = conn.recv(self.chunk_size)
+                file.write(chunk)
+                if not chunk:
+                    break
+                conn.send(b'ACK')
+                    
+        conn.close()
+        server_socket.close()
+        print("File transfer completed.")
 
 
     def client(self, filename):
         if not os.path.exists(filename):
-            print(f"File {filename} not fount")
+            print("File not found.")
             return
 
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client_socket.connect((self.host, self.port))
         client_socket.settimeout(self.timeout)
+        print("Connection established")
 
         with open(filename, "rb") as file:
             while True:
@@ -42,17 +48,17 @@ class ConnectionOrientedFTP:
                 while True:
                     try:
                         client_socket.send(chunk)
-                        ack = client_socket.recv(3)
-                        if ack == b"ACK":
+                        if client_socket.recv(3) == b'ACK':
                             break
+
                     except socket.timeout:
-                        print("Timeout, retransmitting...")
+                        print("Retransmitting...")
                         continue
+        
+        client_socket.close()
 
-            client_socket.close()
-            print("File transfer completed.")
 
-
+# TODO: later
 class ConnectionLessFTP:
     def __init__(self, host="localhost", port=12345) -> None:
         self.host = host
@@ -88,3 +94,30 @@ class ConnectionLessFTP:
         client_socket.sendto(b'END', (self.host, self.port))        
         client_socket.close()
         print("File transfer completed.")
+
+class ConcurrentFileServer:
+    def __init__(self, host="localhost", port=12345) -> None:
+        self.host = host
+        self.port = port
+        self.chunk_size = 100
+        self.timeout = 2.0
+    
+    def server(self):
+        server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        server_socket.bind((self.host, self.port))
+        server_socket.listen()
+
+        conn, addr = server_socket.accept()
+        thread = threading.Thread(target=self.handle_client, args=(conn, addr))
+        thread.run()
+    
+    def handle_client(self, conn, addr):
+        conn.
+
+    def client(self, filename):
+        client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client_socket.connect((self.host, self.port))
+        client_socket.settimeout(self.timeout)
+        print("Connection established")
+
+        client_socket.send(filename)
