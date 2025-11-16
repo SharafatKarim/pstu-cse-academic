@@ -18,3 +18,7 @@ from connection import *
 # 4
 # con = StreamingClient()
 # con.server()
+
+# 5
+con = ConnectionOrientedChat()
+con.server()
