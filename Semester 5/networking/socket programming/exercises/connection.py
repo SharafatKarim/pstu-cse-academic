@@ -13,21 +13,16 @@ class ConnectionOrientedFTP:
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server_socket.bind((self.host, self.port))
         server_socket.listen()
-        print(f"FTP server is listening on {self.host}:{self.port}")
 
-        conn, addr = server_socket.accept()
-        print(f"Connected by {addr}")
-
+        data, addr = server_socket.accept()
         with open("received", "wb") as file:
             while True:
-                data = conn.recv(self.chunk_size)
-                if not data:
-                    break
-                file.write(data)
-                conn.send(b"ACK")
+                try:
+                    chunk = data.recv(self.chunk_size)
+                    file.write(chunk)
+                finally:
+                    server_socket.
 
-        conn.close()
-        server_socket.close()
 
     def client(self, filename):
         if not os.path.exists(filename):
