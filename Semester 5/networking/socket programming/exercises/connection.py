@@ -107,12 +107,34 @@ class ConcurrentFileServer:
         server_socket.bind((self.host, self.port))
         server_socket.listen()
 
-        conn, addr = server_socket.accept()
-        thread = threading.Thread(target=self.handle_client, args=(conn, addr))
-        thread.run()
+        while True:
+            conn, addr = server_socket.accept()
+            filename = conn.recv(1000)
+            thread = threading.Thread(target=self.handle_client, args=(conn, addr, filename.decode()))
+            thread.start()
     
-    def handle_client(self, conn, addr):
-        conn.
+    def handle_client(self, conn, addr, filename):
+        if not os.path.exists(filename):
+            print("File not found.")
+            return
+        
+        with open(filename, "rb") as file:
+            while True:
+                chunk = file.read(self.chunk_size)
+                if not chunk:
+                    break
+
+                while True:
+                    try:
+                        conn.send(chunk)
+                        if conn.recv(3) == b'ACK':
+                            break
+
+                    except socket.timeout:
+                        print("Retransmitting...")
+                        continue
+        
+        conn.close()
 
     def client(self, filename):
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -120,4 +142,52 @@ class ConcurrentFileServer:
         client_socket.settimeout(self.timeout)
         print("Connection established")
 
-        client_socket.send(filename)
+        client_socket.send(filename.encode())
+
+        with open("received", "wb") as file:
+            while True:
+                chunk = client_socket.recv(self.chunk_size)
+                file.write(chunk)
+                if not chunk:
+                    break
+                client_socket.send(b'ACK')
+                    
+        client_socket.close()
+        print("File transfer completed.")
+
+class EchoBot:
+    def __init__(self, host="localhost", port=12345) -> None:
+        self.host = host
+        self.port = port
+        self.chunk_size = 100
+        self.timeout = 2.0
+    
+    def server(self):
+        server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        server_socket.bind((self.host, self.port))
+        server_socket.listen()
+
+        while True:
+            conn, addr = server_socket.accept()
+            thread = threading.Thread(target=self.handle_client, args=(conn, addr))
+            thread.start()
+    
+    def handle_client(self, conn, addr):
+        while True:
+            text = conn.recv(self.chunk_size)
+            if not text:
+                break
+            print(text.decode())
+            conn.sendall(text)
+
+    def client(self):
+        client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client_socket.connect((self.host, self.port))
+        client_socket.settimeout(self.timeout)
+        print("Connection established")
+
+        while True:
+            text = input()
+            client_socket.send(text.strip().encode())
+            ans = client_socket.recv(self.chunk_size)
+            print("💬 ", ans.decode())
