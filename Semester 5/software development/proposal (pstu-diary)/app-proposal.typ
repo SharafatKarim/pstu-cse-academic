@@ -104,15 +104,14 @@ It stores contact information of our University "Patuakhali Science and Technolo
 = Objectives
 
 - To develop a user-friendly mobile application that provides easy access to contact information of PSTU departments and personnel.
-- To ensure the application is accessible on Web, Android and iOS platforms.
-- To provide administrative features for updating and managing contact information.
+- To ensure the application is accessible on Web, Android and iOS (optional) platforms.
+- To provide *administrative features* for updating and managing contact information.
+- To implement role based authentication and authorization for different user types (Admin, Editor, User).
+- Add *profile page* for each contact with detailed information.
 - Implement different pages for different club and societies of PSTU.
-- Implement a notice board for important announcements and updates.
-- Implement a feedback system for users to report issues or suggest improvements.
-- Implement blood donor finder feature for emergency situations.
-- Implement a lost and found section for reporting and locating lost items.
-- Implement a campus map for easy navigation around the university.
-- Implement an event calendar for upcoming university events and activities.
+- Implement a *universal searching feature* to quickly find contacts.
+- Implement a feedback system for users to report issues or suggest improvements through GitHub.
+- Implement a campus map's link for easy navigation around the university.
 - Ensure data security and privacy for all users of the application.
 
 = Problem Statement
@@ -123,9 +122,9 @@ Also the existing application "PSTU Diary (পবিপ্রবি ডায়ে
 
 = Related Work
 
-- @pstu_old_diary *PSTU Diary (পবিপ্রবি ডায়েরি) - Old Version* - Old version, no longer maintained. It lacks the ability to update contact information and has a less intuitive user interface. It also doesn't support iOS or web platforms.[1]
+- *PSTU Diary (পবিপ্রবি ডায়েরি) - Old Version* - Old version, no longer maintained. It lacks the ability to update contact information and has a less intuitive user interface. It also doesn't support iOS or web platforms @pstu_old_diary 
 
-- @pstu_old_diary_admin *PSTU Diary (পবিপ্রবি ডায়েরি) - Admin Version* - Only for Admin, with unstable API. It is not available for general users and has limited functionality. Database is not well-structured. And it uses MySQL as for the database source, which is not well protected with row level security.[2]
+- *PSTU Diary (পবিপ্রবি ডায়েরি) - Admin Version* - Only for Admin, with unstable API. It is not available for general users and has limited functionality. Database is not well-structured. And it uses MySQL as for the database source, which is not well protected with row level security @pstu_old_diary_admin 
 
 = Scope
 
@@ -138,10 +137,10 @@ The development of PSTU Diary will follow an agile methodology, allowing for ite
 
 - *Frontend*: Flutter@flutter (Dart)
 - *Backend*: Supabase
-- *UI/ UX Design*: Figma
+- *UI/ UX Design*: Inkscape
 - *Database*: PostgreSQL
-- *Authentication*: JWT or OAuth2
-- *Hosting (web app)*: Vercel or Netlify
+- *Authentication*: Supabase Auth
+- *Hosting (web app)*: Vercel 
 - *CI/CD*: GitHub Actions, Docker (optional)
 
 == Design Principles
