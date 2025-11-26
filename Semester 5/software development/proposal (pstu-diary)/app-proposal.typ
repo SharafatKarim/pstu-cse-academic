@@ -43,7 +43,7 @@
 #align(bottom)[
   #line(length: 100%)
   *Project Title : PSTU Diary* \
-  Submission Date : Mon 15, Sep 2025 \
+  Submission Date : Thu 27, Nov 2025 \
   #line(length: 100%)
 ]
 
@@ -163,16 +163,16 @@ The design of PSTU Diary will adhere to the following principles,
   caption: "Flow Chart of PSTU Diary Architecture",
 ) <DFD>
 
-The above @DFD illustrates the overall architecture of the PSTU Diary application, showing the interaction between users, the frontend application, backend services, and the database. It highlights the flow of data and the key components involved in the system.
+The above @DFD illustrates the overall architecture of the PSTU Diary application.
 
 == Schema Diagram
 
 #figure(
-  image("diagrams/schema.png", width: 100%, height: auto, alt: "Database Schema Diagram"),
+  image("diagrams/schema_2.svg", width: 91%, height: auto, alt: "Database Schema Diagram"),
   caption: "Database Schema Diagram of PSTU Diary",
 ) <Schema>
 
-The above @Schema illustrates the database schema for PSTU Diary, showing the tables, their fields, and relationships between them. The schema is designed to efficiently store and retrieve contact information and user data.
+The above @Schema illustrates the database schema for PSTU Diary, showing the tables, their fields, and relationships between them. 
 
 
 == ERD (Entry Relationship Diagram)
