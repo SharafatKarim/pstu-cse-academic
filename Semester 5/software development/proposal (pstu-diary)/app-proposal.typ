@@ -37,7 +37,7 @@
 
 #align(left)[
   #v(12pt)
-  #image("logo/splash-2.png", width: 25%, height: auto, alt: "Divider")
+  #image("logo/logo-2.png", width: 25%, height: auto, alt: "Divider")
 ]
 
 #align(bottom)[
@@ -46,35 +46,6 @@
   Submission Date : Mon 15, Sep 2025 \
   #line(length: 100%)
 ]
-
-// #align(bottom)[
-//   // Submitted to,
-//   #rect(width: 100%)[
-//     #text(size: 14pt)[
-//       *Submitted to,* \
-//     ]
-//     #parbreak()
-//     *Prof. Dr. Md Samsuzzaman* \
-//     Professor, \
-//     Department of Computer and Communication Engineering, \
-//     Patuakhali Science and Technology University.
-//   ]
-// ]
-
-// #align(bottom)[
-
-//   // Submitted by,
-//   #rect(width: 100%)[
-//     #text(size: 14pt)[
-//       *Submitted by,* \
-//     ]
-
-//     *Md. Sharafat Karim* \
-//     ID : 2102024, \
-//     Reg: 10151, \
-//     Semester: 5 (L-3, S-1)
-//   ]
-// ]
 
 #align(top)[
   #table(
@@ -189,7 +160,7 @@ The design of PSTU Diary will adhere to the following principles,
 == Flow Chart Diagram
 
 #figure(
-  image("diagrams/pstu-diary.drawio.svg", width: 100%, height: auto, alt: "Flow Chart"),
+  image("diagrams/flow-chart.svg", width: 100%, height: auto, alt: "Flow Chart"),
   caption: "Flow Chart of PSTU Diary Architecture",
 ) <DFD>
 
@@ -208,7 +179,7 @@ The above @Schema illustrates the database schema for PSTU Diary, showing the ta
 == ERD (Entry Relationship Diagram)
 
 #figure(
-  image("diagrams/ERD.drawio.svg", width: 75%, height: auto, alt: "Entity Relationship Diagram"),
+  image("diagrams/erd.svg", width: 75%, height: auto, alt: "Entity Relationship Diagram"),
   caption: "Entity Relationship Diagram of PSTU Diary",
 ) <ERD>
 
@@ -280,88 +251,88 @@ The project is aimed to give students and faculty members of Patuakhali Science 
 //   *THE END*
 // ]
 
-#pagebreak()
+// #pagebreak()
 
-= Weekly Report
+// = Weekly Report
 
-#table(
-  columns: (8%, 12%, 50%, 10%, auto),
-  [*No.*], [*Date*], [*Objective*], [*Status*], [*Remarks*],
-  [1],
-  [],
-  [*Project proposal* \
-    - Initial research on existing solutions \
-    - Defining objectives and scope \
-    - Creating initial UI mockups \
-  ],
-  [],
-  [],
+// #table(
+//   columns: (8%, 12%, 50%, 10%, auto),
+//   [*No.*], [*Date*], [*Objective*], [*Status*], [*Remarks*],
+//   [1],
+//   [],
+//   [*Project proposal* \
+//     - Initial research on existing solutions \
+//     - Defining objectives and scope \
+//     - Creating initial UI mockups \
+//   ],
+//   [],
+//   [],
 
-  [2],
-  [],
-  [
-    *Environment and navigation setup* \
-    - Setting up development environment \
-    - Designing app structure and navigation \
-    - Creating basic UI components \
-  ],
-  [],
-  [],
+//   [2],
+//   [],
+//   [
+//     *Environment and navigation setup* \
+//     - Setting up development environment \
+//     - Designing app structure and navigation \
+//     - Creating basic UI components \
+//   ],
+//   [],
+//   [],
 
-  [3],
-  [],
-  [
-    *Basic UI and backend integration* \
-    - Implementing basic UI screens \
-    - Integrating with Supabase for authentication and authorization \
-    - Theming and multilingual support \
-  ],
-  [],
-  [],
+//   [3],
+//   [],
+//   [
+//     *Basic UI and backend integration* \
+//     - Implementing basic UI screens \
+//     - Integrating with Supabase for authentication and authorization \
+//     - Theming and multilingual support \
+//   ],
+//   [],
+//   [],
 
-  [4],
-  [],
-  [
-    *Admin panel design with role-based access control* \
-    - Designing admin panel UI \
-    - Implementing role-based access control for different user types \
-    - Testing admin functionalities \
-  ],
-  [],
-  [],
+//   [4],
+//   [],
+//   [
+//     *Admin panel design with role-based access control* \
+//     - Designing admin panel UI \
+//     - Implementing role-based access control for different user types \
+//     - Testing admin functionalities \
+//   ],
+//   [],
+//   [],
 
-  [5],
-  [],
-  [
-    *Realtime data fetching from database* \
-    - Implementing real-time data fetching using Supabase \
-    - Testing data synchronization across devices \
-    - Optimizing data queries for performance \
-  ],
-  [],
-  [],
+//   [5],
+//   [],
+//   [
+//     *Realtime data fetching from database* \
+//     - Implementing real-time data fetching using Supabase \
+//     - Testing data synchronization across devices \
+//     - Optimizing data queries for performance \
+//   ],
+//   [],
+//   [],
 
-  [6],
-  [],
-  [
-    *UI Polish & Documentation* \
-    - Refining UI elements for better user experience \
-    - Creating comprehensive documentation for users and developers \
-    - Preparing for final testing and deployment \
-  ],
-  [],
-  [],
+//   [6],
+//   [],
+//   [
+//     *UI Polish & Documentation* \
+//     - Refining UI elements for better user experience \
+//     - Creating comprehensive documentation for users and developers \
+//     - Preparing for final testing and deployment \
+//   ],
+//   [],
+//   [],
 
-  [7],
-  [],
-  [
-    *Final Testing & Deployment* \
-    - Conducting final testing on all platforms \
-    - Fixing bugs and issues identified during testing \
-    - Deploying the application to app stores and web hosting platforms \
-  ],
-  [],
-  [],
+//   [7],
+//   [],
+//   [
+//     *Final Testing & Deployment* \
+//     - Conducting final testing on all platforms \
+//     - Fixing bugs and issues identified during testing \
+//     - Deploying the application to app stores and web hosting platforms \
+//   ],
+//   [],
+//   [],
 
-  // [8], [], [], [], [],
-)
+//   // [8], [], [], [], [],
+// )
