@@ -105,11 +105,11 @@ It stores contact information of our University "Patuakhali Science and Technolo
 
 - To develop a user-friendly mobile application that provides easy access to contact information of PSTU departments and personnel.
 - To ensure the application is accessible on Web, Android and iOS (optional) platforms.
-- To provide *administrative features* for updating and managing contact information.
+- To provide administrative features for updating and managing contact information.
 - To implement role based authentication and authorization for different user types (Admin, Editor, User).
-- Add *profile page* for each contact with detailed information.
+- Add profile page for each contact with detailed information.
 - Implement different pages for different club and societies of PSTU.
-- Implement a *universal searching feature* to quickly find contacts.
+- Implement a universal searching feature to quickly find contacts.
 - Implement a feedback system for users to report issues or suggest improvements through GitHub.
 - Implement a campus map's link for easy navigation around the university.
 - Ensure data security and privacy for all users of the application.
