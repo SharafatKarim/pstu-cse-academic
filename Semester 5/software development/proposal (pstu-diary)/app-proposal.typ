@@ -30,7 +30,7 @@
     *CCE 310 :: Software Development Project-I*
   ])
   #align(left, text(14pt)[
-    *Sessional Project Proposal*
+    *Project Report*
   ])
   #line(length: 100%)
 ]
@@ -178,7 +178,7 @@ The above @Schema illustrates the database schema for PSTU Diary, showing the ta
 == ERD (Entry Relationship Diagram)
 
 #figure(
-  image("diagrams/erd.svg", width: 75%, height: auto, alt: "Entity Relationship Diagram"),
+  image("diagrams/erd.svg", width: 96%, height: auto, alt: "Entity Relationship Diagram"),
   caption: "Entity Relationship Diagram of PSTU Diary",
 ) <ERD>
 
@@ -220,7 +220,7 @@ The timeline is divided into 12 weeks, with specific tasks allocated to each per
     gutter: 1em,
     [ #image("UI/2.png", width: 61%) ], [ #image("UI/3.png", width: 61%) ],
   ),
-  caption: [Add Bookmark page and reader page's UI concept],
+  caption: [Home page and profile page's UI concept],
 ) <UI2>
 
 #figure(
@@ -229,14 +229,14 @@ The timeline is divided into 12 weeks, with specific tasks allocated to each per
     rows: (auto, auto),
     [ #image("UI/4.png", width: 61%) ], [ #image("UI/5.png", width: 61%) ],
   ),
-  caption: [Settings and sign in page's UI concept],
+  caption: [Settings and Admin sign in page's UI concept],
 ) <UI3>
 
 = Future Plans
 
-+ Implementing more features like event calendar, campus map, lost and found section, blood donor finder etc.
-+ Adding more information about club activities.
-+ Implementing student section for students to enable self-service features and recommendations.
++ Collecting and to add more information about each contact.
++ Implementing more features like event calendar, lost and found section, blood donor finder, club activities etc.
++ Implementing student section for collecting their data.
 + Enhancing the admin panel with more functionalities.
 + Improving the UI/UX based on user feedback.
 + Implementing push notifications for important updates and announcements.
