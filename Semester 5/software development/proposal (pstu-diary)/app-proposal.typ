@@ -246,9 +246,9 @@ The project is aimed to give students and faculty members of Patuakhali Science 
 
 #bibliography(title: "References", "refs.bib")
 
-// #align(center + bottom)[
-//   *THE END*
-// ]
+#align(center + bottom)[
+  *THE END*
+]
 
 // #pagebreak()
 
