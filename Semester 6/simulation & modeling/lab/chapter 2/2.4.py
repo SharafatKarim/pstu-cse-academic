@@ -1,6 +1,5 @@
 import random, math
 import matplotlib.pyplot as plt
-import numpy as np
 
 def fun(x):
     return math.sqrt(1-x*x)
