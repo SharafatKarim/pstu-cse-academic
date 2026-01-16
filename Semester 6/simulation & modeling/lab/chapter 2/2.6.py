@@ -43,18 +43,20 @@ class ReliabilityProblem:
             delay_3 = self.sample_from_distribution(self.delay_times_probabilities)
             clock_3 += life_3
 
+
             cost_of_bearings = 3 * 20
             
             total_delay = delay_1 + delay_2 + delay_3
             repair_delay = 0
             if clock_1 == clock_2 == clock_3:
-                repair_delay += 40
+                repair_delay += 40 
             elif clock_1 == clock_2 or clock_2 == clock_3 or clock_1 == clock_3:
-                repair_delay += 30
+                repair_delay += 30 + 20
             else:
-                repair_delay += 20
+                repair_delay += 20 + 20 + 20
             downtime_cost = (total_delay + repair_delay) * 5
 
+            print("Clocks: ", clock_1, clock_2, clock_3, " Lives: ", life_1, life_2, life_3, " Delays: ", delay_1, delay_2, delay_3)
             repairman_cost = repair_delay * 25 / 60
             total_cost += cost_of_bearings + downtime_cost + repairman_cost
 
@@ -66,7 +68,9 @@ class ReliabilityProblem:
     def run_all_repair(self, time_limit=30000):
         clock = 0
         total_delay = 0
+        count = 0
         for _ in range(self.simulations):
+            count += 1
             life_1 = self.sample_from_distribution(self.bearing_life_probabilities)
             life_2 = self.sample_from_distribution(self.bearing_life_probabilities)
             life_3 = self.sample_from_distribution(self.bearing_life_probabilities)
@@ -74,9 +78,13 @@ class ReliabilityProblem:
 
             delay = self.sample_from_distribution(self.delay_times_probabilities)
             total_delay += delay
-        cost_of_bearings = 3 * self.simulations * 20
-        downtime_cost = (total_delay + (self.simulations * 40)) * 5
-        repairman_cost = (self.simulations * 40) * 25 / 60
+            print("Clock: ", clock, " Lives: ", life_1, life_2, life_3, " delays: ", delay)
+
+            if clock >= time_limit:
+                break
+        cost_of_bearings = 3 * count * 20
+        downtime_cost = (total_delay + (count * 40)) * 5
+        repairman_cost = (count * 40) * 25 / 60
         total_cost = cost_of_bearings + downtime_cost + repairman_cost
         return total_cost
 
@@ -90,8 +98,8 @@ class ReliabilityProblem:
         return value  
     
 if __name__ == "__main__":
-    problem = ReliabilityProblem(simulations=1000)
-    total_cost = problem.run_single_repair()
+    problem = ReliabilityProblem(simulations=300000)
+    total_cost = problem.run_single_repair(30000)
     print("Total cost for single repair strategy over simulations: ", total_cost)
-    total_cost_all_repair = problem.run_all_repair()
+    total_cost_all_repair = problem.run_all_repair(30000)
     print("Total cost for all repair strategy over simulations: ", total_cost_all_repair)
