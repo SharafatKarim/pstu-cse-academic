@@ -83,7 +83,7 @@
 // --------------------------
 // Contents
 // --------------------------
-#set page(numbering: "1")
+
 #outline()
 #pagebreak()
 
@@ -97,55 +97,35 @@
 ]
 = Introduction
 
-Agriculture is facing significant challenges due to labor shortages and the need for precision monitoring of crop health. "Farm Droid" is a prototype for a compact, autonomous agricultural robot designed to address these issues through smart automation.
-
-Unlike traditional heavy machinery which is expensive and inflexible, Farm Droid utilizes a lightweight, terrain-adaptive mobile platform. This allows it to navigate through crop rows efficiently to perform monitoring and manipulation tasks. The system integrates modern embedded technologies, using a Raspberry Pi 4 for computer vision and decision-making, and an Arduino/ESP32 for real-time motor control and sensor data acquisition.
+Blank
 
 = Objectives
 
-The primary goal is to build a smart farming assistant capable of autonomous operation. The specific objectives are:
+Blank
 
-- *Autonomous Navigation:* To implement GPS-based pathfinding allowing the bot to travel to specific field coordinates.
-- *Adaptive Mobility:* To develop a robust locomotion system (Rover or Legged) capable of traversing uneven agricultural terrain.
-- *Computer Vision:* To utilize a Raspberry Pi Camera and OpenCV to recognize crops, weeds, and obstacles in real-time.
-- *Robotic Manipulation:* To develop a servo-driven arm mechanism for grasping and moving objects.
-- *Environmental Monitoring:* To integrate sensors for measuring soil moisture, pH levels, and weather conditions (Rain/Temperature).
+- *Topic:* Something interestting
+- Blank
 
 = Problem Statement
 
-Conventional heavy farming machinery is often unsuited for small-scale precision agriculture or delicate crop fields. Large tractors cause soil compaction and lack the agility to perform individual plant inspection. There is a lack of affordable, modular robotic solutions that can perform both monitoring and physical manipulation tasks in such environments. Farm Droid aims to bridge this gap by providing a lightweight, intelligent, and versatile solution.
+Blank
 
 = Scope
 
-The project scope encompasses the mechanical assembly, circuit integration, and software development of the robot.
-- *Hardware:* Custom chassis design, Motor/Servo drive system, Power distribution system.
-- *Software:* Python-based vision processing, C++ based motor control firmware.
-- *Limitation:* The prototype will focus on small-scale demonstration (e.g., a garden or test bed) rather than full industrial field deployment.
+Blank
 
 = Methodology
 
 == System Architecture
-We are adopting a "Distributed Computing" architecture to handle the computational load efficiently:
-
-- *The Brain (Raspberry Pi 4):* Handles high-level logic, image processing (OpenCV), and path planning. It communicates via Serial/I2C.
-- *The Controller (Arduino/ESP32):* dedicated to PWM generation for the motor drivers and reading analog sensors.
+Blank
 
 == Technology Stack
 
-- *Language*: Python (Vision/Logic), C++ (Arduino Firmware)
-- *Vision*: OpenCV, TensorFlow Lite (Optional for object detection)
-- *Hardware Interface*: I2C (Inter-Integrated Circuit), UART (GPS)
-- *Power Management*: LiPo Batteries with Buck Converters (UBEC) for system stability.
+Blank
 
 = Hardware Components
 
-The core components for the Farm Droid include:
-
-- *Actuators:* DC Gear Motors or MG996R Servos (Mobility), SG90 (Gripper/Arm).
-- *Sensors:* NEO-6M GPS, Ultrasonic (HC-SR04), Soil Moisture, Rain Sensor, DHT11.
-- *Controllers:* Raspberry Pi 4 Model B (4GB), Arduino Uno / ESP32.
-- *Drivers:* PCA9685 PWM Driver (for Servos) or L298N/Motor Driver (for Wheels).
-- *Vision:* Official Raspberry Pi Camera Module / USB Webcam.
+Blank
 
 = Budget Estimation
 
@@ -222,14 +202,14 @@ The following is a detailed breakdown of the estimated costs for the hardware co
 
 == Optional Components & Modules
 
-These components are optional additions for specific features like environmental monitoring (Smart Farming) or alternative locomotion (Wheeled mode).
+These components are optional additions for specific features like ...
 
 #figure(
   table(
     columns: (auto, 40%, 1fr, 1fr, 1fr),
     fill: (col, row) => if row == 0 { luma(230) } else { white },
     align: (left, left, center, center, right),
-    // inset: 5pt,
+    inset: 5pt,
     
     [*Category*], [*Component Name*], [*Unit Price*], [*Qty*], [*Total*],
 
@@ -263,10 +243,11 @@ These components are optional additions for specific features like environmental
     columns: (2fr, 1fr),
     fill: (col, row) => if row == 2 { luma(220) } else { white },
     align: (right, right),
+    inset: 10pt,
     
-    [Mandatory Components Cost], [34,828 BDT],
-    [Optional Components Cost], [3,613 BDT],
-    [*Grand Total Project Cost*], [*38,441 BDT*],
+    [Mandatory Components Cost:], [34,828 BDT],
+    [Optional Components Cost:], [3,613 BDT],
+    [*Grand Total Project Cost:*], [*38,441 BDT*],
   )
 )
 
@@ -298,21 +279,18 @@ The development is divided into phases to ensure the complex mechanical and soft
 
 Blank
 
-== Data Flow Diagram
+== Flow Chart
 
-#figure(
-image("ui/dfd.png", width: 100%),
-caption: "Data Flow Diagram of Farm Droid System",
-)
+// #image("diagrams/flow_chart.png", width: 80%)
 
+Blank 
 
 = Future Plans
 
-+ *Machine Learning:* Training a custom dataset for specific weed/crop identification.
-+ *Mobile App:* Developing a Flutter-based app to monitor the bot's status remotely.
+Blank
 
 = Conclusion
-Farm Droid represents a step towards modernizing agriculture through robotics. By combining autonomous mobility with computer vision, this project aims to demonstrate that farming automation can be agile, intelligent, and accessible. The successful completion of this project will provide a functional prototype capable of navigating autonomous paths and performing basic agricultural tasks.
+Blank
 
 #align(center + bottom)[
   #v(2em)
