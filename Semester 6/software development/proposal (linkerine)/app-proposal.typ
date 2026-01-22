@@ -9,6 +9,7 @@
 #set par(justify: true)
 #set heading(numbering: "1.")
 #show bibliography: set heading(numbering: "1.")
+#show figure: set block(breakable: true)
 
 // --------------------------
 // Title page
@@ -66,13 +67,13 @@
         *Submitted to,* \
       ]
       #parbreak()
-      + *Prof. Dr. Md Samsuzzaman* \
-        Professor, \
-        Department of Computer and Communication Engineering, \
+      + *Md Mahbubur Rahman* \
+        Associate Professor, \
+        Department of Computer Science and Information Technology, \
         Patuakhali Science and Technology University.
-      + *Arpita Howlader* \
-        Assistant Professor, \
-        Department of Computer and Communication Engineering, \
+      + *Md Atikqur Rahaman* \
+        Professor, \
+        Department of Computer Science and Information Technology, \
         Patuakhali Science and Technology University.
     ],
   )
@@ -112,7 +113,9 @@ Linkerine is a modern, web-based bookmark and RSS management platform designed t
 
 = Problem Statement
 
-Existing solutions for bookmark management are often fragmented; users must choose between native apps that don't sync well with the web, or browser extensions that don't work on mobile. Furthermore, many modern tools (like Pocket or Raindrop) lock essential features like full-text search or unlimited nested folders behind paywalls. There is a need for a unified, open-web solution that runs instantly on any browser while offering the performance of a native application.
+Existing solutions for bookmark management are often fragmented; users must choose between native apps that don't sync well with the web, or browser extensions that don't work on mobile. 
+
+Furthermore, many modern tools (like Pocket or Raindrop) lock essential features like full-text search or unlimited nested folders behind paywalls. There is a need for a unified, open-web solution that runs instantly on any browser while offering the performance of a native application.
 
 = Related Work
 
@@ -145,7 +148,7 @@ The job market for full-stack web developers in Bangladesh is growing rapidly, w
 
 - *Careerjet Bangladesh* analysis reveals that bookmark management and RSS aggregation tools are in demand among knowledge workers and developers, suggesting a viable market niche for this project. @careerjet_bd_2026
 
-The demand for full-stack developers with Next.js expertise is expected to increase by 25-30% annually, making Linkerine a timely project that demonstrates cutting-edge skill proficiency.
+The demand for full-stack developers with Next.js expertise is not just growing—it is becoming the standard for modern web development in Bangladesh, making Linkerine a timely project that demonstrates cutting-edge skill proficiency.
 
 
 = Methodology
@@ -180,6 +183,13 @@ The design of Linkerine will adhere to the following principles:
 
 = Visual Models
 
+== ERD (Entity Relationship Diagram)
+
+#figure(
+  image("diagrams/plantUML.svg", width: 100%, height: auto, alt: "Entity Relationship Diagram"),
+  caption: "Entity Relationship Diagram of Linkerine",
+) <ERD>
+
 == System Architecture Diagram
 
 // Replacing the old DFD with a context relevant block diagram description or placeholder
@@ -189,13 +199,6 @@ The design of Linkerine will adhere to the following principles:
 ) <Arch>
 
 Here @Arch illustrates the architecture where the Next.js Client communicates with Server Actions, which then interact with the PostgreSQL database via Drizzle ORM. RSS feeds are fetched via a proxy route to handle CORS.
-
-== ERD (Entity Relationship Diagram)
-
-#figure(
-  image("diagrams/plantUML.svg", width: 100%, height: auto, alt: "Entity Relationship Diagram"),
-  caption: "Entity Relationship Diagram of Linkerine",
-) <ERD>
 
 == Timeline (Gantt Chart)
 
@@ -220,7 +223,7 @@ The timeline is divided into 12 weeks, focusing on the Next.js development lifec
 = UI Mockups
 
 #figure(
-  image("UI/1.png", height: 47%, alt: "UI Mockups"),
+  image("UI/1.png", height: 62%, alt: "UI Mockups"),
   caption: "Landing Page & Dashboard",
 ) <UI1>
 
@@ -252,6 +255,8 @@ The timeline is divided into 12 weeks, focusing on the Next.js development lifec
 
 = Result
 The expected outcome is a highly performant, server-rendered web application deployed on Vercel, providing a superior user experience for managing digital content across all device types.
+
+#pagebreak()
 
 #bibliography(title: "References", "refs.bib")  
 
