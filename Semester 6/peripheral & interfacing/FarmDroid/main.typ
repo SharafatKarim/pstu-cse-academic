@@ -272,7 +272,6 @@ These components are optional additions for specific features like environmental
 
 = Work Plan (Timeline)
 
-The development is divided into phases to ensure the complex mechanical and software systems work together.
 
 #figure(
   table(
@@ -290,13 +289,12 @@ The development is divided into phases to ensure the complex mechanical and soft
 
 = Visual Models
 
-== Block Diagram
+== Circuit Diagram
 
-// You would insert your block diagram image here
-// #image("diagrams/block_diagram.png", width: 80%)
-// Since we don't have the image file yet, describing the flow:
-
-Blank
+#figure(
+image("ui/circuit_image.png", width: 100%),
+caption: "Circuit Diagram of Farm Droid System",
+)
 
 == Data Flow Diagram
 
