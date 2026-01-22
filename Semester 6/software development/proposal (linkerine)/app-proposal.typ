@@ -271,7 +271,7 @@ The base timeline for the development of Linkerine is as follows,
 = Result
 The expected outcome of Linkerine is a fully functional, cross-platform application that allows users to manage their digital resources efficiently.
 
-#bibliography(title: "References", "refs.bib")
+#bibliography(title: "References", "refs.bib")  
 
 #align(center + bottom)[
   *THE END*
