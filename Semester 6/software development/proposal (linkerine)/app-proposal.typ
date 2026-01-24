@@ -113,7 +113,7 @@ Linkerine is a modern, web-based bookmark and RSS management platform designed t
 
 = Problem Statement
 
-Existing solutions for bookmark management are often fragmented; users must choose between native apps that don't sync well with the web, or browser extensions that don't work on mobile. 
+Existing solutions for bookmark management are often fragmented; users must choose between native apps that don't sync well with the web, or browser extensions that don't work on mobile.
 
 Furthermore, many modern tools (like Pocket or Raindrop) lock essential features like full-text search or unlimited nested folders behind paywalls. There is a need for a unified, open-web solution that runs instantly on any browser while offering the performance of a native application.
 
@@ -140,25 +140,46 @@ Later on, the project can be extended to include browser extensions that share t
 
 The job market for full-stack web developers in Bangladesh is growing rapidly, with significant demand for Next.js and modern JavaScript expertise. According to major job portals:
 
-- *BD Jobs*
-  - https://bdjobs.com/jobs/details/1449039?ln=1
-  - https://bdjobs.com/jobs/details/1449038?ln=1
-  - https://bdjobs.com/jobs/details/1452423?ln=1
+#figure(
+  align(left)[
+    #table(
+      columns: (40%, 60%),
+      [*Job Portal*], [*Position / Link*],
+      [BD Jobs],
+      [
+        - Front-end Developer
+        - Full-stack Developer
+        - Senior Developer
+      ],
 
-- *BD Tech Jobs* @bdtechjobs_2026 and *TechnTalents* @techntalents_2026
+      [BD Tech Jobs @bdtechjobs_2026 & TechnTalents @techntalents_2026],
+      [
+        - Front-end Developer (WordPress)
+        - Senior Full-stack JavaScript Developer
+        - Sr. Frontend Developer
+      ],
 
-  - https://riseuplabs.com/jobs/front-end-developer-word-press/ 
-  - https://career.cefalo.com/job/senior-fullstack-javascript-developer-34
-  - https://www.bdtask.com/career/sr-frontend-developer.php
+      [eJobs Bangladesh @ejobs_bd_2026 & JobMatchingBD @jobmatchingbd_2026],
+      [
+        - Senior Full-stack Developer (San Francisco)
+        - Engineering Jobs
+      ],
 
-- *eJobs Bangladesh* @ejobs_bd_2026 and *JobMatchingBD* @jobmatchingbd_2026 
+      [Arc.dev @arc_dev_bd_2026 & Wellfound @wellfound_bd_2026],
+      [
+        - Senior React and Next.js Web Developer
+        - Senior Full-stack Developer
+      ],
 
-  - https://www.ejobs.com.bd/jobs/san-francisco-ca-senior-full-stack-developer 
-  - https://jobmatchingbd.com/job/engineering-jobs-14/
-
-- *Arc.dev* @arc_dev_bd_2026 and *Wellfound* @wellfound_bd_2026 
-
-- *Careerjet Bangladesh* analysis reveals that bookmark management and RSS aggregation tools are in demand among knowledge workers and developers, suggesting a viable market niche for this project. @careerjet_bd_2026
+      [Careerjet Bangladesh @careerjet_bd_2026],
+      [
+        - Full-stack Development Positions
+        - Multiple openings
+      ],
+    )
+  ],
+  caption: "Job Market Opportunities for Next.js & Full-stack Developers in Bangladesh",
+)
 
 The demand for full-stack developers with Next.js expertise is not just growing—it is becoming the standard for modern web development in Bangladesh, making Linkerine a timely project that demonstrates cutting-edge skill proficiency.
 
@@ -270,7 +291,7 @@ The expected outcome is a highly performant, server-rendered web application dep
 
 #pagebreak()
 
-#bibliography(title: "References", "refs.bib")  
+#bibliography(title: "References", "refs.bib")
 
 #align(center + bottom)[
   *THE END*
