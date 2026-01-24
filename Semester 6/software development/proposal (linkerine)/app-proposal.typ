@@ -140,11 +140,23 @@ Later on, the project can be extended to include browser extensions that share t
 
 The job market for full-stack web developers in Bangladesh is growing rapidly, with significant demand for Next.js and modern JavaScript expertise. According to major job portals:
 
-- *BD Tech Jobs* and *TechnTalents* consistently list 150-200+ open positions for full-stack developers, with a strong emphasis on Next.js, React, and TypeScript skills. @bdtechjobs_2026 @techntalents_2026
+- *BD Jobs*
+  - https://bdjobs.com/jobs/details/1449039?ln=1
+  - https://bdjobs.com/jobs/details/1449038?ln=1
+  - https://bdjobs.com/jobs/details/1452423?ln=1
 
-- *eJobs Bangladesh* and *JobMatchingBD* show that companies prioritize developers with experience in server-side rendering, database design, and PWA development—core features of Linkerine. @ejobs_bd_2026 @jobmatchingbd_2026
+- *BD Tech Jobs* @bdtechjobs_2026 and *TechnTalents* @techntalents_2026
 
-- Remote opportunities through *Arc.dev* and *Wellfound* indicate that specialized tools like Linkerine could attract both local and international users seeking productivity solutions tailored to the Asian market. @arc_dev_bd_2026 @wellfound_bd_2026
+  - https://riseuplabs.com/jobs/front-end-developer-word-press/ 
+  - https://career.cefalo.com/job/senior-fullstack-javascript-developer-34
+  - https://www.bdtask.com/career/sr-frontend-developer.php
+
+- *eJobs Bangladesh* @ejobs_bd_2026 and *JobMatchingBD* @jobmatchingbd_2026 
+
+  - https://www.ejobs.com.bd/jobs/san-francisco-ca-senior-full-stack-developer 
+  - https://jobmatchingbd.com/job/engineering-jobs-14/
+
+- *Arc.dev* @arc_dev_bd_2026 and *Wellfound* @wellfound_bd_2026 
 
 - *Careerjet Bangladesh* analysis reveals that bookmark management and RSS aggregation tools are in demand among knowledge workers and developers, suggesting a viable market niche for this project. @careerjet_bd_2026
 
