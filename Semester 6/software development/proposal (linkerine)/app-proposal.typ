@@ -143,38 +143,38 @@ The job market for full-stack web developers in Bangladesh is growing rapidly, w
 #figure(
   align(left)[
     #table(
-      columns: (40%, 60%),
+      columns: (20%, 80%),
       [*Job Portal*], [*Position / Link*],
       [BD Jobs],
       [
-        - Front-end Developer
-        - Full-stack Developer
-        - Senior Developer
+        - https://bdjobs.com/jobs/details/1449039?ln=1
+        - https://bdjobs.com/jobs/details/1449038?ln=1
+        // - https://bdjobs.com/jobs/details/1452423?ln=1
       ],
 
       [BD Tech Jobs @bdtechjobs_2026 & TechnTalents @techntalents_2026],
       [
-        - Front-end Developer (WordPress)
-        - Senior Full-stack JavaScript Developer
-        - Sr. Frontend Developer
+        - https://authlab.io/wpjb-jobs/senior-software-engineer/
+        - https://riseuplabs.com/jobs/full-stack-developer-python-django/
       ],
 
       [eJobs Bangladesh @ejobs_bd_2026 & JobMatchingBD @jobmatchingbd_2026],
       [
-        - Senior Full-stack Developer (San Francisco)
-        - Engineering Jobs
+        - https://www.ejobs.com.bd/jobs/san-francisco-ca-senior-full-stack-developer
+        - https://jobmatchingbd.com/job/engineering-jobs-14/
+        - https://jobmatchingbd.com/job/it-jobs-in-bangladesh-second-source/
       ],
 
       [Arc.dev @arc_dev_bd_2026 & Wellfound @wellfound_bd_2026],
       [
-        - Senior React and Next.js Web Developer
-        - Senior Full-stack Developer
+        - https://wellfound.com/jobs/2993781-senior-react-and-nextjs-web-developer
+        - https://wellfound.com/jobs/2927551-senior-full-stack-developer
       ],
 
       [Careerjet Bangladesh @careerjet_bd_2026],
       [
-        - Full-stack Development Positions
-        - Multiple openings
+        // - https://www.careerjet.com.bd/jobad/bdbe02ffc4686d4de58c19bc2c53c6f999
+        - https://www.careerjet.com.bd/jobad/bda7f026ae3ccb8bd6ab7d9027f8d5c26f
       ],
     )
   ],
@@ -211,7 +211,7 @@ The design of Linkerine will adhere to the following principles:
 - *Mobile-First Responsive Design*: Ensuring the layout adapts perfectly from mobile screens to large desktop monitors using Tailwind CSS.
 - *Server-Side Rendering (SSR)*: Utilizing Next.js to render pages on the server for speed and SEO, ensuring content is visible instantly.
 - *Edge Computing*: Running middleware at the edge for low-latency authentication and redirect handling.
-- *Type Safety*: Using TypeScript and Zod to ensure robust data validation from the database to the UI.
+// - *Type Safety*: Using TypeScript and Zod to ensure robust data validation from the database to the UI.
 - *Accessibility*: Adhering to WCAG guidelines using the accessible primitives from Shadcn/ui (Radix UI).
 
 = Visual Models
