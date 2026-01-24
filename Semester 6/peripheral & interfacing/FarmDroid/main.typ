@@ -167,8 +167,9 @@ The following is a detailed breakdown of the estimated costs for the hardware co
     [#link("https://www.electronics.com.bd/microcontroller/esp-32-38pin-development-board-wifibluetooth-2-in-1-dual-core-cpu")[ESP-32 Development Board]], [550], [2], [1,100],
 
     // --- Actuators & Drivers ---
-    table.cell(rowspan: 4, align: left)[*Motors & Drivers*],
+    table.cell(rowspan: 5, align: left)[*Motors & Drivers*],
     [#link("https://store.roboticsbd.com/motor/295-servo-motor-mg995-360-degree-continuous-rotation-robotics-bangladesh.html")[Servo Motor MG995 (360 Deg)]], [770], [8], [6,160],
+    [#link("https://store.roboticsbd.com/motor/2674-dsservo-ds3218-20kg-digital-metal-servo-with-metal-servo-horn-270-degree-robotics-bangladesh.html")[DSServo DS3218 20KG Digital Metal Servo with Horn 270 Degree]], [2350], [2], [4700],
     [#link("https://techshopbd.com/product/servo-motor-mg996r")[Servo Motor MG996R]], [390], [2], [780],
     [#link("https://store.roboticsbd.com/motor/20-servo-motor-micro-sg90-180-degree-rotation-robotics-bangladesh.html")[Servo Motor SG90 (Micro)]], [150], [4], [600],
     [#link("https://store.roboticsbd.com/motor-driver/289-16-channel-12-bit-pwm-servo-driver-i2c-interface-pca9685-robotics-bangladesh.html?srsltid=AfmBOorPKkNFii1Qrxt5EVeZw2TdpwbLccDwtqHQKbET3krIo86tbSJI4472894")[PCA9685 16-Ch Servo Driver]], [447], [2], [894],
@@ -188,8 +189,7 @@ The following is a detailed breakdown of the estimated costs for the hardware co
     [#link("https://www.electronics.com.bd/modules-shields/blue-ov7670-300kp-vga-camera-module-for-arduino-diy-kit")[OV7670 Camera Module]], [350], [1], [350],
 
     // --- Power & Audio ---
-    table.cell(rowspan: 4, align: left)[*Power & Audio*],
-    [#link("https://techshopbd.com/product/transformer-12v-3a")[Transformer 12V 3A]], [390], [1], [390],
+    table.cell(rowspan: 3, align: left)[*Power & Audio*],
     [#link("https://store.roboticsbd.com/robotics-parts/549-breadboard-power-supply-module-33v-5v-robotics-bangladesh.html?srsltid=AfmBOoq84N24jDlTe6bSHCj2QQAccMhyLJZ1oYlA0EuL-ziFMAjPetIe76176")[Breadboard Power Supply]], [76], [1], [76],
     [#link("https://store.roboticsbd.com/sound-sensor-robotics-bangladesh/2470-3-watt-8-ohm-mini-speaker-for-electronics-project-with-jst-ph20-interface-robotics-bangladesh.html")[3 Watt 8 Ohm Mini Speaker]], [250], [1], [250],
     [#link("https://techshopbd.com/product/electret-microphone")[Electret Microphone]], [15], [2], [30],
@@ -215,14 +215,14 @@ The following is a detailed breakdown of the estimated costs for the hardware co
 
     // --- Total ---
     table.cell(colspan: 4, align: right, fill: luma(240))[*Grand Total Estimated Cost*],
-    table.cell(fill: luma(240))[*33,028 BDT*],
+    table.cell(fill: luma(240))[*39138 BDT*],
   ),
   caption: "Detailed Budget Estimation",
 )
 
 == Optional Components & Modules
 
-These components are optional additions for specific features like environmental monitoring (Smart Farming) or alternative locomotion (Wheeled mode).
+These components are optional additions for specific features like locomotion and monitoring.
 
 #figure(
   table(
@@ -264,9 +264,9 @@ These components are optional additions for specific features like environmental
     fill: (col, row) => if row == 2 { luma(220) } else { white },
     align: (right, right),
     
-    [Mandatory Components Cost], [34,828 BDT],
+    [Mandatory Components Cost], [39,138 BDT],
     [Optional Components Cost], [3,613 BDT],
-    [*Grand Total Project Cost*], [*38,441 BDT*],
+    [*Grand Total Project Cost*], [*42,751 BDT*],
   )
 )
 
