@@ -143,20 +143,22 @@ The job market for full-stack web developers in Bangladesh is growing rapidly, w
 #figure(
   align(left)[
     #table(
-      columns: (20%, 80%),
-      [*Job Portal*], [*Position / Link*],
+      columns: (20%, 50%, 30%),
+      [*Job Portal*], [*Link*], [*Stack*],
       [BD Jobs],
       [
         - https://bdjobs.com/jobs/details/1449039?ln=1
         - https://bdjobs.com/jobs/details/1449038?ln=1
         // - https://bdjobs.com/jobs/details/1452423?ln=1
       ],
+      [React, NodeJS, mongoDB, mongoose, JavaScript, Github, Git],
 
-      [BD Tech Jobs @bdtechjobs_2026 & TechnTalents @techntalents_2026],
-      [
-        - https://authlab.io/wpjb-jobs/senior-software-engineer/
-        - https://riseuplabs.com/jobs/full-stack-developer-python-django/
-      ],
+      // [BD Tech Jobs @bdtechjobs_2026 & TechnTalents @techntalents_2026],
+      // [
+      //   - https://authlab.io/wpjb-jobs/senior-software-engineer/
+      //   - https://riseuplabs.com/jobs/full-stack-developer-python-django/
+      // ],
+      // [],
 
       [eJobs Bangladesh @ejobs_bd_2026 & JobMatchingBD @jobmatchingbd_2026],
       [
@@ -164,24 +166,27 @@ The job market for full-stack web developers in Bangladesh is growing rapidly, w
         - https://jobmatchingbd.com/job/engineering-jobs-14/
         - https://jobmatchingbd.com/job/it-jobs-in-bangladesh-second-source/
       ],
+      [Node.js, React/ Vue, PostgreSQL or, MongoDB],
 
       [Arc.dev @arc_dev_bd_2026 & Wellfound @wellfound_bd_2026],
       [
         - https://wellfound.com/jobs/2993781-senior-react-and-nextjs-web-developer
         - https://wellfound.com/jobs/2927551-senior-full-stack-developer
       ],
+      [React, npm, TypeScript, Next.js, and Git],
 
       [Careerjet Bangladesh @careerjet_bd_2026],
       [
-        // - https://www.careerjet.com.bd/jobad/bdbe02ffc4686d4de58c19bc2c53c6f999
+        - https://www.careerjet.com.bd/jobad/bdbe02ffc4686d4de58c19bc2c53c6f999
         - https://www.careerjet.com.bd/jobad/bda7f026ae3ccb8bd6ab7d9027f8d5c26f
       ],
+      [React, NodeJS, mongoDB, mongoose, JavaScript, Github, Git, Tailwind CSS],
     )
   ],
   caption: "Job Market Opportunities for Next.js & Full-stack Developers in Bangladesh",
 )
 
-The demand for full-stack developers with Next.js expertise is not just growing—it is becoming the standard for modern web development in Bangladesh, making Linkerine a timely project that demonstrates cutting-edge skill proficiency.
+// The demand for full-stack developers with Next.js expertise is not just growing—it is becoming the standard for modern web development in Bangladesh, making Linkerine a timely project that demonstrates cutting-edge skill proficiency.
 
 
 = Methodology
