@@ -23,7 +23,7 @@ int main() {
         if(strcmp(cmd, "exit") == 0) break;
 
         if(fork() == 0) {
-            execlp(cmd, cmd, NULL);
+            execlp(cmd, "", NULL);
             perror("exec failed");
             exit(1);
         } else {
