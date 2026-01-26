@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,6 +8,7 @@
 
 void sigint_handler(int sig) {
     printf("\nMini-Shell: Ctrl+C pressed! Exitting...\n");
+    exit(0);
 }
 
 int main() {

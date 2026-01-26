@@ -1,6 +1,6 @@
 #include <unistd.h>
 
 int main() {
-    execlp("ls", "", "-l", NULL);
+    execlp("ls", "", "-la", NULL);
     return 0;
 }
