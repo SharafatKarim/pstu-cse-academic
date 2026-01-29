@@ -60,7 +60,7 @@
       *Md. Sharafat Karim* \
       *ID* : 2102024, \
       *Reg* : 10151, \
-      *Semester* : 5 \ (Level-3, Semester-1)
+      *Semester* : 5 \ (Level-3, Semester-2)
     ],
     [
       #text(size: 14pt)[
