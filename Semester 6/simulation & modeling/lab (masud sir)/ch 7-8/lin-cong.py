@@ -4,12 +4,7 @@ import random
 import matplotlib.pyplot as plt
 
 
-def linear_congruential_generator(
-    seed,
-    a,
-    c,
-    m,
-):
+def linear_congruential_generator(seed, a, c, m, num_values):
     """
     Lab 08: Generates pseudo-random numbers uniformly distributed between 0 and 1.
     """
@@ -64,7 +59,7 @@ if __name__ == "__main__":
 
     # Plot 1: Lab 08 Output (Uniform Distribution)
     plt.subplot(1, 2, 1)
-    plt.hist(uniform_vals, bins=50, color="skyblue", edgecolor="black", density=True)
+    plt.hist(uniform_vals, color="skyblue", edgecolor="black", density=True)
     plt.title("Lab 08: LCG Uniform Distribution $U(0,1)$")
     plt.xlabel("Generated Value")
     plt.ylabel("Frequency")
