@@ -26,8 +26,8 @@ for lam in lambdas:
     probabilities = [calculate_poisson_pmf(k, lam) for k in k_range]
 
     # Plotting the PMF
-    plt.plot(k_range, probabilities, marker='o', label=f'λ = {lam} calls/hr')
-    plt.fill_between(k_range, probabilities, alpha=0.1)
+    plt.hist(probabilities, label=f'λ = {lam} calls/hr')
+    # plt.fill_between(k_range, probabilities, alpha=0.1)
 
 # Formatting the graph
 plt.title('Poisson Distribution PMF: Manual Simulation', fontsize=14)
