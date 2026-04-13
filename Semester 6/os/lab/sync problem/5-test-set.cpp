@@ -2,11 +2,18 @@
 using namespace std;
 
 int balance = 0;
-bool locker = false;
+// bool locker = false;
+atomic<bool> locker{false};
+
+bool test_and_set() {
+    // bool temp = locker;
+    // locker = true;
+    // return temp;
+    return locker.exchange(true);
+}
 
 void acquire_locker() {
-    while(locker);
-    locker = true;
+    while(test_and_set());
 }
 
 void release_locker() {
@@ -27,7 +34,7 @@ void func() {
 int main() {
     thread t1(func);
     thread t2(func);
-
+    
     t1.join();  
     t2.join();  
     cout << "Final bal. -> " << balance << endl;
