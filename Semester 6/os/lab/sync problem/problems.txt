@@ -1,0 +1,57 @@
+1. A university system generates student IDs using a shared variable next_id.
+When multiple admission requests are processed simultaneously, some students receive duplicate IDs. No synchronization mechanism is currently used. Implement a C++ program demonstrating this issue
+
+2. Two processes update a shared database record.
+The system designer wants a software-only solution (no hardware support) that ensures:
+    • Mutual exclusion 
+    • Fair turn-taking 
+Implement the solution in C++
+
+3. A file system allows multiple threads to write logs.
+To prevent corruption:
+    • Only one thread should write at a time 
+    • Others should wait efficiently (no busy spinning) 
+Implement using C++
+
+4. A bank has implemented an ATM system where multiple users can access their accounts simultaneously. Each transaction updates a shared variable called balance.
+Recently, the bank noticed that sometimes the balance becomes incorrect when multiple users withdraw or deposit money at the same time.
+The system designer decides to use a low-level hardware-supported locking mechanism where:
+    • A lock variable is checked and set in one atomic step 
+    • Threads repeatedly check the lock until it becomes free 
+Tasks
+    1. Identify the synchronization technique used 
+    2. Write a C++ program to solve this problem
+
+5. A multi-core system maintains a global counter that is updated by multiple threads. The system must ensure:
+    • The counter is updated only if its current value has not been changed by another thread 
+    • The update must be atomic 
+The system uses a hardware instruction that:
+    • Compares a variable with an expected value 
+    • Updates it only if they match 
+Tasks
+    1. Identify the synchronization method 
+    2. Implement the solution in C++
+
+6. A computer lab has a single printer shared among many students.
+Rules:
+    • Only one student can use the printer at a time 
+    • If the printer is busy, others must wait 
+    • Waiting students should not waste CPU (no busy waiting) 
+The system designer creates a high-level structure where:
+    • Shared variables are hidden 
+    • Only predefined functions can access the resource 
+    • Waiting is handled automatically 
+Tasks
+    1. Identify the synchronization method 
+    2. Write a C++ solution
+
+7. A factory has:
+    • Producers adding items 
+    • Consumers removing items 
+Rules:
+    • Buffer size is limited 
+    • Producers must wait if full 
+    • Consumers must wait if empty 
+Tasks
+    1. Identify synchronization tool 
+    2. Implement in C++
