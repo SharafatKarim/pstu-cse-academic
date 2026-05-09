@@ -35,27 +35,27 @@
 
 **Short Questions**
 
-- What are the three main purposes of an operating system? **(Book's Exercise 1.1)** ★★★ **[17-18 FINAL] [18-19 MID] [18-19 FINAL] [20-21 FINAL]**
-- We have stressed the need for an operating system to make efficient use of the computing hardware. When is it appropriate for the operating system to forsake this principle and to "waste" resources? Why is such a system not really wasteful? **(Book's Exercise 1.2)** ★★★ **[17-18 FINAL] [18-19 MID] [18-19 FINAL]**
-- "An operating system is similar to a government." - Justify. ★★ **[12-13 FINAL] [13-14 FINAL]**
-- Illustrate the transition from user mode to kernel mode. How does the distinction between kernel mode and user mode function as a rudimentary form of protection (security)? **(Book's Exercise 1.5)** ★★ **[18-19 FINAL] [20-21 FINAL]**
-- Describe the general organization of a computer system and the role of interrupts. ★ **[20-21 FINAL]**
-- Describe the components in a modern multiprocessor computer system. ★ **[20-21 FINAL]**
-- What do you mean by dual-mode operation of an operating system? ★ **[12-13 FINAL]**
-- Does timesharing differ from multiprogramming? If so, how? ★ **[13-14 FINAL]**
+- What are the three main purposes of an operating system? **(Book's Exercise 1.1)** ★★★
+- We have stressed the need for an operating system to make efficient use of the computing hardware. When is it appropriate for the operating system to forsake this principle and to "waste" resources? Why is such a system not really wasteful? **(Book's Exercise 1.2)** ★★★
+- "An operating system is similar to a government." - Justify. ★★
+- Illustrate the transition from user mode to kernel mode. How does the distinction between kernel mode and user mode function as a rudimentary form of protection (security)? **(Book's Exercise 1.5)** ★★
+- Describe the general organization of a computer system and the role of interrupts. ★
+- Describe the components in a modern multiprocessor computer system. ★
+- What do you mean by dual-mode operation of an operating system? ★
+- Does timesharing differ from multiprogramming? If so, how? ★
 
 **Descriptive Questions**
 
-- Identify several advantages and several disadvantages of open-source operating systems. Identify the types of people who would find each aspect to be an advantage or a disadvantage. **(Book's Exercise 1.27)** ★★ **[18-19 MID] [20-21 FINAL]**
-- Distinguish between the client-server and peer-to-peer models of distributed systems. Describe some distributed applications that would be appropriate for a peer-to-peer system. **(Book's Exercise 1.11, 1.26)** ★★ **[17-18 MID] [17-18 FINAL]**
-- Define operating system. Identify services provided by an operating system. ★★ **[12-13 FINAL] [19-20 FINAL]**
-- Some early computers protected the operating system by placing it in a memory partition that could not be modified by either the user job or the operating system itself. Describe two difficulties that you think could arise with such a scheme. **(Book's Exercise 1.7)** ★ **[17-18 FINAL]**
-- How do clustered systems differ from multiprocessor systems? What is required for two machines belonging to a cluster to cooperate to provide a highly available service? **(Book's Exercise 1.12)** ★ **[17-18 MID]**
-- Describe some of the challenges of designing operating systems for mobile devices compared with designing operating systems for traditional PCs. **(Book's Exercise 1.24)** ★ **[18-19 MID]**
-- Differentiate between multiprogramming and multiprocessing with appropriate examples. ★ **[13-14 FINAL]**
-- How does an OS work as a resource allocator? ★ **[11-12 FINAL]**
-- Why is Direct Memory Access (DMA) used? ★ **[11-12 FINAL]**
-- What are the advantages of multiprocessors systems? ★ **[11-12 FINAL]**
+- Identify several advantages and several disadvantages of open-source operating systems. Identify the types of people who would find each aspect to be an advantage or a disadvantage. **(Book's Exercise 1.27)** ★★
+- Distinguish between the client-server and peer-to-peer models of distributed systems. Describe some distributed applications that would be appropriate for a peer-to-peer system. **(Book's Exercise 1.11, 1.26)** ★★
+- Define operating system. Identify services provided by an operating system. ★★
+- Some early computers protected the operating system by placing it in a memory partition that could not be modified by either the user job or the operating system itself. Describe two difficulties that you think could arise with such a scheme. **(Book's Exercise 1.7)** ★
+- How do clustered systems differ from multiprocessor systems? What is required for two machines belonging to a cluster to cooperate to provide a highly available service? **(Book's Exercise 1.12)** ★
+- Describe some of the challenges of designing operating systems for mobile devices compared with designing operating systems for traditional PCs. **(Book's Exercise 1.24)** ★
+- Differentiate between multiprogramming and multiprocessing with appropriate examples. ★
+- How does an OS work as a resource allocator? ★
+- Why is Direct Memory Access (DMA) used? ★
+- What are the advantages of multiprocessors systems? ★
 
 <!-- TOC --><a name="chapter-2-operating-system-structures"></a>
 
