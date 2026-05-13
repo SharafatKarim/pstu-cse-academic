@@ -94,7 +94,7 @@ Target bombers moving path:
 | xb(t) | 188 | 198 | 209 | 219 | 226 | 234 | 240 |
 | yb(t) | 34 | 30 | 27 | 23 | 19 | 16 | 14 |
 
-The fighter aircraft following the enemy bombers with speed at 25KM/min to destroy it. The fighter aircraft is at position xf, yf (0, 60) when it sights the bomber that is at time t=0, the time at which the pursuit begins. The fighter corrects its direction after a fixed interval of one minute, so as to point towards a bomber and shoots the bomber by firing a missile as soon as it is within a distance of 12 KM. The pursuit ends. In case the bomber is not shot within 15 minutes of the pursuit, the pursuit is abandoned. Simulate the problem to determine the pursuit is end/abandoned. *[16-17 Final]* 
+The fighter aircraft following the enemy bombers with speed at 25KM/min to destroy it. The fighter aircraft is at position xf, yf (0, 60) when it sights the bomber that is at time t=0, the time at which the pursuit begins. The fighter corrects its direction after a fixed interval of one minute, so as to point towards a bomber and shoots the bomber by firing a missile as soon as it is within a distance of 12 KM. The pursuit ends. In case the bomber is not shot within 15 minutes of the pursuit, the pursuit is abandoned. Simulate the problem to determine the pursuit is end/abandoned. *[16-17 Final]*
 
 * In a pure pursuit, there is a target bombers which moves along a predetermine path (given on table below) and there is a pursuer aircraft who follows the target bombers, redirecting itself towards the target bombers at fixed intervals of time.
 Target bombers moving path:
@@ -121,7 +121,7 @@ The fighter aircraft following the enemy bombers with speed at 30KM/min to destr
 
 * Write down the qualities of an efficient random number generator. *[20-21 Final]* *[18-19 Final]*
 
-* Define random variables. What are the purposes of testing the uniformity and independence of random values? (02) *[18-19 Final]*
+* Define random variables. What are the purposes of testing the uniformity and independence of random values? (02) *[18-19 Final]* *[19-20 Final]*
 
 * What are the differences between true and pseudo random numbers? Describe the procedure to physically generate random number at the interval with two-digit accuracy. (02) *[20-21 Final]*
 
@@ -132,6 +132,34 @@ The fighter aircraft following the enemy bombers with speed at 30KM/min to destr
 * The following sequence of random numbers have been generated 0.037, 0.55, 0.71, 0.97, 0.65, 0.29, 0.84, 0.78, 0.23, 0.17; Use Kolmogorov-Smirnov test with $\alpha= 0.05$ to determine, If these numbers are uniformly distributed over the interval 0 to 1. Note that for $\alpha= 0.05$ and N=10 the critical value is 0.410. (5) *[17-18 Final]* *[Jul-Dec-18 Final]*
 
 * Generate two digit 40 random numbers between 0 to 50 by a multiplicative congruential method. Apply Chi-Squared test to verify the randomness. Where, the accepted value of Chi-square for four degree of freedom at 95% confidence level is 9.448. (6)  *[Jul-Dec-18 Final]*
+
+* Perform the Kolmogorov-Smirnov test to testify the uniformity of following random numbers at 95% level of significance. 0.37, 0.1, 0.5, 0.88, 0.37, 0.29, 0.84, 0.78, 0.08, 0.46 at $\alpha = 0.01$ and $N= 10$, critical values is 0.368; At $\alpha = 0.05$ and $N= 10$, critical values is 0.410. (05)
+
+Table: Chi-square Distribution
+
+| d.f. | .995 | .99 | .975 | .95 | .9 | .1 | .05 | .025 | .01 |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | 0.00 | 0.00 | 0.00 | 0.00 | 0.02 | 2.71 | 3.84 | 5.02 | 6.63 |
+| 2 | 0.01 | 0.02 | 0.05 | 0.10 | 0.21 | 4.61 | 5.99 | 7.38 | 9.21 |
+| 3 | 0.07 | 0.11 | 0.22 | 0.35 | 0.58 | 6.25 | 7.81 | 9.35 | 11.34 |
+| 4 | 0.21 | 0.30 | 0.48 | 0.71 | 1.06 | 7.78 | 9.49 | 11.14 | 13.28 |
+| 5 | 0.41 | 0.55 | 0.83 | 1.15 | 1.61 | 9.24 | 11.07 | 12.83 | 15.09 |
+| 6 | 0.68 | 0.87 | 1.24 | 1.64 | 2.20 | 10.64 | 12.59 | 14.45 | 16.81 |
+| 7 | 0.99 | 1.24 | 1.69 | 2.17 | 2.83 | 12.02 | 14.07 | 16.01 | 18.48 |
+| 8 | 1.34 | 1.65 | 2.18 | 2.73 | 3.49 | 13.36 | 15.51 | 17.53 | 20.09 |
+| 9 | 1.73 | 2.09 | 2.70 | 3.33 | 4.17 | 14.68 | 16.92 | 19.02 | 21.67 |
+| 10 | 2.16 | 2.56 | 3.25 | 3.94 | 4.87 | 15.99 | 18.31 | 20.48 | 23.21 |
+| 11 | 2.60 | 3.05 | 3.82 | 4.57 | 5.58 | 17.28 | 19.68 | 21.92 | 24.72 |
+| 12 | 3.07 | 3.57 | 4.40 | 5.23 | 6.30 | 18.55 | 21.03 | 23.34 | 26.22 |
+| 13 | 3.57 | 4.11 | 5.01 | 5.89 | 7.04 | 19.81 | 22.36 | 24.74 | 27.69 |
+| 14 | 4.07 | 4.66 | 5.63 | 6.57 | 7.79 | 21.06 | 23.68 | 26.12 | 29.14 |
+| 15 | 4.60 | 5.23 | 6.26 | 7.26 | 8.55 | 22.31 | 25.00 | 27.49 | 30.58 |
+| 16 | 5.14 | 5.81 | 6.91 | 7.96 | 9.31 | 23.54 | 26.30 | 28.85 | 32.00 |
+| 17 | 5.70 | 6.41 | 7.56 | 8.67 | 10.09 | 24.77 | 27.59 | 30.19 | 33.41 |
+| 18 | 6.26 | 7.01 | 8.23 | 9.39 | 10.86 | 25.99 | 28.87 | 31.53 | 34.81 |
+| 19 | 6.84 | 7.63 | 8.91 | 10.12 | 11.65 | 27.20 | 30.14 | 32.85 | 36.19 |
+| 20 | 7.43 | 8.26 | 9.59 | 10.85 | 12.44 | 28.41 | 31.41 | 34.17 | 37.57 |
+ *[19-20 Final]*
 
 * A sequence of 100 random numbers is given below. Use Chi-Square test with $\alpha = 0.05$ to test these numbers are uniformly distributed. (12)
 
@@ -150,7 +178,21 @@ The fighter aircraft following the enemy bombers with speed at 30KM/min to destr
 
 *[18-19 Final]* *[16-17 Final]*
 
-* Define autocorrelation. Test the autocorrelation of the given numbers (above question) by employing the chi-squared test with 99% confidence level. *[18-19 Final]*
+* Define autocorrelation. Test the autocorrelation of the given numbers (above question) by employing the chi-squared test with 99% confidence level.
+
+| 21 | 81 | 92 | 23 | 96 | 20 | 68 | 57 | 79 | 84 |
+|---|---|---|---|---|---|---|---|---|---|
+| 82 | 62 | 12 | 08 | 92 | 83 | 74 | 85 | 60 | 49 |
+| 48 | 37 | 65 | 74 | 22 | 11 | 28 | 10 | 55 | 82 |
+| 72 | 95 | 08 | 85 | 79 | 95 | 86 | 11 | 16 | 52 |
+| 70 | 55 | 50 | 87 | 67 | 51 | 72 | 38 | 29 | 62 |
+| 71 | 12 | 07 | 75 | 56 | 34 | 40 | 67 | 24 | 86 |
+| 18 | 82 | 41 | 29 | 63 | 06 | 84 | 01 | 20 | 06 |
+| 06 | 33 | 14 | 79 | 25 | 65 | 57 | 47 | 74 | 68 |
+| 54 | 35 | 81 | 07 | 88 | 96 | 70 | 85 | 29 | 13 |
+| 12 | 91 | 26 | 57 | 30 | 22 | 90 | 03 | 13 | 31 |
+
+N.B: You can use chi-squared table below as required.  *[18-19 Final]*  *[19-20 Final]*
 
 * A sequence of 10,000 five digit random numbers has been generated, and an analysis of numbers indicate that there 3075 numbers having five different digits, 4935 having a pair, 1135 having two pairs, 695 having three of a kind, 105 having full house, 54 having four of a kind and one having all five of a kind. Use Poker test to determine if these random numbers are independent at $\alpha = 0.01$. Note that for $\alpha= 0.01$ and N=06 the critical value is 16.8. (06) *[20-21 Final]* *[17-18 Final]* *[16-17 Final]*
 
@@ -160,11 +202,14 @@ The fighter aircraft following the enemy bombers with speed at 30KM/min to destr
 
 ### Chapter 1 Basic Simulation Modeling
 
+* Distinguish between analytical solution and simulation. (02) *[20-21 Mid]*
+* Explain the problem statement of simulation of a single server queuing system. (05) *[20-21 Mid]*
+
 * 1.1 The Nature of Simulation
 * 1.2 Systems, Models, and Simulation
 * 1.3 Discrete-Event Simulation
 * 1.3.1 Time-Advance Mechanisms
-* 1.3.2 Components and Organization of a Discrete-Event Simulation Model
+* 1.3.2 Components and Organization of Discrete-Event Simulation Model
 
 * 1.4 Simulation of a Single-Server Queueing System
 * 1.4.1 Problem Statement
@@ -333,3 +378,11 @@ The fighter aircraft following the enemy bombers with speed at 30KM/min to destr
 * 8A:8B:Validity of the Acceptance-Rejection
 * Method
 * Setup for the Alias Method
+
+## Masud SirBook 
+> Simulation Modeling and Analysis (Averill M. Law)
+
+### Chapter 1: Basic Simulation Modeling
+* Distinguish between analytical solution and simulation. (02) *[2020-21 Mid]*
+
+Explain the problem statement of simulation of a single server queuing system. (05) [2020-21 Mid]Define simulation with example. Demonstrate different ways in which a system might be studied. Explain the next-event time-advance approach illustrated for the single-server queueing system. (05) [2020-21 Final]Consider a single-server queuing system, there are several IID random variables interarrival times, service times, and customer delays. Describe the problem statement of the single-server queuing system. (05) [2020-21 Final]What is an inventory system? Formulate a simulation of an inventory system in which many of the elements are representative of those found in the actual inventory system. (04) [2020-21 Final]Define the following terminologies: i) System ii) Model iii) Simulation iv) Analytical solution. Demonstrate different ways in which a system might be studied. (03) [2019-20 Mid]What are the steps of simulation for a single-server queueing system? Describe the problem statement and intuitive explanation of a single-server queueing system. (05) [2019-20 Mid]Define the following terminologies: i) System ii) Model iii) Simulation iv) Analytical solution. Demonstrate different ways in which a system might be studied. (04) [2018-19 Final]What are the steps of simulation for a single-server queueing system? Describe the problem statement and intuitive explanation of a single-server queueing system. (10) [2018-19 Final]What is Monte Carlo Method? Write down the difference between monte-carlo and stochastic simulation. (02) [2018-19 Final]Define Monte-Carlo method. Solve the integrals $I = \int_{1}^{5} \frac{x^4}{3} dx$ by monte-carlo method. [USE Random Numbers...] (05) [2018-19 Final]Define the following terminologies: (i) Arrival rate (ii) Service rate (02) [2017-18 Final]In a pure pursuit, there is a target bombers which moves along a predetermine path... Simulate the problem to determine the pursuit is end/abandoned. (10) [2017-18 Final]What is the application of SIR model? Illustrate and state the general SIR schematic. Show and explain the maximum number of infected, $I_{max}$ and solution curves. (7) [2017-18 Final]Define the following terminologies: (i) Arrival rate (ii) Service rate (iii) Reneging. (06) [2016-17 Final]Explain and illustrate the cost of customer waiting time and the idle capacity. (03) [2016-17 Final]A factory has a large number of semiautomatic machines... Estimate the average length of queue, average waiting time, and the server loading... (03) [2016-17 Final]According to two servers in parallel queuing system, illustrate a mixture of components A and B pass through workstation I. (02) [2016-17 Final]Discuss about the component used in next event time-advance approach. (4) [2018 Final]Show the comparison between i) analytical solution and simulation ii) static simulation and dynamic simulation. (4) [2018 Final]For a single server queuing system, inter-arrival times of customer are... Show the snapshot of computer representation at time 0 and at each of the 6 succeeding event times. (6) [2018 Final]What are differences between next event time advance approach and fixed increment time advance approach? (3) [2018 Final]Define system with example. Distinguish analytical solution versus simulation. Demonstrate different ways in which a system might be studied. (05) [2019-20 Final]Explain the next-event time-advance approach illustrated for the single-server queueing system. (04) [2019-20 Final]List the steps of simulation for a single-server queueing system? Consider a single-server queuing system... Describe the problem statement... (05) [2019-20 Final]Chapter 4: Review of Basic Probability and StatisticsDefine random variable. How to compute variance, covariance, and correlation for simulation study? Why stochastic process is used to simulate the output data. Illustrate correlation function of the process of delays in queue D1, D2, .....for the M/M/1 queue. (05) [2020-21 Final]What is the necessity of statistical analysis with simulation output data? Describe and illustrate the transient and steady-state behaviors of a stochastic process. (03) [2020-21 Final]What is random variable? Compute variance and covariance based on a set of random variates. Why stochastic process is used to simulate the output data? Illustrate correlation function... (07) [2018-19 Final]Explain hypothesis testing including null and alternative hypothesis for mean. What is the difference type I error and type II error? Explain and illustrate the strong law of large number. (07) [2018-19 Final]What is a stochastic process? Write the probability mass function of Poisson distribution. List several applications of Poisson distribution. (7) [2017-18 Final]What is stochastic process? (02) [2016-17 Final]A pair of dice is rolled once. The sum of the two numbers on the dice represents the outcome for a random variable x. Determine the probability distribution of x. What is the probability that x is even? (04) [2016-17 Final]How to compute variance, covariance, and correlation for simulation study. Why stochastic process is used to simulate the output data. Illustrate correlation function... (05) [2019-20 Final]What is the necessity of statistical analysis on simulation output data? Describe and illustrate transient and steady-state behavior of a stochastic process. (04) [2019-20 Final]Chapter 5: Building Valid, Credible, and Appropriately Detailed ModelsDefine verification, validation, and credibility in simulation model. Illustrate the timing relationship of validation, verification, and establishing credibility. (05) [2020-21 Final]Describe the eight methods for debugging a simulation model's computer program. (04) [2020-21 Final]Describe the iterative process of verification and validation of simulation models. (02) [2017-18 Final]Define verification, validation, and credibility in simulation model. Mention the issues in an accreditation decision. Show the timing relationship of validation, verification, and establishing credibility. Derive the mathematical formulation... (06) [2019-20 Final]Explain the inspection approach of statistical procedure for comparing real-world observation and simulation output data. (03) [2019-20 Final]Chapter 6: Selecting Input Probability DistributionsWrite down the properties of the location, scale, and shape parameters of continuous distributions. State the relevant information (application, density function, parameters, and density curve) for the simulation modeling application of the normal continuous distribution. (05) [2020-21 Final]Write the properties of location, scale, and shape parameters of continuous distributions. [Part 1] (07) [2018-19 Final]How to address the COVID-19 scenario using Exponential distribution. Illustrate the Exponential curves on the following scenarios... (7) [2017-18 Final]Why is Gaussian distribution called bell curve? (02) [2016-17 Final]Give some applications of Poisson distribution. (02) [2016-17 Final]List some sources of randomness for common simulation applications. Write the properties of location, scale, and shape parameters of continuous distributions (04) [2019-20 Final]Chapter 7: Random-Number GeneratorsWhen the mid square random number generators produce unexpected result? Write down the qualities of an efficient random number generator. (04) [2016-17 Final]The following sequence of random numbers have been generated... Use Kolmogorov-Smirnov test with $\alpha= 0.05$ to determine, If these numbers are uniformly distributed... (05) [2016-17 Final]Write down the qualities of an efficient random number generator. Use the multiplicative congruential method to generate a sequence of 10 three-digit random numbers. Let, $r_0 = 117, a = 3, m = 1000$. (05) [2016-17 Final]What are the limitations of mid-square method? Evaluate the performance of Mid-square method if seeds are 6785, 1379, 1357. (4) [2018 Final]Generate a sequence of 15 random numbers between 20 to 30 such that $r_{n+1} = (7r_n + 15) \bmod m$, where $r_0 = 11, m = \text{prime number}$. (4) [2018 Final](Note: Some LCG concept questions are bundled with Inverse Transform questions in Chapter 8 below)Chapter 8: Generating Random VariatesMany random number generators in use today are linear congruential generators, LCGs. Discuss how to obtain the desired random numbers from LCGs? What is the inverse transform function? Let X have an exponential distribution with a mean $\beta$. Generate the desired random variate using the inverse transform function. (06) [2020-21 Final]What is inverse transform function? Let X have the exponential distribution with mean $\beta$. Generate the desired random variate using the inverse transform function. [Part 2] (07) [2018-19 Final]Write the density function of the normal curve. Generate ten random observations from Normal distribution with a mean 15 and standard deviation 5. (7) [2017-18 Final]Generate five random observations from Normal distribution with mean = 5 and standard deviation 4. (04) [2016-17 Final]Many random number generators in use today are linear congruential generator, LCGs. Explain, how to obtain the desired random numbers from LCGs. What is inverse transform function? Let X have the exponential distribution with mean $\beta$, Generate the desired random variate using the inverse transform function. (06) [2019-20 Final]
