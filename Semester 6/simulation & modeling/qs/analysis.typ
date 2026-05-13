@@ -180,176 +180,81 @@ N.B: You can use chi-squared table below as required.  _\[18-19 Final\]_  _\[19-
 
 - A sequence of 10,000 five digit random numbers has been generated, and an analysis of numbers indicate that there 3075 numbers having five different digits, 4935 having a pair, 1135 having two pairs, 695 having three of a kind, 105 having full house, 54 having four of a kind and one having all five of a kind. Use Poker test to determine if these random numbers are independent at #mi("\\alpha = 0.01"). Note that for #mi("\\alpha= 0.01") and N=06 the critical value is 16.8. \(06) _\[20-21 Final\]_ _\[17-18 Final\]_ _\[16-17 Final\]_
 
-== Masud Sir
+== Masud SirBook
 
 #block(inset: (left: 1em), stroke: (left: 2pt + luma(200)))[
-Book = Simulation Modeling and Analysis \(Averill M. Law)
+Simulation Modeling and Analysis \(Averill M. Law)
 ]
 
-=== Chapter 1 Basic Simulation Modeling
+=== Chapter 1: Basic Simulation Modeling
 
-- Distinguish between analytical solution and simulation. \(02) _\[20-21 Mid\]_
-- Explain the problem statement of simulation of a single server queuing system. \(05) _\[20-21 Mid\]_
-- 1.1 The Nature of Simulation
-- 1.2 Systems, Models, and Simulation
-- 1.3 Discrete-Event Simulation
-- 1.3.1 Time-Advance Mechanisms
-- 1.3.2 Components and Organization of Discrete-Event Simulation Model
-- 1.4 Simulation of a Single-Server Queueing System
-- 1.4.1 Problem Statement
-- 1.4.2 Intuitive Explanation
-- 1.4.3 Program Organization and Logic
-- 1.4.4 C Program
-- 1.4.5 Simulation Output and Discussion
-- 1.4.6 Alternative Stopping Rules
-- 1.4.7 Determining the Events and Variables
-- 1.5 Simulation of an Inventory System
-- 1.5.1 Problem Statement
-- 1.5.2 Program Organization and Logic
-- 1.5.3 C Program
-- 1.5.4 Simulation Output and Discussion
-- 1.6 Parallel/Distributed Simulation and the High Level Architecture
-- 1.6.1 Parallel Simulation
-- 1.6.2 Distributed Simulation and the High Level Architecture
-- 1.7 Steps in a Sound Simulation Study
-- 1.8 Advantages, Disadvantages, and Pitfalls of Simulation
-- Appendix 1A: Fixed-Increment Time Advance
-- Appendix 1B: A Primer on Queueing Systems
-- 1B.1 Components of a Queueing System
-- 1B.2 Notation for Queueing Systems
-- 1B.3 Measures of Performance for Queueing Systems
-- Problems
+- Distinguish between analytical solution and simulation. \(02) _\[2020-21 Mid\]_
+- Explain the problem statement of simulation of a single server queuing system. \(05) _\[2020-21 Mid\]_
+- Define simulation with example. Demonstrate different ways in which a system might be studied. Explain the next-event time-advance approach illustrated for the single-server queueing system. \(05) _\[2020-21 Final\]_
+- Consider a single-server queuing system, there are several IID random variables interarrival times, service times, and customer delays. Describe the problem statement of the single-server queuing system. \(05) _\[2020-21 Final\]_
+- What is an inventory system? Formulate a simulation of an inventory system in which many of the elements are representative of those found in the actual inventory system. \(04) _\[2020-21 Final\]_
+- Define the following terminologies: i) System ii) Model iii) Simulation iv) Analytical solution. Demonstrate different ways in which a system might be studied. \(03) _\[2019-20 Mid\]_
+- What are the steps of simulation for a single-server queueing system? Describe the problem statement and intuitive explanation of a single-server queueing system. \(05) _\[2019-20 Mid\]_
+- Define the following terminologies: i) System ii) Model iii) Simulation iv) Analytical solution. Demonstrate different ways in which a system might be studied. \(04) _\[2018-19 Final\]_
+- What are the steps of simulation for a single-server queueing system? Describe the problem statement and intuitive explanation of a single-server queueing system. \(10) _\[2018-19 Final\]_
+- What is Monte Carlo Method? Write down the difference between monte-carlo and stochastic simulation. \(02) _\[2018-19 Final\]_
+- Define Monte-Carlo method. Solve the integrals #mi("I = \\int_{1}^{5} \\frac{x^4}{3} dx") by monte-carlo method. \[USE Random Numbers...\] \(05) _\[2018-19 Final\]_
+- Define the following terminologies: \(i) Arrival rate \(ii) Service rate \(02) _\[2017-18 Final\]_
+- In a pure pursuit, there is a target bombers which moves along a predetermine path... Simulate the problem to determine the pursuit is end/abandoned. \(10) _\[2017-18 Final\]_
+- What is the application of SIR model? Illustrate and state the general SIR schematic. Show and explain the maximum number of infected, #mi("I_{max}") and solution curves. \(7) _\[2017-18 Final\]_
+- Define the following terminologies: \(i) Arrival rate \(ii) Service rate \(iii) Reneging. \(06) \[2016-17 Final\]Explain and illustrate the cost of customer waiting time and the idle capacity. \(03) _\[2016-17 Final\]_
+- A factory has a large number of semiautomatic machines... Estimate the average length of queue, average waiting time, and the server loading... \(03) _\[2016-17 Final\]_
+- According to two servers in parallel queuing system, illustrate a mixture of components A and B pass through workstation I. \(02) _\[2016-17 Final\]_
+- Discuss about the component used in next event time-advance approach. \(4) _\[2018 Final\]_
+- Show the comparison between i) analytical solution and simulation ii) static simulation and dynamic simulation. \(4) _\[2018 Final\]_
+- For a single server queuing system, inter-arrival times of customer are... Show the snapshot of computer representation at time 0 and at each of the 6 succeeding event times. \(6) _\[2018 Final\]_
+- What are differences between next event time advance approach and fixed increment time advance approach? \(3) _\[2018 Final\]_
+- Define system with example. Distinguish analytical solution versus simulation. Demonstrate different ways in which a system might be studied. \(05) _\[2019-20 Final\]_
+- Explain the next-event time-advance approach illustrated for the single-server queueing system. \(04) _\[2019-20 Final\]_
+- List the steps of simulation for a single-server queueing system? Consider a single-server queuing system... Describe the problem statement... \(05) _\[2019-20 Final\]_
 
-=== Chapter 4 Review of Basic Probability and Statistics
+=== Chapter 4: Review of Basic Probability and Statistics
 
-- *4.1* Introduction
-- *4.2* Random Variables and Their Properties
-- *4.3* Simulation Output Data and Stochastic Processes
-- *4.4* Estimation of Means, Variances, and Correlations
-- *4.5* Confidence Intervals and Hypothesis Tests for the Mean
-- *4.6* The Strong Law of Large Numbers
-- *4.7* The Danger of Replacing a Probability Distribution by its Mean
-- Appendix 4A: Comments on Covariance-Stationary Processes
-- Problems
+- Define random variable. How to compute variance, covariance, and correlation for simulation study? Why stochastic process is used to simulate the output data. Illustrate correlation function of the process of delays in queue D1, D2, .....for the M/M/1 queue. \(05) _\[2020-21 Final\]_
+- What is the necessity of statistical analysis with simulation output data? Describe and illustrate the transient and steady-state behaviors of a stochastic process. \(03) _\[2020-21 Final\]_
+- What is random variable? Compute variance and covariance based on a set of random variates. Why stochastic process is used to simulate the output data? Illustrate correlation function... \(07) _\[2018-19 Final\]_
+- Explain hypothesis testing including null and alternative hypothesis for mean. What is the difference type I error and type II error? Explain and illustrate the strong law of large number. \(07) _\[2018-19 Final\]_
+- What is a stochastic process? Write the probability mass function of Poisson distribution. List several applications of Poisson distribution. \(7) _\[2017-18 Final\]_
+- What is stochastic process? \(02) _\[2016-17 Final\]_
+- A pair of dice is rolled once. The sum of the two numbers on the dice represents the outcome for a random variable x. Determine the probability distribution of x. What is the probability that x is even? \(04) _\[2016-17 Final\]_
+- How to compute variance, covariance, and correlation for simulation study. Why stochastic process is used to simulate the output data. Illustrate correlation function... \(05) _\[2019-20 Final\]_
+- What is the necessity of statistical analysis on simulation output data? Describe and illustrate transient and steady-state behavior of a stochastic process. \(04) _\[2019-20 Final\]_
 
-=== Chapter 5 Building Valid, Credible, and Appropriately Detailed
+=== Chapter 5: Building Valid, Credible, and Appropriately Detailed Models
 
-- *5.1* Introduction and Definitions
-- *5.2* Guidelines for Determining the Level of Model Detail
-- *5.3* Verification of Simulation Computer Programs
-- *5.4* Techniques for Increasing Model Validity and Credibility
-- *5.4.1* Collect High-Quality Information and Data on the System
-- *5.4.2* Interact with the Manager on a Regular Basis
-- *5.4.3* Maintain a Written Assumptions Document and Perform a Structured Walk-Through
-- *5.4.4* Validate Components of the Model by Using Quantitative Techniques
-- *5.4.5* Validate the Output from the Overall Simulation Model
-- *5.4.6* Animation
-- *5.5* Management’s Role in the Simulation Process
-- *5.6* Statistical Procedures for Comparing Real-World Observations and Simulation Output Data
-- *5.6.1* Inspection Approach
-- *5.6.2* Confidence-Interval Approach Based on Independent Data
-- *5.6.3* Time-Series Approaches
-- *5.6.4* Other Approaches
-- Problems
+- Define verification, validation, and credibility in simulation model. Illustrate the timing relationship of validation, verification, and establishing credibility. \(05) _\[2020-21 Final\]_
+- Describe the eight methods for debugging a simulation model's computer program. \(04) _\[2020-21 Final\]_
+- Describe the iterative process of verification and validation of simulation models. \(02) _\[2017-18 Final\]_
+- Define verification, validation, and credibility in simulation model. Mention the issues in an accreditation decision. Show the timing relationship of validation, verification, and establishing credibility. Derive the mathematical formulation... \(06) _\[2019-20 Final\]_
+- Explain the inspection approach of statistical procedure for comparing real-world observation and simulation output data. \(03) _\[2019-20 Final\]_
 
-=== Chapter 6 Selecting Input Probability Distributions
+=== Chapter 6: Selecting Input Probability Distributions
 
-- 6.1 Introduction
-- 6.2 Useful Probability Distributions
-- 6.2.1 Parameterization of Continuous Distributions
-- 6.2.2 Continuous Distributions
-- 6.2.3 Discrete Distributions
-- 6.2.4 Empirical Distributions
-- 6.3 Techniques for Assessing Sample Independence
-- 6.4 Activity I: Hypothesizing Families of Distributions
-- 6.4.1 Summary Statistics
-- 6.4.2 Histograms
-- 6.4.3 Quantile Summaries and Box Plots
-- 6.5 Activity II: Estimation of Parameters
-- 6.6 Activity III: Determining How Representative the Fitted Distributions Are
-- 6.6.1 Heuristic Procedures
-- 6.6.2 Goodness-of-Fit Tests
-- 6.7 The ExpertFit Software and an Extended Example
-- 6.8 Shifted and Truncated Distributions
-- 6.9 Bézier Distributions
-- 6.10 Specifying Multivariate Distributions, Correlations, and Stochastic Processes
-- 6.10.1 Specifying Multivariate Distributions
-- 6.10.2 Specifying Arbitrary Marginal Distributions and Correlations
-- 6.10.3 Specifying Stochastic Processes
-- 6.11 Selecting a Distribution in the Absence of Data
-- 6.12 Models of Arrival Processes
-- 6.12.1 Poisson Processes
-- 6.12.2 Nonstationary Poisson Processes
-- 6.12.3 Batch Arrivals
-- 6.13 Assessing the Homogeneity of Different Data Sets
-- AppendixProblems
-- 6A:Tables of MLEs for the Gamma and Beta Distributions
+- Write down the properties of the location, scale, and shape parameters of continuous distributions. State the relevant information \(application, density function, parameters, and density curve) for the simulation modeling application of the normal continuous distribution. \(05) _\[2020-21 Final\]_
+- Write the properties of location, scale, and shape parameters of continuous distributions. \[Part 1\] \(07) _\[2018-19 Final\]_
+- How to address the COVID-19 scenario using Exponential distribution. Illustrate the Exponential curves on the following scenarios... \(7) _\[2017-18 Final\]_
+- Why is Gaussian distribution called bell curve? \(02) _\[2016-17 Final\]_
+- Give some applications of Poisson distribution. \(02) _\[2016-17 Final\]_
+- List some sources of randomness for common simulation applications. Write the properties of location, scale, and shape parameters of continuous distributions \(04) _\[2019-20 Final\]_
 
-=== Chapter 7 Random-Number Generators
+=== Chapter 7: Random-Number Generators
 
-- 7.1 Introduction
-- 7.2 Linear Congruential Generators
-- 7.2.1 Mixed Generators
-- 7.2.2 Multiplicative Generators
-- 7.3 Other Kinds of Generators
-- 7.3.1 More General Congruences
-- 7.3.2 Composite Generators
-- 7.3.3 Feedback Shift Register Generators
-- 7.4 Testing Random-Number Generators
-- 7.4.1 Empirical Tests
-- 7.4.2 Theoretical Tests
-- 7.4.3 Some General Observations on Testing
-- AppendixAppendixProblems
-- 7A:7B:Portable C Code for a PMMLCG
-- Portable C Code for a Combined MRG
+- When the mid square random number generators produce unexpected result? Write down the qualities of an efficient random number generator. \(04) _\[2016-17 Final\]_
+- The following sequence of random numbers have been generated... Use Kolmogorov-Smirnov test with #mi("\\alpha= 0.05") to determine, If these numbers are uniformly distributed... \(05) _\[2016-17 Final\]_
+- Write down the qualities of an efficient random number generator. Use the multiplicative congruential method to generate a sequence of 10 three-digit random numbers. Let, #mi("r_0 = 117, a = 3, m = 1000"). \(05) _\[2016-17 Final\]_
+- What are the limitations of mid-square method? Evaluate the performance of Mid-square method if seeds are 6785, 1379, 1357. \(4) _\[2018 Final\]_
+- Generate a sequence of 15 random numbers between 20 to 30 such that #mi("r_{n+1} = (7r_n + 15) \\bmod m"), where #mi("r_0 = 11, m = \\text{prime number}"). \(4) _\[2018 Final\]_ \
+\(Note: Some LCG concept questions are bundled with Inverse Transform questions in Chapter 8 below)
 
-=== Chapter 8 Generating Random Variates
+=== Chapter 8: Generating Random Variates
 
-- 8.1 Introduction
-- 8.2 General Approaches to Generating Random Variates
-- 8.2.1 Inverse Transform
-- 8.2.2 Composition
-- 8.2.3 Convolution
-- 8.2.4 Acceptance-Rejection
-- 8.2.5 Ratio of Uniforms
-- 8.2.6 Special Properties
-- 8.3 Generating Continuous Random Variates
-- 8.3.1 Uniform
-- 8.3.2 Exponential
-- 8.3.3 m-Erlang
-- 8.3.4 Gamma
-- 8.3.5 Weibull
-- 8.3.6 Normal
-- 8.3.7 Lognormal
-- 8.3.8 Beta
-- 8.3.9 Pearson Type V
-- 8.3.10 Pearson Type VI
-- 8.3.11 Log-Logistic
-- 8.3.12 Johnson Bounded
-- 8.3.13 Johnson Unbounded
-- 8.3.14 Bézier
-- 8.3.15 Triangular
-- 8.3.16 Empirical Distributions
-- 8.4 Generating Discrete Random Variates
-- 8.4.1 Bernoulli
-- 8.4.2 Discrete Uniform
-- 8.4.3 Arbitrary Discrete Distribution
-- 8.4.4 Binomial
-- 8.4.5 Geometric
-- 8.4.6 Negative Binomial
-- 8.4.7 Poisson
-- 8.5 Generating Random Vectors, Correlated Random Variates, and Stochastic Processes
-- 8.5.1 Using Conditional Distributions
-- 8.5.2 Multivariate Normal and Multivariate Lognormal
-- 8.5.3 Correlated Gamma Random Variates
-- 8.5.4 Generating from Multivariate Families
-- 8.5.5 Generating Random Vectors with Arbitrarily Specified Marginal Distributions and Correlations
-- 8.5.6 Generating Stochastic Processes
-- 8.6 Generating Arrival Processes
-- 8.6.1 Poisson Processes
-- 8.6.2 Nonstationary Poisson Processes
-- 8.6.3 Batch Arrivals
-- AppendixAppendixProblems
-- 8A:8B:Validity of the Acceptance-Rejection
-- Method
-- Setup for the Alias Method
+- Many random number generators in use today are linear congruential generators, LCGs. Discuss how to obtain the desired random numbers from LCGs? What is the inverse transform function? Let X have an exponential distribution with a mean #mi("\\beta"). Generate the desired random variate using the inverse transform function. \(06) _\[2020-21 Final\]_
+- What is inverse transform function? Let X have the exponential distribution with mean #mi("\\beta"). Generate the desired random variate using the inverse transform function. \[Part 2\] \(07) _\[2018-19 Final\]_
+- Write the density function of the normal curve. Generate ten random observations from Normal distribution with a mean 15 and standard deviation 5. \(7) _\[2017-18 Final\]_
+- Generate five random observations from Normal distribution with mean = 5 and standard deviation 4. \(04) _\[2016-17 Final\]_
+- Many random number generators in use today are linear congruential generator, LCGs. Explain, how to obtain the desired random numbers from LCGs. What is inverse transform function? Let X have the exponential distribution with mean #mi("\\beta"), Generate the desired random variate using the inverse transform function. \(06) _\[2019-20 Final\]_
