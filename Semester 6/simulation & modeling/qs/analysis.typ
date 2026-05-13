@@ -1,12 +1,24 @@
 #import "@preview/mitex:0.2.6": *
 
+= Simulation and Analysis - Previous Year Questions Analysis
+
+#block(inset: (left: 1em), stroke: (left: 2pt + luma(200)))[
+This analysis may contain errors and is not guaranteed to be 100% accurate. Please use it as a reference and cross-check with the original question papers for any discrepancies!
+]
+
+#outline(title: [Contents], depth: 4)
+
+#rect(width: 100%, stroke: red, fill: silver, inset: 10pt)[
+Hyperlinked! Click to follow or, use the navigation bar of your PDF reader! Page numbers are equivalent to your PDF reader's default setting...
+]
+
 == Mahbub Sir
 
 #block(inset: (left: 1em), stroke: (left: 2pt + luma(200)))[
 Book = Concepts of Simulation - DS Hira
 ]
 
-=== 1. CONCEPTS OF SIMULATION\*\*
+=== Chapter 1: Concepts Of Simulation
 
 - Define computer simulation models. Describe the steps in simulation study. \(02) _\[20-21 Final\]_ _\[18-19 Final\]_ _\[17-18 Final\]_ _\[16-17 Final\]_ _\[Jul-Dec-18 Final\]_ _\[19-20 Final\]_
 - Define system simulation. Describe different types of simulation models. \(03) _\[17-18 Mid\]_ _\[15-16 Mid\]_ _\[Jul-Dec-18 Final\]_
@@ -15,14 +27,15 @@ Book = Concepts of Simulation - DS Hira
 - Describe the iterative process of verification and validation of simulation models. _\[Jul-Dec-18 Final\]_
 - Define critical path. Describe the benefits of using simulation of PERT and CPM for planning, scheduling and controlling of a large and complex software project. \(3)  _\[Jul-Dec-18 Final\]_
 
-=== 2. MONTE CARLO METHOD\*\*
+=== Chapter 2: Monte Carlo Method
 
+- Define distributed simulation. _\[17-18 Final\]_ _\[Jul-Dec-18 Final\]_
+- Write down the difference between monte-carlo and stochastic simulation. \(02) _\[19-20 Mid\]_ _\[17-18 Final\]_ _\[Jul-Dec-18 Final\]_ _\[2018-19 Final\]_
 - Define Monte-Carlo method. Solve the integrals #mi("I = \\int_{1}^{5} \\frac{x^4}{3} dx") by monte-carlo method. \[USE Random Number 48, 36, 44, 41, 46, 18, 32, 41, 23, 23 for X coordinate and Random Number .52, .18, .30, .88, .21, .25, .57, .82, .9, .63 for Y coordinate, you have a right to do scaling, if required\] \(04)  _\[20-21 Mid\]_
 - Define Monte-Carlo method. Solve the integrals #mi("I = \\int_{1}^{5} \\frac{x^4}{3} dx") by monte-carlo method. \[USE Random Number 48, 36, 44, 41, 46, 18, 32, 41, 23, 23 for X coordinate and Random Number .52, .18, .30, .88, .21, .25, .57, .82, .9, .63 for Y coordinate, you have a right to do scaling, if required\] \(04) _\[20-21 Final\]_
 - Define Monte-Carlo method. Solve the integrals #mi("I = \\int_{2}^{5} x^3 dx") by monte-carlo method. \[USE Random Number 61 to 70 for X coordinate and Random Number 71 to 80 for Y coordinate, from table\] \(05) _\[18-19 Mid\]_ _\[Jul-Dec-18 Final\]_
 - Define Monte-Carlo method. Solve the integrals #mi("I = \\int_{2}^{5} x^3 dx") by monte-carlo method. \[USE Random Number 22, 25, 18, 45, 15, 27, 48, 43, 40, 47 for X coordinate and Random Number .57, .18, .00, .90, .05, .77, .66, .10, .76, .42 for Y coordinate, from table\] \(05) _\[17-18 Mid\]_
-- Write down the difference between monte-carlo and stochastic simulation. \(02) _\[19-20 Mid\]_ _\[17-18 Final\]_ _\[Jul-Dec-18 Final\]_
-- Define distributed simulation. _\[17-18 Final\]_ _\[Jul-Dec-18 Final\]_
+- Define Monte-Carlo method. Solve the integrals #mi("I = \\int_{1}^{5} \\frac{x^4}{3} dx") by monte-carlo method. \[USE Random Numbers...\] \(05) _\[2018-19 Final\]_
 - A drunkard moved from a point to a destination and takes step in four directions, backward, forward, right, and left. The probabilities associated with these are 15%, 40%, 20% and 25% respectively. The distances covered to backward, forward, right, and left are 50 cm, 90 cm, 60 cm and 40 cm respectively. Simulate the walk for 20 steps and find the location at end of 20 steps while starting point is \(0, 0) on the X-Y scales. \[USE Random Number 67, 23, 01, 95, 84, 56, 77, 76, 18, 82, 45, 29, 68, 21, 15, 86, 00, 89, 45\] \(04) _\[20-21 Mid\]_
 - A drunkard moved from a point to a destination and takes step in four directions, backward, forward, right, and left. The probabilities associated with these are 10%, 50%, 15% and 25% respectively. The distances covered to backward, forward, right, and left are 30 cm, 80 cm, 60 cm and 40 cm respectively. Simulate the walk for 20 steps and find the location at end of 20 steps while starting point is \(0, 0) on the X-Y scales. \[USE Random Number 67, 23, 01, 95, 84, 56, 77, 76, 18, 82, 45, 55, 29, 68, 21, 15, 86, 00, 89, 43\] \(05) _\[19-20 Mid\]_ _\[18-19 Mid\]_  _\[17-18 Final\]_ _\[Jul-Dec-18 Final\]_
 - A drunkard moved from a point to a destination and takes step in four directions, forward, backward, left and right. The probabilities associated with these are 40%, 15%, 22% and 23% respectively. The distances covered to forward, left and right are 75 cm, 45 cm, 60 cm and 60 cm respectively. Simulate the walk for 25 steps and find the location at end of 25 steps while starting point is \(0, 0) on the X-Y scales. \[USE RN 67, 23, 01, 62, 84, 56, 77, 76, 98, 82, 45, 87, 29, 68, 21, 15, 36, 00, 89, 43, 32\] \(05) _\[15-16 Mid\]_ _\[17-18 Mid\]_ _\[16-17 Final\]_
@@ -53,7 +66,7 @@ For Y direction- \[0.24, -0.02, 0.64, -1.04, 0.68, -0.47, -0.75, -0.44, 1.21, -0
 - An ammunition depot, of rectangular shape measuring 500 m of length and 350m of width is under attack by a squadron of bombers. In each sortie 10 bombers drop bombs, one each, on the ammunition depot. If the bomb lands anywhere in the marked area, it is a hit, otherwise it is a miss. All the bombers aim at the center of the area. The point of strike is assumed to be normally distributed around the aiming point with a standard deviation of 500 m in x-direction and 350m in the y-direction. Simulate operation of bombing operation for 20 strikes and determine the percentage number of strikes, Which are on the target. \[USE Random Number 21 to 40 for X coordinate and Random Number 41 to 60 for Y coordinate, from table\] \(05) _\[18-19 Mid\]_ _\[Jul-Dec-18 Final\]_
 - What is normally distributed random numbers? Describe the properties and applications of normally distributed random numbers. \(02) _\[20-21 Final\]_ _\[18-19 Final\]_ _\[17-18 Final\]_
 
-=== 3. SIMULATION OF CONTINUOUS SYSTEMS\*\*
+=== Chapter 3: Simulation Of Continuous Systems
 
 - Define the simulation of continuous system. Describe the disadvantages of analog simulation. _\[18-19 Final\]_ _\[19-20 Final\]_
 - Define analog simulation. Describe the simulation of an exterior ballistics with an example. \(6) _\[17-18 Final\]_
@@ -82,7 +95,7 @@ Target bombers moving path:
   [yb\(t)], [34], [30], [27], [23], [19], [16], [14],
 )
 
-The fighter aircraft following the enemy bombers with speed at 25KM/min to destroy it. The fighter aircraft is at position xf, yf \(0, 60) when it sights the bomber that is at time t=0, the time at which the pursuit begins. The fighter corrects its direction after a fixed interval of one minute, so as to point towards a bomber and shoots the bomber by firing a missile as soon as it is within a distance of 12 KM. The pursuit ends. In case the bomber is not shot within 15 minutes of the pursuit, the pursuit is abandoned. Simulate the problem to determine the pursuit is end/abandoned. _\[16-17 Final\]_
+The fighter aircraft following the enemy bombers with speed at 25KM/min to destroy it. The fighter aircraft is at position xf, yf \(0, 60) when it sights the bomber that is at time t=0, the time at which the pursuit begins. The fighter corrects its direction after a fixed interval of one minute, so as to point towards a bomber and shoots the bomber by firing a missile as soon as it is within a distance of 12 KM. The pursuit ends. In case the bomber is not shot within 15 minutes of the pursuit, the pursuit is abandoned. Simulate the problem to determine the pursuit is end/abandoned. _\[16-17 Final\]_ _\[2017-18 Final\]_
 
 - In a pure pursuit, there is a target bombers which moves along a predetermine path \(given on table below) and there is a pursuer aircraft who follows the target bombers, redirecting itself towards the target bombers at fixed intervals of time. \
 Target bombers moving path:
@@ -103,10 +116,13 @@ The fighter aircraft following the enemy bombers with speed at 30KM/min to destr
 
 - There are a number of moving objects, which chase each other in a serial order like A chases B, B chases C, and C chases D etc. Each object moves towards its target unmindful of the fact that it itself is being targeted by some other object. Depending upon the original location, and speed of motion of the object, each object will take its own time to hit its target. As soon as hit occurs, the chase ends. The initial location of the objects A, B, C, and D are \(0,0), \(0,10), \(0,20), \(0,30) respectively and their velocities are 30km/hr, 25km/hr, 20 km/hr and 15km/hr respectively. Object D moves towards a fixed at \(30,50), while C moves always in a direction pointing towards D, the object B moves always pointing towards C and object A always pointing towards B. It can be assumed that when the distance between two objects less than 0.005 hit is taken to occur. Identify, which object will hit the target at first and in what time? \(07) _\[19-20 Final\]_ _\[18-19 Final\]_
 
-=== 4. RANDOM NUMBERS
+=== Chapter 4: Random Numbers
 
 - Why the random numbers generated by computer are called pseudo random numbers? Discuss the pitfalls of congruence method of generating random numbers. \(02) _\[18-19 Final\]_ _\[19-20 Final\]_
 - Write down the properties of random numbers. _\[Jul-Dec-18 Final\]_
+- When the mid square random number generators produce unexpected result? Write down the qualities of an efficient random number generator. \(04) _\[2016-17 Final\]_
+- The following sequence of random numbers have been generated 0.037, 0.55, 0.71, 0.97, 0.65, 0.29, 0.84, 0.78, 0.23, 0.17; Use Kolmogorov-Smirnov test with #mi("\\alpha= 0.05") to determine, If these numbers are uniformly distributed over the interval 0 to 1. Note that for #mi("\\alpha= 0.05") and N=10 the critical value is 0.410. \(05) _\[2016-17 Final\]_
+- Write down the qualities of an efficient random number generator. Use the multiplicative congruential method to generate a sequence of 10 three-digit random numbers. Let, #mi("r_0 = 117, a = 3, m = 1000"). \(05) _\[2016-17 Final\]_
 - Write down the qualities of an efficient random number generator. _\[20-21 Final\]_ _\[18-19 Final\]_
 - Define random variables. What are the purposes of testing the uniformity and independence of random values? \(02) _\[18-19 Final\]_ _\[19-20 Final\]_
 - What are the differences between true and pseudo random numbers? Describe the procedure to physically generate random number at the interval with two-digit accuracy. \(02) _\[20-21 Final\]_
@@ -193,37 +209,31 @@ Simulation Modeling and Analysis \(Averill M. Law)
 - Define simulation with example. Demonstrate different ways in which a system might be studied. Explain the next-event time-advance approach illustrated for the single-server queueing system. \(05) _\[2020-21 Final\]_
 - Consider a single-server queuing system, there are several IID random variables interarrival times, service times, and customer delays. Describe the problem statement of the single-server queuing system. \(05) _\[2020-21 Final\]_
 - What is an inventory system? Formulate a simulation of an inventory system in which many of the elements are representative of those found in the actual inventory system. \(04) _\[2020-21 Final\]_
-- Define the following terminologies: i) System ii) Model iii) Simulation iv) Analytical solution. Demonstrate different ways in which a system might be studied. \(03) _\[2019-20 Mid\]_
-- What are the steps of simulation for a single-server queueing system? Describe the problem statement and intuitive explanation of a single-server queueing system. \(05) _\[2019-20 Mid\]_
-- Define the following terminologies: i) System ii) Model iii) Simulation iv) Analytical solution. Demonstrate different ways in which a system might be studied. \(04) _\[2018-19 Final\]_
-- What are the steps of simulation for a single-server queueing system? Describe the problem statement and intuitive explanation of a single-server queueing system. \(10) _\[2018-19 Final\]_
-- What is Monte Carlo Method? Write down the difference between monte-carlo and stochastic simulation. \(02) _\[2018-19 Final\]_
-- Define Monte-Carlo method. Solve the integrals #mi("I = \\int_{1}^{5} \\frac{x^4}{3} dx") by monte-carlo method. \[USE Random Numbers...\] \(05) _\[2018-19 Final\]_
+- Define the following terminologies: i) System ii) Model iii) Simulation iv) Analytical solution. Demonstrate different ways in which a system might be studied. \(03) _\[2019-20 Mid\]\[2018-19 Final\]_
+- What are the steps of simulation for a single-server queueing system? Describe the problem statement and intuitive explanation of a single-server queueing system. \(05) _\[2019-20 Mid\]\[2018-19 Final\]_
 - Define the following terminologies: \(i) Arrival rate \(ii) Service rate \(02) _\[2017-18 Final\]_
-- In a pure pursuit, there is a target bombers which moves along a predetermine path... Simulate the problem to determine the pursuit is end/abandoned. \(10) _\[2017-18 Final\]_
 - What is the application of SIR model? Illustrate and state the general SIR schematic. Show and explain the maximum number of infected, #mi("I_{max}") and solution curves. \(7) _\[2017-18 Final\]_
 - Define the following terminologies: \(i) Arrival rate \(ii) Service rate \(iii) Reneging. \(06) \[2016-17 Final\]Explain and illustrate the cost of customer waiting time and the idle capacity. \(03) _\[2016-17 Final\]_
-- A factory has a large number of semiautomatic machines... Estimate the average length of queue, average waiting time, and the server loading... \(03) _\[2016-17 Final\]_
+- A factory has a large number of semiautomatic machines. On 50% of the working days none of the machine fail. On 30% of the days one machine fails and on 20% of the days two machines fail. The maintenance staff on the average puts 65% of the machines in order in one day, 30% in two days, and the remaining 5% in three days. Estimate the average length of queue, average waiting time, and the server loading that is the fraction of time for which server is busy. \(03) _\[2016-17 Final\]_
 - According to two servers in parallel queuing system, illustrate a mixture of components A and B pass through workstation I. \(02) _\[2016-17 Final\]_
 - Discuss about the component used in next event time-advance approach. \(4) _\[2018 Final\]_
 - Show the comparison between i) analytical solution and simulation ii) static simulation and dynamic simulation. \(4) _\[2018 Final\]_
-- For a single server queuing system, inter-arrival times of customer are... Show the snapshot of computer representation at time 0 and at each of the 6 succeeding event times. \(6) _\[2018 Final\]_
+- For a single server queuing system, inter-arrival times of customer are 0.2, 0.8, 0.4, 2.0, 1.0, 0.2, 0.5, 1.0 and service times are 1.5, 1.0, 0.6, 1.2, and 0.6. Show the snapshot of computer representation at time 0 and at each of the 6 succeeding event times. \(6) _\[2018 Final\]_
 - What are differences between next event time advance approach and fixed increment time advance approach? \(3) _\[2018 Final\]_
 - Define system with example. Distinguish analytical solution versus simulation. Demonstrate different ways in which a system might be studied. \(05) _\[2019-20 Final\]_
 - Explain the next-event time-advance approach illustrated for the single-server queueing system. \(04) _\[2019-20 Final\]_
-- List the steps of simulation for a single-server queueing system? Consider a single-server queuing system... Describe the problem statement... \(05) _\[2019-20 Final\]_
+- List the steps of simulation for a single-server queueing system? Consider a single-server queuing system, there are several IID random variables interarrival times, service times, and customer delays. Describe the problem statement of the single-server queuing system. \(05) _\[2019-20 Final\]_
 
 === Chapter 4: Review of Basic Probability and Statistics
 
 - Define random variable. How to compute variance, covariance, and correlation for simulation study? Why stochastic process is used to simulate the output data. Illustrate correlation function of the process of delays in queue D1, D2, .....for the M/M/1 queue. \(05) _\[2020-21 Final\]_
-- What is the necessity of statistical analysis with simulation output data? Describe and illustrate the transient and steady-state behaviors of a stochastic process. \(03) _\[2020-21 Final\]_
+- What is the necessity of statistical analysis with simulation output data? Describe and illustrate the transient and steady-state behaviors of a stochastic process. \(03) _\[2020-21 Final\]\[2019-20 Final\]_
 - What is random variable? Compute variance and covariance based on a set of random variates. Why stochastic process is used to simulate the output data? Illustrate correlation function... \(07) _\[2018-19 Final\]_
 - Explain hypothesis testing including null and alternative hypothesis for mean. What is the difference type I error and type II error? Explain and illustrate the strong law of large number. \(07) _\[2018-19 Final\]_
 - What is a stochastic process? Write the probability mass function of Poisson distribution. List several applications of Poisson distribution. \(7) _\[2017-18 Final\]_
 - What is stochastic process? \(02) _\[2016-17 Final\]_
 - A pair of dice is rolled once. The sum of the two numbers on the dice represents the outcome for a random variable x. Determine the probability distribution of x. What is the probability that x is even? \(04) _\[2016-17 Final\]_
-- How to compute variance, covariance, and correlation for simulation study. Why stochastic process is used to simulate the output data. Illustrate correlation function... \(05) _\[2019-20 Final\]_
-- What is the necessity of statistical analysis on simulation output data? Describe and illustrate transient and steady-state behavior of a stochastic process. \(04) _\[2019-20 Final\]_
+- How to compute variance, covariance, and correlation for simulation study. Why stochastic process is used to simulate the output data. Illustrate correlation function of the process of delays in queue D1, D2, .....for the M/M/1 queue. \(05) _\[2019-20 Final\]_
 
 === Chapter 5: Building Valid, Credible, and Appropriately Detailed Models
 
@@ -237,24 +247,40 @@ Simulation Modeling and Analysis \(Averill M. Law)
 
 - Write down the properties of the location, scale, and shape parameters of continuous distributions. State the relevant information \(application, density function, parameters, and density curve) for the simulation modeling application of the normal continuous distribution. \(05) _\[2020-21 Final\]_
 - Write the properties of location, scale, and shape parameters of continuous distributions. \[Part 1\] \(07) _\[2018-19 Final\]_
-- How to address the COVID-19 scenario using Exponential distribution. Illustrate the Exponential curves on the following scenarios... \(7) _\[2017-18 Final\]_
+- How to address the COVID-19 scenario using Exponential distribution. Illustrate the Exponential curves on the following scenarios: \(i) Exponential growth and Exponential decay. \(ii) Infection begins to taper off when herd immunity is reached. \(iii) Confirmed cases will rise again if restrictions are lifted too soon. \(7) _\[2017-18 Final\]_
 - Why is Gaussian distribution called bell curve? \(02) _\[2016-17 Final\]_
 - Give some applications of Poisson distribution. \(02) _\[2016-17 Final\]_
 - List some sources of randomness for common simulation applications. Write the properties of location, scale, and shape parameters of continuous distributions \(04) _\[2019-20 Final\]_
 
 === Chapter 7: Random-Number Generators
 
-- When the mid square random number generators produce unexpected result? Write down the qualities of an efficient random number generator. \(04) _\[2016-17 Final\]_
-- The following sequence of random numbers have been generated... Use Kolmogorov-Smirnov test with #mi("\\alpha= 0.05") to determine, If these numbers are uniformly distributed... \(05) _\[2016-17 Final\]_
-- Write down the qualities of an efficient random number generator. Use the multiplicative congruential method to generate a sequence of 10 three-digit random numbers. Let, #mi("r_0 = 117, a = 3, m = 1000"). \(05) _\[2016-17 Final\]_
 - What are the limitations of mid-square method? Evaluate the performance of Mid-square method if seeds are 6785, 1379, 1357. \(4) _\[2018 Final\]_
-- Generate a sequence of 15 random numbers between 20 to 30 such that #mi("r_{n+1} = (7r_n + 15) \\bmod m"), where #mi("r_0 = 11, m = \\text{prime number}"). \(4) _\[2018 Final\]_ \
-\(Note: Some LCG concept questions are bundled with Inverse Transform questions in Chapter 8 below)
+- Generate a sequence of 15 random numbers between 20 to 30 such that #mi("r_{n+1} = (7r_n + 15) \\bmod m"), where #mi("r_0 = 11, m = \\text{prime number}"). \(4) _\[2018 Final\]_
 
 === Chapter 8: Generating Random Variates
 
-- Many random number generators in use today are linear congruential generators, LCGs. Discuss how to obtain the desired random numbers from LCGs? What is the inverse transform function? Let X have an exponential distribution with a mean #mi("\\beta"). Generate the desired random variate using the inverse transform function. \(06) _\[2020-21 Final\]_
+- Many random number generators in use today are linear congruential generators, LCGs. Discuss how to obtain the desired random numbers from LCGs? What is the inverse transform function? Let X have an exponential distribution with a mean #mi("\\beta"). Generate the desired random variate using the inverse transform function. \(06) _\[2020-21 Final\]\[2019-20 Final\]_
 - What is inverse transform function? Let X have the exponential distribution with mean #mi("\\beta"). Generate the desired random variate using the inverse transform function. \[Part 2\] \(07) _\[2018-19 Final\]_
 - Write the density function of the normal curve. Generate ten random observations from Normal distribution with a mean 15 and standard deviation 5. \(7) _\[2017-18 Final\]_
 - Generate five random observations from Normal distribution with mean = 5 and standard deviation 4. \(04) _\[2016-17 Final\]_
-- Many random number generators in use today are linear congruential generator, LCGs. Explain, how to obtain the desired random numbers from LCGs. What is inverse transform function? Let X have the exponential distribution with mean #mi("\\beta"), Generate the desired random variate using the inverse transform function. \(06) _\[2019-20 Final\]_
+
+#block(
+  width: 100%,
+  fill: rgb("fdfbf7"),
+  stroke: (left: 4pt + rgb("b8860b")), // Dark goldenrod accent
+  inset: 16pt,
+  radius: (right: 4pt),
+)[
+  #set text(fill: rgb("2c2c2c"), size: 11pt, font: "Liberation Serif")
+  "Maybe you are searching among the branches, \ for what only appears in the roots."
+
+  #v(8pt)
+  #align(right)[
+    #set text(fill: rgb("b8860b"), style: "italic", weight: "bold", size: 10pt)
+    — Jalaluddin Rumi
+  ]
+  #align(right)[
+    #set text(fill: rgb("b8860b"), style: "italic", size: 6pt)
+    Persian poet and Sufi Mystic
+  ]
+]
