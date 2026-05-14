@@ -311,3 +311,23 @@ N.B: You can use chi-squared table below as required.  *[18-19 Final]*  *[19-20 
 * Write the density function of the normal curve. Generate ten random observations from Normal distribution with a mean 15 and standard deviation 5. (7) *[2017-18 Final]*
 
 * Generate five random observations from Normal distribution with mean = 5 and standard deviation 4. (04) *[2016-17 Final]*
+
+### Chapter 9: Output Data Analysis for a Single System
+
+* Describe and illustrate the transient and steady-state behaviors of a stochastic process. (03) *[2023 Final]*
+
+* Describe and illustrate transient and steady-state behavior of a stochastic process. (04) *[2022 Final (Session 19-20)]*
+
+* What is the necessity of statistical analysis with simulation output data? (03) *[2023 Final]*
+
+* What is the necessity of statistical analysis on simulation output data? (04) *[2022 Final (Session 19-20)]*
+
+* Why stochastic process is used to simulate the output data? (07/05) *[2021 Final][2022 Final (Session 19-20)]*
+
+* Derive the mathematical formulation in a good estimate of the mean of the system using both validation and output analysis. (06) *[2022 Final (Session 19-20)]*
+
+* Compute variance and covariance based on a set of random variates. (07) *[2021 Final]*
+
+* How to compute variance, covariance, and correlation for simulation study? (05) *[2023 Final][2022 Final (Session 19-20)]*
+
+* Illustrate correlation function of the process of delays in queue $D_1, D_2, \dots$ for the M/M/1 queue. (05) *[2023 Final][2022 Final (Session 19-20)][2021 Final]*
