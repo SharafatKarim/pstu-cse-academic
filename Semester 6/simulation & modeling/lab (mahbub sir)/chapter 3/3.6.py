@@ -22,7 +22,7 @@ def distance(p1, p2):
 
 t = 0
 
-for i in range(13):
+for i in range(10):
     t += 0.1
 
     # Move A towards B
@@ -54,6 +54,6 @@ for i in range(13):
     D = (D[0] + vD * 0.1 * (target_d[0] - D[0]) / d_to_target, D[1] + vD * 0.1 * (target_d[1] - D[1]) / d_to_target)
 
     # Preety-Print
-    print(f"Time: {t:.2f} hours,\n A: {A}, B: {B}, C: {C}, D: {D}")
+    print(f"T: {t:.2f},\n A: ({A[0]:.2f}, {A[1]:.2f}), B: ({B[0]:.2f}, {B[1]:.2f}), C: ({C[0]:.2f}, {C[1]:.2f}), D: ({D[0]:.2f}, {D[1]:.2f}), AB: {a_to_b:.2f}, BC: {b_to_c:.2f}, CD: {c_to_d:.2f}, DTarget: {d_to_target:.2f}\n")
 
 
