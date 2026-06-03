@@ -12,4 +12,4 @@ def mid_square(seed, n):
     
     return numbers
 
-print(mid_square(5673, 50))
+print(mid_square(1234, 10))

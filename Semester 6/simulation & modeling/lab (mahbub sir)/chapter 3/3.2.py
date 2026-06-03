@@ -70,5 +70,4 @@ def plot_fight_animation():
 simulate_flight()
 # plot_flight()
 
-while True:
-    plot_fight_animation()
+plot_fight_animation()
