@@ -39,6 +39,11 @@
 
 !*.pdf
 
+# Proteus Simulation
+!*.pdsprj
+
+# Archives
+!*.zip
 
 # Database files
 !*.sql
