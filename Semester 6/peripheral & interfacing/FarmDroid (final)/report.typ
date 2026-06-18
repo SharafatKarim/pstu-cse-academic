@@ -309,7 +309,7 @@ The following table shows a comparison of the features of our prototype with som
     [ROBOTTI 150 D [18]], [Multipurpose field operations (evaluated for soil health impact)], [Lightweight wheeled vehicle], [Used extensively in research to quantify soil compaction. Studies show it causes less subsoil compaction than heavy tractors, though repeated wheeling still alters topsoil porosity.],
     [Tertill [19]], [Home garden weed control], [Solar-powered mini rover], [A consumer-grade, waterproof robot that autonomously navigates small plots and uses a simple wire/string trimmer to cut newly sprouted weeds.],
   ),
-  caption: "Feature Comparison with Commercial Agriculture Robots (Source: RobotShop)",
+  caption: "Feature Comparison with Commercial Agriculture Robots",
 )
 
 = Work Timeline
