@@ -116,7 +116,6 @@ Traditional large-scale agricultural equipment may not be suitable for small-sca
 
 = Scope
 
-
 The project scope also includes the mechanical assembly of the robot and programming of the circuit, as well as the integration of the circuit into the robot. 
 
 The hardware design consists of a modified chassis, motor / servo drive system, and a power distribution system to insure stable operation of the hardware components. The apparatus is basically made of a camera and a motor. The software side of the system includes OpenCV vision processing using Python and motor control based on a C++ firmware. 
@@ -128,6 +127,7 @@ The challenge with this project is that this prototype won't be deployed at a la
 == System Architecture
 
 The computational load of the system is efficiently dealt with with a “Distributed Computing” approach. It is an architecture that includes the Brain (Raspberry Pi 4), responsible on the high level for the decision making, image processing (OpenCV) and path planning. It also communicates with other modules with interfaces such as Serial, I2C and USB. The Controller (Arduino Uno / Nano) is used for low level real time control, for instance sending PWM impulses to motor control drivers or reading analog sensor data.
+
 == Technology Stack
 + *Language*: Python (Vision/Logic), C++ (Arduino Firmware)
 + *Accelerator*: Intel® RealSense™ depth camera (Optional for object detection)
@@ -223,7 +223,7 @@ The costs of the various components that will be needed for the "Farm Droid" are
 
 = Analysis of cost-benefit
 
-This section explains the cost-benefit analysis of the "Farm Droid" from a financial feasibility/practical viability viewpoint . This analysis contrasts the initial development and operational costs against the tangible and intangible benefits generated over a projected 3-year operational lifecycle.
+This section explains the cost-benefit analysis of the "Farm Droid" from a financial feasibility/ practical viability viewpoint. This analysis contrasts the initial development and operational costs against the tangible and intangible benefits generated over a projected 3-year operational lifecycle.
 
 == Cost breakdown
 The costs can be broken down to initial capital spending (CapEx) and regular operating spending (OpEx).
@@ -335,26 +335,36 @@ The following table shows a comparison of the features of our prototype with som
 
 == Circuit Diagram
 
+This diagram shows the circuit design alongside pin diagram of each components, for easier navigation and reproducibility. 
+
 #figure(
 image("ui/circuit_image.png", width: 100%),
 caption: "Circuit Diagram of Farm Droid System",
 )
 
-This diagram shows the circuit design alongside pin diagram of each components, for easier navigation and reproducibility.
+
+== Flow Chart 
+
+The flow chart shows the overall flow of the system, from the input of the sensors to the output of the actuators.
+
+#figure(
+image("ui/flow.png", width: 100%),
+caption: "Flow chart of Farm Droid system",
+)
 
 
 == Data Flow Diagram
 
-#figure(
-image("ui/dfd.png", width: 100%),
-caption: "Data flow diagram of Farm Droid system",
-)
-
+The data flow diagram (Fig 3) shows the flow of data between the different components of the system, including the sensors, controllers, and actuators.
 
 = Results
 
 This project shows the successful development of a prototype. Our bot is able to carry out basic agricultural activities such as monitoring soil moisture, temperature, rainfall and soil pH. The integration of computer vision allows it to detect obstacles, as well as perform weeding operations. The modular design of the robotic arm enables it to be used for various tasks in the future. And finally, it can also dig the ground and plant seeds in a small scale environment.
 
+#figure(
+image("ui/dfd.png", width: 100%),
+caption: "Data flow diagram of Farm Droid system",
+) <dfd>
 
 = Future Plans
 
@@ -362,7 +372,9 @@ This project shows the successful development of a prototype. Our bot is able to
 + Due to limited battery capacity, our project can't run continuously for a long time.
 
 = Conclusion
-The Farm Droid is a step towards modernising agriculture by robotics. This project will explore the potential of autonomous mobility and computer vision, to prove farming automation can be agile, intelligent and accessible. The successful completion of this project will result in a working prototype that can be used to move autonomously along paths and carry out basic agricultural activities.
+The Farm Droid is a step towards modernising agriculture by robotics. Hopefully this project will explore the potential of autonomous mobility and computer vision, to prove farming automation can be fast, intelligent and accessible to all. The successful completion of this project will result in a working prototype that can be used to move autonomously along paths and carry out basic agricultural activities.
+
+#pagebreak()
 
 = References
 
