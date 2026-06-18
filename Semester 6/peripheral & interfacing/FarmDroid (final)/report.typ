@@ -104,43 +104,46 @@ Farm Droid is the low-cost, adaptable mobile platform that can be used in place 
 = Objectives
 The main goal is to create a smart farming assistant that will be able to work autonomously. The aims are:
 
-- *Realtime Monitoring:* To include sensor measuring soil moisture, pH and weather conditions (Rain/Temperature).
-- *Modular Design:* Servo Driven Arm Mechanism for Various Modular Tasks: Robotic Manipulation, Weeding.
-- *Edge Computing:* To use a Raspberry Pi Camera with OpenCV to identify crops, weeds and obstacles in real-time.
-- *Seamless Connectivity:* To enable a reliable remote monitoring and control via the telegram bot integration or a custom mobile application.
-- *Adaptive Mobility:* To design an effective locomotion system (Rover or Legged) to operate on uneven agricultural surface.
-- *Autonomous Activity:* To make the robot do any other activities such as seeding of plants, watering plants, fertilizing soil, etc., without any human intervention.
++ To design and develop a lightweight and low cost agricultural robot that can move between the rows of crops.
++ To implement a multi-sensor system to monitor important environmental and crop health parameters continuously such as soil moisture, soil temperature, rainfall, and soil pH.
++ To build a distributed computing system with high level vision processing and client application for real time monitoring and control.
++ To build weeding tool, soil collector etc as modular attachments of the Robotic arm.
++ To support auto digging and seeding operations in a small scale environment.
 
 = Problem Statement
-
 
 Traditional large-scale agricultural equipment may not be suitable for small-scale precision agriculture or sensitive crop fields. Large tractors compact soil do not have the agility to do individual plant inspection. The robotic systems available today are either expensive or complex enough to be too large to operate in these environments. This is where Farm Droid comes in with its lightweight, intelligent and versatile solution.
 
 = Scope
 
 
-The project scope also includes the mechanical assembly of the robot and programming of the circuit, as well as the integration of the circuit into the robot. The hardware design consists of a modified chassis, motor / servo drive system, and a power distribution system to insure stable operation of the hardware components. The apparatus is basically made of a camera and a motor.The software side of the system includes OpenCV vision processing using Python and motor control based on a C++ firmware. The challenge with this project is that this prototype won't be deployed at a large scale industrial application level; it will only be spun in a small scale environment such as a garden or a test bed under control.
+The project scope also includes the mechanical assembly of the robot and programming of the circuit, as well as the integration of the circuit into the robot. 
+
+The hardware design consists of a modified chassis, motor / servo drive system, and a power distribution system to insure stable operation of the hardware components. The apparatus is basically made of a camera and a motor. The software side of the system includes OpenCV vision processing using Python and motor control based on a C++ firmware. 
+
+The challenge with this project is that this prototype won't be deployed at a large scale industrial application level; it will only be spun in a small scale environment such as a garden or a test bed under control.
+
 = Methodology
 
 == System Architecture
 
 The computational load of the system is efficiently dealt with with a “Distributed Computing” approach. It is an architecture that includes the Brain (Raspberry Pi 4), responsible on the high level for the decision making, image processing (OpenCV) and path planning. It also communicates with other modules with interfaces such as Serial, I2C and USB. The Controller (Arduino Uno / Nano) is used for low level real time control, for instance sending PWM impulses to motor control drivers or reading analog sensor data.
 == Technology Stack
-- *Language*: Python (Vision/Logic), C++ (Arduino Firmware)
-- *Accelerator*: Intel® RealSense™ depth camera (Optional for object detection)
-- *Hardware Interface:* I2C (Inter-Integrated Circuit), USB.
-- *Power Management:* 65W/22W 30000mAh (Buck Converters) for system stability.
++ *Language*: Python (Vision/Logic), C++ (Arduino Firmware)
++ *Accelerator*: Intel® RealSense™ depth camera (Optional for object detection)
++ *Hardware Interface:* I2C (Inter-Integrated Circuit), USB.
++ *Power Management:* 65W/22W 30000mAh (Buck Converters) for system stability.
 
 = Hardware Components
 
 The Farm Droid consists of the following elements:
 
-- *Actuators:* DC Gear Motors or MG996R Servos (Mobility), SG90 (Gripper/Arm), GA25 (Metal Gear motor).
-- *Sensors:* Ultrasonic (HC-SR04), Soil Moisture, Rain Sensor, DHT11, IR (Infrared), LDR (Light Dependent Resistor), DFPlayer Mini, RFID Reader(Radio Frequency Identification), Relay, PH Electrode, Gas sensor(MQ135).
-- *Controllers:* Raspberry Pi ( 4 model B (4Gb)), arduino Uno / Nano.
-- *Drivers:* L298N/Motor Driver (for Wheels).
-- *Vision:* Official Raspberry Pi Camera Module with Pi camera 5MP.
-- *Power Supplier:* LM2596 Buck Converter, 65W/22W 30000mAh Power Bank.
++ *Actuators:* DC Gear Motors or MG996R Servos (Mobility), SG90 (Gripper/Arm), GA25 (Metal Gear motor).
++ *Sensors:* Ultrasonic (HC-SR04), Soil Moisture, Rain Sensor, DHT11, IR (Infrared), LDR (Light Dependent Resistor), DFPlayer Mini, RFID Reader(Radio Frequency Identification), Relay, PH Electrode, Gas sensor(MQ135).
++ *Controllers:* Raspberry Pi ( 4 model B (4Gb)), arduino Uno / Nano.
++ *Drivers:* L298N/Motor Driver (for Wheels).
++ *Vision:* Official Raspberry Pi Camera Module with Pi camera 5MP.
++ *Power Supplier:* LM2596 Buck Converter, 65W/22W 30000mAh Power Bank.
 
 
 = Budget Estimation
@@ -285,6 +288,30 @@ The overall estimated budget is about 258 USD (with an exchange rate of ~122 BDT
   ),
   caption: "Price Comparison with Commercial Agriculture Robots (Source: RobotShop)",
 )
+
+= Comparison with related works
+
+The following table shows a comparison of the features of our prototype with some works as of now.
+
+#figure(
+  table(
+    columns: (auto, auto, auto, auto),
+    fill: (col, row) => if row == 0 { luma(230) } else { white },
+    align: (left, left, left, right),
+    [Robot Model], [Primary Function(s)], [Locomotion & Control], [Key Features & Innovations],
+    
+    [Farm Droid (Our Prototype)], [Real-time monitoring, robotic manipulation, and weeding], [Rover, Raspberry Pi 4 (brain), Arduino (controller)], [Real time monitoring with weeding, modular robot arm, as well as opencv for image detection. Alongside Gemini is used for LLM integration.],
+    [Modular 4WD Robot [12]], [Grass cutting, leaf crushing, and precision seeding], [4WD skid-steer, LiDAR/Camera, EKF state estimation], [Features a vertically stacked two-unit architecture with quick-release toolheads. Uses simulated coverage-path algorithms (like zigzag/boustrophedon) for 100% gap-free field coverage.],
+    [AgriCruiser [13]], [Over-the-row precision spraying for weed management], [2-wheel front differential drive with rear casters], [Open-source, highly reconfigurable chassis made from T-slot extrusions. Offers adjustable track width (1.42–1.57 m) and high clearance at a low deployment cost of ~$5,000–$6,000.],
+    [Six-Wheeled Laser Weeder [14]], [High-precision laser weed elimination], [6-wheeled, double four-bar linkage suspension], [Uses a 3-axis linear actuation mechanism to position a 10W blue diode laser directly over weeds, achieving a 97% hit rate while navigating obstacles up to 15 cm.],
+    [FarmDroid FD20[15]], [Autonomous seeding and preventative mechanical weeding], [4-wheeled, solar-powered, GPS-guided], [Operates on a memory-based approach, recording exact GPS coordinates of planted seeds to mechanically weed between and within rows without complex real-time vision. Heavily studied for climate-smart soil management.],
+    [BoniRob [16][17]], [Crop monitoring, targeted fertilization, and weeding], [4-wheel independently steered], [Adjusts working width dynamically (0.75m–2.0m) and uses mechanical cylinders to crush weeds as an alternative to herbicide spraying.],
+    [ROBOTTI 150 D [18]], [Multipurpose field operations (evaluated for soil health impact)], [Lightweight wheeled vehicle], [Used extensively in research to quantify soil compaction. Studies show it causes less subsoil compaction than heavy tractors, though repeated wheeling still alters topsoil porosity.],
+    [Tertill [19]], [Home garden weed control], [Solar-powered mini rover], [A consumer-grade, waterproof robot that autonomously navigates small plots and uses a simple wire/string trimmer to cut newly sprouted weeds.],
+  ),
+  caption: "Feature Comparison with Commercial Agriculture Robots (Source: RobotShop)",
+)
+
 = Work Timeline
 #figure(
     table(
@@ -315,8 +342,8 @@ caption: "Circuit Diagram of Farm Droid System",
 
 This diagram shows the circuit design alongside pin diagram of each components, for easier navigation and reproducibility.
 
-== Data Flow Diagram
 
+== Data Flow Diagram
 
 #figure(
 image("ui/dfd.png", width: 100%),
@@ -324,10 +351,15 @@ caption: "Data flow diagram of Farm Droid system",
 )
 
 
+= Results
+
+This project shows the successful development of a prototype. Our bot is able to carry out basic agricultural activities such as monitoring soil moisture, temperature, rainfall and soil pH. The integration of computer vision allows it to detect obstacles, as well as perform weeding operations. The modular design of the robotic arm enables it to be used for various tasks in the future. And finally, it can also dig the ground and plant seeds in a small scale environment.
+
+
 = Future Plans
 
-- *Modular Attachments:* Design and develop weeding tool, seed dispenser, watering nozzle etc as modular attachments of the Robotic arm. This will enable the robot to be used in a broader spectrum of agricultural activities.
-- *Limited Operations Time:* Due to limited battery capacity, our project can't run continuously for a long time.
++ To design and develop weeding tool, seed dispenser, watering nozzle etc as modular attachments of the Robotic arm.
++ Due to limited battery capacity, our project can't run continuously for a long time.
 
 = Conclusion
 The Farm Droid is a step towards modernising agriculture by robotics. This project will explore the potential of autonomous mobility and computer vision, to prove farming automation can be agile, intelligent and accessible. The successful completion of this project will result in a working prototype that can be used to move autonomously along paths and carry out basic agricultural activities.
@@ -345,8 +377,17 @@ The Farm Droid is a step towards modernising agriculture by robotics. This proje
 + ATEAGO 80PRO Robotic Lawn Mower. URL:  https://www.robotshop.com/products/ateago-ateago-50pro-remote-control-lawn-mower-robot-lawn-maintenance-robot-grass-clean-for-garden-or-hill?qd=1aa0ec8ac9c7c76afc6866d7f11a121b  (accessed 16 June 2026).
 + ADIR Basic Autonomous Agricultural Robot. URL:  https://www.robotshop.com/products/ant-robotics-adir-basic?qd=1aa0ec8ac9c7c76afc6866d7f11a121b  (accessed 16 June 2026).
 + ADIR Power Autonomous Agricultural Robot. URL:  https://www.robotshop.com/products/ant-robotics-adir-power?qd=1aa0ec8ac9c7c76afc6866d7f11a121b  (accessed 16 June 2026).
++ Kumar, A., Kamalaksha, S.A., Srividya, R., Zuber, M., Ahmad, K.A., Singh, S. and Nair, V.G., 2026. Modular 4WD agricultural robot for cutting, collection, and precision seeding: design and simulation-based evaluation. Scientific Reports.
++ Truong, K., 2025. AgriCruiser: An Open Source Agriculture Robot for Over-the-row Navigation. University of California, Los Angeles.
++ Usama, M., Khan, M.I., Hasan, A., Nadeem, M.S., Iqbal, K.F., Aslam, J., Ali, M.A. and Awan, A.N., 2025. Design of a six wheel suspension and a three-axis linear actuation mechanism for a laser weeding robot. arXiv preprint arXiv:2512.10319.
++ Bručienė, I., S. Buragienė, and E. Šarauskis. 2025. “Comparative Evaluation of the Effect of Conventional and Robotic Mechanical Weeding on Topsoil Physical Attributes.” Soil and Tillage Research 254: 106739.  https://doi.org/10.1016/j.still.2025.106739
++ Schaefer, A., Plant Robot “Bonirob”, Available at: https://www.youtube.com/watch?v=utiNto4BeOg, (last accessed 17.06.2026).
++ Langsenkamp, F., F. Sellmann, M. Kohlbrecher, et al. 2014. “Tube Stamp for Mechanical Intra-Row Indicidual Plant Weed Cover.” Agricultural Engineering International: CIGR Journal: 16–19. 
++ Calleja-Huerta, A., M. Lamandé, O. Green, and L. J. Munkholm. 2023a. “Impacts of Load and Repeated Wheeling From a Lightweight Autonomous Field Robot on the Physical Properties of a Loamy Sand Soil.” Soil and Tillage Research 233: 105791. https:// doi.org/10.1016/j.still.2023.105791
++ Sanchez, J., and E. R. Gallandt. 2021. “Functionality and Efficacy of Franklin Robotics' Tertill Robotic Weeder.” Weed Technology 35: 166– 170. https://doi.org/ 10.1017/ wet.2020.94
 
-#align(center + bottom)[
-  #v(2em)
-  *The End*
-]
+
+// #align(center + bottom)[
+//   #v(2em)
+//   *The End*
+// ]
