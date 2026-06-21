@@ -1,14 +1,16 @@
+// STREAMING_CHUNK: Configuring page layout and text settings...
 #set page(
-  paper: "a4",
-  margin: (x: 2.5cm, y: 2.5cm),
-  numbering: "1",
-  columns: 1,
+paper: "a4",
+margin: (x: 2.5cm, y: 2.5cm),
+numbering: "1",
+columns: 1,
 )
 // #set text(font: "Ubuntu Nerd Font")
 #set text(size: 12pt)
 #set par(justify: true)
 #set heading(numbering: "1.")
-#show bibliography: set heading(numbering: "1.")
+// Commented out bibliography to prevent compilation error if refs.bib is missing locally
+// #show bibliography: set heading(numbering: "1.")
 
 // --------------------------
 // Title page
@@ -16,325 +18,150 @@
 
 // #set page(numbering: none)
 
+// STREAMING_CHUNK: Generating title section...
 #align(left)[
-  // #image("PSTU.png", width: 20%, height: auto, alt: "PSTU")
-  // #text(16pt)[
-  //   *Patuakhali Science and Technology University* \
-  // ]
-  // #text(14pt)[
-  //   Faculty of Computer Science and Engineering
-  // ]
-
-  #line(length: 100%)
-  #align(left, text(18pt)[
-    *CCE 310 :: Title*
-  ])
-  #align(left, text(14pt)[
-    *CCE 310 :: Title*
-  ])
-  #line(length: 100%)
+#line(length: 100%)
+#align(left, text(18pt)[
+ShopnilOS: A GNU/Linux Based Distribution with Custom System Administration and Process Monitoring Tools
+])
+#align(left, text(14pt)[
+CIT 322 :: Operating System Sessional \
+Name: Md. Sharafat Karim \
+ID: 2102024 \
+Reg: 10151 \
+Semester: 06 (L-3, S-2)
+])
+#line(length: 100%)
 ]
 
-// #align(left)[
-//   #v(12pt)
-//   #image("logo/logo-2.png", width: 25%, height: auto, alt: "Divider")
-// ]
-
-// #align(bottom)[
-//   #line(length: 100%)
-//   *Project Title : TYPST SAMPLE* \
-//   Submission Date : #datetime.today().display("[day] [month repr:long] [year]") \
-//   #line(length: 100%)
-// ]
-
-// #align(top)[
-//   #table(
-//     columns: (35%, auto),
-//     [
-//       #text(size: 14pt)[
-//         *Submitted from,* \
-//       ]
-
-//       *Md. Sharafat Karim* \
-//       *ID* : 2102024, \
-//       *Reg* : 10151, \
-//       *Semester* : something
-//     ],
-//     [
-//       #text(size: 14pt)[
-//         *Submitted to,* \
-//       ]
-//       #parbreak()
-//       + *Prof. Dr. Md Samsuzzaman* \
-//         Professor, \
-//         Department of Computer and Communication Engineering, \
-//         Patuakhali Science and Technology University.
-//       + *Arpita Howlader* \
-//         Assistant Professor, \
-//         Department of Computer and Communication Engineering, \
-//         Patuakhali Science and Technology University.
-//     ],
-//   )
-// ]
-
-// --------------------------
-// Table of Contents
-// --------------------------
-
-// #pagebreak()
-// #set page(numbering: "1")
-// #outline()
-// #pagebreak()
-
-// --------------------------
-// Contents
-// --------------------------
-
-
-// #align(center)[
-//   #image("logo/logo.png", width: 15%, height: auto, alt: "PSTU Diary Logo")
-// ]
-// #align(center)[
-//   #text(size: 20pt, weight: "bold")[PSTU Diary]
-// ]
-
-
-
+// STREAMING_CHUNK: Writing Introduction and Objectives...
 = Introduction
 
-// PSTU Diary is a cross-platform application designed to help students and faculty members of Patuakhali Science and Technology University (PSTU) efficiently access resources and contact information of various departments, faculties, and administrative offices. The app aims to provide a user-friendly interface for quick navigation and retrieval of essential information, enhancing the overall experience of the university community.
+This project demonstrates the practical application of Operating System principles through the development of a custom, lightweight Linux distribution named ShopnilOS, alongside a suite of system administration and process monitoring tools. ShopnilOS is built by customizing the ArchLinux ISO to create a bare-minimum live environment populated only with essential modern applications. It utilizes archinstall for a streamlined, script-free base installation, ensuring a lightweight footprint. The environment is graphical-ready, customized with the Hyprland Wayland compositor, SDDM, Waybar, Rofi, and Waypaper.
 
-// It stores contact information of our University "Patuakhali Science and Technology University" all employees including Teacher, Staff, MLSS and Others who are directly or indirectly related to this University. Contact information includes phone number, email address.
+To bridge the gap between low-level system configuration and user-space process management, complementary tools were developed: Archmate for comprehensive system administration, a Chaotic AUR installer script, and Tree_tasker, a Python and PySide6-based graphical task manager with web integration for advanced process hierarchy visualization.
 
 = Objectives
 
-// + To develop a user-friendly mobile application that provides easy access to contact information of PSTU departments and personnel.
-// + To ensure the application is accessible on Web, Android and iOS (optional) platforms.
-// + To provide administrative features for updating and managing contact information.
-// + To implement role based authentication and authorization for different user types (Admin, Editor, User).
-// + Add profile page for each contact with detailed information.
-// + Implement different pages for different club and societies of PSTU.
-// + Implement a universal searching feature to quickly find contacts.
-// + Implement a feedback system for users to report issues or suggest improvements through GitHub.
-// + Implement a campus map's link for easy navigation around the university.
-// + Ensure data security and privacy for all users of the application.
+- To understand Linux system architecture by customizing and building a bootable Arch-based ISO.
+- To automate core OS maintenance tasks including package, user, repository, and configuration management.
+- To visualize and monitor system resource allocation (CPU, RAM, Disk, Network) per application in real-time.
+- To map and interactively explore parent-child process relationships (PIDs) within the operating system.
 
+// STREAMING_CHUNK: Formulating Problem Statement and Related Work...
 = Problem Statement
 
-// Existing applications and websites often lack a centralized and user-friendly platform for accessing university contact information. Users may face difficulties in finding accurate and up-to-date information, leading to inefficiencies in communication.
-// Also the existing application "PSTU Diary (পবিপ্রবি ডায়েরি)" is no longer maintained and has several limitations, including a less intuitive user interface, lack of features for updating contact information, and limited platform support (only available on Android). This creates a need for a more modern, efficient, and accessible solution.
+Modern operating systems often come pre-packaged with heavy, unnecessary background services (bloatware) that consume valuable hardware resources. Furthermore, traditional command-line process monitors (like top or ps) provide dense tabular data that makes it difficult for users to intuitively understand parent-child process relationships and exact resource distribution. There is a need for a streamlined, customizable OS base paired with an intuitive, visual process manager that clearly maps process hierarchies and resource bottlenecks.
 
 = Related Work
 
-// + *PSTU Diary (পবিপ্রবি ডায়েরি) - Old Version* - Old version, no longer maintained. It lacks the ability to update contact information and has a less intuitive user interface. It also doesn't support iOS or web platforms @pstu_old_diary 
-// + *PSTU Diary (পবিপ্রবি ডায়েরি) - Admin Version* - Only for Admin, with unstable API. It is not available for general users and has limited functionality. Database is not well-structured. And it uses MySQL as for the database source, which is not well protected with row level security @pstu_old_diary_admin 
++ General-purpose Linux distributions (e.g., Ubuntu, Linux Mint) provide functional environments but lack the minimalism required for strict resource control. On the monitoring side, tools like htop, gnome-system-monitor, or Windows Task Manager offer system overviews but often lack strict tree-based PID mapping paired with detailed pie-chart breakdowns for CPU, RAM, Disk, and Network per application. This project combines the minimalism of Arch Linux with a custom-built, highly visual process monitoring suite.
 
 = Scope
 
-// The application will focus on providing contact information for all departments and personnel within PSTU. It will include features such as search functionality, categorization of contacts, and an admin panel for updating information. The app will be developed for Android, iOS, and web platforms to ensure wide accessibility.
+The scope of this project is currently limited to x86_64 system architectures. The distribution, ShopnilOS, is tailored specifically for Arch-based package management (pacman, AUR). The Tree_tasker application is designed to fetch and visualize process data strictly for the local host machine, though its web interface lays the groundwork for future remote monitoring capabilities.
 
+// STREAMING_CHUNK: Detailing Methodology and Tech Stack...
 = Methodology
 
 == Technology Stack
-// The development of PSTU Diary will follow an agile methodology, allowing for iterative improvements and user feedback. Our technology stack will includes,
 
-// - *Frontend*: Flutter@flutter (Dart)
-// - *Backend*: Supabase
-// - *UI/ UX Design*: Inkscape
-// - *Database*: PostgreSQL
-// - *Authentication*: Supabase Auth
-// - *Hosting (web app)*: Vercel 
-// - *CI/CD*: GitHub Actions, Docker (optional)
++ OS Customization: Archiso builder, archinstall.
++ Window Management / UI: Hyprland (Wayland), SDDM, Waybar, Rofi, Waypaper.
++ Scripting & Administration: Bash scripting (Archmate, Chaotic AUR Installer).
++ Application Development: Python, PySide6 (GUI framework for Tree_tasker).
++ Web Technologies: HTML, CSS, JavaScript (for the interactive process web interface).
 
 == Design Principles
 
-// The design of PSTU Diary will adhere to the following principles,
+Minimalism (KISS): Keep the core OS live ISO as small as possible, relying on native tools like archinstall rather than custom, hard-to-maintain installation scripts.
 
-// - *Material Design*: Following Google's Material Design guidelines for a consistent and modern UI/UX in Android.
-// - *Responsive Design*: Ensuring the application works seamlessly on various screen sizes and orientations, including the web app.
-// - *User-Centric Design*: Focusing on user experience and ease of use, with intuitive navigation and clear UI elements.
-// - *Cross-Platform*: Ensuring consistent functionality and design across Android, iOS, and web platforms.
-// - *Documentation*: Providing comprehensive documentation for developers and users, including API documentation and user guides.
-// - *Security*: Implementing best practices for data security and user privacy, including secure authentication and data encryption.
+Modularity: Separate system administration (Archmate) from real-time process monitoring (Tree_tasker) to ensure system stability.
 
-= Visual Models
+Visual Clarity: Use tree structures and pie charts to translate raw OS process data into easily digestible visual information.
 
-== Flow Chart Diagram
+// STREAMING_CHUNK: Setting up Visual Models and placeholders...
+// = Visual Models
 
-// #figure(
-//   image("diagrams/flow-chart.svg", width: 100%, height: auto, alt: "Flow Chart"),
-//   caption: "Flow Chart of PSTU Diary Architecture",
-// ) <DFD>
+// == Flow Chart Diagram
 
-// The above @DFD illustrates the overall architecture of the PSTU Diary application.
+// // #figure(
+// //   image("diagrams/flow-chart.svg", width: 100%, height: auto, alt: "Flow Chart"),
+// //   caption: "Flow Chart of Process Fetching and Rendering in Tree_tasker",
+// // ) 
 
-== Schema Diagram
+// // The above @DFD illustrates the architecture of the Tree_tasker application, showing how system calls fetch PID data and pipe it to the PySide6 UI and Web Interface.
 
-// #figure(
-//   image("diagrams/schema_2.svg", width: 91%, height: auto, alt: "Database Schema Diagram"),
-//   caption: "Database Schema Diagram of PSTU Diary",
-// ) <Schema>
+// == Schema Diagram
 
-// The above @Schema illustrates the database schema for PSTU Diary, showing the tables, their fields, and relationships between them. 
+// // #figure(
+// //   image("diagrams/schema_2.svg", width: 91%, height: auto, alt: "System Architecture Diagram"),
+// //   caption: "System Architecture Diagram of ShopnilOS Integration",
+// // ) 
 
+// // The above @Schema illustrates how Archmate interacts with the underlying pacman database, user configurations, and root system files.
 
-== ERD (Entry Relationship Diagram)
+// == ERD (Entity Relationship Diagram)
 
-// #figure(
-//   image("diagrams/erd.svg", width: 96%, height: auto, alt: "Entity Relationship Diagram"),
-//   caption: "Entity Relationship Diagram of PSTU Diary",
-// ) <ERD>
+// // #figure(
+// //   image("diagrams/erd.svg", width: 96%, height: auto, alt: "Process Relationship Diagram"),
+// //   caption: "Process Entity Relationship Diagram (Parent-Child PID mapping)",
+// // ) 
 
-// The above @ERD illustrates the entity-relationship diagram for PSTU Diary, showing the entities, their attributes, and relationships between them. The ERD helps in understanding the data model and how different entities interact with each other.
+// // The above @ERD illustrates the relationships between parent processes, child threads, and allocated system resources (CPU, RAM, Disk, Network) as tracked by Tree_tasker.
 
+// // STREAMING_CHUNK: Building Timeline Gantt Chart...
+// == Timeline (Gantt Chart)
 
-== Timeline (Gantt Chart)
-
-// The base timeline for the development of PSTU Diary is as follows,
+// The base timeline for the development of ShopnilOS and its utilities is as follows:
 
 // #figure(
-//   table(
-//     columns: (auto, 7.5%, 7.5%, 7.5%, 7.5%, 7.5%, 7.5%, 7.5%, 7.5%),
-//     [*Task*], [*Week 1-2*], [*Week 3-4*], [*Week 5-6*], [*Week 7-8*], [*Week 9*], [*Week 10*], [*Week 11*], [*Week 12*],
-//     [Requirements & UI Mockup], [✓], [], [✓], [], [], [], [], [],
-//     [App structure and navigation design], [], [✓], [✓], [], [], [], [], [],
-//     [Basic UI and supabase/ backend integration], [], [], [✓], [✓], [], [], [], [],
-//     [Admin panel design with role-based access control], [], [], [✓], [✓], [✓], [], [], [],
-//     [Fetch data realtime from db], [], [], [], [], [], [✓], [], [],
-//     [UI Polish & Documentation], [], [], [], [], [], [✓], [✓], [],
-//     [Final Testing & Deployment], [], [], [], [], [], [], [], [✓],
-//   ),
-//   caption: "Development Timeline of PSTU Diary",
+// table(
+// columns: (auto, 7.5%, 7.5%, 7.5%, 7.5%, 7.5%, 7.5%, 7.5%, 7.5%),
+// [Task], [Week 1-2], [Week 3-4], [Week 5-6], [Week 7-8], [Week 9], [Week 10], [Week 11], [Week 12],
+// [Archiso customization & Live Environment], [✓], [], [], [], [], [], [], [],
+// [Hyprland, Waybar & Rofi UI configuration], [], [✓], [✓], [], [], [], [], [],
+// [Archmate Scripting (Pacman, Mirrors, Cleanup)], [], [], [✓], [✓], [], [], [], [],
+// [Chaotic AUR Installer implementation], [], [], [], [✓], [], [], [], [],
+// [Tree_tasker Python/PySide6 core logic (PIDs)], [], [], [], [], [✓], [✓], [], [],
+// [Resource Pie Charts & Web Interface], [], [], [], [], [], [✓], [✓], [],
+// [Final Testing & ISO Compilation], [], [], [], [], [], [], [], [✓],
+// ),
+// caption: "Development Timeline of Custom OS and Utilities",
 // )
 
 // The timeline is divided into 12 weeks, with specific tasks allocated to each period which describes an approximate timeline for the whole development process.
 
-== UI Mockups
+// == UI Mockups
 
-// #figure(
-//   image("UI/1.png", height: 50%, alt: "UI Mockups"),
-//   caption: "UI Mockups of PSTU Diary",
-// ) <UI1>
+// // #figure(
+// //   image("UI/1.png", height: 50%, alt: "Tree_tasker UI"),
+// //   caption: "Main UI of Tree_tasker showing Process Tree and PIDs",
+// // ) 
 
-// #figure(
-//   grid(
-//     columns: (auto, auto),
-//     rows: (auto, auto),
-//     gutter: 1em,
-//     [ #image("UI/2.png", width: 61%) ], [ #image("UI/3.png", width: 61%) ],
-//   ),
-//   caption: [Home page and profile page's UI concept],
-// ) <UI2>
+// // #figure(
+// //   grid(
+// //     columns: (auto, auto),
+// //     rows: (auto, auto),
+// //     gutter: 1em,
+// //     [ #image("UI/2.png", width: 61%) ], [ #image("UI/3.png", width: 61%) ],
+// //   ),
+// //   caption: [Archmate terminal interface and ShopnilOS Desktop environment],
+// // ) 
 
-// #figure(
-//   grid(
-//     columns: (auto, auto),
-//     rows: (auto, auto),
-//     [ #image("UI/4.png", width: 61%) ], [ #image("UI/5.png", width: 61%) ],
-//   ),
-//   caption: [Settings and Admin sign in page's UI concept],
-// ) <UI3>
+// // STREAMING_CHUNK: Writing Future Plans and Results...
 
 = Future Plans
 
-// + Collecting and to add more information about each contact.
-// + Implementing more features like event calendar, lost and found section, blood donor finder, club activities etc.
-// + Implementing student section for collecting their data.
-// + Enhancing the admin panel with more functionalities.
-// + Improving the UI/UX based on user feedback.
-// + Implementing push notifications for important updates and announcements.
+Future iterations of this project aim to implement remote system administration directly into Archmate, allowing configuration over SSH. For Tree_tasker, plans include adding the capability to terminate or pause specific processes directly from the interactive web interface, and expanding the data polling to support distributed containerized environments (like Docker metrics).
 
 = Result
-// The project is aimed to give students and faculty members of Patuakhali Science and Technology University (PSTU) a centralized platform to access contact information and resources efficiently. The application is expected to enhance communication within the university community and provide a user-friendly experience across multiple platforms.
 
-#bibliography(title: "References", "refs.bib")
+The project resulted in a fully functional, bootable custom Linux ISO (ShopnilOS) that successfully integrates a modern Wayland environment on minimal base packages. The administration scripts (Archmate and Chaotic AUR Installer) successfully automate tedious system updates, cleanups, and user management. Finally, the Tree_tasker application accurately polls kernel data to display real-time parent-child process trees and accurately renders CPU, RAM, Disk, and Network usage into interactive pie charts across both desktop and web interfaces.
+
+// Uncomment and ensure refs.bib is present in the directory to compile bibliography
+// #bibliography(title: "References", "refs.bib")
 
 #align(center + bottom)[
-  *THE END*
+THE END
 ]
-
-// #pagebreak()
-
-// = Weekly Report
-
-// #table(
-//   columns: (8%, 12%, 50%, 10%, auto),
-//   [*No.*], [*Date*], [*Objective*], [*Status*], [*Remarks*],
-//   [1],
-//   [],
-//   [*Project proposal* \
-//     - Initial research on existing solutions \
-//     - Defining objectives and scope \
-//     - Creating initial UI mockups \
-//   ],
-//   [],
-//   [],
-
-//   [2],
-//   [],
-//   [
-//     *Environment and navigation setup* \
-//     - Setting up development environment \
-//     - Designing app structure and navigation \
-//     - Creating basic UI components \
-//   ],
-//   [],
-//   [],
-
-//   [3],
-//   [],
-//   [
-//     *Basic UI and backend integration* \
-//     - Implementing basic UI screens \
-//     - Integrating with Supabase for authentication and authorization \
-//     - Theming and multilingual support \
-//   ],
-//   [],
-//   [],
-
-//   [4],
-//   [],
-//   [
-//     *Admin panel design with role-based access control* \
-//     - Designing admin panel UI \
-//     - Implementing role-based access control for different user types \
-//     - Testing admin functionalities \
-//   ],
-//   [],
-//   [],
-
-//   [5],
-//   [],
-//   [
-//     *Realtime data fetching from database* \
-//     - Implementing real-time data fetching using Supabase \
-//     - Testing data synchronization across devices \
-//     - Optimizing data queries for performance \
-//   ],
-//   [],
-//   [],
-
-//   [6],
-//   [],
-//   [
-//     *UI Polish & Documentation* \
-//     - Refining UI elements for better user experience \
-//     - Creating comprehensive documentation for users and developers \
-//     - Preparing for final testing and deployment \
-//   ],
-//   [],
-//   [],
-
-//   [7],
-//   [],
-//   [
-//     *Final Testing & Deployment* \
-//     - Conducting final testing on all platforms \
-//     - Fixing bugs and issues identified during testing \
-//     - Deploying the application to app stores and web hosting platforms \
-//   ],
-//   [],
-//   [],
-
-//   // [8], [], [], [], [],
-// )
