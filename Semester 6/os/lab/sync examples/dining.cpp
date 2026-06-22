@@ -24,7 +24,7 @@ void Philosopher::test(int i) {
 
 void Philosopher::pickUp(int i) {
     s[i] = HUNGRY;
-    if (s[i] != EATING) {
+    while (s[i] != EATING) {
         test(i);
     }
     printf("Philosopher %d is %s\n", i, (s[i] == EATING) ? "EATING" : "HUNGRY");
@@ -32,31 +32,20 @@ void Philosopher::pickUp(int i) {
 
 void Philosopher::putDown(int i) {
     s[i] = THINKING;
-    test((i + 4) % 5);
-    test((i + 1) % 5);
-}
-
-void randomCall(Philosopher &p) {
-    int i = rand() % 5;
-    int action = rand() % 2;
-    if (action == 0) {
-        p.pickUp(i);
-    } else {
-        p.putDown(i);
-    }
 }
 
 int main() {
-    srand(time(0));
-
     Philosopher p;
-    thread t[10];
-    for (int i = 0; i < 10; i++) {
-        t[i] = thread(randomCall, ref(p));
-    }
-    for (int i = 0; i < 10; i++) {
-        t[i].join();
-    }
+    thread t[5];
+    t[0] = thread(&Philosopher::pickUp, &p, 0);
+    t[1] = thread(&Philosopher::pickUp, &p, 1);
+    t[2] = thread(&Philosopher::putDown, &p, 0);
+    t[3] = thread(&Philosopher::putDown, &p, 1);
+
+    t[0].join();
+    t[1].join();
+    t[2].join();
+    t[3].join();
 
     return 0;
 }
