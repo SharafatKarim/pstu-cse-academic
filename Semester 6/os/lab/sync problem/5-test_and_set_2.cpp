@@ -2,13 +2,14 @@
 using namespace std;
 
 int next_id=1;
-bool lock_var=false;
+atomic<bool> lock_var=false;
 
 bool test_and_set()
 {
-    bool rv = lock_var;
-    lock_var = true;
-    return rv;
+    // bool rv = lock_var;
+    // lock_var = true;
+    // return rv;
+    return lock_var.exchange(true);
 }
 
 void acquire_lock()
@@ -40,10 +41,9 @@ int main()
 
     vector<thread> threads;
 
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 20; i++)
     {
         threads.emplace_back(generate_id, i);
-        sleep(0.1);
     }
 
     for (auto &t : threads)
