@@ -1,83 +1,103 @@
 @startuml
-' Hide the spot for better layout
-hide circle
+' Linkerine — Storage Schema (class diagram)
+' Shows where each record type lives: Firestore (cloud sync) vs Dexie (local).
 
-entity "User" {
-  *user_id : UUID <<PK>>
-  --
-  email : string
-  password_hash : string
-  is_anonymous : bool
-  created_at : datetime
+skinparam packageStyle rectangle
+
+class User {
+    +string uid
+    +string email
 }
 
-entity "Folder" {
-  *folder_id : UUID <<PK>>
-  --
-  name : string
-  parent_folder_id : UUID <<FK>>
-  user_id : UUID <<FK>>
+package "Firebase Firestore (cloud, per-user, synced)" {
+    class Subscription {
+        +string url
+        +string title
+        +string folder
+        +string[] tags
+        +timestamp addedAt
+    }
+
+    class Bookmark {
+        +string url
+        +string title
+        +string notes
+        +timestamp dateAdded
+    }
+
+    class ReadStates {
+        +string[] articles
+    }
+
+    class VaultConfig {
+        +string salt
+        +number iterations
+        +Encrypted verifier
+        +number version
+        +number createdAt
+    }
+
+    class VaultItem {
+        +string id
+        +string iv
+        +string ct
+        +number createdAt
+        +number updatedAt
+    }
 }
 
-entity "Bookmark" {
-  *bookmark_id : UUID <<PK>>
-  --
-  title : string
-  url : string
-  encrypted_username : string
-  encrypted_password : string
-  encrypted_notes : string
+package "Local then Online (offline-first)" {
+    class Article {
+        +string id
+        +string feedId
+        +string title
+        +string link
+        +string pubDate
+        +string contentSnippet
+        +string content
+        +number fetchedAt
+    }
 
-  folder_id : UUID <<FK>>
-  user_id : UUID <<FK>>
-  created_at : datetime
+    class AICacheEntry {
+        +string key
+        +string articleId
+        +string kind
+        +string content
+        +string provider
+        +string model
+        +number createdAt
+    }
+
+    class ArticleEmbedding {
+        +string articleId
+        +number[] vector
+        +string model
+        +string provider
+        +number createdAt
+    }
 }
 
-entity "Article" {
-  *article_id : UUID <<PK>>
-  --
-  title : string
-  content : text
-  url : string
-  user_id : UUID <<FK>>
-  saved_at : datetime
-}
-
-entity "RSSFeed" {
-  *feed_id : UUID <<PK>>
-  --
-  title : string
-  url : string
-  user_id : UUID <<FK>>
-}
-
-entity "RSSItem" {
-  *item_id : UUID <<PK>>
-  --
-  feed_id : UUID <<FK>>
-  title : string
-  url : string
-  published_date : datetime
-}
-
-entity "History" {
-  *history_id : UUID <<PK>>
-  --
-  user_id : UUID <<FK>>
-  item_type : string
-  item_id : UUID
-  accessed_at : datetime
+package "Browser-only (localStorage)" {
+    class LocalSettings {
+        +AISettings linkerine_ai
+        +Prefs linkerine_prefs
+        +CryptoKey vaultKey_inMemory
+    }
 }
 
 ' Relationships
-User ||--o{ Folder : owns
-User ||--o{ Bookmark : saves
-User ||--o{ Article : saves
-User ||--o{ RSSFeed : subscribes
-User ||--o{ History : logs
+User "1" --> "0..*" Subscription : Firestore
+User "1" --> "0..*" Bookmark : Firestore
+User "1" --> "1" ReadStates : Firestore (all + bookmarks)
+User "1" --> "0..1" VaultConfig : Firestore (vault_meta)
+User "1" --> "0..*" VaultItem : Firestore (vault, encrypted)
 
-Folder ||--o{ Bookmark : contains
-Folder ||--o{ Folder : subfolders
+Subscription "1" --> "0..*" Article : Dexie
 
-RSSFeed ||--o{ RSSItem : has
+' Forcing AICacheEntry and ArticleEmbedding to the left of Article
+Article "1" -right-> "0..1" AICacheEntry : Dexie
+Article "1" -right-> "0..1" ArticleEmbedding : Dexie
+AICacheEntry -[hidden]right-> LocalSettings
+
+User ..> LocalSettings : browser only
 @enduml

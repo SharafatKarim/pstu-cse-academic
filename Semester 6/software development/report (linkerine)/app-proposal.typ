@@ -99,17 +99,19 @@
 
 = Abstract
 
-Linkerine is a modern, web-based bookmark and RSS management platform designed to help users seamlessly store, organize, and sync *bookmarks*, *articles*, *notes*, and *RSS feeds* across all devices. In an age of increasing digital information overload, Linkerine leverages the power of Next.js to provide a fast, SEO-friendly, and progressive web application (PWA) that offers a simplified yet powerful interface to manage and retrieve valuable resources from anywhere.
+Linkerine is a modern, offline-first RSS reader and personal knowledge hub that helps users follow, read, organize, and sync *RSS/Atom feeds*, *articles*, *bookmarks*, *notes*, and *secrets* across all of their devices. In an age of growing information overload, Linkerine pairs a Next.js progressive web application (PWA) with a local-first data layer (Dexie/IndexedDB) and cloud synchronization (Firebase) to deliver a fast, installable, and fully offline-capable experience. It further integrates optional bring-your-own-key (BYOK) AI for summaries, semantic search and auto-tagging, keyless translation, a zero-knowledge encrypted vault for sensitive data, and one-click following of sources such as YouTube, Reddit, Mastodon and Bluesky.
 
 = Objectives
 
-- To build a high-performance, responsive web application for organizing bookmarks and RSS feeds.
+- To build a high-performance, responsive, offline-first web application for following and reading RSS feeds and managing bookmarks, notes and secrets.
 
-- To implement secure server-side data fetching and storage using Next.js Server Actions.
+- To implement a local-first data layer (Dexie/IndexedDB) with secure cloud synchronization and authentication via Firebase.
 
-- To provide an "Installable" experience on mobile and desktop via Progressive Web App (PWA) standards.
+- To provide an "Installable", fully offline-capable experience on mobile and desktop via Progressive Web App (PWA) standards.
 
-- To implement advanced features like automatic metadata scraping, nested collections, and full-text search.
+- To integrate optional bring-your-own-key (BYOK) AI for summarization, semantic search and auto-tagging, alongside keyless translation.
+
+- To safeguard sensitive data (passwords, `.env` files, secret notes) with a zero-knowledge, client-side encrypted vault.
 
 = Problem Statement
 
@@ -129,12 +131,33 @@ Furthermore, many modern tools (like Pocket or Raindrop) lock essential features
 
 - *Raindrop.io* - The industry standard, but lacks self-hosting capabilities and anonymous usage. @raindrop
 
+== Feature Comparison
+
+@comparison contrasts Linkerine with widely used read-later, bookmarking and RSS tools. Linkerine is the only option that combines native RSS, an offline-first PWA, optional bring-your-own-key (BYOK) AI, a zero-knowledge encrypted vault, and companion browser extensions — without locking core features behind a paywall.
+
+#figure(
+  table(
+    columns: (20%, 11%, 12%, 9%, 13%, 16%, 19%),
+    align: (left, center, center, center, center, center, center),
+    [*App*], [*RSS feeds*], [*Offline-first*], [*AI features*], [*Encrypted vault*], [*Browser extension*], [*Free / open*],
+    [*Linkerine*], [✓], [✓], [✓], [✓], [✓], [✓],
+    [Mozilla Pocket], [—], [✓], [—], [—], [✓], [Paid],
+    [Raindrop.io], [✓], [Paid], [—], [—], [✓], [Paid],
+    [Instapaper], [—], [✓], [—], [—], [✓], [Paid],
+    [GoodLinks], [—], [✓], [—], [—], [✓], [Paid],
+    [Feedly], [✓], [Paid], [Paid], [—], [✓], [Paid],
+  ),
+  caption: "Feature comparison of Linkerine with existing solutions",
+) <comparison>
+
+#text(size: 10pt)[*Legend:* ✓ = available; Paid = premium or limited; — = not available. AI in Linkerine is bring-your-own-key (no subscription required); GoodLinks is a paid, Apple-only application.]
+
 
 = Scope
 
-Linkerine will be developed as a modern web application using the *Next.js 15* framework. This ensures it is accessible from any device with a web browser (Windows, macOS, Linux, Android, iOS).  The application will focus on providing a rich set of features including server-side RSS parsing, automatic Open Graph metadata extraction for links, and a responsive UI built with Tailwind CSS.
+Linkerine is developed as a modern web application using the *Next.js 16* framework (App Router, React 19). This ensures it is accessible from any device with a web browser (Windows, macOS, Linux, Android, iOS). The application focuses on a rich feature set including server-side RSS/Atom parsing through an SSRF-protected proxy route, offline-first storage with Dexie (IndexedDB), cloud sync and authentication via Firebase, and a responsive interface built with Tailwind CSS and DaisyUI.
 
-Later on, the project can be extended to include browser extensions that share the same codebase, public bookmark collections, and AI-driven content summarization.
+The project has since been extended with optional BYOK AI features, a zero-knowledge encrypted vault, one-click following of social sources (YouTube, Reddit, Mastodon and Bluesky natively, plus X, Instagram and Telegram via an RSSHub bridge), and companion browser extensions that share the same deployment.
 
 == Job Market Analysis
 
@@ -197,13 +220,15 @@ The development of Linkerine will follow an agile methodology. We have selected 
 #figure(
   table(
     columns: (30%, 70%),
-    [*Frontend Framework*], [Next.js 15 (React)],
+    [*Frontend Framework*], [Next.js 16 (React 19, App Router, Turbopack)],
     [*Language*], [TypeScript],
-    [*Styling*], [Tailwind CSS + Shadcn/ui],
-    [*Backend / API*], [Next.js Server Actions + Route Handlers],
-    [*Database*], [PostgreSQL (via Supabase or Neon)],
-    [*ORM*], [Drizzle ORM],
-    [*Authentication*], [Clerk or Supabase Auth],
+    [*Styling*], [Tailwind CSS 4 + DaisyUI 5 (with Radix UI primitives)],
+    [*Backend / API*], [Next.js Route Handlers (SSRF-protected feed proxy)],
+    [*Cloud Database*], [Firebase Firestore (user data, multi-device sync)],
+    [*Local Storage*], [Dexie (IndexedDB) — offline article cache],
+    [*Authentication*], [Firebase Authentication],
+    [*AI (optional, BYOK)*], [OpenAI / Google Gemini / Anthropic Claude],
+    [*Encryption*], [Web Crypto API (PBKDF2 + AES-256-GCM) for the vault],
     [*Hosting*], [Vercel],
   ),
   caption: "Technology Stack for Linkerine",
@@ -213,30 +238,38 @@ The development of Linkerine will follow an agile methodology. We have selected 
 
 The design of Linkerine will adhere to the following principles:
 
-- *Mobile-First Responsive Design*: Ensuring the layout adapts perfectly from mobile screens to large desktop monitors using Tailwind CSS.
-- *Server-Side Rendering (SSR)*: Utilizing Next.js to render pages on the server for speed and SEO, ensuring content is visible instantly.
-- *Edge Computing*: Running middleware at the edge for low-latency authentication and redirect handling.
-// - *Type Safety*: Using TypeScript and Zod to ensure robust data validation from the database to the UI.
-- *Accessibility*: Adhering to WCAG guidelines using the accessible primitives from Shadcn/ui (Radix UI).
+- *Offline-First (Local-First)*: A Dexie/IndexedDB cache keeps articles and the interface fully usable without a network; Firebase synchronizes user data across devices when online.
+- *Mobile-First Responsive Design*: Ensuring the layout adapts perfectly from mobile screens to large desktop monitors using Tailwind CSS and DaisyUI, with installable PWA support.
+- *Privacy by Design*: AI keys are stored only in the browser (BYOK) and never sent to the app's servers, while the vault is end-to-end encrypted (zero-knowledge) using the Web Crypto API.
+// - *Type Safety*: Using TypeScript to ensure robust data validation from the database to the UI.
+- *Accessibility*: Adhering to WCAG guidelines using accessible Radix UI primitives and semantic DaisyUI components.
 
 = Visual Models
 
 == ERD (Entity Relationship Diagram)
 
 #figure(
-  image("diagrams/plantUML.svg", width: 100%, height: auto, alt: "Entity Relationship Diagram"),
-  caption: "Entity Relationship Diagram of Linkerine",
+  image("diagrams/erd.png", width: 100%, height: auto, alt: "Entity Relationship Diagram"),
+  caption: "Entity Relationship Diagram of Linkerine (Firestore + Dexie)",
 ) <ERD>
 
-== System Architecture Diagram
+== Storage Schema
 
-// Replacing the old DFD with a context relevant block diagram description or placeholder
 #figure(
-  image("diagrams/linkerine.DFD.svg", width: 100%, height: auto, alt: "System Architecture"),
-  caption: "Next.js App Router Architecture & Data Flow",
+  image("diagrams/schema.png", width: 100%, height: auto, alt: "Storage Schema"),
+  caption: "Storage schema — Firestore (cloud sync) and Dexie (offline) records",
+) <Schema>
+
+@Schema shows where each record type lives: user data (subscriptions, bookmarks, read states and the vault) syncs through Firebase Firestore, while article content, AI caches and semantic embeddings are kept locally in Dexie (IndexedDB) for offline-first access. Sensitive vault fields are persisted only as AES-256-GCM ciphertext.
+
+== Data Flow Diagram
+
+#figure(
+  image("diagrams/flowchart.png", height: 78%, alt: "Data Flow"),
+  caption: "Source-addition and reading data flow in Linkerine",
 ) <Arch>
 
-Here @Arch illustrates the architecture where the Next.js Client communicates with Server Actions, which then interact with the PostgreSQL database via Drizzle ORM. RSS feeds are fetched via a proxy route to handle CORS.
+Here @Arch illustrates the architecture where the Next.js client reads and writes locally through Dexie (IndexedDB) for instant, offline access, while user data (subscriptions, read states, bookmarks) syncs to Firebase Firestore. RSS/Atom feeds are fetched and parsed through an SSRF-protected Route Handler (`/api/sync-feed`) to bypass browser CORS restrictions, and social/source URLs are normalized into feeds via a dedicated resolver route.
 
 == Timeline (Gantt Chart)
 
@@ -246,14 +279,14 @@ The timeline is divided into 12 weeks, focusing on the Next.js development lifec
   table(
     columns: (auto, 7.5%, 7.5%, 7.5%, 7.5%, 7.5%, 7.5%, 7.5%, 7.5%),
     [*Task*], [*Week 1-2*], [*Week 3-4*], [*Week 5-6*], [*Week 7-8*], [*Week 9*], [*Week 10*], [*Week 11*], [*Week 12*],
-    [Setup Next.js, TS, & Auth], [✓], [], [✓], [], [], [], [], [],
-    [DB Schema (Drizzle) + Migrations], [], [✓], [✓], [], [], [], [], [],
-    [Bookmark Actions & Scraping], [], [], [✓], [✓], [], [], [], [],
-    [RSS Parser & Feed UI], [], [], [], [✓], [], [], [], [],
-    [Search & Tagging System], [], [], [✓], [✓], [✓], [], [], [],
-    [PWA Integration & Optimization], [], [], [], [], [], [✓], [], [],
-    [UI Polish (Dark Mode/Themes)], [], [], [], [], [], [✓], [✓], [],
-    [Vercel Deployment & Testing], [], [], [], [], [], [], [], [✓],
+    [Setup Next.js 16, TS & Firebase Auth], [✓], [], [✓], [], [], [], [], [],
+    [Data layer (Firestore + Dexie/IndexedDB)], [], [✓], [✓], [], [], [], [], [],
+    [Feed sync proxy & subscriptions], [], [], [✓], [✓], [], [], [], [],
+    [RSS/Atom parser & reader views], [], [], [], [✓], [], [], [], [],
+    [Search, folders/tags & BYOK AI], [], [], [✓], [✓], [✓], [], [], [],
+    [Encrypted vault & social sources], [], [], [], [], [], [✓], [], [],
+    [PWA, DaisyUI themes & UI polish], [], [], [], [], [], [✓], [✓], [],
+    [Vercel deployment & testing], [], [], [], [], [], [], [], [✓],
   ),
   caption: "Development Timeline of Linkerine",
 )
@@ -286,13 +319,16 @@ The timeline is divided into 12 weeks, focusing on the Next.js development lifec
 
 = Future Plans
 
-+ *Browser Extensions*: Leveraging the shared TypeScript codebase to build Chrome/Firefox extensions that save links directly to the database.
-+ *AI Summarization*: Integrating OpenAI or local LLMs to generate summaries of bookmarked articles.
-+ *Public Collections*: Allowing users to publish specific folders as public, shareable web pages.
-+ *Offline Sync*: Enhancing the PWA with local storage to allow reading cached articles without an internet connection.
+Several capabilities originally envisioned as future work — companion browser extensions, BYOK AI summarization, and full offline sync — have already been implemented. The following remain as planned extensions:
+
++ *Public Collections*: Allowing users to publish specific feeds or folders as public, shareable read-only web pages.
++ *Admin & Analytics Dashboard*: A privacy-respecting admin panel (via the Firebase Admin SDK) for account-level usage insights and aggregate metrics.
++ *Collaboration*: Shared folders and multi-user feed boards for teams and study groups.
++ *Expanded Source Bridges*: Broader social and platform coverage, with first-class support for self-hosted RSSHub instances.
++ *Push & Background Sync*: Native push notifications and periodic background synchronization to surface new articles even when the app is closed.
 
 = Result
-The expected outcome is a highly performant, server-rendered web application deployed on Vercel, providing a superior user experience for managing digital content across all device types.
+The outcome is a highly performant, offline-first progressive web application deployed on Vercel, providing a superior user experience for following, reading and managing digital content across all device types — with optional AI assistance and a privacy-preserving encrypted vault.
 
 #pagebreak()
 
@@ -302,87 +338,87 @@ The expected outcome is a highly performant, server-rendered web application dep
   *THE END*
 ]
 
-#pagebreak()
+// #pagebreak()
 
-= Weekly Report
+// = Weekly Report
 
-#table(
-  columns: (8%, 12%, 55%, 10%, 15%),
-  [*No.*], [*Date*], [*Objective*], [*Status*], [*Remarks*],
-  [1],
-  [],
-  [
-    *Project proposal* \
-    - Initial research on existing solutions \
-    - Defining objectives and scope \
-    - Creating initial UI mockups \
-  ],
-  [],
-  [],
+// #table(
+//   columns: (8%, 12%, 55%, 10%, 15%),
+//   [*No.*], [*Date*], [*Objective*], [*Status*], [*Remarks*],
+//   [1],
+//   [],
+//   [
+//     *Project proposal* \
+//     - Initial research on existing solutions \
+//     - Defining objectives and scope \
+//     - Creating initial UI mockups \
+//   ],
+//   [],
+//   [],
 
-  [2],
-  [],
-  [
-    *Environment and navigation setup* \
-    - Setting up Next.js development environment \
-    - Designing app structure with App Router \
-    - Creating basic UI components with Shadcn/ui \
-  ],
-  [],
-  [],
+//   [2],
+//   [],
+//   [
+//     *Environment and navigation setup* \
+//     - Setting up the Next.js 16 (App Router) development environment \
+//     - Designing the app structure and dashboard layout \
+//     - Building base UI with Tailwind CSS + DaisyUI \
+//   ],
+//   [],
+//   [],
 
-  [3],
-  [],
-  [
-    *Basic UI and backend integration* \
-    - Implementing basic bookmark and RSS UI screens \
-    - Integrating Clerk/Supabase authentication \
-    - Setting up Tailwind CSS theming \
-  ],
-  [],
-  [],
+//   [3],
+//   [],
+//   [
+//     *Auth and data layer* \
+//     - Integrating Firebase Authentication \
+//     - Setting up the dual storage model (Firestore + Dexie/IndexedDB) \
+//     - Configuring offline persistence and theming \
+//   ],
+//   [],
+//   [],
 
-  [4],
-  [],
-  [
-    *Database schema and ORM setup* \
-    - Designing ERD with Drizzle ORM \
-    - Setting up PostgreSQL migrations \
-    - Implementing Server Actions for data operations \
-  ],
-  [],
-  [],
+//   [4],
+//   [],
+//   [
+//     *RSS engine* \
+//     - Building the SSRF-protected feed proxy (`/api/sync-feed`) \
+//     - Parsing RSS/Atom and caching articles in Dexie \
+//     - Implementing subscriptions and the reader views \
+//   ],
+//   [],
+//   [],
 
-  [5],
-  [],
-  [
-    *Bookmark and RSS feed features* \
-    - Implementing bookmark creation with metadata scraping \
-    - Building RSS parser and feed synchronization \
-    - Adding search and tagging system \
-  ],
-  [],
-  [],
+//   [5],
+//   [],
+//   [
+//     *Reader features* \
+//     - Four view modes, search, filters, folders and tags \
+//     - Bookmarks, read states and OPML import/export \
+//     - Discover catalog of curated feeds \
+//   ],
+//   [],
+//   [],
 
-  [6],
-  [],
-  [
-    *PWA and UI Polish* \
-    - Integrating PWA capabilities \
-    - Implementing dark mode and responsive design \
-    - Optimizing performance for deployment \
-  ],
-  [],
-  [],
+//   [6],
+//   [],
+//   [
+//     *BYOK AI, translation and vault* \
+//     - AI summaries, ask, semantic search and auto-tagging (BYOK) \
+//     - Keyless translation; zero-knowledge encrypted vault \
+//     - Social sources (YouTube, Reddit, Mastodon, Bluesky, RSSHub bridge) \
+//   ],
+//   [],
+//   [],
 
-  [7],
-  [],
-  [
-    *Final Testing & Deployment* \
-    - Conducting testing across devices and browsers \
-    - Fixing bugs and performance issues \
-    - Deploying to Vercel and finalization \
-  ],
-  [],
-  [],
-)
+//   [7],
+//   [],
+//   [
+//     *PWA polish, extension, testing & deployment* \
+//     - PWA refinements and responsive/theme polish \
+//     - Companion Chrome/Firefox new-tab extension \
+//     - Cross-device testing, bug fixes and Vercel deployment \
+//   ],
+//   [],
+//   [],
+// )
