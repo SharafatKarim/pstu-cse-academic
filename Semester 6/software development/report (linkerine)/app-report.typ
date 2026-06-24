@@ -207,32 +207,43 @@ The job market for full-stack web developers in Bangladesh is growing rapidly, w
 == Technology Stack
 The development of Linkerine will follow an agile methodology. We have selected a stack optimized for performance, type safety, and rapid deployment.
 
-#figure(
-  table(
-    columns: (30%, 70%),
-    [*Frontend Framework*], [Next.js 16 (React 19, App Router, Turbopack)],
-    [*Language*], [TypeScript],
-    [*Styling*], [Tailwind CSS 4 + DaisyUI 5 (with Radix UI primitives)],
-    [*Backend / API*], [Next.js Route Handlers (SSRF-protected feed proxy)],
-    [*Cloud Database*], [Firebase Firestore (user data, multi-device sync)],
-    [*Local Storage*], [Dexie (IndexedDB) — offline article cache],
-    [*Authentication*], [Firebase Authentication],
-    [*AI (optional, BYOK)*], [OpenAI / Google Gemini / Anthropic Claude],
-    [*Encryption*], [Web Crypto API (PBKDF2 + AES-256-GCM) for the vault],
-    [*Hosting*], [Vercel],
-  ),
-  caption: "Technology Stack for Linkerine",
-)
++ Frontend Framework: Next.js 16 (React 19, App Router, Turbopack)
++ Language: TypeScript
++ Styling: Tailwind CSS 4 + DaisyUI 5 (with Radix UI primitives)
++ Backend / API: Next.js Route Handlers (SSRF-protected feed proxy)
++ Cloud Database: Firebase Firestore (user data, multi-device sync)
++ Local Storage: Dexie (IndexedDB) — offline article cache
++ Authentication: Firebase Authentication
++ AI (optional, BYOK): OpenAI / Google Gemini / Anthropic Claude
++ Encryption: Web Crypto API (PBKDF2 + AES-256-GCM) for the vault
++ Hosting: Vercel(frontend), Netlify (Backend)
+
+// #figure(
+//   table(
+//     columns: (30%, 70%),
+//     [*Frontend Framework*], [Next.js 16 (React 19, App Router, Turbopack)],
+//     [*Language*], [TypeScript],
+//     [*Styling*], [Tailwind CSS 4 + DaisyUI 5 (with Radix UI primitives)],
+//     [*Backend / API*], [Next.js Route Handlers (SSRF-protected feed proxy)],
+//     [*Cloud Database*], [Firebase Firestore (user data, multi-device sync)],
+//     [*Local Storage*], [Dexie (IndexedDB) — offline article cache],
+//     [*Authentication*], [Firebase Authentication],
+//     [*AI (optional, BYOK)*], [OpenAI / Google Gemini / Anthropic Claude],
+//     [*Encryption*], [Web Crypto API (PBKDF2 + AES-256-GCM) for the vault],
+//     [*Hosting*], [Vercel],
+//   ),
+//   caption: "Technology Stack for Linkerine",
+// )
 
 == Design Principles
 
 The design of Linkerine will adhere to the following principles:
 
-- *Offline-First (Local-First)*: A Dexie/IndexedDB cache keeps articles and the interface fully usable without a network; Firebase synchronizes user data across devices when online.
-- *Mobile-First Responsive Design*: Ensuring the layout adapts perfectly from mobile screens to large desktop monitors using Tailwind CSS and DaisyUI, with installable PWA support.
-- *Privacy by Design*: AI keys are stored only in the browser (BYOK) and never sent to the app's servers, while the vault is end-to-end encrypted (zero-knowledge) using the Web Crypto API.
-// - *Type Safety*: Using TypeScript to ensure robust data validation from the database to the UI.
-- *Accessibility*: Adhering to WCAG guidelines using accessible Radix UI primitives and semantic DaisyUI components.
++ Ensuring the layout adapts perfectly from mobile screens to large desktop monitors using Tailwind CSS and DaisyUI, with installable PWA support.
++ A Dexie/IndexedDB cache keeps articles and the interface fully usable without a network; Firebase synchronizes user data across devices when online.
++ AI keys are stored only in the browser (BYOK) and never sent to the app's servers, while the vault is end-to-end encrypted (zero-knowledge) using the Web Crypto API.
++ Using TypeScript to ensure robust data validation from the database to the UI.
++ Adhering to WCAG guidelines using accessible Radix UI primitives and semantic DaisyUI components.
 
 = Visual Models
 
@@ -309,18 +320,27 @@ The timeline is divided into 12 weeks, focusing on the Next.js development lifec
 
 = Future Plans
 
-Several capabilities originally envisioned as future work — companion browser extensions, BYOK AI summarization, and full offline sync — have already been implemented. The following remain as planned extensions:
+Several capabilities have been implemented, but the following remain as planned extensions:
 
-+ *Public Collections*: Allowing users to publish specific feeds or folders as public, shareable read-only web pages.
-+ *Admin & Analytics Dashboard*: A privacy-respecting admin panel (via the Firebase Admin SDK) for account-level usage insights and aggregate metrics.
-+ *Collaboration*: Shared folders and multi-user feed boards for teams and study groups.
-+ *Expanded Source Bridges*: Broader social and platform coverage, with first-class support for self-hosted RSSHub instances.
-+ *Push & Background Sync*: Native push notifications and periodic background synchronization to surface new articles even when the app is closed.
++ To allow users to publish or share specific feeds or folders as public, shareable read-only web pages.
++ To enable native push notifications and periodic background synchronization to surface new articles even when the app is closed.
++ To allow more broader social and platform coverage, with first-class support for self-hosted RSSHub instances.
 
 = Result
-The outcome is a highly performant, offline-first progressive web application deployed on Vercel, providing a superior user experience for following, reading and managing digital content across all device types — with optional AI assistance and a privacy-preserving encrypted vault.
 
-#pagebreak()
++ The project has successfully implemented a modern, offline-first RSS reader and personal knowledge hub with a local-first data layer, cloud synchronization, optional BYOK AI features, and a zero-knowledge encrypted vault.
+
++ Semantic search, auto-tagging, and keyless translation have been integrated, enhancing the user experience and accessibility of content.
+
++ The application has been deployed on Vercel, ensuring high performance and availability across all device types.
+
++ The project has been designed with a focus on privacy, security, and user control, allowing users to manage their digital content without compromising their personal data.
+
+// + The outcome is a highly performant, offline-first progressive web application deployed on Vercel, providing a superior user experience for following, reading and managing digital content across all device types — with optional AI assistance and a privacy-preserving encrypted vault.
+
+= Conclusion
+
+The project has successfully demonstrated the development of a modern, offline-first RSS reader and personal knowledge hub that addresses the limitations of existing solutions. By leveraging Next.js 16, TypeScript, Tailwind CSS, and Firebase, the application provides a seamless experience across devices while ensuring data privacy and security.
 
 #bibliography(title: "References", "refs.bib")
 
