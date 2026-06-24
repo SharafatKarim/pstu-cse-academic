@@ -31,7 +31,7 @@
     *CIT 320 :: Software Development Project-II*
   ])
   #align(left, text(14pt)[
-    *Project Proposal*
+    *Project Report*
   ])
   #line(length: 100%)
 ]
@@ -60,7 +60,7 @@
       *Md. Sharafat Karim* \
       *ID* : 2102024, \
       *Reg* : 10151, \
-      *Semester* : 5 \ (Level-3, Semester-2)
+      *Semester* : 6 \ (Level-3, Semester-2)
     ],
     [
       #text(size: 14pt)[
@@ -99,19 +99,15 @@
 
 = Abstract
 
-Linkerine is a modern, offline-first RSS reader and personal knowledge hub that helps users follow, read, organize, and sync *RSS/Atom feeds*, *articles*, *bookmarks*, *notes*, and *secrets* across all of their devices. In an age of growing information overload, Linkerine pairs a Next.js progressive web application (PWA) with a local-first data layer (Dexie/IndexedDB) and cloud synchronization (Firebase) to deliver a fast, installable, and fully offline-capable experience. It further integrates optional bring-your-own-key (BYOK) AI for summaries, semantic search and auto-tagging, keyless translation, a zero-knowledge encrypted vault for sensitive data, and one-click following of sources such as YouTube, Reddit, Mastodon and Bluesky.
+Linkerine is a modern, offline-first RSS reader and personal knowledge hub that helps users follow, read, organize, and sync news feeds, articles, bookmarks, private notes, and secrets across all of their devices. In an age of growing information overload, Linkerine pairs a progressive web application (PWA) with a local-first data layer and cloud synchronization to deliver a fast, installable, and fully offline-capable experience. It further integrates optional bring-your-own-key (BYOK) AI for summaries, semantic search and auto-tagging, keyless translation, a zero-knowledge encrypted vault for sensitive data, and one-click following of sources such as YouTube, Reddit, Mastodon and Bluesky.
 
 = Objectives
 
-- To build a high-performance, responsive, offline-first web application for following and reading RSS feeds and managing bookmarks, notes and secrets.
-
-- To implement a local-first data layer (Dexie/IndexedDB) with secure cloud synchronization and authentication via Firebase.
-
-- To provide an "Installable", fully offline-capable experience on mobile and desktop via Progressive Web App (PWA) standards.
-
-- To integrate optional bring-your-own-key (BYOK) AI for summarization, semantic search and auto-tagging, alongside keyless translation.
-
-- To safeguard sensitive data (passwords, `.env` files, secret notes) with a zero-knowledge, client-side encrypted vault.
++ To build a high-performance, responsive, offline-first web application for following and reading RSS feeds and managing bookmarks, notes and secrets.
++ To implement a local-first data layer (Dexie/IndexedDB) with secure cloud synchronization and authentication via Firebase.
++ To provide an "Installable", fully offline-capable experience on mobile and desktop via Progressive Web App (PWA) standards.
++ To integrate optional bring-your-own-key (BYOK) AI for summarization, semantic search and auto-tagging, alongside keyless translation.
++ To safeguard sensitive data (passwords, `.env` files, secret notes) with a zero-knowledge, client-side encrypted vault.
 
 = Problem Statement
 
@@ -121,15 +117,11 @@ Furthermore, many modern tools (like Pocket or Raindrop) lock essential features
 
 = Related Work
 
-- *Mozilla Pocket* - Popular read-it-later app, but has become bloated with premium tiers. @pocket
-
-- *Goodlinks* - Excellent UI, but exclusive to the Apple ecosystem. @goodlinks
-
-- *Futurwise* - Chromium-only extension; lacks a standalone mobile interface. @futurwise
-
-- *Instapaper* - Great for reading, but poor for organizing bookmarks. @instapaper
-
-- *Raindrop.io* - The industry standard, but lacks self-hosting capabilities and anonymous usage. @raindrop
++ *Mozilla Pocket* - Popular read-it-later app, but has become bloated with premium tiers. @pocket
++ *Goodlinks* - Excellent UI, but exclusive to the Apple ecosystem. @goodlinks
++ *Futurwise* - Chromium-only extension; lacks a standalone mobile interface. @futurwise
++ *Instapaper* - Great for reading, but poor for organizing bookmarks. @instapaper
++ *Raindrop.io* - The industry standard, but lacks self-hosting capabilities and anonymous usage. @raindrop
 
 == Feature Comparison
 
@@ -149,8 +141,6 @@ Furthermore, many modern tools (like Pocket or Raindrop) lock essential features
   ),
   caption: "Feature comparison of Linkerine with existing solutions",
 ) <comparison>
-
-#text(size: 10pt)[*Legend:* ✓ = available; Paid = premium or limited; — = not available. AI in Linkerine is bring-your-own-key (no subscription required); GoodLinks is a paid, Apple-only application.]
 
 
 = Scope
@@ -265,7 +255,7 @@ The design of Linkerine will adhere to the following principles:
 == Data Flow Diagram
 
 #figure(
-  image("diagrams/flowchart.png", height: 78%, alt: "Data Flow"),
+  image("diagrams/flowchart.png", height: 46%, alt: "Data Flow"),
   caption: "Source-addition and reading data flow in Linkerine",
 ) <Arch>
 
