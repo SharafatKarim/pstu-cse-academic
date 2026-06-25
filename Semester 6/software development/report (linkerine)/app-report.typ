@@ -97,9 +97,11 @@
   #text(size: 20pt, weight: "bold")[Linkerine]
 ]
 
-= Abstract
+= Introduction
 
-Linkerine is a modern, offline-first RSS reader and personal knowledge hub that helps users follow, read, organize, and sync news feeds, articles, bookmarks, private notes, and secrets across all of their devices. In an age of growing information overload, Linkerine pairs a progressive web application (PWA) with a local-first data layer and cloud synchronization to deliver a fast, installable, and fully offline-capable experience. It further integrates optional bring-your-own-key (BYOK) AI for summaries, semantic search and auto-tagging, keyless translation, a zero-knowledge encrypted vault for sensitive data, and one-click following of sources such as YouTube, Reddit, Mastodon and Bluesky.
+Linkerine is a modern, offline-first RSS reader and personal knowledge hub that helps users follow, read, organize, and sync news feeds, articles, bookmarks, private notes, and secrets across all of their devices. In an age of growing information overload, Linkerine pairs a progressive web application (PWA) with a local-first data layer and cloud synchronization to deliver a fast, installable, and fully offline-capable experience. 
+
+It further integrates optional bring-your-own-key (BYOK) AI for summaries, semantic search and auto-tagging, keyless translation, a zero-knowledge encrypted vault for sensitive data, and one-click following of sources such as YouTube, Reddit, Mastodon and Bluesky.
 
 = Objectives
 
@@ -107,7 +109,7 @@ Linkerine is a modern, offline-first RSS reader and personal knowledge hub that 
 + To implement a local-first data layer (Dexie/IndexedDB) with secure cloud synchronization and authentication via Firebase.
 + To provide an "Installable", fully offline-capable experience on mobile and desktop via Progressive Web App (PWA) standards.
 + To integrate optional bring-your-own-key (BYOK) AI for summarization, semantic search and auto-tagging, alongside keyless translation.
-+ To safeguard sensitive data (passwords, `.env` files, secret notes) with a zero-knowledge, client-side encrypted vault.
++ To safeguard sensitive data with a zero-knowledge, client-side encrypted vault.
 
 = Problem Statement
 
@@ -115,29 +117,45 @@ Existing solutions for bookmark management are often fragmented; users must choo
 
 Furthermore, many modern tools (like Pocket or Raindrop) lock essential features like full-text search or unlimited nested folders behind paywalls. There is a need for a unified, open-web solution that runs instantly on any browser while offering the performance of a native application.
 
-= Related Work
+= Literature Review
 
-+ *Mozilla Pocket* - Popular read-it-later app, but has become bloated with premium tiers. @pocket
-+ *Goodlinks* - Excellent UI, but exclusive to the Apple ecosystem. @goodlinks
-+ *Futurwise* - Chromium-only extension; lacks a standalone mobile interface. @futurwise
-+ *Instapaper* - Great for reading, but poor for organizing bookmarks. @instapaper
-+ *Raindrop.io* - The industry standard, but lacks self-hosting capabilities and anonymous usage. @raindrop
+According to Z. Chang's et at's @recommendation_feature_rss_reader survey of modern crawler methods, web crawlers are essential for automating data retrieval from the vast and unstructured Internet, which can be classified into various types based on their strategies and targets, such as generic, focused, incremental, and distributed crawlers. The choice of libraries, databases, and frameworks for building these systems depends heavily on the specific target data, purpose, and the programmer's ease.
 
-== Feature Comparison
+Later on in "The News Crawler: A Big Data Approach to Local Information Ecosystems" by Khanom et al. @news_crawler_big_data they address the growing crisis of losing access to local journalism. Because manually auditing local news coverage is expensive and time-consuming. So the authors propose a scalable, semi-automated pipeline with a custom web crawler alongside Machine Learning and Natural Language Processing, such as the spaCy library, to evaluate the content.
 
-@comparison contrasts Linkerine with widely used read-later, bookmarking and RSS tools. Linkerine is the only option that combines native RSS, an offline-first PWA, optional bring-your-own-key (BYOK) AI, a zero-knowledge encrypted vault, and companion browser extensions — without locking core features behind a paywall.
+But due to lack of time and resources, the crawler was unable to capture all content from large, dynamically updating news sites. So in "Using RSS to Improve Web Harvest Results for News Web Sites" by Jones & Neubert @using_rss_to_improve_web_harvest_results, strategy has shifted to crawl the sites' RSS feeds twice daily to build targeted,  seed lists of newly published URLs but created a navigation problem, as the pages often lacked hyperlinks.
+
+To further improve the user experience and information overload, "A Study on Recommendation Features for an RSS Reader" by Ji & Zhou @ai_driven_web_crawling proposes integrating recommendation algorithms directly into RSS readers. This study worked on: Text Similarity, Favorite Fraction, Inverse Update Frequency, and PostRank. The most effective approach was a hybrid feature combination, combining Text Similarity with the Favorite Fraction.
+
+Finally we arrive at "AI driven web crawling for semantic extraction of news content from newspapers" by Saravanan & Ahamed @ai_driven_web_crawling. Traditional crawlers, which rely on rigid DOM-tree rules and keyword matching, fail when confronted with the complex layouts, multimedia, and dynamic unstructured formats of modern newspaper databases. This paper introduces WISE (Web-Intelligent Semantic Extractor), an advanced framework that integrates Deep Learning (CNNs and RNNs) and NLP (like BERT embeddings) directly into the crawling pipeline to "understand" the semantic context of what it is reading. But it is re
+
+= Related Commercial Projects
+
++ Mozilla Pocket  @pocket was a popular read-it-later app, but has become bloated with premium tiers. It was not necessarily a RSS feed reader, but it allowed offline reading, and synchonization with mobile devices. As of January 2026, it is no longer actively maintained and has been deprecated. 
+
++ Goodlinks @goodlinks has an excellent UI, but exclusive to the Apple ecosystem. It's not ported to Android or Windows, and lacks a web interface. It's relatively expensive than others as well.
+
++ Futurwise @futurwise is a Chromium-only extension; lacks a standalone mobile interface. It is not open-source, and has no offline-first capabilities. It is also a paid service. It also lack Firefox/ Safari support, and non FOSS.
+
++ Instapaper @instapaper is Great for reading, but poor for organizing bookmarks. Became the official replacement for Kobo e-readers.
+
++ Raindrop.io @raindrop is the industry standard, but lacks self-hosting capabilities and anonymous usage. It is also limited to bookmarks, and does not support RSS feeds. It is also a paid service, and not FOSS.
+
+= Feature Comparison
+
+@comparison contrasts Linkerine with widely used read-later, bookmarking and RSS tools. 
 
 #figure(
   table(
-    columns: (20%, 11%, 12%, 9%, 13%, 16%, 19%),
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto),
     align: (left, center, center, center, center, center, center),
-    [*App*], [*RSS feeds*], [*Offline-first*], [*AI features*], [*Encrypted vault*], [*Browser extension*], [*Free / open*],
-    [*Linkerine*], [✓], [✓], [✓], [✓], [✓], [✓],
-    [Mozilla Pocket], [—], [✓], [—], [—], [✓], [Paid],
-    [Raindrop.io], [✓], [Paid], [—], [—], [✓], [Paid],
-    [Instapaper], [—], [✓], [—], [—], [✓], [Paid],
-    [GoodLinks], [—], [✓], [—], [—], [✓], [Paid],
-    [Feedly], [✓], [Paid], [Paid], [—], [✓], [Paid],
+    [*App*], [*Dev*], [*RSS feeds*], [*Offline-first*], [*AI*], [*Vault*], [*Browser extension*], [*FOSS*],
+    [*Linkerine*], [✓], [✓], [✓], [✓], [✓], [✓], [✓],
+    [Mozilla Pocket], [Dead], [—], [✓], [—], [—], [✓], [-],
+    [Raindrop], [✓], [✓], [Paid], [—], [—], [✓], [-],
+    [Instapaper], [✓], [—], [✓], [—], [—], [✓], [-],
+    [GoodLinks], [✓], [—], [✓], [—], [—], [✓], [-],
+    [Feedly], [✓], [✓], [Paid], [Paid], [—], [✓], [-],
   ),
   caption: "Feature comparison of Linkerine with existing solutions",
 ) <comparison>
@@ -254,7 +272,7 @@ The design of Linkerine will adhere to the following principles:
   caption: "Entity Relationship Diagram of Linkerine (Firestore + Dexie)",
 ) <ERD>
 
-== Storage Schema
+== Schema Diagram
 
 #figure(
   image("diagrams/schema.png", width: 100%, height: auto, alt: "Storage Schema"),
