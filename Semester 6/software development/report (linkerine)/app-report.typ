@@ -113,7 +113,7 @@ It further integrates optional bring-your-own-key (BYOK) AI for summaries, seman
 
 = Problem Statement
 
-Existing solutions for bookmark management are often fragmented; users must choose between native apps that don't sync well with the web, or browser extensions that don't work on mobile.
+Existing solutions for bookmark management are often fragmented; users must choose between native apps that don't sync well with the web, or browser extensions that don't work on mobile. They are often limited to RSS or bookmarks or AI based features with no cross-platform support.
 
 Furthermore, many modern tools (like Pocket or Raindrop) lock essential features like full-text search or unlimited nested folders behind paywalls. There is a need for a unified, open-web solution that runs instantly on any browser while offering the performance of a native application.
 
@@ -127,45 +127,29 @@ But due to lack of time and resources, the crawler was unable to capture all con
 
 To further improve the user experience and information overload, "A Study on Recommendation Features for an RSS Reader" by Ji & Zhou @ai_driven_web_crawling proposes integrating recommendation algorithms directly into RSS readers. This study worked on: Text Similarity, Favorite Fraction, Inverse Update Frequency, and PostRank. The most effective approach was a hybrid feature combination, combining Text Similarity with the Favorite Fraction.
 
-Finally we arrive at "AI driven web crawling for semantic extraction of news content from newspapers" by Saravanan & Ahamed @ai_driven_web_crawling. Traditional crawlers, which rely on rigid DOM-tree rules and keyword matching, fail when confronted with the complex layouts, multimedia, and dynamic unstructured formats of modern newspaper databases. This paper introduces WISE (Web-Intelligent Semantic Extractor), an advanced framework that integrates Deep Learning (CNNs and RNNs) and NLP (like BERT embeddings) directly into the crawling pipeline to "understand" the semantic context of what it is reading. But it is re
+Finally we arrive at "AI driven web crawling for semantic extraction of news content from newspapers" by Saravanan & Ahamed @ai_driven_web_crawling. Traditional crawlers rely on rigid DOM-tree rules and keyword matching, which may fail with complex layouts. This paper introduces WISE, an advanced framework that integrates Deep Learning (CNNs and RNNs) and NLP (like BERT embeddings) to understand the semantic context. But it is resource-intensive and requires significant computational power and so, less feasible for smaller-scale applications.
 
 = Related Commercial Projects
 
 + Mozilla Pocket  @pocket was a popular read-it-later app, but has become bloated with premium tiers. It was not necessarily a RSS feed reader, but it allowed offline reading, and synchonization with mobile devices. As of January 2026, it is no longer actively maintained and has been deprecated. 
 
-+ Goodlinks @goodlinks has an excellent UI, but exclusive to the Apple ecosystem. It's not ported to Android or Windows, and lacks a web interface. It's relatively expensive than others as well.
++ Goodlinks @goodlinks has an excellent UI, but exclusive to the Apple ecosystem. It's not ported to Android or Windows, and lacks a web interface. It's relatively expensive than others as well. And it also lacks vault support.
 
 + Futurwise @futurwise is a Chromium-only extension; lacks a standalone mobile interface. It is not open-source, and has no offline-first capabilities. It is also a paid service. It also lack Firefox/ Safari support, and non FOSS.
 
-+ Instapaper @instapaper is Great for reading, but poor for organizing bookmarks. Became the official replacement for Kobo e-readers.
++ Instapaper @instapaper is Great for reading, but poor for organizing bookmarks. Became the official replacement for Kobo e-readers. It doesn't come with vault or AI features, and is not FOSS. 
 
 + Raindrop.io @raindrop is the industry standard, but lacks self-hosting capabilities and anonymous usage. It is also limited to bookmarks, and does not support RSS feeds. It is also a paid service, and not FOSS.
 
-= Feature Comparison
-
-@comparison contrasts Linkerine with widely used read-later, bookmarking and RSS tools. 
-
-#figure(
-  table(
-    columns: (auto, auto, auto, auto, auto, auto, auto, auto),
-    align: (left, center, center, center, center, center, center),
-    [*App*], [*Dev*], [*RSS feeds*], [*Offline-first*], [*AI*], [*Vault*], [*Browser extension*], [*FOSS*],
-    [*Linkerine*], [✓], [✓], [✓], [✓], [✓], [✓], [✓],
-    [Mozilla Pocket], [Dead], [—], [✓], [—], [—], [✓], [-],
-    [Raindrop], [✓], [✓], [Paid], [—], [—], [✓], [-],
-    [Instapaper], [✓], [—], [✓], [—], [—], [✓], [-],
-    [GoodLinks], [✓], [—], [✓], [—], [—], [✓], [-],
-    [Feedly], [✓], [✓], [Paid], [Paid], [—], [✓], [-],
-  ),
-  caption: "Feature comparison of Linkerine with existing solutions",
-) <comparison>
-
-
 = Scope
 
-Linkerine is developed as a modern web application using the *Next.js 16* framework (App Router, React 19). This ensures it is accessible from any device with a web browser (Windows, macOS, Linux, Android, iOS). The application focuses on a rich feature set including server-side RSS/Atom parsing through an SSRF-protected proxy route, offline-first storage with Dexie (IndexedDB), cloud sync and authentication via Firebase, and a responsive interface built with Tailwind CSS and DaisyUI.
+Linkerine is primarily developed as a modern web application using the Next.js framework. The application focuses on server-side RSS/Atom parsing, offline-first storage, cloud sync and authentication support. It currently natively support news, articles and blogs from RSS supported blogs, hugo, astro, wordpress, SSG, and other dynmic platforms where RSS/Atom feeds are available.  
 
-The project has since been extended with optional BYOK AI features, a zero-knowledge encrypted vault, one-click following of social sources (YouTube, Reddit, Mastodon and Bluesky natively, plus X, Instagram and Telegram via an RSSHub bridge), and companion browser extensions that share the same deployment.
+For mobile devices, PWA (Progressive Web App) is attached alongside a responsive interface was built with Tailwind CSS and DaisyUI.
+
+The project has since been extended with optional BYOK AI features, a zero-knowledge encrypted vault, one-click following of social sources (YouTube, Reddit, Mastodon and Bluesky natively), and companion browser extensions that share the same deployment. 
+
+It can also be optionally integrated with RSSHub instances for broader social and platform coverage as well.
 
 == Job Market Analysis
 
@@ -180,16 +164,16 @@ The job market for full-stack web developers in Bangladesh is growing rapidly, w
       [
         - https://bdjobs.com/jobs/details/1449039?ln=1
         - https://bdjobs.com/jobs/details/1449038?ln=1
-        // - https://bdjobs.com/jobs/details/1452423?ln=1
+        - https://bdjobs.com/jobs/details/1452423?ln=1
       ],
       [React, NodeJS, mongoDB, mongoose, JavaScript, Github, Git],
 
-      // [BD Tech Jobs @bdtechjobs_2026 & TechnTalents @techntalents_2026],
-      // [
-      //   - https://authlab.io/wpjb-jobs/senior-software-engineer/
-      //   - https://riseuplabs.com/jobs/full-stack-developer-python-django/
-      // ],
-      // [],
+      [BD Tech Jobs @bdtechjobs_2026 & TechnTalents @techntalents_2026],
+      [
+        - https://authlab.io/wpjb-jobs/senior-software-engineer/
+        - https://riseuplabs.com/jobs/full-stack-developer-python-django/
+      ],
+      [],
 
       [eJobs Bangladesh @ejobs_bd_2026 & JobMatchingBD @jobmatchingbd_2026],
       [
@@ -217,7 +201,7 @@ The job market for full-stack web developers in Bangladesh is growing rapidly, w
   caption: "Job Market Opportunities for Next.js & Full-stack Developers in Bangladesh",
 )
 
-// The demand for full-stack developers with Next.js expertise is not just growing—it is becoming the standard for modern web development in Bangladesh, making Linkerine a timely project that demonstrates cutting-edge skill proficiency.
+The demand for full stack developers with Next.js expertise is becoming the standard for modern web development in Bangladesh, making Linkerine a timely project that demonstrates bleeding edge skill technology.
 
 
 = Methodology
@@ -259,16 +243,36 @@ The design of Linkerine will adhere to the following principles:
 
 + Ensuring the layout adapts perfectly from mobile screens to large desktop monitors using Tailwind CSS and DaisyUI, with installable PWA support.
 + A Dexie/IndexedDB cache keeps articles and the interface fully usable without a network; Firebase synchronizes user data across devices when online.
-+ AI keys are stored only in the browser (BYOK) and never sent to the app's servers, while the vault is end-to-end encrypted (zero-knowledge) using the Web Crypto API.
++ AI keys are stored only in the browser (BYOK) and never sent to the app's servers, while the vault is end-to-end encrypted (zero-knowledge).
 + Using TypeScript to ensure robust data validation from the database to the UI.
-+ Adhering to WCAG guidelines using accessible Radix UI primitives and semantic DaisyUI components.
+
+= Feature Comparison
+
+@comparison contrasts Linkerine with widely used and commercial read-later, bookmarking and RSS tools. 
+
+#figure(
+  table(
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto),
+    align: (left, center, center, center, center, center, center, center, center, center, center, center),
+    [*App*], [*Dev*], [*RSS*], [*Offline*], [*AI*], [*Vault*], [*FOSS*], [*Web*], [*Desktop*], [*Phone*], [*Chrome*], [*Firefox*],
+    [*Linkerine*], [✓], [✓], [✓], [✓], [✓], [✓], [✓], [✓], [not iOS], [✓], [✓],
+    [Mozilla Pocket], [Dead], [—], [✓], [—], [—], [✓], [✓], [✓], [✓], [✓], [✓],
+    [Raindrop], [✓], [✓], [Paid], [—], [—], [—], [✓], [✓], [✓], [✓], [✓],
+    [Instapaper], [✓], [—], [✓], [—], [—], [—], [✓], [Mac only], [✓], [✓], [✓],
+    [Good Links], [✓], [—], [✓], [—], [—], [—], [—], [Mac only], [iOS only], [—], [—],
+    [Feedly], [✓], [✓], [Paid], [Paid], [—], [—], [✓], [—], [✓], [✓], [✓],
+    [Futurwise], [✓], [✓], [—], [—], [—], [—], [—], [—], [✓], [✓], [—],
+  ),
+  caption: "Feature comparison of Linkerine with existing solutions across platforms",
+) <comparison>
+
 
 = Visual Models
 
 == ERD (Entity Relationship Diagram)
 
 #figure(
-  image("diagrams/erd.png", width: 100%, height: auto, alt: "Entity Relationship Diagram"),
+  image("diagrams/erd.png", width: 90%, height: auto, alt: "Entity Relationship Diagram"),
   caption: "Entity Relationship Diagram of Linkerine (Firestore + Dexie)",
 ) <ERD>
 
@@ -279,7 +283,7 @@ The design of Linkerine will adhere to the following principles:
   caption: "Storage schema — Firestore (cloud sync) and Dexie (offline) records",
 ) <Schema>
 
-@Schema shows where each record type lives: user data (subscriptions, bookmarks, read states and the vault) syncs through Firebase Firestore, while article content, AI caches and semantic embeddings are kept locally in Dexie (IndexedDB) for offline-first access. Sensitive vault fields are persisted only as AES-256-GCM ciphertext.
+@Schema shows the overall schema diagram of Linkerine.
 
 == Data Flow Diagram
 
@@ -288,7 +292,7 @@ The design of Linkerine will adhere to the following principles:
   caption: "Source-addition and reading data flow in Linkerine",
 ) <Arch>
 
-Here @Arch illustrates the architecture where the Next.js client reads and writes locally through Dexie (IndexedDB) for instant, offline access, while user data (subscriptions, read states, bookmarks) syncs to Firebase Firestore. RSS/Atom feeds are fetched and parsed through an SSRF-protected Route Handler (`/api/sync-feed`) to bypass browser CORS restrictions, and social/source URLs are normalized into feeds via a dedicated resolver route.
+Here @Arch illustrates the architecture and flow chart of Linkerine.
 
 == Timeline (Gantt Chart)
 
@@ -313,7 +317,7 @@ The timeline is divided into 12 weeks, focusing on the Next.js development lifec
 = UI Mockups
 
 #figure(
-  image("UI/1.png", height: 62%, alt: "UI Mockups"),
+  image("UI/1.png", height: 52%, alt: "UI Mockups"),
   caption: "Landing Page & Dashboard",
 ) <UI1>
 
