@@ -99,13 +99,13 @@
 
 = Introduction
 
-Linkerine is a modern, offline first RSS reader and personal knowledge hub that helps users follow, read, organize, and sync news feeds, articles, bookmarks, private notes, and secrets across all of their devices. In an age of growing information overload, Linkerine pairs a progressive web application (PWA) with a local first data layer and cloud synchronization to deliver a fast, installable, and fully offline capable experience. 
+Linkerine is a modern, offline first RSS reader and personal knowledge hub that helps users follow, read, organize and sync news feeds, articles, bookmarks, private notes and secrets across all of their devices. In an age of growing information overload, Linkerine combines a progressive web application (PWA) with a local first data layer and cloud synchronization to deliver a fast, installable and fully offline capable experience. 
 
-It further integrates optional bring-your-own-key (BYOK) AI for summaries, semantic search and auto-tagging, keyless translation, a zero knowledge encrypted vault for sensitive data, and one click following of sources such as YouTube, Reddit, Mastodon and Bluesky.
+It further integrates optional bring-your-own-key (BYOK) AI for summaries, semantic search and auto-tagging, keyless translation, a zero knowledge encrypted vault for sensitive data and one click following of sources such as YouTube, Reddit, Mastodon and Bluesky.
 
 = Objectives
 
-+ To build a high performance, responsive, offline first web application for following and reading RSS feeds and managing bookmarks, notes and secrets.
++ To build a high performance, responsive application for following and reading RSS feeds, news, articles and managing bookmarks, notes and secrets.
 + To implement a local first offline appication with secure cloud synchronization and authentication via Firebase.
 + To provide an "Installable", fully offline capable experience on mobile and desktop devices.
 + To integrate optional AI for summarization and semantic search, alongside keyless translation.
@@ -113,41 +113,41 @@ It further integrates optional bring-your-own-key (BYOK) AI for summaries, seman
 
 = Problem Statement
 
-Existing solutions for bookmark management are often fragmented; users must choose between native apps that don't sync well with the web, or browser extensions that don't work on mobile. They are often limited to RSS or bookmarks or AI based features with no cross platform support.
+Existing solutions for bookmark management are often fragmented. So users must choose between native apps that don't sync well with the web, or browser extensions that don't work on mobile. They are often limited to RSS or bookmarks or AI based features with no cross platform support. Some of the solutions also doesn't support social media sources like YouTube, Reddit, Mastodon or Bluesky.
 
-Furthermore, many modern tools (like Pocket or Raindrop) lock essential features like full text search or unlimited nested folders behind paywalls. There is a need for a unified, open web solution that runs instantly on any browser while offering the performance of a native application with versatile features like offline first operation, cloud sync, AI assistance, and secure data storage.
+Furthermore, many modern tools (like Pocket or Raindrop) lock essential features like full text search or unlimited nested folders behind paywalls. There is a need for a unified, open web solution that runs instantly on any browser while offering the performance of a native application with versatile features like offline first operation, cloud sync, AI assistance and secure data storage.
 
 = Literature Review
 
-According to Z. Chang's et at's @recommendation_feature_rss_reader survey of modern crawler methods, web crawlers are essential for automating data retrieval from the vast and unstructured Internet, which can be classified into various types based on their strategies and targets, such as generic, focused, incremental, and distributed crawlers. The choice of libraries, databases, and frameworks for building these systems depends heavily on the specific target data, purpose, and the programmer's ease.
+According to Z. Chang's et at's @recommendation_feature_rss_reader survey of modern crawler methods, web crawlers are essential for automating data retrieval from the vast and unstructured internet, which can be classified into various types based on their strategies and targets, such as generic, focused, incremental and distributed crawlers. The choice of libraries, databases and frameworks for building these systems depends heavily on the specific target data, purpose and the programmer's ease.
 
 Later on in "The News Crawler: A Big Data Approach to Local Information Ecosystems" by Khanom et al. @news_crawler_big_data they address the growing crisis of losing access to local journalism. Because manually auditing local news coverage is expensive and time consuming. So the authors propose a scalable, semi automated pipeline with a custom web crawler alongside Machine Learning and Natural Language Processing, such as the spaCy library, to evaluate the content.
 
 But due to lack of time and resources, the crawler was unable to capture all content from large, dynamically updating news sites. So in "Using RSS to Improve Web Harvest Results for News Web Sites" by Jones & Neubert @using_rss_to_improve_web_harvest_results, strategy has shifted to crawl the sites' RSS feeds twice daily to build targeted,  seed lists of newly published URLs but created a navigation problem, as the pages often lacked hyperlinks.
 
-To further improve the user experience and information overload, "A Study on Recommendation Features for an RSS Reader" by Ji & Zhou @ai_driven_web_crawling proposes integrating recommendation algorithms directly into RSS readers. This study worked on: Text Similarity, Favorite Fraction, Inverse Update Frequency, and PostRank. The most effective approach was a hybrid feature combination, combining Text Similarity with the Favorite Fraction.
+To further improve the user experience and information overload, "A Study on Recommendation Features for an RSS Reader" by Ji & Zhou @ai_driven_web_crawling proposes integrating recommendation algorithms directly into RSS readers. This study worked on: Text Similarity, Favorite Fraction, Inverse Update Frequency and PostRank. The most effective approach was a hybrid feature combination, combining Text Similarity with the Favorite Fraction.
 
 Finally we arrive at "AI driven web crawling for semantic extraction of news content from newspapers" by Saravanan & Ahamed @ai_driven_web_crawling. Traditional crawlers rely on rigid DOM tree rules and keyword matching, which may fail with complex layouts. This paper introduces WISE, an advanced framework that integrates Deep Learning (CNNs and RNNs) and NLP (like BERT embeddings) to understand the semantic context. But it is resource intensive and requires significant computational power and so, less feasible for smaller scale applications.
 
 = Related Commercial Projects
 
-+ Mozilla Pocket  @pocket was a popular read it later app, but has become bloated with premium tiers. It was not necessarily a RSS feed reader, but it allowed offline reading, and synchonization with mobile devices. As of January 2026, it is no longer actively maintained and has been deprecated. 
++ Mozilla Pocket  @pocket was a popular read it later app, but has become bloated with premium tiers. It was not necessarily a RSS feed reader, but it allowed offline reading and synchonization with mobile devices. As of January 2026, it is no longer actively maintained and has been deprecated. 
 
-+ Goodlinks @goodlinks has an excellent UI, but exclusive to the Apple ecosystem. It's not ported to Android or Windows, and lacks a web interface. It's relatively expensive than others as well. And it also lacks vault support.
++ Goodlinks @goodlinks has an excellent UI, but exclusive to the Apple ecosystem. It's not ported to Android or Windows and lacks a web interface. It's relatively expensive than others as well. And it also lacks vault support.
 
-+ Futurwise @futurwise is a Chromium only extension; lacks a standalone mobile interface. It is not open source, and has no offline first capabilities. It is also a paid service. It also lack Firefox/ Safari support, and non FOSS.
++ Futurwise @futurwise is a Chromium only extension; lacks a standalone mobile interface. It is not open source and has no offline first capabilities. It is also a paid service. It also lack Firefox/ Safari support and non FOSS.
 
-+ Instapaper @instapaper is Great for reading, but poor for organizing bookmarks. Became the official replacement for Kobo e readers. It doesn't come with vault or AI features, and is not FOSS. 
++ Instapaper @instapaper is Great for reading, but poor for organizing bookmarks. Became the official replacement for Kobo e readers. It doesn't come with vault or AI features and is not FOSS. 
 
-+ Raindrop.io @raindrop is the industry standard, but lacks self hosting capabilities and anonymous usage. It is also limited to bookmarks, and does not support RSS feeds. It is also a paid service, and not FOSS.
++ Raindrop.io @raindrop is the industry standard, but lacks self hosting capabilities and anonymous usage. It is also limited to bookmarks and does not support RSS feeds. It is also a paid service and not FOSS.
 
 = Scope
 
-Linkerine is primarily developed as a modern web application using the Next.js framework. The application focuses on server side RSS/Atom parsing, offline first storage, cloud sync and authentication support. It currently natively support news, articles and blogs from RSS supported blogs, hugo, astro, wordpress, SSG, and other dynmic platforms where RSS/Atom feeds are available.  
+Linkerine is primarily developed as a modern web application using the Next.js framework. The application focuses on server side RSS/Atom parsing, offline first storage, cloud sync and authentication support. It currently natively support news, articles and blogs from RSS supported blogs, hugo, astro, wordpress, SSG and other dynmic platforms where RSS/Atom feeds are available.  
 
 For mobile devices, PWA (Progressive Web App) is attached alongside a responsive interface was built with Tailwind CSS and DaisyUI.
 
-The project has since been extended with optional BYOK AI features, a zero knowledge encrypted vault, one click following of social sources (YouTube, Reddit, Mastodon and Bluesky natively), and companion browser extensions that share the same deployment. 
+The project has since been extended with optional BYOK AI features, a zero knowledge encrypted vault, one click following of social sources (YouTube, Reddit, Mastodon and Bluesky natively) and companion browser extensions that share the same deployment. 
 
 It can also be optionally integrated with RSSHub instances for broader social and platform coverage as well.
 
@@ -188,7 +188,7 @@ The job market for full stack web developers in Bangladesh is growing rapidly, w
         + https://wellfound.com/jobs/2993781-senior-react-and-nextjs-web-developer
         + https://wellfound.com/jobs/2927551-senior-full-stack-developer
       ],
-      [React, npm, TypeScript, Next.js, and Git],
+      [React, npm, TypeScript, Next.js and Git],
 
       [Careerjet Bangladesh @careerjet_bd_2026],
       [
@@ -207,36 +207,38 @@ The demand for full stack developers with Next.js expertise is becoming the stan
 = Methodology
 
 == Technology Stack
-The development of Linkerine will follow an agile methodology. We have selected a stack optimized for performance, type safety, and rapid deployment.
+The development of Linkerine will follow an agile methodology. We have selected a stack optimized for performance, type safety and rapid deployment.
 
-+ Frontend Framework: Next.js 16 (React 19, App Router, Turbopack)
-+ Language: TypeScript
-+ UI/ UX Design and Icons: Inkscape vector graphics (SVG)
-+ Styling: Tailwind CSS 4 + DaisyUI 5 (with Radix UI primitives)
-+ Backend / API: Next.js Route Handlers (SSRF-protected feed proxy)
-+ Cloud Database: Firebase Firestore (user data, multi-device sync)
-+ Local Storage: Dexie (IndexedDB) — offline article cache
-+ Authentication: Firebase Authentication
-+ AI (optional, BYOK): OpenAI / Google Gemini / Anthropic Claude
-+ Encryption: Web Crypto API (AES-256) for the vault
-+ Hosting: Vercel (frontend), Netlify (Backend), GitHub (VSC)
+// + Frontend Framework: Next.js 16 (React 19, App Router, Turbopack)
+// + Language: TypeScript
+// + UI/ UX Design and Icons: Inkscape vector graphics (SVG)
+// + Styling: Tailwind CSS 4 + DaisyUI 5 (with Radix UI primitives)
+// + Backend / API: Next.js Route Handlers (SSRF-protected feed proxy)
+// + Cloud Database: Firebase Firestore (user data, multi-device sync)
+// + Local Storage: Dexie (IndexedDB) — offline article cache
+// + Authentication: Firebase Authentication
+// + AI (optional, BYOK): OpenAI / Google Gemini / Anthropic Claude
+// + Encryption: Web Crypto API (AES-256) for the vault
+// + Hosting: Vercel (frontend), Netlify (Backend), GitHub (VSC)
 
-// #figure(
-//   table(
-//     columns: (30%, 70%),
-//     [*Frontend Framework*], [Next.js 16 (React 19, App Router, Turbopack)],
-//     [*Language*], [TypeScript],
-//     [*Styling*], [Tailwind CSS 4 + DaisyUI 5 (with Radix UI primitives)],
-//     [*Backend / API*], [Next.js Route Handlers (SSRF-protected feed proxy)],
-//     [*Cloud Database*], [Firebase Firestore (user data, multi-device sync)],
-//     [*Local Storage*], [Dexie (IndexedDB) — offline article cache],
-//     [*Authentication*], [Firebase Authentication],
-//     [*AI (optional, BYOK)*], [OpenAI / Google Gemini / Anthropic Claude],
-//     [*Encryption*], [Web Crypto API (PBKDF2 + AES-256-GCM) for the vault],
-//     [*Hosting*], [Vercel],
-//   ),
-//   caption: "Technology Stack for Linkerine",
-// )
+#figure(
+  table(
+    columns: (30%, 70%),
+    [*Component*], [*Technology*],
+    [Frontend Framework], [Next.js 16 (React 19, App Router, Turbopack)],
+    [Language], [TypeScript],
+    [UI/ UX Design and Icons], [Inkscape vector graphics (SVG)],
+    [Styling], [Tailwind CSS 4 + DaisyUI 5 (with Radix UI primitives)],
+    [Backend / API], [Next.js Route Handlers (SSRF-protected feed proxy)],
+    [Cloud Database], [Firebase Firestore (user data, multi-device sync)],
+    [Local Storage], [Dexie (IndexedDB) — offline article cache],
+    [Authentication], [Firebase Authentication],
+    [AI (optional, BYOK)], [OpenAI / Google Gemini / Anthropic Claude],
+    [Encryption], [Web Crypto API (AES-256) for the vault],
+    [Hosting], [Vercel (frontend), Netlify (Backend), GitHub (VSC)]
+  ),
+  caption: "Technology Stack for Linkerine",
+)
 
 == Design Principles
 
@@ -273,7 +275,7 @@ The design of Linkerine will adhere to the following principles:
 == ERD (Entity Relationship Diagram)
 
 #figure(
-  image("diagrams/erd.png", width: 90%, height: auto, alt: "Entity Relationship Diagram"),
+  image("diagrams/erd.png", width: 88%, height: auto, alt: "Entity Relationship Diagram"),
   caption: "Entity Relationship Diagram of Linkerine (Firestore + Dexie)",
 ) <ERD>
 
@@ -348,8 +350,19 @@ The timeline is divided into 12 weeks, focusing on the Next.js development lifec
     rows: (auto, auto),
     [ #image("UI/desktop.png", width: 100%) ]
   ),
-  caption: [Landing page in Desktop view],
+  caption: [Landing page in Desktop view's screenshot],
 ) <UI3>
+
+= Security and Privacy
+
+Our app utilizes offline first, client-driven architecture. It secures user data through Firebase Authentication, strict Firestore access rules and client-side zero-knowledge encryption for sensitive information. 
+
+#figure(
+  image("diagrams/security.png", width: 70%, height: auto, alt: "Security and Privacy"),
+  caption: "Security and Privacy model of Linkerine",
+) <Security>
+
+Here in @Security, we store all sensitive data in a zero-knowledge encrypted vault. Furthermore fetched articles are stored only in the browser's local storage and are never sent to the server. The Firebase Security Rules are used to protect from unauthorized access and SSRF attacks.
 
 = Future Plans
 
@@ -363,13 +376,13 @@ Several capabilities have been implemented, but the following remain as planned 
 
 The outcomes of the project are as follows:
 
-+ The project has successfully implemented a modern, offline-first RSS reader and personal knowledge hub with a local-first data layer, cloud synchronization, optional BYOK AI features, and a zero-knowledge encrypted vault.
++ The project has successfully implemented a modern, offline-first RSS reader and personal knowledge hub with a local-first data layer, cloud synchronization, optional BYOK AI features and a zero-knowledge encrypted vault.
 
 + Semantic search and keyless translation have been integrated, enhancing the user experience and accessibility of content.
 
 + The application has been deployed on Vercel and netlify, ensuring high performance and availability across all device types.
 
-+ The project has been designed with a focus on privacy, security, and user control, allowing users to manage their digital content without compromising their personal data.
++ The project has been designed with a focus on privacy, security and user control, allowing users to manage their digital content without compromising their personal data.
 
 // + The outcome is a highly performant, offline-first progressive web application deployed on Vercel, providing a superior user experience for following, reading and managing digital content across all device types — with optional AI assistance and a privacy-preserving encrypted vault.
 
@@ -377,7 +390,7 @@ The outcomes of the project are as follows:
 
 The project has successfully demonstrated the development of a modern, offline-first RSS reader and personal knowledge hub that addresses the limitations of existing solutions. It's browser extension will help users to more easily access our website. The vault and BYOK AI features provide additional value, enhancing the UX and ensuring privacy and security. Bookmarks and links can be organized and managed effectively, while the optional AI features offer summaries and semantic search.
 
-As of now, most of the blog sites, news sites, and some social media platforms support RSS/Atom feeds, making Linkerine a versatile tool for managing digital content. The project has been designed with scalability in mind, allowing for future enhancements and integrations. Currently PWA is supported on Android, Windows, Linux and MacOS. iOS support is limited due to Apple's restrictions on PWA features.
+As of now, most of the blog sites, news sites and some social media platforms support RSS/Atom feeds, making Linkerine a versatile tool for managing digital content. The project has been designed with scalability in mind, allowing for future enhancements and integrations. Currently PWA is supported on Android, Windows, Linux and MacOS. iOS support is limited due to Apple's restrictions on PWA features.
 
 #pagebreak()
 
