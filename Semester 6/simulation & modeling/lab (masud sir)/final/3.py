@@ -42,13 +42,10 @@ def simulate_continuous_review(s, S, plot=False):
         else:
             total_shortage_cost += abs(inventory) * SHORTAGE_COST
             
-        # 5. Continuous Review: Check if we need to order
-        # We only place a new order if we don't already have one on the way
         if inventory <= s and not order_in_transit:
             order_in_transit = True
             days_until_delivery = LEAD_TIME_DAYS
             
-        # Record data for plotting
         inventory_levels.append(inventory)
 
     # --- Results ---
