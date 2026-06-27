@@ -1,0 +1,43 @@
+Lab 01: A simple M/M/1 queue simulation: Write a program which performs a simple M/M/1 queue simulation. This program requires parameters for Mean Inter Arrival time of customers, Mean Service time as well as maximum number of customers. The simulation is started with a single-server queue with a FIFO queuing discipline. For M/M/1 queue, the customer inter-arrival time and the service time are both exponentially distributed. This simulation shows Average delay in queue, Average number in queue, Server utilization, and Time simulation ended. 
+
+Lab 02: Inventory management: Inventory management is a crucial aspect of any business that deals with physical goods. Write a program to simulate an inventory system. 
+
+Lab 03: Inventory System Simulation (Continuous Review): Build a simulation for an inventory system where demand is normally distributed. Implement a reorder point (s) and reorder quantity (S) policy. Track total holding costs and shortage costs over a fiscal year. 
+
+Lab 04: Bernoulli data distribution: A Manufacturing and Reliability 
+
+Lab is testing a newly produced batch of microchips. Each chip undergoes a strict operational test and either works perfectly (Success = 1) or fails (Failure = 0). Historical data shows that the probability of any given chip passing this test is p = 0.85. This 
+
+lab problem models a Bernoulli distribution using a Quality-Control Test. It guides students through defining a binary outcome (success/failure). State the values of X and what they represent. Calculating probabilities, and finding expected metrics. Calculate the probability of a defect, P(X=0). Find the mean: Calculate the expected value, E[X]. Find the spread: Calculate the variance, Var(X). 
+
+Lab 05: Network Packet Delivery: Scenario- A network router transmits data packets in batches. Each individual packet has a success probability of p = 0.90 of reaching its destination. A single batch consists of n = 15 independent packets. Example Data: A simulation of 5 separate batches reveals the number of successfully delivered packets per batch: 14, 13, 15, 12, 14. Tasks: Identify parameters: Define the values for n, p, and q (failure probability). Exact Probability: Calculate the probability that exactly 13 packets arrive safely in a batch. Expected Value & Variance: Compute the theoretical mean µ and variance σ for the batch. Data Verification: Calculate the average number of successful packets from the example data and compare it to the theoretical mean. 
+
+Lab 06: Poisson Distribution: A customer care center receives 5 calls per hour. Compute the probability of attending zero calls, one call, two call, ….., ten calls per hour. Simulate the probability mass function respect to the number of receiving call. Show the probability mass function graphs considering 10 and 15 calls per hour. 
+
+Lab 07: Normal Distribution: To Show unimodal and multimodal density curves of normal distribution. To generate random sample with sample size 200, which follows a normal distribution with mean 100 and standard deviation 20. The distribution of diastolic blood pressure for men is normally distributed with a mean of about 80 and a standard deviation of 20. A histogram of the distribution of blood pressures for all mean displays a normal distribution with bell shape. 
+
+Lab 08: Exponential Distribution: There were few waves in COVID-19 pandemic. Let a wave occurs every 100 days in Bangladesh, on average. After a wave occurs, find the probability using Exponential distribution that it will take more than 120 days for the next wave to occur. Simulate several Exponential distribution using rate parameters 0.5, 1.0, 2.0, and 4.0. 
+
+Lab 09: Empirical Input Modeling: Given a raw dataset of customer arrival times at a call center, fit the data to theoretical distributions (e.g., Normal, Weibull, or Lognormal) using Maximum Likelihood Estimation (MLE). Validate the fit with Q-Q plots. 
+
+Lab 10: Machine Breakdown and Maintenance: Simulate a manufacturing workshop containing 5 identical machines. The time between breakdowns is exponentially distributed, and repair times follow a Weibull distribution. Calculate machine downtime and overall system throughput. 
+
+Lab 11: Linear Congruential Generator (LCG): LCG is considered one of the basic yet best methods to generate Pseudo-Random Numbers. Write a program which generates the random number using the LCG. 
+
+Lab 12: Random variates using the inverse transform function: There are several general approaches to generating univariate Random Variable from the distribution function. Write a program which generates the desired number of random variates using the inverse transform function. 
+
+Lab 13: Generate 5,000 exponentially distributed random numbers using the Inverse Transform technique. Plot a histogram of the resulting numbers and overlay the theoretical exponential probability density function. 
+
+Lab 14: Debugging and Traceability (Verification): Write a trace program to step through a discrete-event model and log system states, ensuring it adheres exactly to the logical model rules. 
+
+Lab 15: Confidence Interval Estimation: Calculate a 95% confidence interval for the mean system response (e.g., average waiting time) by running multiple independent replications of a simulation model. 
+
+Lab 16: Steady-State Analysis: Analyze the warm-up period of a non-terminating simulation (like a continuous manufacturing line) and calculate the steady-state mean time. 
+
+Lab 17: Bank ATM System Simulation: Model an ATM vestibule where customers arrive at random, use one of several machines, and leave. Calculate the maximum queue lengths. 
+
+Lab 18: Fast-Food Drive-Thru Model: Simulate a drive-thru process (order, pay, pick up) to identify the system's operational bottlenecks. 
+
+Lab 19: Emergency Room (ER) Patient Flow: Simulate the triage, treatment, and discharge of patients in an ER to minimize waiting times and allocate resources. 
+
+Lab 20: Statistical Output Analysis and Precision Estimation for a Drive-Thru Pharmacy Simulation: This lab problem evaluates customer flow at an automated drive-thru pharmacy kiosk operating as a terminating simulation system until 50 cars are served. Students are provided with average customer waiting times across five independent replication runs (3.2, 4.3, 5.1, 4.2, and 4.6 minutes) and must apply output data analysis techniques to evaluate the system. The tasks require calculating the overall point estimate (sample mean), computing the sample variance and standard error to measure stochastic variability, and constructing a 95% confidence interval using a Student's t-distribution. Finally, students must determine the total number of simulation replications required to achieve a desired half-width precision of no more than 0.5 minutes, demonstrating how statistical confidence dictates simulation run length.
