@@ -85,4 +85,19 @@ def simulate_workshop(num_machines=5, sim_hours=8760):
     print(f"  Average Availability:    {avg_sys_availability:.2f}%")
     print("=" * 80)
 
+    # plotting the results
+    import matplotlib.pyplot as plt
+
+    plt.figure(figsize=(10, 6))
+    plt.bar(df["Machine"], df["Availability (%)"], color='skyblue')
+    plt.title("Machine Availability (%)")
+    plt.xlabel("Machine")
+    plt.ylabel("Availability (%)")
+    plt.ylim(0, 100)
+    plt.axhline(y=avg_sys_availability, color='r', linestyle='--', label=f'Average Availability: {avg_sys_availability:.2f}%')
+    plt.legend()
+    plt.grid(axis='y')
+    plt.tight_layout()
+    plt.show()
+
 simulate_workshop()
