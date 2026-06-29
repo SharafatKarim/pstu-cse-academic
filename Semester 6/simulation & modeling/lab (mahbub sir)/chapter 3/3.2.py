@@ -1,5 +1,6 @@
 import math
 import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 
 # Fighter coordinates
 xf = [0]
@@ -67,7 +68,26 @@ def plot_fight_animation():
     plt.ioff()
     plt.show()
 
+def plot_fight_animation_2():
+    fig = plt.figure()
+    ax = fig.add_subplot()
+
+    fighter, = ax.plot([], [])
+    bomber, = ax.plot([], [])
+
+    ax.set_xlim(max(xf+xb))
+    ax.set_ylim(max(yf+yb))
+
+    def update(i):
+        fighter.set_data(xf[:i+1], yf[:i+1])
+        bomber.set_data(xb[:i+1], yb[:i+1])
+        return fighter, bomber
+
+    ani = animation.FuncAnimation(fig, update, frames=len(xf))
+    plt.show()
+
 simulate_flight()
 # plot_flight()
 
-plot_fight_animation()
+# plot_fight_animation()
+plot_fight_animation_2()
