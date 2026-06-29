@@ -2,28 +2,28 @@ import matplotlib.pyplot as plt
 import math
 
 v = [50]
-theta = [45]
+theta = [45 * math.pi / 180]
 x = [0]
 y = [0]
 
-t = 0.1
+t = 0.01
 k = 1
 g = 9.8
 m = 30
 
 def get_k(v):
     if v < 320:
-        return 3
+        return 0.003
     elif v < 410:
-        return 5
+        return 0.005
     elif v < 450:
-        return 3
+        return 0.003
     elif v < 600:
-        return 2
+        return 0.002
     elif v < 860:
-        return 1.7
+        return 0.0017
     else:
-        return 1.55
+        return 0.00155
 
 print("x -> ", x[-1], " y -> ", y[-1])
 for _ in range(1000):
@@ -32,7 +32,9 @@ for _ in range(1000):
     x.append(x[-1] + ( v[-1] * math.cos(theta[-1]) * t ))
     y.append(y[-1] + ( v[-1] * math.sin(theta[-1]) * t ))
 
-    print("x -> ", x[-1], " y -> ", y[-1])
-    if y == 0:
+    # print("x -> ", x[-1], " y -> ", y[-1])
+    if y[-1] < 0:
         break
 
+plt.plot(x, y)
+plt.show()
