@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 225.93819 178.19649"
+   width="225.93819"
+   height="178.19649"
+   font-family="'Segoe UI', Helvetica, Arial, sans-serif"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showguides="true"
+     inkscape:zoom="1.8430892"
+     inkscape:cx="184.74418"
+     inkscape:cy="31.468906"
+     inkscape:window-width="1920"
+     inkscape:window-height="1044"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8">
+    <sodipodi:guide
+       position="0.032129518,91.486812"
+       orientation="1,0"
+       id="guide8"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <linearGradient
+       id="sky"
+       x1="3.9755037"
+       y1="10.762406"
+       x2="109.48551"
+       y2="116.27241"
+       gradientTransform="scale(1.2111709,0.82564729)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#38bdf8"
+         id="stop1" />
+      <stop
+         offset="1"
+         stop-color="#0284c7"
+         id="stop2" />
+    </linearGradient>
+  </defs>
+  <!-- Cloud -->
+  <g
+     transform="translate(-4.8150145,-8.8859516)"
+     id="g7">
+    <path
+       fill="url(#sky)"
+       d="m 34,96 a 30,30 0 0 1 -4,-59.6 34,34 0 0 1 65,-6 33.10725,33.10725 0 0 1 9,65.6 z"
+       id="path2"
+       style="fill:url(#sky)" />
+    <!-- Bar chart inside cloud -->
+    <g
+       fill="#ffffff"
+       id="g5">
+      <rect
+         x="34"
+         y="66"
+         width="9"
+         height="18"
+         rx="2"
+         id="rect2" />
+      <rect
+         x="49"
+         y="54"
+         width="9"
+         height="30"
+         rx="2"
+         id="rect3" />
+      <rect
+         x="64"
+         y="42"
+         width="9"
+         height="42"
+         rx="2"
+         id="rect4" />
+      <rect
+         x="79"
+         y="58"
+         width="9"
+         height="26"
+         rx="2"
+         id="rect5" />
+    </g>
+    <!-- Flow node dots + connector -->
+    <g
+       id="g6">
+      <circle
+         cx="34"
+         cy="30"
+         r="4.5"
+         fill="#0f172a"
+         id="circle5" />
+      <circle
+         cx="98"
+         cy="30"
+         r="4.5"
+         fill="#0f172a"
+         id="circle6" />
+      <path
+         d="m 38.5,30 h 55"
+         stroke="#0f172a"
+         stroke-width="2.5"
+         fill="none"
+         marker-end="url(#arw)"
+         id="path6" />
+    </g>
+    <marker
+       id="arw"
+       markerWidth="7"
+       markerHeight="7"
+       refX="5"
+       refY="3"
+       orient="auto">
+      <path
+         d="M 0,0 6,3 0,6 Z"
+         fill="#0f172a"
+         id="path7" />
+    </marker>
+  </g>
+  <!-- Wordmark -->
+  <g
+     transform="translate(0.03212952,61.552525)"
+     id="g8">
+    <text
+       x="0"
+       y="78"
+       font-size="46px"
+       font-weight="700"
+       fill="#0f172a"
+       id="text7">CloudCalc</text>
+    <text
+       x="2"
+       y="116"
+       font-size="28px"
+       font-weight="500"
+       letter-spacing="10"
+       fill="#0284c7"
+       id="text8">FLOW</text>
+  </g>
+</svg>
