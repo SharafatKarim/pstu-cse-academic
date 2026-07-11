@@ -223,7 +223,7 @@ Development followed an iterative, agile approach. The stack was selected for pe
 
 = Simulation Model
 
-The core of CloudCalc Flow is a pure calculation run whenever the user-count slider or any node configuration changes. For each Compute Server in the traffic path:
+Here $N_"servers"$ is the number of servers sharing traffic. This mirror the qualitative behaviour of a saturating queue @kleinrock_queueing. Metrics are: total monthly cost, total RAM, traffic-weighted average response time, peak throughput, estimated bandwidth, and the worst node status. 
 
 #figure(
   table(
@@ -239,9 +239,7 @@ The core of CloudCalc Flow is a pure calculation run whenever the user-count sli
   caption: "Per-server simulation formulas",
 )
 
-Here $N_"servers"$ is the number of servers sharing traffic. If any Load Balancer is present, only servers wired from it receive traffic and share the load evenly; otherwise every server receives the full load directly. A server crosses into *Warning* at 80% utilisation and *Overloaded* (OOM) at 100%, at which point its border turns red and remediation suggestions are generated. The response-time penalty and throughput degradation deliberately mirror the qualitative behaviour of a saturating queue @kleinrock_queueing.
-
-Global metrics aggregate these per-server results: total monthly cost (sum of all node costs), total RAM, traffic-weighted average response time, peak throughput (capped by load-balancer capacity), estimated bandwidth, and the worst node status. The catalogue that feeds the model is summarised below.
+The catalogue is summarised below.
 
 #figure(
   table(
@@ -294,33 +292,38 @@ Global metrics aggregate these per-server results: total monthly cost (sum of al
 
 = Visual Models
 
-== System Architecture
+// == System Architecture
+
+// #figure(
+//   image("diagrams/architecture.png", width: 100%, height: auto, alt: "Architecture"),
+//   caption: "Layered architecture: presentation, Zustand state, pure domain logic and persistence",
+// ) <Arch>
+
+// @Arch shows the four layers of CloudCalc Flow. React components dispatch to a single Zustand store; the store delegates cost/performance math to pure modules and validity checks to a connection-rule table, and autosaves to localStorage.
+
+== Flow Chart
+
+This shows the flow of control from user action to the final rendered metrics. The store is updated via an immer mutation, which triggers a recompute of all derived values and a persistence to localStorage.
 
 #figure(
-  image("diagrams/architecture.png", width: 78%, height: auto, alt: "Architecture"),
-  caption: "Layered architecture: presentation, Zustand state, pure domain logic and persistence",
-) <Arch>
-
-@Arch shows the four layers of CloudCalc Flow. React components dispatch to a single Zustand store; the store delegates cost/performance math to pure modules and validity checks to a connection-rule table, and autosaves to localStorage.
-
-== Simulation Flow
-
-#figure(
-  image("diagrams/simulation.png", width: 62%, height: auto, alt: "Simulation flow"),
+  image("diagrams/simulation.png", width: 100%, height: auto, alt: "Simulation flow"),
   caption: "The calculation loop from a slider/config change to per-node status and global metrics",
 ) <Sim>
 
 == Data Flow
+
+This shows the flow of data from user action to the final rendered metrics. The store is updated via an immer mutation, which triggers a recompute of all derived values and a persistence to localStorage.
 
 #figure(
   image("diagrams/dataflow.png", width: 100%, height: auto, alt: "Data flow"),
   caption: "Action to render: history snapshot, immer mutation, persistence and pure recompute",
 ) <Flow>
 
+
 == Connection Rules
 
 #figure(
-  image("diagrams/connections.png", width: 92%, height: auto, alt: "Connection rules"),
+  image("diagrams/connections.png", width: 90%, height: auto, alt: "Connection rules"),
   caption: "Enforced topology — entry points route to servers; servers write to data, cache, edge and queue sinks",
 ) <Conn>
 
@@ -343,14 +346,18 @@ Global metrics aggregate these per-server results: total monthly cost (sum of al
 
 = User Interface
 
+This UI is designed to be intuitive and responsive, with components on the left, a central canvas for arranging nodes, and a metrics panel on the right.
+
 #figure(
   image("UI/desktop.png", width: 100%, alt: "Desktop view"),
-  caption: [Populated architecture — an overloaded Micro server (red, 197% RAM) with live suggestions, alongside a healthy Medium server; total cost and system status on the right.],
+  caption: [Home view of the simulation],
 ) <UI1>
+
+Nodes are also configurable in order to do vertical scaling.
 
 #figure(
   image("UI/config.png", width: 100%, alt: "Config panel"),
-  caption: [Node configuration panel with tier / OS / stack controls and a live preview of the resulting utilisation, cost, response time and throughput.],
+  caption: [Component configuration modal for a selected node],
 ) <UI2>
 
 // #figure(
@@ -360,7 +367,12 @@ Global metrics aggregate these per-server results: total monthly cost (sum of al
 
 = Security and Privacy
 
-CloudCalc Flow is private by construction. It has no backend, no authentication and no network calls that carry user data: the entire architecture lives in browser memory and is autosaved only to the local device's `localStorage`. Export produces a plain JSON file the user chooses to save; import reads a local file. Because there is no server, there is no attack surface for data exfiltration, no account to breach and no telemetry. This aligns with a privacy-first, offline-capable design and sidesteps the account and data-residency concerns of hosted cost tools.
+CloudCalc Flow is private by construction. It has no backend, no authentication and no network calls that carry user data: 
++ The entire architecture lives in browser memory and is autosaved only to the local device's `localStorage`. 
++ Export produces a plain JSON file the user chooses to save
++ Import reads a local file. Because there is no server, there is no attack surface for data exfiltration, no account to breach and no telemetry. 
+
+This aligns with a privacy-first, offline-capable design and sidesteps the account and data-residency concerns of hosted cost tools.
 
 = Future Plans
 
@@ -378,7 +390,7 @@ CloudCalc Flow is private by construction. It has no backend, no authentication 
 
 = Conclusion
 
-CloudCalc Flow demonstrates that architecture visualisation and cost/performance reasoning can be unified in a single, instant, no-login web tool. By pairing a node-based canvas with a small, transparent and unit-tested simulation model, it turns an otherwise static diagram into an interactive capacity-and-budget sandbox. The design keeps all data on the device, exposes every constant for teaching, and remains extensible toward real provider pricing and infrastructure-as-code export. It is both a usable planning aid and a compact showcase of a modern React/Next.js, state-management and data-visualisation skill set.
+CloudCalc Flow demonstrates that architecture visualisation and cost/performance reasoning can be unified in a single, instant, no-login web tool. By pairing a node-based canvas with a small, transparent and unit-tested simulation model, it turns an otherwise static diagram into an interactive capacity-and-budget sandbox. The design keeps all data on the device, exposes every constant for teaching, and remains extensible toward real provider pricing and infrastructure-as-code export. It is both a usable planning aid and to understand the trade-offs of cloud deployment.
 
 #pagebreak()
 
