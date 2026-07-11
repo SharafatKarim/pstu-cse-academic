@@ -1,52 +1,43 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 int next_id=1;
-atomic<bool> lock_var=false;
+bool lock_var = false;
 
-bool test_and_set()
+bool test_and_set(bool *target)
 {
-    // bool rv = lock_var;
-    // lock_var = true;
-    // return rv;
-    return lock_var.exchange(true);
+    bool rv=*target;
+    *target=true;
+    return rv;
 }
-
 void acquire_lock()
 {
-    while(test_and_set());
+    while(test_and_set(&lock_var));
 }
 
 void release_lock()
 {
     lock_var=false;
 }
-
 void generate_id(int i)
 {
     acquire_lock();
 
-    int temp=next_id++;
-
-    // this_thread::sleep_for(chrono::milliseconds(10));
-    // next_id=temp+1;
-
-    cout<<"thread is "<<i<<" assigned in "<<temp<<endl;
+    int temp=next_id;
+    this_thread::sleep_for(chrono::milliseconds(10));
+    next_id=temp+1;
+    cout<<"Thread "<<i<<" Assigned ID: "<<temp<<endl;
 
     release_lock();
 }
-
 int main()
 {
-
-    vector<thread> threads;
-
-    for (int i = 0; i < 20; i++)
+    vector<thread>threads;
+    for(int i=0;i<10;i++)
     {
-        threads.emplace_back(generate_id, i);
+        threads.push_back(thread(generate_id,i));
     }
-
-    for (auto &t : threads)
+    for(auto &t:threads)
     {
         t.join();
     }
