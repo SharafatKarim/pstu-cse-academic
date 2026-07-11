@@ -27,7 +27,7 @@
 
   #line(length: 100%)
   #align(left, text(18pt)[
-    *CCE 322 :: Computer Peripheral & Interfacing Sessional*
+    *CCE 324 :: Simulation and Modeling Sessional*
   ])
   #align(left, text(14pt)[
     *Project Report*
@@ -69,7 +69,7 @@
         Associate Professor, \
         Department of Computer Science and Information Technology, \
         Patuakhali Science and Technology University.
-      + *Md Atikqur Rahaman* \
+      + *Dr. Md Abdul Masud* \
         Professor, \
         Department of Computer Science and Information Technology, \
         Patuakhali Science and Technology University.
