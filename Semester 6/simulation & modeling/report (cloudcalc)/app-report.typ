@@ -121,7 +121,7 @@ To address this, this project implements a fully client-side, open-source, provi
 
 The relationship between server utilisation and responsiveness is a classical result of queueing theory. Kleinrock @kleinrock_queueing shows that for an M/M/1-style service, mean response time rises sharply and non-linearly as utilisation approaches 100%, which motivates CloudCalc Flow's response-time penalty that grows with RAM utilisation and its throughput degradation term near saturation. Little's Law @little_law — that the mean number in a system equals arrival rate times mean time in system — underpins the intuition that throughput and concurrency cannot both grow without bound on fixed resources.
 
-For capacity planning specifically, Menascé and Almeida @menasce_capacity_planning formalise metrics-driven models that map workload intensity (here, concurrent users) onto resource demand and service level, which is the exact shape of the per-server calculation used in this project. At the platform level, Armbrust et al. @armbrust_view_cloud frame elasticity and pay-as-you-go economics as the defining properties of cloud computing, and note that the ability to add or remove capacity in response to load is what makes cost a first-class design variable — echoed in CloudCalc Flow's "add another server" and "upgrade tier" suggestions and their explicit cost deltas.
+For capacity planning specifically, Menascé and Almeida @menasce_capacity_planning formalise metrics-driven models that map workload intensity (here, concurrent users) onto resource demand and service level. At the platform level, Armbrust et al. @armbrust_view_cloud frame elasticity and pay-as-you-go economics as the defining properties of cloud computing.
 
 Finally, the practice of treating cloud spend as an engineering concern is codified by the FinOps Foundation @finops_foundation, whose framework argues that engineers should see the cost consequences of architectural choices in real time. CloudCalc Flow is a small, educational embodiment of that principle.
 
@@ -137,13 +137,59 @@ Finally, the practice of treating cloud spend as an engineering concern is codif
 
 = Scope
 
-CloudCalc Flow is delivered as a modern web application built with Next.js and React Flow. It is entirely client-side: there is no server, database or authentication, and no data ever leaves the browser. The application ships nine component types with a hardcoded but clearly-documented cost and capacity catalogue, a strict connection-rule engine, a pure simulation module, undo/redo history, localStorage persistence, JSON export/import and a markdown summary.
-
-The performance model is intentionally simplified and pedagogical rather than a byte-accurate emulation of any specific cloud provider; its constants (server tiers, OS overheads, per-stack memory footprints and component prices) are transparent and editable in a single data file. The interface is responsive down to mobile widths, supports a light/dark theme, and is keyboard-navigable.
+CloudCalc Flow is delivered as a modern web application built with Next.js and React Flow. It is entirely client-side without any server, database or authentication, and no data ever leaves the browser. The application ships nine component types with a hardcoded but clearly-documented cost and capacity catalogue, a strict connection-rule engine, a pure simulation module, undo/redo history, localStorage persistence, JSON export/import and a markdown summary.
 
 == Job Market Analysis
 
-The stack chosen for CloudCalc Flow — Next.js, React, TypeScript and Tailwind CSS — sits at the centre of current full-stack web-developer demand in Bangladesh and globally. Listings on major portals (BDJobs, Arc.dev, Wellfound) for full-stack and front-end roles consistently name React/Next.js, TypeScript and a utility CSS framework as core requirements, frequently alongside state-management and data-visualisation experience. The competencies exercised by this project — component-driven UI, client-side state architecture, canvas/graph interaction and a self-contained computational model — map directly onto those hiring signals, making CloudCalc Flow a demonstrable portfolio artefact.
+The job market for full stack web developers in Bangladesh is growing rapidly, with significant demand for Next.js and modern JavaScript expertise. According to major job portals:
+
+#figure(
+  align(left)[
+    #table(
+      columns: (20%, 50%, 30%),
+      [*Job Portal*], [*Link*], [*Stack*],
+      [BD Jobs],
+      [
+        + https://bdjobs.com/jobs/details/1449039?ln=1
+        + https://bdjobs.com/jobs/details/1449038?ln=1
+        + https://bdjobs.com/jobs/details/1452423?ln=1
+      ],
+      [React, NodeJS, mongoDB, mongoose, JavaScript, Github, Git],
+
+      [BD Tech Jobs @bdtechjobs_2026 & TechnTalents @techntalents_2026],
+      [
+        + https://authlab.io/wpjb-jobs/senior-software-engineer/
+        + https://riseuplabs.com/jobs/full-stack-developer-python-django/
+      ],
+      [Vue.js, React],
+
+      [eJobs Bangladesh @ejobs_bd_2026 & JobMatchingBD @jobmatchingbd_2026],
+      [
+        + https://www.ejobs.com.bd/jobs/san-francisco-ca-senior-full-stack-developer
+        + https://jobmatchingbd.com/job/engineering-jobs-14/
+        + https://jobmatchingbd.com/job/it-jobs-in-bangladesh-second-source/
+      ],
+      [Node.js, React/ Vue, PostgreSQL or, MongoDB],
+
+      [Arc.dev @arc_dev_bd_2026 & Wellfound @wellfound_bd_2026],
+      [
+        + https://wellfound.com/jobs/2993781-senior-react-and-nextjs-web-developer
+        + https://wellfound.com/jobs/2927551-senior-full-stack-developer
+      ],
+      [React, npm, TypeScript, Next.js and Git],
+
+      [Careerjet Bangladesh @careerjet_bd_2026],
+      [
+        + https://www.careerjet.com.bd/jobad/bdbe02ffc4686d4de58c19bc2c53c6f999
+        + https://www.careerjet.com.bd/jobad/bda7f026ae3ccb8bd6ab7d9027f8d5c26f
+      ],
+      [React, NodeJS, mongoDB, mongoose, JavaScript, Github, Git, Tailwind CSS],
+    )
+  ],
+  caption: "Job Market Opportunities for Next.js & Full-stack Developers in Bangladesh",
+)
+
+The demand for full stack developers with Next.js expertise is becoming the standard for modern web development in Bangladesh, making this project a timely project that demonstrates bleeding edge skill technology.
 
 = Methodology
 
@@ -170,10 +216,10 @@ Development followed an iterative, agile approach. The stack was selected for pe
 
 == Design Principles
 
-+ *Pure, testable domain logic.* All cost and performance math lives in dependency-free functions (`lib/simulation.ts`) so it can be unit-tested and reused by both the nodes and the metrics panel.
-+ *Single source of truth.* A Zustand store holds nodes, edges and the user-count; every view derives from it, and history snapshots wrap each mutation for undo/redo.
-+ *Client-first and private.* No backend, no login; the whole architecture autosaves to localStorage and can be exported as a portable JSON file.
-+ *Type-safety end to end.* Discriminated-union node data and a typed connection-rule table make invalid states hard to represent.
++ All cost and performance math lives in dependency-free functions (`lib/simulation.ts`) so it can be unit-tested and reused by both the nodes and the metrics panel.
++ A Zustand store holds nodes, edges and the user-count; every view derives from it, and history snapshots wrap each mutation for undo/redo.
++ No backend, no login; the whole architecture autosaves to localStorage and can be exported as a portable JSON file.
++ Type checking and linting are enforced at build time, and the production build is verified to compile cleanly.
 
 = Simulation Model
 
@@ -307,10 +353,10 @@ Global metrics aggregate these per-server results: total monthly cost (sum of al
   caption: [Node configuration panel with tier / OS / stack controls and a live preview of the resulting utilisation, cost, response time and throughput.],
 ) <UI2>
 
-#figure(
-  image("UI/desktop-dark.png", width: 100%, alt: "Dark theme"),
-  caption: [The same simulator in dark theme.],
-) <UI3>
+// #figure(
+//   image("UI/desktop-dark.png", width: 100%, alt: "Dark theme"),
+//   caption: [The same simulator in dark theme.],
+// ) <UI3>
 
 = Security and Privacy
 
