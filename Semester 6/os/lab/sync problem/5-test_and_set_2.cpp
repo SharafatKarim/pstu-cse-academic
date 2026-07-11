@@ -4,15 +4,15 @@ using namespace std;
 int next_id=1;
 atomic<bool> lock_var = false;
 
-bool test_and_set(bool *target)
+bool test_and_set()
 {
-    bool rv=*target;
-    *target=true;
+    bool rv=lock_var;
+    lock_var=true;
     return rv;
 }
 void acquire_lock()
 {
-    while(test_and_set(lock_var));
+    while(test_and_set());
 }
 
 void release_lock()

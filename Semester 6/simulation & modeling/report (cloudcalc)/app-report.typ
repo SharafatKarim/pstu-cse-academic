@@ -27,7 +27,7 @@
 
   #line(length: 100%)
   #align(left, text(18pt)[
-    *CCE 324 :: Simulation and Modeling Sessional*
+    *CIT 324 :: Simulation and Modeling Sessional*
   ])
   #align(left, text(14pt)[
     *Project Report*
@@ -97,23 +97,25 @@
 
 = Introduction
 
-CloudCalc Flow is a fully client-side, visual cloud architecture simulator and cost estimator. It lets a user drag infrastructure components — compute servers, load balancers, API gateways, SQL and NoSQL databases, object storage, in-memory cache, a CDN and a message queue — onto an interactive canvas, wire them together under enforced connection rules, and then simulate a variable concurrent-user load. As the load changes, the application recomputes each server's RAM utilisation, response time and throughput, aggregates a live monthly cost, flags overloaded (out-of-memory) nodes and proposes concrete remediation.
-
-Unlike spreadsheet-style cloud pricing calculators, CloudCalc Flow couples *topology* with *behaviour*: the same diagram that documents an architecture also drives a lightweight performance-and-cost model, so a student or engineer can reason about capacity and budget together, entirely in the browser and without any account, backend or data leaving the device.
+CloudCalc Flow is a client-side, visual cloud architecture simulator and cost estimator. It lets a user arrange infrastructure components like compute servers, load balancers, API gateways, databases, object storage, in-memory cache, a CDN and a message queue to simulate a variable load and estimate costs.
 
 = Objectives
 
-+ To build a responsive, node-based canvas for composing cloud architectures through drag-and-drop with enforced, type-safe connection rules.
 + To implement a transparent, real-time simulation of RAM utilisation, response time and throughput as a function of the simulated concurrent-user load.
-+ To estimate the total monthly cost of an architecture live, and to detect overloaded servers and surface actionable upgrade/scale/reduce suggestions with their cost deltas.
-+ To provide full undo/redo, localStorage autosave, JSON export/import and a copy-as-text summary — all client-side.
-+ To keep the domain logic pure and unit-tested, and the interface accessible, themeable (light/dark) and responsive.
++ To estimate the total monthly cost alongside detecting overloaded servers.
++ To provide a user friendly interface to interact with the simulator including autosaving, multiple theming and responsive design.
++ To build a node-based canvas for composing cloud architectures through drag-and-drop support.
 
 = Problem Statement
 
-Planning a cloud deployment forces two questions to be answered at once: *what will it look like* and *what will it cost and sustain*. Existing tools tend to answer only one. Native cloud pricing calculators (AWS, Google Cloud, Azure) produce accurate bills but present a flat list of line items with no topology and no notion of load-driven capacity. Diagramming tools (draw.io, Lucidchart) capture topology beautifully but know nothing about cost or performance. Visual cost tools such as Cloudcraft bridge some of this gap but are provider-locked, require an account, and keep the model opaque.
+Planning a cloud deployment forces two questions to be answered at once: 
 
-The result is that early-stage capacity and budget reasoning — "will one Micro server survive 2,000 users, and what does the next step up cost?" — is done by hand or across disconnected tools. There is a need for a single, instant, no-login, provider-agnostic tool that visualises an architecture and simulates its cost and load-behaviour side by side, with a model simple and transparent enough to teach with.
++ what will it look like?
++ what will it cost and sustain?
+
+Existing tools tend to answer only one. Native cloud pricing calculators (AWS, Google Cloud, Azure) produce accurate bills but present a flat list of line items. Diagramming tools (draw.io, Lucidchart) capture topology beautifully but know nothing about cost or performance. Visual cost tools such as Cloudcraft bridge some of this gap but are provider-locked, require an account, and keep the model opaque.
+
+To address this, this project implements a fully client-side, open-source, provider-agnostic simulator that combines a node-based architecture canvas with a transparent, testable model of RAM utilisation, response time and throughput. It produces a live cost estimate and flags overloaded servers with upgrade/scale/reduce suggestions.
 
 = Literature Review
 
