@@ -1,0 +1,10 @@
+•Describe the primary functions and features of a router.
+•Connect devices for a small, routed network.
+•Configure basic settings on a router to route between two directly-connected networks, using CLI.
+ •Verify connectivity between two networks that are directly connected to a router.
+•Explain the encapsulation and de-encapsulation process used by routers when switching packets between interfaces.
+ •Explain the path determination  function of a router.
+•Explain routing table entries for directly connected networks.
+•Explain how a router builds a routing table of directly connected networks.
+•Explain how a router builds a routing table using static routes.
+•Explain how a router builds a routing table using a dynamic routing protocol.
