@@ -1,0 +1,20 @@
+graph ospf {
+  bgcolor="white";
+  layout=neato;
+  node [fontname="DejaVu Sans", fontsize=10, style="filled", shape=ellipse, penwidth=0.9];
+  edge [fontname="DejaVu Sans", fontsize=8, color="#666666", len=1.5];
+  graph [fontname="DejaVu Sans", fontsize=10, overlap=false];
+
+  a0  [label="Area 0\nBackbone\n(Core + Edge)", fillcolor="#f5e3dc", color="#b5603f", width=1.5];
+  a10 [label="Area 10\nHead Office / NOC", fillcolor="#dce8f5", color="#3b5f9e"];
+  a20 [label="Area 20\nPoP-1\n(stub)", fillcolor="#ece4f5", color="#7a5c99"];
+  a30 [label="Area 30\nPoP-2\n(stub)", fillcolor="#ece4f5", color="#7a5c99"];
+  a40 [label="Area 40\nData Center", fillcolor="#dff0e4", color="#4a7c59"];
+  a50 [label="Area 50\nDR Site\n(NSSA)", fillcolor="#f7e6e6", color="#a4484f"];
+
+  a0 -- a10 [label="ABR: HO-DIST\nsummary 10.10.0.0/16"];
+  a0 -- a20 [label="ABR: CORE-SW1\n10.20.0.0/16"];
+  a0 -- a30 [label="ABR: CORE-SW2\n10.30.0.0/16"];
+  a0 -- a40 [label="ABR: DC-DIST1/2\n10.40.0.0/16"];
+  a0 -- a50 [label="ABR: CORE-SW1\n10.50.0.0/16"];
+}

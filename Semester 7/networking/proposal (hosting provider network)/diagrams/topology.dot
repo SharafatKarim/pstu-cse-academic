@@ -1,0 +1,57 @@
+digraph topology {
+  rankdir=TB;
+  bgcolor="white";
+  node [fontname="DejaVu Sans", fontsize=10, style="filled", penwidth=0.8];
+  edge [fontname="DejaVu Sans", fontsize=8, color="#555555"];
+  graph [fontname="DejaVu Sans", fontsize=10, splines=polyline, nodesep=0.35, ranksep=0.45];
+
+  internet [label="Internet / Upstream Transit\n(two providers)", shape=doubleoctagon, fillcolor="#e8eef7", color="#3b5f9e"];
+
+  subgraph cluster_edge {
+    label="Edge Layer"; style="rounded,dashed"; color="#888888"; fontsize=9;
+    edge1 [label="EDGE-R1\nBGP / NAT", shape=box, fillcolor="#dce8f5", color="#3b5f9e"];
+    edge2 [label="EDGE-R2\nBGP / NAT", shape=box, fillcolor="#dce8f5", color="#3b5f9e"];
+  }
+
+  subgraph cluster_core {
+    label="Core Layer — OSPF Area 0"; style="rounded,dashed"; color="#888888"; fontsize=9;
+    core1 [label="CORE-SW1\nL3 / HSRP active", shape=box3d, fillcolor="#f5e3dc", color="#b5603f"];
+    core2 [label="CORE-SW2\nL3 / HSRP standby", shape=box3d, fillcolor="#f5e3dc", color="#b5603f"];
+  }
+
+  subgraph cluster_dc {
+    label="Data Center — Area 40"; style="rounded"; color="#4a7c59"; fontsize=9;
+    dcd1 [label="DC-DIST1", shape=box, fillcolor="#dff0e4", color="#4a7c59"];
+    dcd2 [label="DC-DIST2", shape=box, fillcolor="#dff0e4", color="#4a7c59"];
+    dmz [label="DMZ\nWeb · DNS · Mail\nVLAN 200/210", shape=folder, fillcolor="#fdf1d6", color="#b58b23"];
+    vps [label="VPS Compute Pods\nVLAN 220/230", shape=folder, fillcolor="#dff0e4", color="#4a7c59"];
+    stor [label="Storage & Backup\nVLAN 240", shape=folder, fillcolor="#dff0e4", color="#4a7c59"];
+  }
+
+  subgraph cluster_ho {
+    label="Head Office / NOC — Area 10"; style="rounded"; color="#3b5f9e"; fontsize=9;
+    hod [label="HO-DIST\n(L3 SVIs)", shape=box, fillcolor="#dce8f5", color="#3b5f9e"];
+    hoa [label="Access Switches\nNOC · Eng · Fin · Voice\nWireless · Guest", shape=box, fillcolor="#eef3fa", color="#3b5f9e"];
+  }
+
+  subgraph cluster_pop {
+    label="Regional PoPs"; style="rounded"; color="#7a5c99"; fontsize=9;
+    pop1 [label="PoP-1 Router\nArea 20", shape=box, fillcolor="#ece4f5", color="#7a5c99"];
+    pop2 [label="PoP-2 Router\nArea 30", shape=box, fillcolor="#ece4f5", color="#7a5c99"];
+  }
+
+  dr [label="Disaster Recovery Site\nArea 50 — standby\nreplicas & backups", shape=box, fillcolor="#f7e6e6", color="#a4484f"];
+
+  internet -> edge1; internet -> edge2;
+  edge1 -> core1; edge1 -> core2;
+  edge2 -> core1; edge2 -> core2;
+  core1 -> core2 [dir=both, label="L3 EtherChannel", style=bold];
+  core1 -> hod; core2 -> hod;
+  core1 -> dcd1; core2 -> dcd2;
+  dcd1 -> dcd2 [dir=both, style=bold];
+  dcd1 -> dmz; dcd1 -> vps; dcd2 -> vps; dcd2 -> stor;
+  hod -> hoa;
+  core1 -> pop1 [label="WAN"]; core2 -> pop2 [label="WAN"];
+  core1 -> dr [label="GRE/IPsec", style=dashed];
+  core2 -> dr [style=dashed];
+}

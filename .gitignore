@@ -19,11 +19,13 @@
 !*.txt
 !*.odp
 !*.odg
-!*.odt
 !*.drawio
+!*.dot
+!*.gv
 
 !*.xlsx
 !*.xls
+!*.ppt
 !*.pptx
 !*.pptm
 
@@ -39,8 +41,18 @@
 
 !*.pdf
 
-# Proteus Simulation
+# Packet Tracer & Network Simulation
+!*.pkt
+!*.pka
+!*.pcap
+!*.pcapng
+
+# Hardware & Simulation
 !*.pdsprj
+!*.v
+!*.vhdl
+!*.asm
+!*.s
 
 # Archives
 !*.zip
@@ -53,7 +65,7 @@
 # Log files
 !*.log
 
-# Markdown files
+# Document & Markdown files
 !*.md
 !*.tex
 !*.bib
