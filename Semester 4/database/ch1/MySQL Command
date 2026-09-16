@@ -1,0 +1,8 @@
+SELECT instructor.name
+FROM instructor 
+WHERE instructor.dept_name = 'History';
+
+SELECT instructor.ID, department.dept_name
+FROM instructor,department
+WHERE instructor.dept_name = department.dept_name
+AND department.budget > 95000;
