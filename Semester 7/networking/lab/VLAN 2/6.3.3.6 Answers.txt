@@ -1,0 +1,11 @@
+Question: What process failed and why?
+Answer: The ARP process failed. PC1 cannot resolve the MAC address of its default gateway because router R1 interface is shut down and unconfigured.
+
+Question: Why were the pings unsuccessful?
+Answer: PC1 and PC3 are in different VLANs (VLAN 10 and VLAN 30) and subnets, and inter-VLAN routing is not yet configured on R1.
+
+Question: What VLAN is G0/1 assigned to?
+Answer: VLAN 1 (the default VLAN).
+
+Question: How can you determine that the interface is a trunk port using the show vlan command?
+Answer: Interface G0/1 is no longer listed under any VLAN in the "show vlan" output because trunk ports do not appear in the access VLAN table.
