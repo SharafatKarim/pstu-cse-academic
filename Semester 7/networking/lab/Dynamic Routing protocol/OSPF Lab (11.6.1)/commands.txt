@@ -1,0 +1,365 @@
+#R1
+
+enable
+configure terminal
+
+hostname R1
+no ip domain-lookup
+enable secret class
+
+line console 0
+password cisco
+login
+exit
+
+line vty 0 4
+password cisco
+login
+exit
+
+interface fa0/0
+ip address 172.16.1.17 255.255.255.240
+no shutdown
+exit
+
+interface s0/0/0
+ip address 192.168.10.1 255.255.255.252
+clock rate 64000
+no shutdown
+exit
+
+interface s0/0/1
+ip address 192.168.10.5 255.255.255.252
+clock rate 64000
+no shutdown
+exit
+
+interface loopback 0
+ip address 10.1.1.1 255.255.255.255
+exit
+
+router ospf 1
+router-id 10.1.1.1
+network 172.16.1.16 0.0.0.15 area 0
+network 192.168.10.0 0.0.0.3 area 0
+network 192.168.10.4 0.0.0.3 area 0
+network 10.1.1.1 0.0.0.0 area 0
+exit
+
+interface s0/0/0
+bandwidth 64
+exit
+
+interface s0/0/1
+bandwidth 64
+exit
+
+interface loopback 1
+ip address 172.30.1.1 255.255.255.252
+exit
+
+ip route 0.0.0.0 0.0.0.0 loopback 1
+
+router ospf 1
+default-information originate
+exit
+
+end
+
+copy running-config startup-config
+
+
+
+#R2
+
+
+enable
+configure terminal
+
+hostname R2
+no ip domain-lookup
+enable secret class
+
+line console 0
+password cisco
+login
+exit
+
+line vty 0 4
+password cisco
+login
+exit
+
+interface fa0/0
+ip address 10.10.10.1 255.255.255.0
+no shutdown
+exit
+
+interface s0/0/0
+ip address 192.168.10.2 255.255.255.252
+clock rate 64000
+no shutdown
+exit
+
+interface s0/0/1
+ip address 192.168.10.9 255.255.255.252
+clock rate 64000
+no shutdown
+exit
+
+interface loopback 0
+ip address 10.2.2.2 255.255.255.255
+exit
+
+router ospf 1
+router-id 10.2.2.2
+network 10.10.10.0 0.0.0.255 area 0
+network 192.168.10.0 0.0.0.3 area 0
+network 192.168.10.8 0.0.0.3 area 0
+network 10.2.2.2 0.0.0.0 area 0
+exit
+
+interface s0/0/0
+bandwidth 64
+exit
+
+interface s0/0/1
+bandwidth 64
+exit
+
+end
+
+copy running-config startup-config
+
+
+
+#R3
+
+
+
+enable
+configure terminal
+
+hostname R3
+no ip domain-lookup
+enable secret class
+
+line console 0
+password cisco
+login
+exit
+
+line vty 0 4
+password cisco
+login
+exit
+
+interface fa0/0
+ip address 172.16.1.33 255.255.255.248
+no shutdown
+exit
+
+interface s0/0/0
+ip address 192.168.10.6 255.255.255.252
+clock rate 64000
+no shutdown
+exit
+
+interface s0/0/1
+ip address 192.168.10.10 255.255.255.252
+clock rate 64000
+no shutdown
+exit
+
+interface loopback 0
+ip address 10.3.3.3 255.255.255.255
+exit
+
+router ospf 1
+router-id 10.3.3.3
+network 172.16.1.32 0.0.0.7 area 0
+network 192.168.10.4 0.0.0.3 area 0
+network 192.168.10.8 0.0.0.3 area 0
+network 10.3.3.3 0.0.0.0 area 0
+exit
+
+interface s0/0/0
+ip ospf cost 1562
+exit
+
+interface s0/0/1
+ip ospf cost 1562
+exit
+
+end
+
+copy running-config startup-config
+
+
+
+
+
+
+#To Verify
+
+
+🔍 R1 / R2 / R3 — Interface Verification
+show ip interface brief
+
+IP এবং interface status দেখার জন্য।
+
+show ip interface
+
+প্রতিটি interface-এর বিস্তারিত information দেখার জন্য।
+
+show running-config
+
+বর্তমান configuration সম্পূর্ণ দেখার জন্য।
+
+show startup-config
+
+NVRAM-এ saved configuration দেখার জন্য।
+
+
+🔵 OSPF Verification
+1. OSPF Neighbors
+show ip ospf neighbor
+
+R1 ↔ R2 ↔ R3 OSPF adjacency তৈরি হয়েছে কিনা দেখবে।
+
+2. OSPF Protocol Information
+show ip protocols
+
+OSPF process ID, Router ID, advertised networks ইত্যাদি দেখবে।
+
+3. OSPF Information
+show ip ospf
+
+OSPF-এর overall information দেখবে।
+
+4. OSPF Interface
+show ip ospf interface
+
+OSPF-enabled interfaces, cost, timers, area ইত্যাদি দেখবে।
+
+5. Specific Interface
+show ip ospf interface s0/0/0
+show ip ospf interface s0/0/1
+
+নির্দিষ্ট serial interface-এর OSPF information দেখবে।
+
+🛣️ Routing Table Verification
+show ip route
+
+সব routing information দেখবে।
+
+শুধু OSPF route দেখতে:
+
+show ip route ospf
+
+Default route দেখতে:
+
+show ip route 0.0.0.0
+
+R2 এবং R3-তে এই command চালালে R1 থেকে আসা default route দেখা উচিত।
+
+🆔 Router ID Verification
+show ip ospf
+
+এখানে দেখতে হবে:
+
+Router ID 10.1.1.1
+
+R1-এর জন্য।
+
+R2:
+
+Router ID 10.2.2.2
+
+R3:
+
+Router ID 10.3.3.3
+
+আরও নির্দিষ্টভাবে:
+
+show ip ospf | include ID
+
+💰 OSPF Cost Verification
+
+R1/R2-তে:
+
+show ip ospf interface s0/0/0
+show ip ospf interface s0/0/1
+
+R3-তে একই commands দিয়ে cost check করবে:
+
+show ip ospf interface s0/0/0
+show ip ospf interface s0/0/1
+
+R3-এর serial interfaces-এ:
+
+Cost 1562
+
+দেখা উচিত।
+
+
+⏱️ Bandwidth Verification
+
+R1/R2 serial interfaces:
+
+show interfaces s0/0/0
+show interfaces s0/0/1
+
+এখানে bandwidth check করতে পারবে।
+
+🔌 Serial / DCE Verification
+show controllers serial 0/0/0
+show controllers serial 0/0/1
+
+এখানে কোন interface DCE সেটা দেখতে পারবে।
+
+DCE interface-এ clock rate verify করতে:
+
+show running-config interface serial 0/0/0
+
+অথবা:
+
+show running-config interface serial 0/0/1
+
+💾 Configuration Save Verification
+show startup-config
+
+এবং:
+
+show running-config
+
+দুটো compare করে দেখতে পারবে configuration save হয়েছে কিনা।
+
+📡 Connectivity / Ping Verification
+
+Router থেকে অন্য router-এর interface ping:
+
+R1
+ping 192.168.10.2
+ping 192.168.10.6
+R2
+ping 192.168.10.1
+ping 192.168.10.10
+R3
+ping 192.168.10.5
+ping 192.168.10.9
+
+
+🌐 End-to-End Ping
+R1 থেকে R2 LAN
+ping 10.10.10.1
+R1 থেকে R3 LAN
+ping 172.16.1.33
+R2 থেকে R1 LAN
+ping 172.16.1.17
+R2 থেকে R3 LAN
+ping 172.16.1.33
+R3 থেকে R1 LAN
+ping 172.16.1.17
+R3 থেকে R2 LAN
+ping 10.10.10.1
