@@ -1,19 +1,19 @@
 #set page(
   paper: "a4",
   flipped: true,
-  margin: (x: 1.5cm, y: 1.5cm),
+  margin: (x: 1.5cm, y: 1.2cm),
   header: align(right)[#text(size: 8pt, fill: luma(120))[Campus Network IP & Subnet Plan]],
-  footer: context align(center)[#text(size: 8pt, fill: luma(120))[Page #counter(page).display()]]
+  footer: context align(center)[#text(size: 8pt, fill: luma(120))[Page #counter(page).display() of #counter(page).final().first()]]
 )
-#set text(font: "Liberation Sans", size: 9pt)
+#set text(font: "Liberation Sans", size: 8.5pt)
 
 #align(center)[
-  #text(size: 16pt, weight: "bold")[Campus Network Subnetting & IP Address Plan]
+  #text(size: 15pt, weight: "bold")[Campus Network Subnetting & IP Address Plan]
   
-  #text(size: 10pt, fill: luma(80))[Based on Network Topology & Cisco Multi-Area OSPF Configuration]
+  #text(size: 9.5pt, fill: luma(80))[Based on Network Topology & Cisco Multi-Area OSPF Configuration]
 ]
 
-#v(0.8em)
+#v(0.6em)
 
 == 1. Complete IP Address Calculation Table
 
@@ -60,15 +60,16 @@
   [Core -- ISP WAN], [N/A], [/24], [103.133.254.0], [255.255.255.0], [0.0.0.255], [103.133.254.1 – 103.133.254.254], [103.133.254.255], [254],
 )
 
-#v(1em)
+#pagebreak()
 
 #grid(
-  columns: (1fr, 1fr),
-  gutter: 1.5cm,
+  columns: (1fr, 1.05fr),
+  gutter: 1.2cm,
   [
     == 2. Device Interface IP Assignments
+    #v(0.3em)
     #table(
-      columns: (1.5fr, 1.4fr, 1.8fr, 1fr, 1.8fr),
+      columns: (1.5fr, 1.4fr, 1.8fr, 0.8fr, 1.8fr),
       fill: (col, row) => if row == 0 { rgb("334155") } else if calc.even(row) { rgb("f8fafc") } else { rgb("ffffff") },
       stroke: (x, y) => if y == 0 { none } else { 0.5pt + rgb("cbd5e1") },
       align: (center + horizon),
@@ -105,6 +106,7 @@
   ],
   [
     == 3. DHCP Pools & Infrastructure Mapping
+    #v(0.3em)
     #table(
       columns: (1.5fr, 1.8fr, 1.6fr, 1.5fr),
       fill: (col, row) => if row == 0 { rgb("334155") } else if calc.even(row) { rgb("f8fafc") } else { rgb("ffffff") },
@@ -129,15 +131,36 @@
       [NFS_ACADEMIC], [192.168.40.0/23], [192.168.40.1], [103.133.254.2],
     )
     
-    #v(0.6em)
-    == 4. OSPF Architecture Summary
-    #list(
-      [*Core Router ID:* 1.2.3.0 (ABR)],
-      [*MLS-CSE ID:* 1.1.1.1 (Internal Area 0)],
-      [*MLS-BBA ID:* 2.2.2.2 (Internal Area 1)],
-      [*MLS-NFS ID:* 3.3.3.3 (Internal Area 2)],
-      [*Default Route:* 0.0.0.0/0 via 103.133.254.1 originated into OSPF],
-      [*Switch Access Ports:* 1-6 (VLAN 10), 7-12 (VLAN 20), 13-18 (VLAN 30)],
+    #v(0.5em)
+    #grid(
+      columns: (1fr, 1.2fr),
+      gutter: 0.8cm,
+      [
+        == 4. OSPF Architecture
+        #v(0.2em)
+        #list(
+          [*Core ID:* 1.2.3.0 (ABR)],
+          [*MLS-CSE ID:* 1.1.1.1 (Area 0)],
+          [*MLS-BBA ID:* 2.2.2.2 (Area 1)],
+          [*MLS-NFS ID:* 3.3.3.3 (Area 2)],
+          [*Default Route:* 0.0.0.0/0 via 103.133.254.1],
+          [*Access Ports:* 1-6 (V10), 7-12 (V20), 13-18 (V30)],
+          [*Uplink Port:* Port 24 (`no switchport`)],
+        )
+      ],
+      [
+        == 5. SSH & Remote Access
+        #v(0.2em)
+        #list(
+          [*Protocol:* SSHv2 (Port 22), Domain: `campus.edu`],
+          [*Key Modulus:* RSA 1024-bit (`crypto key generate`)],
+          [*Credentials (Priv 15):* `admin`, `cisco`],
+          [*Password:* `cisco` (for all users & enable secret)],
+          [*VTY Lines:* 0–15 (`transport input ssh`, `login local`)],
+          [*Console Line:* line con 0 (`password cisco`, `login`)],
+          [*Mgmt IPs:* Core: 192.168.42.1, CSE: 192.168.42.2, BBA: 192.168.42.10, NFS: 192.168.42.18, ISP: 103.133.254.1],
+        )
+      ]
     )
   ]
 )
