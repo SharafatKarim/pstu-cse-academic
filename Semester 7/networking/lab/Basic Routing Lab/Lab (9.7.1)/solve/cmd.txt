@@ -1,0 +1,212 @@
+# B1
+
+en
+conf term
+hostname B1
+enable secret class
+line console 0
+password cisco
+login
+exit
+line vty 0 4
+password cisco
+login
+exit
+! LAN 1
+interface fa0/0
+ip address 10.1.32.1 255.255.255.0
+no shutdown
+exit
+! LAN 2
+interface fa0/1
+ip address 10.1.33.1 255.255.255.0
+no shutdown
+exit
+! HQ Connection
+interface s0/0/0
+clock rate 64000
+ip address 172.20.0.2 255.255.255.252
+no shutdown
+exit
+! B2 Backup Connection
+interface s0/0/1
+ip address 172.20.0.13 255.255.255.252
+clock rate 64000
+no shutdown
+exit
+! EIGRP
+router eigrp 1
+no auto-summary
+network 10.1.32.0 0.0.0.255
+network 10.1.33.0 0.0.0.255
+network 172.20.0.0 0.0.0.3
+network 172.20.0.12 0.0.0.3
+passive-interface fastEthernet 0/0
+passive-interface fastEthernet 0/1
+
+# B2
+
+en
+conf term
+hostname B2
+enable secret class
+line console 0
+password cisco
+login
+exit
+line vty 0 4
+password cisco
+login
+exit
+! LAN 1
+interface fa0/0
+ip address 10.1.34.1 255.255.255.128
+no shutdown
+exit
+! LAN 2
+interface fa0/1
+ip address 10.1.34.129 255.255.255.128
+no shutdown
+exit
+! HQ Connection
+interface s0/0/0
+clock rate 64000
+ip address 172.20.0.6 255.255.255.252
+no shutdown
+exit
+! B1 Backup Connection
+interface s0/0/1
+clock rate 64000
+ip address 172.20.0.14 255.255.255.252
+no shutdown
+exit
+! EIGRP
+router eigrp 1
+no auto-summary
+network 10.1.34.0 0.0.0.172
+network 10.1.34.128 0.0.0.172
+network 172.20.0.4 0.0.0.3
+network 172.20.0.12 0.0.0.3
+network 172.20.0.8 0.0.0.3
+network 172.20.0.16 0.0.0.3
+passive-interface fastEthernet 0/0
+passive-interface fastEthernet 0/1
+
+# B3
+
+en
+conf term
+hostname B3
+enable secret class
+line console 0
+password cisco
+login
+exit
+line vty 0 4
+password cisco
+login
+exit
+! LAN 1
+interface fa0/0
+ip address 10.1.35.1 255.255.255.192
+no shutdown
+exit
+! LAN 2
+interface fa0/1
+ip address 10.1.35.65 255.255.255.192
+no shutdown
+exit
+! HQ Connection
+interface s0/0/0
+clock rate 64000
+ip address 172.20.0.10 255.255.255.252
+no shutdown
+exit
+! B2 Backup Connection
+interface s0/0/1
+clock rate 64000
+ip address 172.20.0.18 255.255.255.252
+no shutdown
+exit
+! EIGRP
+router eigrp 1
+no auto-summary
+network 10.1.35.0 0.0.0.63
+network 10.1.34.64 0.0.0.63
+network 172.20.0.8 0.0.0.3
+network 172.20.0.16 0.0.0.3
+passive-interface fastEthernet 0/0
+passive-interface fastEthernet 0/1
+
+# HQ
+
+en
+conf term
+hostname HQ
+enable secret class
+line console 0
+password cisco
+login
+exit
+line vty 0 4
+password cisco
+login
+exit
+! LAN 1
+interface fa0/0
+ip address 10.1.35.129 255.255.255.224
+no shutdown
+exit
+! LAN 2
+interface fa0/1
+ip address 10.1.35.161 255.255.255.224
+no shutdown
+exit
+! ISP Connection
+interface s0/0/0
+ip address 209.165.201.2 255.255.255.252
+no shutdown
+exit
+! HQ to B1
+interface s0/0/1
+ip address 172.20.0.1 255.255.255.252
+clock rate 64000
+no shutdown
+exit
+! HQ to B2
+interface s0/1/0
+ip address 172.20.0.5 255.255.255.252
+clock rate 64000
+no shutdown
+exit
+! HQ to B3
+interface s0/1/1
+ip address 172.20.0.9 255.255.255.252
+clock rate 64000
+no shutdown
+exit
+! EIGRP
+router eigrp 1
+no auto-summary
+network 10.1.35.128 0.0.0.31
+network 10.1.35.160 0.0.0.31
+network 172.20.0.0 0.0.0.3
+network 172.20.0.4 0.0.0.3
+network 172.20.0.8 0.0.0.3
+passive-interface fastEthernet 0/0
+passive-interface fastEthernet 0/1
+
+# ISP
+
+en
+conf term
+hostname ISP
+enable secret class
+line console 0
+password cisco
+login
+exit
+line vty 0 4
+password cisco
+login
+exit
