@@ -2,6 +2,7 @@
 
 en
 conf term
+ip route 0.0.0.0 0.0.0.0 172.20.0.1
 hostname B1
 enable secret class
 line console 0
@@ -43,11 +44,19 @@ network 172.20.0.0 0.0.0.3
 network 172.20.0.12 0.0.0.3
 passive-interface fastEthernet 0/0
 passive-interface fastEthernet 0/1
+! summary
+interface s0/0/0
+ip summary-address eigrp 1 10.1.32.0 255.255.255.254 5
+interface s0/0/1
+bandwidth 64
+ip hello-interval eigrp 1 60
+ip summary-address eigrp 1 10.1.32.0 255.255.255.254 5
 
 # B2
 
 en
 conf term
+ip route 0.0.0.0 0.0.0.0 172.20.0.5
 hostname B2
 enable secret class
 line console 0
@@ -76,8 +85,12 @@ no shutdown
 exit
 ! B1 Backup Connection
 interface s0/0/1
-clock rate 64000
 ip address 172.20.0.14 255.255.255.252
+no shutdown
+exit
+! B1 Backup Connection
+interface s0/1/0
+ip address 172.20.0.17 255.255.255.252
 no shutdown
 exit
 ! EIGRP
@@ -91,11 +104,23 @@ network 172.20.0.8 0.0.0.3
 network 172.20.0.16 0.0.0.3
 passive-interface fastEthernet 0/0
 passive-interface fastEthernet 0/1
+! summary
+interface s0/0/0
+ip summary-address eigrp 1 10.1.34.0 255.255.255.255 5
+interface s0/0/1
+bandwidth 64
+ip hello-interval eigrp 1 60
+ip summary-address eigrp 1 10.1.32.0 255.255.255.255 5
+interface s0/1/0
+bandwidth 64
+ip hello-interval eigrp 1 60
+ip summary-address eigrp 1 10.1.32.0 255.255.255.255 5
 
 # B3
 
 en
 conf term
+ip route 0.0.0.0 0.0.0.0 172.20.0.9
 hostname B3
 enable secret class
 line console 0
@@ -132,16 +157,25 @@ exit
 router eigrp 1
 no auto-summary
 network 10.1.35.0 0.0.0.63
-network 10.1.34.64 0.0.0.63
+network 10.1.35.64 0.0.0.63
 network 172.20.0.8 0.0.0.3
 network 172.20.0.16 0.0.0.3
 passive-interface fastEthernet 0/0
 passive-interface fastEthernet 0/1
+! summary
+interface s0/0/0
+ip summary-address eigrp 1 10.1.35.0 255.255.255.128 5
+interface s0/0/1
+ip hello-interval eigrp 1 60
+bandwidth 64
+ip summary-address eigrp 1 10.1.35.0 255.255.255.128 5
+
 
 # HQ
 
 en
 conf term
+ip route 0.0.0.0 0.0.0.0 209.165.201.1
 hostname HQ
 enable secret class
 line console 0
@@ -195,6 +229,13 @@ network 172.20.0.4 0.0.0.3
 network 172.20.0.8 0.0.0.3
 passive-interface fastEthernet 0/0
 passive-interface fastEthernet 0/1
+! summary
+interface s0/0/0
+ip summary-address eigrp 1 10.1.35.128 255.255.255.192 5
+interface s0/1/1
+ip summary-address eigrp 1 10.1.35.128 255.255.255.192 5
+interface s0/1/0
+ip summary-address eigrp 1 10.1.35.128 255.255.255.192 5
 
 # ISP
 
