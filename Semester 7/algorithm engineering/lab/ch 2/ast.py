@@ -1,5 +1,3 @@
-# Abstract Syntax Tree (AST) 
-
 from graphviz import Digraph
 
 
@@ -74,7 +72,7 @@ def draw_ast(ast, filename="ast"):
 
 
 if __name__ == "__main__":
-    expression = "95 + 5 * 2"
+    expression = "11 + 2 * 5"
     postfix = infix_to_postfix(expression)
     ast = postfix_to_ast(postfix)
     print(f"Infix: {expression}")

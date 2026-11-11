@@ -28,7 +28,7 @@ def infix_to_postfix(expression):
     return output
 
 if __name__ == "__main__":
-    expression = "95 + 5 * (2 - 3)"
+    expression = "11 + 2 * 5"
     postfix = infix_to_postfix(expression)
     print(f"Infix: {expression}")
     print(f"Postfix: {' '.join(postfix)}")

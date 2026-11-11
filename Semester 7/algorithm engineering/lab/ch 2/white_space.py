@@ -1,5 +1,3 @@
-# white space remove 
-
 line = 0
 def remove_whitespace(expression):
     global line
