@@ -3,7 +3,6 @@ def simple_tokenizer(code):
 
     results = []
     for lexeme in tokens:
-        # Categorization logic
         if lexeme in [# Python
         "False", "None", "True", "and", "as", "assert", "async", "await",
         "break", "class", "continue", "def", "del", "elif", "else", "except",
@@ -28,16 +27,19 @@ def simple_tokenizer(code):
         "extends", "implements", "instanceof", "interface", "package", "super",
         "throws", "var", "const", "let",
 
-        # HTML, XML, CSS, JavaScript
-        "document", "window", "console", "alert", "getElementById", "querySelector",
-        "addEventListener", "innerHTML", "style", "createElement", "appendChild", "removeChild",
-        "innerText", "getAttribute", "setAttribute", "removeAttribute",
+        # HTML / XML Tags
         "div", "span", "a", "img", "input", "button", "textarea", "select", "option",
         "ul", "ol", "li", "table", "tr", "td", "th", "thead", "tbody", "tfoot",
         "style", "script", "link", "meta", "title", "head", "body", "html"]:
-            token_type = "KEYWORD"
-        elif lexeme in ["+", "-", "*", "/", "=", "==", "!=", "<", ">", "<=", ">=", "&", "|", "&&", "||"]:
+            token_type = "TAG"
+        elif lexeme.startswith("<") and lexeme.endswith(">"):
+            token_type = "HTML_TAG"
+        elif lexeme in ["+", "-", "*", "/", "=", "&", "|", "&&", "||"]:
             token_type = "OPERATOR"
+        elif lexeme in ["==", "!=", "<", ">", "<=", ">="]:
+            token_type = "RELATIONAL_OPERATOR"
+        elif lexeme in ["<<", ">>"]:
+            token_type = "SHIFT_OPERATOR"
         elif lexeme.endswith(";"):
             results.append((lexeme[:-1], "IDENTIFIER"))
             results.append((";", "PUNCTUATION"))
@@ -52,7 +54,7 @@ def simple_tokenizer(code):
     return results
 
 if __name__ == "__main__":
-    sample_code = "int count = 10 <body> hello </body>"
+    sample_code = "int count = 10 <div> hello </body>"
     print(f"Code: {sample_code}")
     print("Tokens:")
     for lexeme, t_type in simple_tokenizer(sample_code):

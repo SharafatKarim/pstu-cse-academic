@@ -1,64 +1,62 @@
-# Input Buffering with Sentinels
-# This script simulates how a compiler reads chunks of code into a buffer
-# and uses pointers to identify lexemes.
-
 def simulate_buffer(source_code):
-    # We use 'EOF' as a sentinel character
     buffer = list(source_code) + ['EOF']
-    
+
     lexeme_begin = 0
     forward = 0
-    
+
     print(f"Source: {source_code}")
     print("-" * 30)
 
     while forward < len(buffer):
         char = buffer[forward]
-        
-        # If we hit the sentinel
+
         if char == 'EOF':
             print("End of Input reached.")
             break
-            
-        # Example: Recognizing a relational operator like '>=' or '>'
-        if char == '>':
-            # Move forward to lookahead
-            forward += 1 
+
+        if char in ['<', '>', '=', '!']:
+            forward += 1
             next_char = buffer[forward]
-            
-            if next_char == '=':
-                print(f"Found Token: >=  (No retraction needed)")
+
+            combined = char + next_char
+
+            if combined in ['<=', '<>', '>=', '==', '!=']:
+                print(f"Found Token: {combined:2} (No retraction needed)")
                 forward += 1
             else:
-                print(f"Found Token: >   (Retracting: pointer was at '{next_char}')")
-                # Retraction happens here conceptually: 
-                # we don't increment 'forward' further, 
-                # effectively leaving next_char for the next loop.
-            
+                if char == '!':
+                    print(f"Found Error: ! (Single '!' not a valid operator)")
+                else:
+                    print(f"Found Token: {char:2} (Retracting: pointer was at '{next_char}')")
+
             lexeme_begin = forward
             continue
 
-        # Skip whitespace (as you requested)
         if char.isspace():
             forward += 1
             lexeme_begin = forward
             continue
-            
-        # Simple Identifier/Letter reader
+
         if char.isalpha():
-            while buffer[forward].isalnum():
+            while forward < len(buffer) and buffer[forward].isalnum() and buffer[forward] != 'EOF':
                 forward += 1
-            
+
             lexeme = "".join(buffer[lexeme_begin:forward])
             print(f"Found Lexeme: {lexeme}")
+            lexeme_begin = forward
+            continue
+
+        if char.isdigit():
+            while forward < len(buffer) and buffer[forward].isdigit() and buffer[forward] != 'EOF':
+                forward += 1
+
+            lexeme = "".join(buffer[lexeme_begin:forward])
+            print(f"Found Token:  {lexeme} (Number)")
             lexeme_begin = forward
             continue
 
         forward += 1
 
 if __name__ == "__main__":
-    # Test case: '>' followed by a letter requires retraction
-    # Test case: '>=' followed by a letter does not
-    simulate_buffer("count > 10")
-    print("\nNext Test:")
-    simulate_buffer("count >= 10")
+    code_snippet = "count >= 10 if x <> 5 and y != 0 or a < b"
+    simulate_buffer(code_snippet)

@@ -1,4 +1,3 @@
-# All the keywords of python, c++, java, c#, c
 keywords = [
     # Python
     "False", "None", "True", "and", "as", "assert", "async", "await",
@@ -6,7 +5,7 @@ keywords = [
     "finally", "for", "from", "global", "if", "import", "in", "is",
     "lambda", "nonlocal", "not", "or", "pass", "raise", "return", "try",
     "while", "with", "yield",
-    
+
     # C / C++ / Java / C#
     "auto", "bool", "byte", "case", "catch", "char", "checked", "const",
     "decimal", "default", "delegate", "do", "double", "dynamic", "enum",
@@ -18,11 +17,19 @@ keywords = [
     "string", "struct", "switch", "this", "throw", "typeof", "uint",
     "ulong", "unchecked", "unsafe", "ushort", "using", "virtual", "void",
     "volatile",
-    
+
     # Additional common language keywords
     "strictfp", "native", "transient", "synchronized", "abstract", "final",
     "extends", "implements", "instanceof", "interface", "package", "super",
-    "throws", "var", "const", "let"
+    "throws", "var", "const", "let",
+
+    # HTML, XML, CSS, JavaScript
+    "document", "window", "console", "alert", "getElementById", "querySelector",
+    "addEventListener", "innerHTML", "style", "createElement", "appendChild", "removeChild",
+    "innerText", "getAttribute", "setAttribute", "removeAttribute",
+    "div", "span", "a", "img", "input", "button", "textarea", "select", "option",
+    "ul", "ol", "li", "table", "tr", "td", "th", "thead", "tbody", "tfoot",
+    "style", "script", "link", "meta", "title", "head", "body", "html"
 ]
 
 identifiers_list = []
