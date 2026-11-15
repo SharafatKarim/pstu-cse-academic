@@ -31,7 +31,7 @@ def simple_tokenizer(code):
         "div", "span", "a", "img", "input", "button", "textarea", "select", "option",
         "ul", "ol", "li", "table", "tr", "td", "th", "thead", "tbody", "tfoot",
         "style", "script", "link", "meta", "title", "head", "body", "html"]:
-            token_type = "TAG"
+            token_type = "KEYWORD"
         elif lexeme.startswith("<") and lexeme.endswith(">"):
             token_type = "HTML_TAG"
         elif lexeme in ["+", "-", "*", "/", "=", "&", "|", "&&", "||"]:
@@ -47,7 +47,7 @@ def simple_tokenizer(code):
         elif lexeme.isdigit():
             token_type = "NUMBER"
         else:
-            token_type = "IDENTIFIER"
+            token_type = "BRACES"
 
         results.append((lexeme, token_type))
 
