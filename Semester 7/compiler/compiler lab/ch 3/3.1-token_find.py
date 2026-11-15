@@ -54,7 +54,10 @@ def simple_tokenizer(code):
     return results
 
 if __name__ == "__main__":
-    sample_code = "int count = 10 <div> hello </body>"
+    sample_code = """if x >= y {
+        int count = 10
+        <div> hello </body>
+    }"""
     print(f"Code: {sample_code}")
     print("Tokens:")
     for lexeme, t_type in simple_tokenizer(sample_code):

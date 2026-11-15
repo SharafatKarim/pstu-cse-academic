@@ -20,6 +20,14 @@ def get_substrings(s):
             substrings.add(s[i:j])
     return sorted(list(substrings), key=len)
 
+def get_subsequences(s):
+    """A subsequence is any string formed by deleting zero or more symbols from s."""
+    subsequences = {""}
+    for i in range(len(s)):
+        for j in range(i + 1, len(s) + 1):
+            subsequences.add(s[i:j])
+    return sorted(list(subsequences), key=len)
+
 if __name__ == "__main__":
     code = "int count = 10"
     print(f"Code: '{code}'\n")
@@ -29,6 +37,13 @@ if __name__ == "__main__":
     for lexeme in lexemes:
         print(f"--- Lexeme: '{lexeme}' ---")
         print(f"Prefixes:  {get_prefixes(lexeme)}")
+        print(f"Prefix count: {len(get_prefixes(lexeme))}")
+        # print(f"Proper prefixes: {get_prefixes(lexeme)[:-1]}")
+        # print(f"Proper prefix count: {len(get_prefixes(lexeme)[:-1])}")
         print(f"Suffixes:  {get_suffixes(lexeme)}")
+        print(f"Suffix count: {len(get_suffixes(lexeme))}")
         print(f"Substrings: {get_substrings(lexeme)}")
+        print(f"Substring count: {len(get_substrings(lexeme))}")
+        # print(f"Subsequences: {get_subsequences(lexeme)}")
+        # print(f"Subsequence count: {len(get_subsequences(lexeme))}")
         print()
