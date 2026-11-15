@@ -1,0 +1,82 @@
+digraph Lexer {
+  rankdir=LR;
+  node [shape=circle, fontsize=11];
+  subgraph cluster_0 {
+    label="identifier"; style=rounded;
+    d0_0 [label="0"];
+    d0_1 [label="1"];
+    d0_2 [shape=doublecircle, label="2 *\nID", fontsize=9];
+    d0_start [shape=point];
+    d0_start -> d0_0;
+    d0_0 -> d0_1 [label="letter  (x2)", color=red, fontcolor=red, penwidth=2];
+    d0_1 -> d0_1 [label="letter,digit  (x4)", color=red, fontcolor=red, penwidth=2];
+    d0_1 -> d0_2 [label="other  (x2)", color=red, fontcolor=red, penwidth=2];
+  }
+  subgraph cluster_1 {
+    label="number"; style=rounded;
+    d1_0 [label="0"];
+    d1_1 [label="1"];
+    d1_2 [label="2"];
+    d1_3 [label="3"];
+    d1_4 [label="4"];
+    d1_5 [label="5"];
+    d1_6 [label="6"];
+    d1_7 [shape=doublecircle, label="7 *\nINT", fontsize=9];
+    d1_8 [shape=doublecircle, label="8 *\nFLOAT", fontsize=9];
+    d1_9 [shape=doublecircle, label="9 *\nSCI", fontsize=9];
+    d1_start [shape=point];
+    d1_start -> d1_0;
+    d1_0 -> d1_1 [label="digit  (x1)", color=red, fontcolor=red, penwidth=2];
+    d1_1 -> d1_1 [label="digit"];
+    d1_1 -> d1_2 [label="."];
+    d1_2 -> d1_3 [label="digit"];
+    d1_3 -> d1_3 [label="digit"];
+    d1_1 -> d1_4 [label="E"];
+    d1_3 -> d1_4 [label="E"];
+    d1_4 -> d1_5 [label="+,-"];
+    d1_4 -> d1_6 [label="digit"];
+    d1_5 -> d1_6 [label="digit"];
+    d1_6 -> d1_6 [label="digit"];
+    d1_1 -> d1_7 [label="other  (x1)", color=red, fontcolor=red, penwidth=2];
+    d1_3 -> d1_8 [label="other"];
+    d1_6 -> d1_9 [label="other"];
+  }
+  subgraph cluster_2 {
+    label="relational / assignment"; style=rounded;
+    d2_0 [label="0"];
+    d2_1 [label="1"];
+    d2_2 [shape=doublecircle, label="2\nRELOP(LE)", fontsize=9];
+    d2_3 [shape=doublecircle, label="3 *\nRELOP(LT)", fontsize=9];
+    d2_4 [label="4"];
+    d2_5 [shape=doublecircle, label="5\nRELOP(GE)", fontsize=9];
+    d2_6 [shape=doublecircle, label="6 *\nRELOP(GT)", fontsize=9];
+    d2_7 [label="7"];
+    d2_8 [shape=doublecircle, label="8\nRELOP(EQ)", fontsize=9];
+    d2_9 [shape=doublecircle, label="9 *\nASSIGN", fontsize=9];
+    d2_10 [label="10"];
+    d2_11 [shape=doublecircle, label="11\nRELOP(NE)", fontsize=9];
+    d2_12 [shape=doublecircle, label="12 *\nNOT", fontsize=9];
+    d2_13 [label="13"];
+    d2_14 [shape=doublecircle, label="14\nAND", fontsize=9];
+    d2_15 [label="15"];
+    d2_16 [shape=doublecircle, label="16\nOR", fontsize=9];
+    d2_start [shape=point];
+    d2_start -> d2_0;
+    d2_0 -> d2_1 [label="<"];
+    d2_1 -> d2_2 [label="="];
+    d2_1 -> d2_3 [label="other"];
+    d2_0 -> d2_4 [label=">"];
+    d2_4 -> d2_5 [label="="];
+    d2_4 -> d2_6 [label="other"];
+    d2_0 -> d2_7 [label="=  (x1)", color=red, fontcolor=red, penwidth=2];
+    d2_7 -> d2_8 [label="="];
+    d2_7 -> d2_9 [label="other  (x1)", color=red, fontcolor=red, penwidth=2];
+    d2_0 -> d2_10 [label="!"];
+    d2_10 -> d2_11 [label="="];
+    d2_10 -> d2_12 [label="other"];
+    d2_0 -> d2_13 [label="&"];
+    d2_13 -> d2_14 [label="&"];
+    d2_0 -> d2_15 [label="|"];
+    d2_15 -> d2_16 [label="|"];
+  }
+}
