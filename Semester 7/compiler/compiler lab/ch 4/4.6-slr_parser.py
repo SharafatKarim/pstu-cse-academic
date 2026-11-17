@@ -214,6 +214,17 @@ if __name__ == "__main__":
     else:
         print("\nSLR Table has NO conflicts.")
 
-    test_input = ["id", "+", "id", "*", "id"]
+    # User-defined test input
+    print("\nEnter input tokens separated by space (or press Enter for 'id + id * id'):")
+    user_str = input().strip()
+    if not user_str:
+        user_str = "id + id * id"
+        print(f"Using default: {user_str}")
+
+    test_input = user_str.split()
     print(f"\n--- SLR Parse Trace for: {' '.join(test_input)} ---")
-    parse_slr(action, goto_table, rules, test_input)
+    success = parse_slr(action, goto_table, rules, test_input)
+    if success:
+        print("\nInput successfully parsed and accepted by SLR parser!")
+    else:
+        print("\nInput rejected: Syntax Error during SLR parsing.")

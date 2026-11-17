@@ -8,15 +8,21 @@ Section 4.5: Bottom-Up Parsing & Shift-Reduce Concepts
 class ShiftReduceParser:
     def __init__(self, grammar_rules):
         """
-        grammar_rules: list of (LHS, [RHS symbols]) in reduction preference order
+        grammar_rules: list of (LHS, [RHS symbols])
         """
         self.rules = grammar_rules
 
-    def find_handle(self, stack):
+    def find_handle(self, stack, lookahead):
         """
-        Finds the longest suffix of stack that matches any production RHS.
-        Returns (rule_index, LHS, RHS) or None.
+        In Shift-Reduce parsing of expressions:
+        If top of stack is 'T' and lookahead is '*', we MUST SHIFT '*'
+        instead of reducing T -> E (because '*' has higher precedence than '+').
         """
+        # Precedence check: don't prematurely reduce T -> E if lookahead is '*'
+        if stack and stack[-1] == "T" and lookahead in ("*", "/"):
+            return None
+
+        # Check for handles in rules
         for idx, (lhs, rhs) in enumerate(self.rules):
             k = len(rhs)
             if len(stack) >= k and stack[-k:] == rhs:
@@ -36,24 +42,24 @@ class ShiftReduceParser:
         while True:
             stack_str = " ".join(stack) if stack else "$"
             input_str = " ".join(input_tokens[ip:])
+            lookahead = input_tokens[ip]
 
             # Check if accepted
-            if stack == [start_lhs] and input_tokens[ip] == "$":
+            if stack == [start_lhs] and lookahead == "$":
                 print(f"{stack_str:<25} {input_str:<25} Accept")
                 return True
 
-            # Check if a handle exists on the stack
-            handle = self.find_handle(stack)
+            # Check if a handle exists on the stack given the lookahead
+            handle = self.find_handle(stack, lookahead)
             if handle:
                 idx, lhs, rhs = handle
                 k = len(rhs)
                 print(f"{stack_str:<25} {input_str:<25} Reduce by {lhs} -> {' '.join(rhs)}")
-                # Pop RHS and push LHS
                 del stack[-k:]
                 stack.append(lhs)
             else:
                 # Shift next token if available
-                if input_tokens[ip] != "$":
+                if lookahead != "$":
                     shifted = input_tokens[ip]
                     print(f"{stack_str:<25} {input_str:<25} Shift '{shifted}'")
                     stack.append(shifted)
@@ -99,9 +105,23 @@ if __name__ == "__main__":
     ]
 
     parser = ShiftReduceParser(grammar_rules)
-    test_input = ["id", "+", "id", "*", "id"]
-    
+
+    print("Grammar Rules (Priority Order):")
+    for idx, (lhs, rhs) in enumerate(grammar_rules):
+        print(f"  {idx}: {lhs} -> {' '.join(rhs)}")
+
+    print("\nEnter input tokens separated by space (or press Enter for 'id + id * id'):")
+    user_str = input().strip()
+    if not user_str:
+        user_str = "id + id * id"
+        print(f"Using default: {user_str}")
+
+    test_input = user_str.split()
     print(f"\nTrace for input: {' '.join(test_input)}")
-    parser.parse(test_input)
+    success = parser.parse(test_input)
+    if success:
+        print("\nInput successfully parsed and accepted by Shift-Reduce parser!")
+    else:
+        print("\nInput rejected: Syntax Error during Shift-Reduce parsing.")
 
     explain_conflicts()
