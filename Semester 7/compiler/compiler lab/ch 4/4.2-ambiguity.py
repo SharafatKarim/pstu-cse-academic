@@ -163,12 +163,10 @@ if __name__ == "__main__":
         print("\n" + "=" * 65)
         if len(derivations) > 1:
             print("RESULT: The Grammar is AMBIGUOUS!")
-            print(f"Proof: The string '{target_str}' has {len(derivations)} distinct parse trees / leftmost derivations.\n")
-            print("Interpretation Details:")
-            print("  • Interpretation 1 corresponds to: (id + id) * id  (Addition evaluated first)")
-            print("  • Interpretation 2 corresponds to: id + (id * id)  (Multiplication evaluated first)")
-            print("\nBecause the grammar has no operator precedence or associativity rules,")
-            print("both syntax trees are valid derivations of the same sentence.")
+            print(f"Proof: The string '{target_str}' has {len(derivations)} distinct parse trees\n")
+            print("Details:")
+            print("  - Interpretation 1: (id + id) * id")
+            print("  - Interpretation 2: id + (id * id)")
         else:
             print("RESULT: No ambiguity detected for this string.")
         print("=" * 65)

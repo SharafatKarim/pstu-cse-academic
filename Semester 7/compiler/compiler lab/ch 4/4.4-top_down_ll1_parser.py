@@ -181,7 +181,17 @@ if __name__ == "__main__":
     else:
         print("\nGrammar is strictly LL(1) (No conflicts).")
 
-    # Stack trace for 'id + id * id'
-    test_input = ["id", "+", "id", "*", "id"]
+    # User-defined test input
+    print("\nEnter input tokens separated by space (or press Enter for 'id + id * id'):")
+    user_input = input().strip()
+    if not user_input:
+        user_input = "id + id * id"
+        print(f"Using default: {user_input}")
+
+    test_input = user_input.split()
     print(f"\n--- Stack Trace for Input: {' '.join(test_input)} ---")
-    trace_ll1_parse(table, "E", test_input)
+    success = trace_ll1_parse(table, "E", test_input)
+    if success:
+        print("\nInput successfully parsed and accepted by LL(1) parser!")
+    else:
+        print("\nInput rejected: Syntax Error encountered during LL(1) parsing.")
