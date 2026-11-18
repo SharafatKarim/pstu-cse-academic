@@ -132,7 +132,56 @@ void yyerror(const char *s);
 #  endif
 # endif
 
-#include "calculator.tab.h"
+
+/* Debug traces.  */
+#ifndef YYDEBUG
+# define YYDEBUG 0
+#endif
+#if YYDEBUG
+extern int yydebug;
+#endif
+
+/* Token kinds.  */
+#ifndef YYTOKENTYPE
+# define YYTOKENTYPE
+  enum yytokentype
+  {
+    YYEMPTY = -2,
+    YYEOF = 0,                     /* "end of file"  */
+    YYerror = 256,                 /* error  */
+    YYUNDEF = 257,                 /* "invalid token"  */
+    NUMBER = 258,                  /* NUMBER  */
+    VARIABLE = 259,                /* VARIABLE  */
+    UMINUS = 260                   /* UMINUS  */
+  };
+  typedef enum yytokentype yytoken_kind_t;
+#endif
+
+/* Value type.  */
+#if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
+union YYSTYPE
+{
+#line 43 "calculator.y"
+
+    double num;
+    char *id;
+
+#line 170 "calculator.tab.c"
+
+};
+typedef union YYSTYPE YYSTYPE;
+# define YYSTYPE_IS_TRIVIAL 1
+# define YYSTYPE_IS_DECLARED 1
+#endif
+
+
+extern YYSTYPE yylval;
+
+
+int yyparse (void);
+
+
+
 /* Symbol kind.  */
 enum yysymbol_kind_t
 {
@@ -1122,13 +1171,13 @@ yyreduce:
   case 5: /* line: expr '\n'  */
 #line 66 "calculator.y"
                             { printf("Result = %g\n", (yyvsp[-1].num)); }
-#line 1126 "calculator.tab.c"
+#line 1175 "calculator.tab.c"
     break;
 
   case 6: /* line: expr ';' '\n'  */
 #line 67 "calculator.y"
                             { printf("Result = %g\n", (yyvsp[-2].num)); }
-#line 1132 "calculator.tab.c"
+#line 1181 "calculator.tab.c"
     break;
 
   case 7: /* line: VARIABLE '=' expr '\n'  */
@@ -1138,7 +1187,7 @@ yyreduce:
                                 printf("%s = %g\n", (yyvsp[-3].id), (yyvsp[-1].num)); 
                                 free((yyvsp[-3].id)); 
                             }
-#line 1142 "calculator.tab.c"
+#line 1191 "calculator.tab.c"
     break;
 
   case 8: /* line: VARIABLE '=' expr ';' '\n'  */
@@ -1148,7 +1197,7 @@ yyreduce:
                                 printf("%s = %g\n", (yyvsp[-4].id), (yyvsp[-2].num)); 
                                 free((yyvsp[-4].id)); 
                             }
-#line 1152 "calculator.tab.c"
+#line 1201 "calculator.tab.c"
     break;
 
   case 9: /* line: error '\n'  */
@@ -1157,37 +1206,37 @@ yyreduce:
                                 yyerrok; 
                                 printf(">> [Panic Recovery]: Discarded error tokens and recovered at newline.\n"); 
                             }
-#line 1161 "calculator.tab.c"
+#line 1210 "calculator.tab.c"
     break;
 
   case 10: /* expr: NUMBER  */
 #line 86 "calculator.y"
                             { (yyval.num) = (yyvsp[0].num); }
-#line 1167 "calculator.tab.c"
+#line 1216 "calculator.tab.c"
     break;
 
   case 11: /* expr: VARIABLE  */
 #line 87 "calculator.y"
                             { (yyval.num) = get_var((yyvsp[0].id)); free((yyvsp[0].id)); }
-#line 1173 "calculator.tab.c"
+#line 1222 "calculator.tab.c"
     break;
 
   case 12: /* expr: expr '+' expr  */
 #line 88 "calculator.y"
                             { (yyval.num) = (yyvsp[-2].num) + (yyvsp[0].num); }
-#line 1179 "calculator.tab.c"
+#line 1228 "calculator.tab.c"
     break;
 
   case 13: /* expr: expr '-' expr  */
 #line 89 "calculator.y"
                             { (yyval.num) = (yyvsp[-2].num) - (yyvsp[0].num); }
-#line 1185 "calculator.tab.c"
+#line 1234 "calculator.tab.c"
     break;
 
   case 14: /* expr: expr '*' expr  */
 #line 90 "calculator.y"
                             { (yyval.num) = (yyvsp[-2].num) * (yyvsp[0].num); }
-#line 1191 "calculator.tab.c"
+#line 1240 "calculator.tab.c"
     break;
 
   case 15: /* expr: expr '/' expr  */
@@ -1200,23 +1249,23 @@ yyreduce:
                                     (yyval.num) = (yyvsp[-2].num) / (yyvsp[0].num);
                                 }
                             }
-#line 1204 "calculator.tab.c"
+#line 1253 "calculator.tab.c"
     break;
 
   case 16: /* expr: '-' expr  */
 #line 99 "calculator.y"
                             { (yyval.num) = -(yyvsp[0].num); }
-#line 1210 "calculator.tab.c"
+#line 1259 "calculator.tab.c"
     break;
 
   case 17: /* expr: '(' expr ')'  */
 #line 100 "calculator.y"
                             { (yyval.num) = (yyvsp[-1].num); }
-#line 1216 "calculator.tab.c"
+#line 1265 "calculator.tab.c"
     break;
 
 
-#line 1220 "calculator.tab.c"
+#line 1269 "calculator.tab.c"
 
       default: break;
     }
