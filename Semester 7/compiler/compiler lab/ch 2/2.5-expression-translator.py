@@ -6,7 +6,8 @@ semantic actions that print postfix output directly (syntax-directed).
   expr  -> expr + term  { print '+' }
   term  -> term * factor { print '*' }
   factor-> ( expr ) | num { print num }
-"""
+"""  [*Toolchain:* C99, Flex, Bison, CMake], [],
+
 import re
 
 

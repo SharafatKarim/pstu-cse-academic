@@ -1,0 +1,26 @@
+digraph pipeline {
+  graph [bgcolor="transparent", outputorder="edgesfirst"];
+  node [fontname="DejaVu Sans", fontsize=10, shape=box, style="rounded,filled",
+        width=1.05, height=0.42, fixedsize=true, margin="0.04,0.03"];
+  edge [fontname="DejaVu Sans", arrowsize=0.65, color="#475569"];
+
+  // Row 1 (left to right)
+  src  [label="Source\n(.mc)",      pos="0.55,1.4!",  fillcolor="#dbeafe", color="#3b82f6"];
+  lex  [label="Lexer /\nParser",    pos="2.65,1.4!",  fillcolor="#dcfce7", color="#22c55e"];
+  ast  [label="AST",                pos="4.75,1.4!",  fillcolor="#dbeafe", color="#3b82f6"];
+  sem  [label="Semantic\nAnalyzer", pos="6.85,1.4!",  fillcolor="#dcfce7", color="#22c55e"];
+
+  // Row 2 (right to left, serpentine continuation)
+  tast     [label="Typed\nAST",       pos="6.85,0.28!", fillcolor="#dbeafe", color="#3b82f6"];
+  codegen  [label="Codegen",          pos="4.75,0.28!", fillcolor="#dcfce7", color="#22c55e"];
+  bytecode [label="Bytecode\n(.mbc)", pos="2.65,0.28!", fillcolor="#dbeafe", color="#3b82f6"];
+  vm       [label="Stack VM",         pos="0.55,0.28!", fillcolor="#fef3c7", color="#f59e0b"];
+
+  src:e  -> lex:w;
+  lex:e  -> ast:w;
+  ast:e  -> sem:w;
+  sem:s  -> tast:n;
+  tast:w -> codegen:e;
+  codegen:w -> bytecode:e;
+  bytecode:w -> vm:e;
+}
