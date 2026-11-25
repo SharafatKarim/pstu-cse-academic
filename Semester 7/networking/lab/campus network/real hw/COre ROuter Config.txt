@@ -1,0 +1,35 @@
+!# ===== 1. Clean up earlier attempts =====
+/ip address remove [find address="103.133.254.2/24"]
+/ip route remove [find dst-address="0.0.0.0/0" gateway="103.133.254.1"]
+/routing ospf network remove [find]
+/routing ospf interface remove [find dynamic=no]
+/interface bridge port remove [find interface~"sfp1|sfp2|to-CSE"]
+/interface ethernet set [find default-name=sfp1] name=sfp1
+
+!# ===== 2. Identity and link port =====
+/system identity set name=CORE
+
+/interface ethernet set [find default-name=sfp2] name=to-DIST mtu=1500  !# the interface must be correct(eg: sfp2 here)
+
+!# ===== 3. IP address on the link to the 4321 =====
+/ip address add address=103.133.254.2/24 interface=to-CSE comment="Link to CSE 4321"
+
+!# ===== 4. OSPF (area 0 / backbone) =====
+/routing ospf instance set [find default=yes] router-id=1.2.3.0
+/routing ospf network add network=103.133.254.0/24 area=backbone
+
+!# ===== 5. Allow OSPF through the firewall =====
+/ip firewall filter add chain=input protocol=ospf action=accept comment="Allow OSPF"
+
+!# ===== 6. DNS for campus hosts (DHCP gives 103.133.254.2 as DNS) =====
+/ip dns set servers=8.8.8.8,1.1.1.1 allow-remote-requests=yes
+
+
+
+!# ===== 7. Testing the connection =====
+/interface print
+/ping 103.133.254.1 count=4
+/routing ospf interface print
+/routing ospf neighbor print
+/ip route print where ospf
+/ping 192.168.0.1 count=4

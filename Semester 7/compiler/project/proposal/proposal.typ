@@ -82,3 +82,28 @@ The stages and the data passed between them are:
 + *Stack VM*: a deterministic interpreter for the bytecode.
 
 Because the VM has no external dependencies and is written in C99, it can be built on every target platform, and a single `.mbc` file behaves identically across all platforms. The clear boundaries between stages also make the design straightforward to extend with new language features.
+
+#pagebreak() 
+
+== Progress Update
+
+#table(
+  columns: (8%, 12%, 60%, 20%),
+  [*No.*], [*Date*], [*Objective*], [*Remarks*],
+  [], [], [ \ \ ], [],
+  [], [], [ \ \ ], [],
+  [], [], [ \ \ ], [],
+  [], [], [ \ \ ], [],
+  [], [], [ \ \ ], [],
+  [], [], [ \ \ ], [],
+  [], [], [ \ \ ], [],
+  [], [], [ \ \ ], [],
+
+)
+
+== Overall Status
+
+#table(
+  columns: (30%, 70%),
+  [*Stage*], [*GNU/Linux*], [*Windows*], [*Android*], [*Mac*], []
+  

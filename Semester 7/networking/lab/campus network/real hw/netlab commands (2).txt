@@ -1,0 +1,100 @@
+###MLS_CSE
+
+enable
+configure terminal
+ip routing
+
+vlan 10
+ name Student
+vlan 20
+ name Teacher
+vlan 30
+ name Academic
+exit
+
+interface range GigabitEthernet 1/0/1 - 12
+ switchport mode access
+ switchport access vlan 10
+interface range GigabitEthernet 1/0/13 - 24
+ switchport mode access
+ switchport access vlan 20
+interface range GigabitEthernet 1/0/25 - 36
+ switchport mode access
+ switchport access vlan 30
+exit
+
+interface vlan 10
+ ip address 192.168.0.1 255.255.248.0
+ no shutdown
+interface vlan 20
+ ip address 192.168.24.1 255.255.252.0
+ no shutdown
+interface vlan 30
+ ip address 192.168.36.1 255.255.254.0
+ no shutdown
+exit
+
+ip dhcp excluded-address 192.168.0.1
+ip dhcp excluded-address 192.168.24.1
+ip dhcp excluded-address 192.168.36.1
+
+ip dhcp pool CSE_STUDENT
+ network 192.168.0.0 255.255.248.0
+ default-router 192.168.0.1
+ dns-server 103.133.254.2
+ip dhcp pool CSE_TEACHER
+ network 192.168.24.0 255.255.252.0
+ default-router 192.168.24.1
+ dns-server 103.133.254.2
+ip dhcp pool CSE_ACADEMIC
+ network 192.168.36.0 255.255.254.0
+ default-router 192.168.36.1
+ dns-server 103.133.254.2
+exit
+
+
+interface GigabitEthernet 1/0/1
+ no switchport
+ ip address 192.168.42.2 255.255.255.248
+ no shutdown
+exit
+
+
+router ospf 1
+ router-id 1.1.1.1
+ network 192.168.0.0 0.0.7.255 area 0
+ network 192.168.24.0 0.0.3.255 area 0
+ network 192.168.36.0 0.0.1.255 area 0
+ network 192.168.42.0 0.0.0.7 area 0
+exit
+
+
+###DISTRIBUTION ROUTER
+
+
+enable
+configure terminal
+! Link to Core
+interface GigabitEthernet0/0/0
+ ip address 103.133.254.1 255.255.255.0
+ no shutdown
+
+exit
+
+interface GigabitEthernet0/0/1
+ ip address 192.168.42.1 255.255.255.248
+ no shutdown
+exit
+
+! Static route for the campus VLSM block
+ip route 192.168.0.0 255.255.0.0 103.133.254.2
+
+
+router ospf 1
+ router-id 2.2.2.2
+ network 192.168.42.0 0.0.0.7 area 0
+ no passive-interface GigabitEthernet0/0/1
+exit
+
+end
+
