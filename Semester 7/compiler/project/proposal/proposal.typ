@@ -98,12 +98,20 @@ Because the VM has no external dependencies and is written in C99, it can be bui
   [], [], [ \ \ ], [],
   [], [], [ \ \ ], [],
   [], [], [ \ \ ], [],
+  [], [], [ \ \ ], [],
+  [], [], [ \ \ ], [],
 
 )
 
 == Overall Status
 
 #table(
-  columns: (30%, 70%),
-  [*Stage*], [*GNU/Linux*], [*Windows*], [*Android*], [*Mac*], []
-  
+  columns: (30%, 14%, 12%, 12%, 12%, 12%),
+  [*Stage*], [*GNU/Linux*], [*Windows*], [*macOS*], [*Android*], [*iOS*], 
+  [Lexical Analyzer], [], [], [], [], [],
+  [Syntax Analyzer], [], [], [], [], [],
+  [Semantic Analyzer], [], [], [], [], [],
+  [Intermediate Code Generator], [], [], [], [], [],
+  [Codegen], [], [], [], [], [],
+  [Stack VM], [], [], [], [], [],
+)  

@@ -24,6 +24,12 @@ static ASTNode *ast_alloc(ASTNodeType type, int line, int col) {
     return node;
 }
 
+ASTNode *ast_new_program(ASTNode *func_def) {
+    ASTNode *n = ast_alloc(NODE_PROGRAM, func_def ? func_def->line : 1, func_def ? func_def->col : 1);
+    n->as.program.func = func_def;
+    return n;
+}
+
 ASTNode *ast_new_literal_int(int64_t val, int line, int col) {
     ASTNode *n = ast_alloc(NODE_LITERAL_INT, line, col);
     n->data_type = TYPE_INT;
@@ -176,6 +182,7 @@ void ast_print(const ASTNode *node, int indent) {
     switch (node->type) {
         case NODE_PROGRAM:
             printf("Program (line %d)\n", node->line);
+            ast_print(node->as.program.func, indent + 1);
             break;
         case NODE_FUNC_DEF:
             printf("FuncDef %s : %s (line %d)\n", node->as.func.name, type_to_str(node->data_type), node->line);
@@ -254,6 +261,7 @@ void ast_free(ASTNode *node) {
     if (!node) return;
     switch (node->type) {
         case NODE_PROGRAM:
+            ast_free(node->as.program.func);
             break;
         case NODE_FUNC_DEF:
             free(node->as.func.name);
