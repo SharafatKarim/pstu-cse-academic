@@ -34,7 +34,8 @@ static void print_usage(const char *prog) {
 }
 
 static bool parse_source(const char *path) {
-    FILE *f = fopen(path, "r");
+    bool is_stdin = (strcmp(path, "-") == 0);
+    FILE *f = is_stdin ? stdin : fopen(path, "r");
     if (!f) {
         fprintf(stderr, "Compiler Error: cannot open source file '%s'\n", path);
         return false;
@@ -42,7 +43,7 @@ static bool parse_source(const char *path) {
     yyin = f;
     g_root = NULL;
     int res = yyparse();
-    fclose(f);
+    if (!is_stdin) fclose(f);
     yylex_destroy();
     return (res == 0 && g_root != NULL);
 }
