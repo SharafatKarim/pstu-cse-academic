@@ -23,6 +23,9 @@ typedef struct Scope {
 
 typedef struct SymbolTable {
     Scope *current_scope;
+    Scope **all_scopes;
+    int all_count;
+    int all_capacity;
     int next_slot;
     int total_slots;
 } SymbolTable;

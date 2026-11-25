@@ -33,7 +33,11 @@ static void scope_free(Scope *sc) {
 
 SymbolTable *symtab_new(void) {
     SymbolTable *st = (SymbolTable *)malloc(sizeof(SymbolTable));
+    st->all_capacity = 8;
+    st->all_count = 0;
+    st->all_scopes = (Scope **)malloc(sizeof(Scope *) * st->all_capacity);
     st->current_scope = scope_new(NULL, 0);
+    st->all_scopes[st->all_count++] = st->current_scope;
     st->next_slot = 0;
     st->total_slots = 0;
     return st;
@@ -41,26 +45,28 @@ SymbolTable *symtab_new(void) {
 
 void symtab_free(SymbolTable *st) {
     if (!st) return;
-    Scope *cur = st->current_scope;
-    while (cur) {
-        Scope *parent = cur->parent;
-        scope_free(cur);
-        cur = parent;
+    for (int i = 0; i < st->all_count; i++) {
+        scope_free(st->all_scopes[i]);
     }
+    free(st->all_scopes);
     free(st);
 }
 
 void symtab_enter_scope(SymbolTable *st) {
     if (!st) return;
     int depth = st->current_scope ? st->current_scope->scope_depth + 1 : 0;
-    st->current_scope = scope_new(st->current_scope, depth);
+    Scope *new_sc = scope_new(st->current_scope, depth);
+    st->current_scope = new_sc;
+    if (st->all_count >= st->all_capacity) {
+        st->all_capacity *= 2;
+        st->all_scopes = (Scope **)realloc(st->all_scopes, sizeof(Scope *) * st->all_capacity);
+    }
+    st->all_scopes[st->all_count++] = new_sc;
 }
 
 void symtab_leave_scope(SymbolTable *st) {
     if (!st || !st->current_scope) return;
-    Scope *old = st->current_scope;
-    st->current_scope = old->parent;
-    scope_free(old);
+    st->current_scope = st->current_scope->parent;
 }
 
 Symbol *symtab_lookup_current(SymbolTable *st, const char *name) {
@@ -120,14 +126,15 @@ static const char *type_to_str(DataType t) {
 
 void symtab_dump(const SymbolTable *st) {
     if (!st) return;
-    printf("=== Symbol Table (Current Scope Hierarchy) ===\n");
-    int level = 0;
-    for (Scope *sc = st->current_scope; sc != NULL; sc = sc->parent) {
-        printf("--- Scope Level %d (depth %d, %d symbols) ---\n", level++, sc->scope_depth, sc->count);
-        for (int i = 0; i < sc->count; i++) {
-            Symbol *s = sc->symbols[i];
+    printf("=== Symbol Table (Scopes and Variable Declarations) ===\n");
+    for (int i = 0; i < st->all_count; i++) {
+        Scope *sc = st->all_scopes[i];
+        if (sc->count == 0 && i == 0) continue; // skip empty global root scope if empty
+        printf("--- Scope [%d] (depth: %d, symbols: %d) ---\n", i, sc->scope_depth, sc->count);
+        for (int j = 0; j < sc->count; j++) {
+            Symbol *s = sc->symbols[j];
             printf("  [%d] %s : %s (slot: %d, declared at line %d, col %d)\n",
-                   i, s->name, type_to_str(s->type), s->local_slot, s->line, s->col);
+                   j, s->name, type_to_str(s->type), s->local_slot, s->line, s->col);
         }
     }
 }

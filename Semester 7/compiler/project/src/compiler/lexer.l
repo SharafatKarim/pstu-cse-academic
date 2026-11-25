@@ -26,6 +26,7 @@ static char *my_strdup(const char *s) {
 
 %option noyywrap
 %option yylineno
+%option nounput noinput
 
 DIGIT       [0-9]
 LETTER      [a-zA-Z_]

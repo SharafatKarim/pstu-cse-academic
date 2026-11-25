@@ -1,0 +1,6 @@
+bin/
+*.tab.c
+*.tab.h
+lex.yy.c
+*.o
+*.mbc
